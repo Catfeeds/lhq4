@@ -1,0 +1,89 @@
+	<script src="__WXP__/js/countDown.js?_={:C('last_update_time')}"></script>
+	<div >
+			<!--  Start ================================ -->
+		<div class="item-list2" style="padding-top: 40px">
+			<ul id="dom-list">
+			</ul>
+		</div>
+		<!--  End ================================ -->
+
+	</div>
+	<div style="height:50px;clear: both;width:100%;padding-top: 40px"></div>
+<script type="text/tpl" class="tpl-list">
+{{each list as vo}}
+	<li>
+		<div class="list_div">
+			<div class="list_p">
+				<a title="{{vo.title}}" href="{{vo.url}}">
+					<img src="__ROOT__/t/?w=400&h=400&src={{vo.image}}" alt="{{vo.title}}" style="max-width: 200px;height: 164px;"/>
+				</a>
+			</div>
+			<div class="list_n" >
+				(第{{vo.qishu}}期){{vo.title}}
+
+			</div>
+			<div class="{{if vo.seconds > 0 }}lxftime{{/if}}" data-seconds={{vo.seconds}} data-id={{vo.id}}></div>
+			{{if vo.seconds > 0 }}
+			<div class="time-item2" style="height: 82px;">
+				<i class="fa fa-fw fa-clock-o fa-lg"></i><span>
+					<strong class="minute_show">00</strong>
+				</span>
+				<span>:</span>
+				<span>
+					<strong class="second_show">00</strong>
+				</span>
+				<span>:</span>
+				<span>
+					<strong class="millisecond_show">00</strong>
+				</span>
+			</div>
+			{{else}}
+			<div style="padding:5px;">
+				获奖者:<span style="color:#de4849">{{vo.nickname}}</span>
+				<div style="margin-top:4px"></div>
+			  参与人次:{{vo.nums}}
+				<div style="margin-top:4px"></div>
+				中奖号码:<strong style="color:#de4849">{{vo.winningcode}}</strong>
+				<div style="margin-top:4px"></div>
+			  揭晓时间:{{vo.disclosedate}}
+			</div>
+			{{/if}}
+
+		</div>
+	</li>
+{{/each}}
+</script>
+<script src="__LIB_URL__/template.js"></script>
+<script src="__WXP__/js/ajaxgetlist.js"></script>
+<script>
+_export_list = template.compile($('.tpl-list').html(), {escape: false});
+
+
+
+$.get('', {page: 1}, function(j){
+	$('#dom-list').append(_export_list(j));
+
+	lxfEndtime(function(id, that){
+		var id = id, that = that;
+		$(that).siblings('.time-item2').html('<i class="fa fa fa-refresh fa-spin fa-lg"></i> 获取中...');
+
+		setTimeout(function(){
+			$.post("{:U('Goods/getCode')}", {id: id}, function(j){
+				if(j.code == 1){
+					var _html = '获奖者:<span style="color:#de4849">'+ j.info["nickname"]+'</span>\
+                    <br>\
+                    参与人次:'+j.info["nums"]+'\
+                    <br>\
+                    中奖号码:<strong style="color:#de4849">'+j.info["winningcode"]+'</strong>\
+                    <br>\
+                    揭晓时间:'+j.info["disclosedate"];
+					$(that).siblings('.time-item2').html(_html).removeClass().removeAttr('style').attr('style',"padding:5px");
+					$(that).closest('.list_div').find('.list_p a').attr('href', "{:U('Goods/product_detail3')}"+'?'+"&id="+j.info["id"]);
+					
+				}
+			});
+		}, 1000);
+	});
+});
+
+</script>

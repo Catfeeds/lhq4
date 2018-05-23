@@ -1,0 +1,1 @@
+alter table app add img varchar(100) comment'Ó¦ÓÃ½ØÍ¼';

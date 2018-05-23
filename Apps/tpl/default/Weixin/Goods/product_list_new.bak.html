@@ -1,0 +1,40 @@
+
+				<volist name="goodsarr" id="vo1">
+					<li>
+					 <a href="{:U('Weixin/Goods/product_detail2','id=')}{$vo1.id}">
+						<span class="gList_l fl">
+							<img src="__ROOT__/t/?w=200&h=200&src=__ROOT__{$vo1.image}">
+						</span>
+					 </a>
+						<div class="gList_r">
+							<h3 class="gray6">(第{$vo1.qishu}期){$vo1.title}</h3>
+							<em class="gray9">价值：￥{$vo1.originprice}</em>
+							<div class="gRate">
+								<div class="Progress-bar">
+									<p class="u-progress">
+										<span class="pgbar" style="width:{$vo1['canyushu']/$vo1['fenshu']*100}%;">
+											<span class="pging"></span>
+										</span>
+									</p>
+									<ul class="Pro-bar-li">
+										<li class="P-bar01">
+											<em>{$vo1.canyushu}</em> 已参与
+										</li>
+										<li class="P-bar02">
+											<em>{$vo1.fenshu}</em> 总需人次
+										</li>
+										<li class="P-bar03">
+											<em>{$vo1['fenshu']-$vo1['canyushu']}</em> 剩余
+										</li>
+									</ul>
+								</div>
+								
+								<!-- 购物车  -->
+								<a href="javascript:addCart({$vo1.id})">
+									<s1></s1>
+								</a>
+							</div>
+						</div>
+						
+					</li>
+				</volist>

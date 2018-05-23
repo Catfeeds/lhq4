@@ -1,0 +1,49 @@
+
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<link href="__WXP__/css/member_ly.css" rel="stylesheet" type="text/css" />
+
+	<script type="text/javascript">
+		$(function(){
+			$('#btnT1').click(function(){
+				var str = $('#txtUserName').val();
+				if(str.length<2||str.length>20){
+					layer.msg('昵称不合法');
+				}
+			});
+		});
+	</script>
+
+
+   <div class="edit-wrapper" style="padding-top: 45px">
+       <input name="txtUserName" type="text" id="txtUserName" class="inp-info" maxlength="20" value="{$nickname}"/>
+       <p class="txt">昵称长度为2-20个字符，由汉字、字母、数字或"_-"组成</p>
+       <a id="btnT1" href="javascript:submit();" class="s-btn">保存</a>
+   </div>
+   
+   <script>
+   url="{:U('User/setInfo')}"; 
+   sucUrl="{:U('editInfo1')}";
+   function submit(){
+	   userName=$("#txtUserName").val();
+       //alert(userName);
+	   $.post(
+			   url,
+			   {
+				   name:"nickname",
+				   value:userName
+			   },
+			   function(rel){
+				   layer.msg(rel.info);
+				   location.href=sucUrl;
+			   }
+	   );
+	   
+   }
+   
+   
+   </script>
+        

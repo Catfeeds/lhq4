@@ -1,0 +1,185 @@
+
+<header class="panel_header fix mb20">
+	<h2 class="title">管理员列表</h2>
+</header>
+
+<div class="fix">
+
+		<a href="{:U('Admin/adminer/add')}" class="btn btn-primary l mr10">
+			<i class="fa fa-plus"></i> <span>添加管理员</span>
+		</a>
+
+		<div class="btn-group periods-show-status" data-toggle="buttons">
+			<label class="btn btn-primary">
+				<input type="radio" name="status" value="0" autocomplete="off" > 所有
+			</label>
+			<label class="btn btn-primary">
+				<input type="radio" name="status" value="1" autocomplete="off"> 可用
+			</label>
+			<label class="btn btn-primary">
+				<input type="radio" name="status" value="2" autocomplete="off"> 禁用
+			</label>
+		</div>
+		
+		<div class="input-group l w200 mr10">
+			<div class="input-group-addon"> </div>
+			<select name="keyword" class="form-control" >
+				<option value="-2">按角色筛选</option>			
+				<volist name="roles" id="R">
+					<if condition="I('get.role_id') eq $R['id']">
+							<option value="{$R['id']}" selected ="selected">{$R['name']}</option>
+						<else/>
+							<option value="{$R['id']}">{$R['name']}</option>
+					</if>
+					
+				</volist>							
+			</select> 
+		</div>
+	
+	
+</div>
+		
+<div class="lists pct100 mt20">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<table  class="table table-hover table-condensed table-striped table-bordered">
+				<thead>
+					<tr >
+						<th>编号</th>
+						<th>名称</th>
+						<th>电话</th>
+						<th>邮箱</th>						
+						<th>登录次数</th>
+						<th>最后登录ip</th>
+						<th>最后登录时间</th>
+						<th>状态</th>
+						<th>角色</th>
+						<th colspan="2">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+				<volist name="info" id="v">
+					<tr uid="{$v['uid']}">
+						<td>{$v["uid"]}</td>
+						<td>{$v["username"]}</td>
+						<td>{$v["mobile"]}</td>
+						<td>{$v["email"]}</td>
+						<td>{$v["login"]}</td>
+						<td>{$v["last_login_ip"]}</td>
+						<td>{$v["last_login_time"]}</td>
+						<td>
+							<a href="javascript:toggleStatus({$v['uid']});">
+								<if condition="$v['status'] eq 1" >
+										启用
+									<else/>
+										禁用
+								</if>
+							</a>
+						</td>
+						<td>
+							<if condition="1 eq $v['uid']" >
+								超级管理员
+							<else/>
+								 
+								<select name="role_id" class="role_id">
+									<volist name="roles" id="role">
+										<if condition="$role['id'] eq $v['role_id']" >
+											<option value="{$role['id']}" selected="selected">{$role['name']}</option>
+										<else/>
+											<option value="{$role['id']}">{$role['name']}</option>
+									</if>			
+							
+									</volist>
+								</select>	
+								
+						</if>					
+						</td>
+						<td><a href='{:U("Admin/Adminer/edit")}&id={$v["uid"]}'">修改</a></td>						
+						<td><a href="javascript:adminer_del({$v['uid']});">删除</a></td>
+						
+					</tr>
+					</volist>
+				</tbody>
+				
+			</table>
+			<div class="page"></div>
+		</div>
+	</div>
+</div>
+
+<script src="__LIB_URL__/layer/layer.js"></script>
+<script>
+	selfUrl = "{:U('Admin/Adminer/index')}";
+	toggleStatusUrl = "{:U('Admin/Adminer/toggleStatus')}";
+	changeRoleUrl = "{:U('Admin/Adminer/changeRole')}";
+	delUrl = "{:U('Admin/Adminer/del')}";
+	
+	//输出分页
+	$(".page").html(page({:json_encode($page);}));
+	
+	//删除管理员
+	function adminer_del(id) {
+		if (confirm("确定要删除编号为 " + id + " 的管理员吗？")) {
+			$.post(delUrl, {
+				id : id
+			}, function(rel) {
+				layer.msg(rel);
+				setTimeout(function() {
+					window.location.reload();
+				}, 1500);
+			});
+
+		}
+	}
+	
+	//状态切换
+	function toggleStatus(id){		
+		$.post(toggleStatusUrl, {uid: id}, function(rel){
+
+			if(rel=="admin"){
+				layer.msg("超级管理员不能禁用！");
+			}else{
+				window.location.reload();
+			}
+			
+		});
+		
+	}
+	
+	//按条件检索
+	$("select[name='keyword']").change(function(){
+		var role_id=$(this).val();
+        //alert(role_id);
+		window.location.href = selfUrl + "&role_id=" +role_id;
+	});
+	
+	$(function() {
+		
+		//修改状态按钮的选中状态
+		var status=getUrlVal("status");
+		if(status){	
+			$("div[data-toggle='buttons'] label:eq("+status+")").prop("class","btn btn-primary active");	
+		}else{
+			$("div[data-toggle='buttons'] label:eq(0)").prop("class","btn btn-primary active");	
+		}
+		
+		//修改管理员所属角色
+		$(".role_id").change(function(){
+			var role_id=$(this).val();
+			var uid=$(this).parent().parent().attr("uid");
+			
+			$.post(changeRoleUrl,{role_id:role_id,uid:uid},function(rel){
+				layer.msg(rel);
+			});
+			
+			
+		});
+		
+		//按状态筛选
+		$(".btn").click(function() {
+			var status = $(this).find("input").attr("value");
+			window.location.href = selfUrl + "&status=" + status;
+		});
+
+	});
+</script>

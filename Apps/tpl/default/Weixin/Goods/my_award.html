@@ -1,0 +1,23 @@
+
+		<div id="divBuyList" class="m_buylist">
+			<ul id="ul_list">
+				<li>
+					<a href="#">
+						<cite>
+								<img src="__ROOT__/t/?w=200&h=200&src=__ROOT__{$goodsArr.image}"/>
+							</cite>
+						<dl>
+							<dt>{$periodsArr.title}</dt>
+							<dd>本期参与<em class="blue">{$periodsArr.canyushu}</em>人次</dd>
+							<dd>中奖号码：<em class="orange">{$periodsArr.winningcode}</em></dd>
+							<dd>揭晓时间：{$periodsArr.disclosedate|date='m/d/Y H:i:s',###}</dd>
+						</dl>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<a href="#">
+			<div class="get_award">
+				领奖
+			</div>
+		</a>

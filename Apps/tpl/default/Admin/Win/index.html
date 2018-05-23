@@ -1,0 +1,102 @@
+<link rel="stylesheet" href="__LIB_URL__/jui/jquery.ui.css" />
+<script src="__LIB_URL__/jquery-ui-1.10.3.custom.min.js"></script>
+<script>
+	getUserUrl="{:U('Admin/win/getUser')}";
+	setWinCodeUrl="{:U('Admin/Win/setWinCode')}";
+	selfUrl="{:U('Admin/Win/index')}";
+	
+	var status = 0;
+	
+	$(function(){
+		//输出分页
+		$(".page").html(page({:json_encode($page);}));
+		
+		//修改状态按钮的选中状态
+		status=getUrlVal("status");
+		if(status){	
+			$("#sta label:eq("+status+")").prop("class","btn btn-primary active");	
+		}else{
+			$("#sta label:eq(0)").prop("class","btn btn-primary active");	
+		}
+		
+		
+	});
+
+</script>
+
+<script src="__STATIC__/admin/win.js"></script>
+
+<header>
+	<h2 class="title">抽奖管理</h2>
+</header>
+<br>
+
+<div class="fix">
+
+	<div class="btn-group periods-show-status" data-toggle="buttons" id="sta">
+		<label class="btn btn-primary "> <input type="radio" name="status" value="0" autocomplete="off"> 所有		</label>
+		<label class="btn btn-primary"> <input type="radio" name="status" value="1" autocomplete="off"> 开奖		</label> 
+		<label class="btn btn-primary"> <input type="radio" name="status" value="2" autocomplete="off"> 倒计时	</label> 
+		<label class="btn btn-primary"> <input type="radio" name="status" value="3" autocomplete="off"> 在售中	</label>
+	</div>
+</div>
+
+
+<div class="lists pct100 mt20">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+
+			<table border="1"
+				class="table table-hover table-condensed table-striped table-bordered">
+
+				<colgroup>
+					<col>
+					<col span="1">
+				</colgroup>
+
+				<thead>
+					<tr>
+						<th>编号</th>
+						<th>商品号</th>
+						<th>商品名</th>
+						<th>期数</th>
+						<th>中奖码</th>
+						<th>中奖用户</th>
+						<th>状态</th>
+					</tr>
+				</thead>
+				
+				<tbody>
+				
+					<volist name="periods" id="vo">
+					<?php $val = $_GET["status"]; if($val == "" || $val == "0" || $vo['status'] == $val ) { ?>
+					<tr>
+						<td>{$vo["id"]}</td>
+						<td class="gid">{$vo["goodsid"]}</td>
+						<td>{$vo["title"]}</td>
+						<td class="qishu">{$vo["qishu"]}</td>
+						<td>{$vo["winningcode"]}</td>
+						<td userid={$vo[ "winuserid"]} class="uid">
+						<if condition="$vo.status neq 2"> 
+							{$vo["winuserid"]} --	{$vo["nickname"]} -- {$vo["phone"]} 
+						<else /> 
+							<input class="userc" type="text" 	value="{$vo["winuserid"]} -- {$vo["username"]} -- {$vo["phone"]}" style="width: 100%; height: 100%; text-align: center;" />
+						</if>
+						</td>
+						<td class="status">
+							<switch name="vo.status"> 
+								<case value="1">开奖</case> 
+								<case value="2">倒计时</case> 
+								<case value="3">在售中</case>
+							</switch>
+						</td>
+					</tr>
+					<?php } ?>
+					</volist>
+
+				</tbody>
+			</table>
+			<div class="page"></div>
+		</div>
+	</div>
+</div>

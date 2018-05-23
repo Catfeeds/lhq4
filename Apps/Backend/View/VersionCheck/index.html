@@ -1,0 +1,80 @@
+<include file ="Index:header"/>
+<include file ="Index:navibar"/>
+<include file ="Index:sidebar"/>
+
+<div class="btn-toolbar" style="margin-bottom:2px;">
+    <a href="{:U('versionUrlAdd')}" class="btn btn-primary"><i class="icon-plus"></i> 添加版本</a>
+</div>
+
+<div class="block">
+    <a href="#page-stats" class="block-heading" data-toggle="collapse">版本分类</a>
+    <div id="page-stats" class="block-body collapse in">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>应用名称</th>
+                <th>版本号</th>
+                <th>状态(点击修改)</th>
+                <th>操作</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="datas" item="data">
+
+                <tr>
+
+                    <td>{$data.id}</td>
+
+                    <td>{$data.app_name}</td>
+
+                    <td>{$data.version}</td>
+
+                    <td>
+                        <if condition="$data.status eq 1 ">
+                            <a href="javascript:toggleStatus({$data.id},0)">已开启</a>
+                        <else/>
+                            <a href="javascript:toggleStatus({$data.id},1)">未开启</a>
+                        </if>
+                    </td>
+
+                    <td>
+                        <a href="{:U('versionUrlModify',array('id'=>$data['id']))}" title= "编辑" ><i class="icon-pencil"></i></a>
+                        &nbsp;
+                        <a data-toggle="modal" href="{:U('index',array('id'=>$data['id'],'method'=>del))}" title= "删除" ><i class="icon-remove"></i></a>
+
+                    </td>
+
+                </tr>
+                </foreach>
+            </tbody>
+        </table>
+        <!--- START 分页模板 -->
+                <div style="margin-bottom: 20px">
+        <table id="page-table-fenye" cellspacing="0" >
+            <tr>
+                <td align="center" nowrap="true">
+                    {$page}
+                </td>
+            </tr>
+        </table>
+        </div>
+        <!--- END -->
+        每页25项
+    </div>
+</div>
+
+<script>
+function toggleStatus(id,status){
+
+    var versionUrl = '{:U('Backend/VersionCheck/index')}';
+        $.post(versionUrl, {id: id,status:status}, function(rel){ 
+            location.href= location.href;
+            
+    });
+
+}
+</script>
+<!-- TPLEND 以下内容不需更改，请保证该TPL页内的标签匹配即可 -->
+<include file="Index:footer"/>

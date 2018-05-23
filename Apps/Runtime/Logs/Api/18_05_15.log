@@ -1,0 +1,21 @@
+[ 2018-05-15T10:22:33+08:00 ] ::1 /lhq/api/%20Channelclickmobileapi
+ERR: 无法加载控制器: Channelclickmobileapi
+
+[ 2018-05-15T10:26:26+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi
+ERR: Cron:cron_1 Runat 2018-05-15 10:26:26 Use 0.001957 s
+
+[ 2018-05-15T10:28:35+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=175&mid=100021
+ERR: Cron:cron_1 Runat 2018-05-15 10:28:35 Use 0.001782 s
+
+[ 2018-05-15T10:47:31+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=175&mid=100021
+ERR: Cron:cron_1 Runat 2018-05-15 10:47:31 Use 0.001816 s
+
+[ 2018-05-15T10:49:28+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=100021&mid=175
+ERR: Cron:cron_1 Runat 2018-05-15 10:49:28 Use 0.002120 s
+
+[ 2018-05-15T10:50:12+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=175&mid=100021
+ERR: Cron:cron_1 Runat 2018-05-15 10:50:12 Use 0.001683 s
+
+[ 2018-05-15T10:53:47+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=175&mid=100021&kwd=%E5%BF%85%E8%B5%A2
+ERR: Cron:cron_1 Runat 2018-05-15 10:53:47 Use 0.002031 s
+

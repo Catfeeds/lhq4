@@ -1,0 +1,8 @@
+
+#myHiddenDiv {display:none;}
+.popup { border:1px solid #ccc; background-color:#fff; padding-bottom:10px; }
+.popup a:hover{ text-decoration:none; color:#fff;}
+.popup-header {padding-top:1px; height:30px; line-height:15px;background-color:#E7E7E7}
+.popup-header h2 {font-size:14px; width:100%; text-align:center;}
+.popup-body { width:100%; }
+a.close{ display:block;color:#fff;text-decoration:none;font-size:12px;font-weight:700; <!--background:url(images/b1-bg07.gif) no-repeat;--> width:156px; height:24px; line-height:24px; text-align:center; margin:-20 auto; }

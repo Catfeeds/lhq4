@@ -1,0 +1,512 @@
+[ 2018-05-14T09:30:36+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+ERR: Cron:cron_1 Runat 2018-05-14 09:30:36 Use 0.001652 s
+
+[ 2018-05-14T09:30:36+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001206s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003298s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0051s ]
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 168 LIMIT 1   [ RunTime:0.0008s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001227s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.008834s ]
+INFO: [ app_end ] --END-- [ RunTime:0.012648s ]
+
+[ 2018-05-14T09:30:50+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+ERR: Cron:cron_1 Runat 2018-05-14 09:30:50 Use 0.001742 s
+
+[ 2018-05-14T09:30:50+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001306s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003416s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0039s ]
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 167 LIMIT 1   [ RunTime:0.0007s ]
+SQL: UPDATE `mission` SET `status`='3' WHERE `mission_id` = 167 [ RunTime:0.0819s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002263s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.009920s ]
+INFO: [ app_end ] --END-- [ RunTime:0.016158s ]
+
+[ 2018-05-14T11:30:22+08:00 ] ::1 /lhq/Mobile/Apiajax/adtypeAjax?appid=1359
+ERR: Cron:cron_1 Runat 2018-05-14 11:30:22 Use 0.001725 s
+
+[ 2018-05-14T11:30:22+08:00 ] ::1 /lhq/Mobile/Apiajax/adtypeAjax?appid=1359
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001264s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003383s ]
+SQL: SHOW COLUMNS FROM `app` [ RunTime:0.0039s ]
+SQL: SELECT `adtype_id` FROM `app` WHERE `app_id` = 1359  [ RunTime:0.0007s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001198s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.024739s ]
+INFO: [ app_end ] --END-- [ RunTime:0.029411s ]
+
+[ 2018-05-14T13:54:09+08:00 ] ::1 /lhq/Mobile/Apiajax/adtypeAjax?appid=1762
+ERR: Cron:cron_1 Runat 2018-05-14 13:54:09 Use 0.001662 s
+
+[ 2018-05-14T13:54:09+08:00 ] ::1 /lhq/Mobile/Apiajax/adtypeAjax?appid=1762
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001136s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002997s ]
+SQL: SHOW COLUMNS FROM `app` [ RunTime:0.0016s ]
+SQL: SELECT `adtype_id` FROM `app` WHERE `app_id` = 1762  [ RunTime:0.0007s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001125s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.007960s ]
+INFO: [ app_end ] --END-- [ RunTime:0.011757s ]
+
+[ 2018-05-14T14:43:17+08:00 ] ::1 /lhq/Mobile/Apiajax/adtypeAjax?appid=1328
+ERR: Cron:cron_1 Runat 2018-05-14 14:43:17 Use 0.001741 s
+
+[ 2018-05-14T14:43:17+08:00 ] ::1 /lhq/Mobile/Apiajax/adtypeAjax?appid=1328
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001208s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003071s ]
+SQL: SHOW COLUMNS FROM `app` [ RunTime:0.0011s ]
+SQL: SELECT `adtype_id` FROM `app` WHERE `app_id` = 1328  [ RunTime:0.0007s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001218s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.117898s ]
+INFO: [ app_end ] --END-- [ RunTime:0.121837s ]
+
+[ 2018-05-14T15:48:06+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+ERR: Cron:cron_1 Runat 2018-05-14 15:48:06 Use 0.001671 s
+
+[ 2018-05-14T15:48:06+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002044s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004732s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 168 LIMIT 1   [ RunTime:0.0011s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001173s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.010438s ]
+INFO: [ app_end ] --END-- [ RunTime:0.014590s ]
+
+[ 2018-05-14T15:48:15+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+ERR: Cron:cron_1 Runat 2018-05-14 15:48:15 Use 0.001695 s
+
+[ 2018-05-14T15:48:15+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001447s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004687s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 168 LIMIT 1   [ RunTime:0.0022s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001207s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.007825s ]
+INFO: [ app_end ] --END-- [ RunTime:0.011797s ]
+
+[ 2018-05-14T15:48:57+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+ERR: Cron:cron_1 Runat 2018-05-14 15:48:57 Use 0.001885 s
+
+[ 2018-05-14T15:48:57+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001441s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003793s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 167 LIMIT 1   [ RunTime:0.0008s ]
+SQL: UPDATE `mission` SET `status`='2',`start_time`='2018-05-14 15:00:00',`end_time`='2018-05-14 23:59:59' WHERE `mission_id` = 167 [ RunTime:0.1326s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001527s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.008766s ]
+INFO: [ app_end ] --END-- [ RunTime:0.013381s ]
+
+[ 2018-05-14T15:49:04+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+ERR: Cron:cron_1 Runat 2018-05-14 15:49:04 Use 0.001842 s
+
+[ 2018-05-14T15:49:04+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001484s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003324s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 167 LIMIT 1   [ RunTime:0.0017s ]
+SQL: UPDATE `mission` SET `status`='3' WHERE `mission_id` = 167 [ RunTime:0.0421s ]
+SQL: SHOW COLUMNS FROM `mem_mis` [ RunTime:0.0023s ]
+SQL: SELECT * FROM `mem_mis` WHERE `mission_id` = 167 AND `status` = 2  [ RunTime:0.0125s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001658s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.018455s ]
+INFO: [ app_end ] --END-- [ RunTime:0.022745s ]
+
+[ 2018-05-14T15:49:11+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+ERR: Cron:cron_1 Runat 2018-05-14 15:49:11 Use 0.004123 s
+
+[ 2018-05-14T15:49:11+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001301s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004269s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0036s ]
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 168 LIMIT 1   [ RunTime:0.0017s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002127s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.013177s ]
+INFO: [ app_end ] --END-- [ RunTime:0.019585s ]
+
+[ 2018-05-14T15:50:45+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+ERR: Cron:cron_1 Runat 2018-05-14 15:50:45 Use 0.002724 s
+
+[ 2018-05-14T15:50:45+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001418s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004024s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0016s ]
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 167 LIMIT 1   [ RunTime:0.0013s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001326s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.011317s ]
+INFO: [ app_end ] --END-- [ RunTime:0.015417s ]
+
+[ 2018-05-14T15:50:57+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+ERR: Cron:cron_1 Runat 2018-05-14 15:50:57 Use 0.001896 s
+
+[ 2018-05-14T15:50:57+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001016s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003497s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0033s ]
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 167 LIMIT 1   [ RunTime:0.0012s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001572s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.009662s ]
+INFO: [ app_end ] --END-- [ RunTime:0.015759s ]
+
+[ 2018-05-14T15:51:04+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+ERR: Cron:cron_1 Runat 2018-05-14 15:51:04 Use 0.001716 s
+
+[ 2018-05-14T15:51:04+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001719s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004009s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 168 LIMIT 1   [ RunTime:0.0007s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001905s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.007841s ]
+INFO: [ app_end ] --END-- [ RunTime:0.012682s ]
+
+[ 2018-05-14T15:59:35+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+ERR: Cron:cron_1 Runat 2018-05-14 15:59:35 Use 0.002142 s
+
+[ 2018-05-14T15:59:35+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001284s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003580s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 165 LIMIT 1   [ RunTime:0.0015s ]
+SQL: UPDATE `mission` SET `status`='2',`start_time`='2018-05-14 15:00:00',`end_time`='2018-05-14 23:59:59' WHERE `mission_id` = 165 [ RunTime:0.1449s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001256s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.009207s ]
+INFO: [ app_end ] --END-- [ RunTime:0.013098s ]
+
+[ 2018-05-14T16:01:14+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+ERR: Cron:cron_1 Runat 2018-05-14 16:01:14 Use 0.001743 s
+
+[ 2018-05-14T16:01:14+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001068s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003206s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 159 LIMIT 1   [ RunTime:0.0012s ]
+SQL: UPDATE `mission` SET `status`='2',`start_time`='2018-05-14 15:00:00',`end_time`='2018-05-14 23:59:59' WHERE `mission_id` = 159 [ RunTime:0.0482s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001172s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.009317s ]
+INFO: [ app_end ] --END-- [ RunTime:0.013055s ]
+
+[ 2018-05-14T16:01:35+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+ERR: Cron:cron_1 Runat 2018-05-14 16:01:35 Use 0.001644 s
+
+[ 2018-05-14T16:01:35+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000907s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002758s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 171 LIMIT 1   [ RunTime:0.0008s ]
+SQL: UPDATE `mission` SET `status`='2',`start_time`='2018-05-14 15:00:00',`end_time`='2018-05-14 23:59:59' WHERE `mission_id` = 171 [ RunTime:0.0464s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001329s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.019757s ]
+INFO: [ app_end ] --END-- [ RunTime:0.024301s ]
+
+[ 2018-05-14T16:02:25+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+ERR: Cron:cron_1 Runat 2018-05-14 16:02:25 Use 0.001742 s
+
+[ 2018-05-14T16:02:25+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001471s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005315s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 171 LIMIT 1   [ RunTime:0.0011s ]
+SQL: UPDATE `mission` SET `status`='3' WHERE `mission_id` = 171 [ RunTime:0.1003s ]
+SQL: SHOW COLUMNS FROM `mem_mis` [ RunTime:0.0017s ]
+SQL: SELECT * FROM `mem_mis` WHERE `mission_id` = 171 AND `status` = 2  [ RunTime:0.0008s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001361s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.009255s ]
+INFO: [ app_end ] --END-- [ RunTime:0.013461s ]
+
+[ 2018-05-14T16:02:34+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+ERR: Cron:cron_1 Runat 2018-05-14 16:02:34 Use 0.001768 s
+
+[ 2018-05-14T16:02:34+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001801s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004048s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0031s ]
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 171 LIMIT 1   [ RunTime:0.0008s ]
+SQL: UPDATE `mission` SET `status`='2',`start_time`='2018-05-14 15:00:00',`end_time`='2018-05-14 23:59:59' WHERE `mission_id` = 171 [ RunTime:0.0592s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001409s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.017688s ]
+INFO: [ app_end ] --END-- [ RunTime:0.022142s ]
+
+[ 2018-05-14T16:02:56+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+ERR: Cron:cron_1 Runat 2018-05-14 16:02:56 Use 0.001675 s
+
+[ 2018-05-14T16:02:56+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001815s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004917s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 171 LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `mission` SET `status`='3' WHERE `mission_id` = 171 [ RunTime:0.0645s ]
+SQL: SHOW COLUMNS FROM `mem_mis` [ RunTime:0.0017s ]
+SQL: SELECT * FROM `mem_mis` WHERE `mission_id` = 171 AND `status` = 2  [ RunTime:0.0008s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001366s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.009002s ]
+INFO: [ app_end ] --END-- [ RunTime:0.013825s ]
+
+[ 2018-05-14T16:03:45+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+ERR: Cron:cron_1 Runat 2018-05-14 16:03:45 Use 0.001740 s
+
+[ 2018-05-14T16:03:45+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001472s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003536s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0019s ]
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 171 LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `mission` SET `status`='2',`start_time`='2018-05-14 15:00:00',`end_time`='2018-05-14 23:59:59' WHERE `mission_id` = 171 [ RunTime:0.0494s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001211s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.053228s ]
+INFO: [ app_end ] --END-- [ RunTime:0.057515s ]
+
+[ 2018-05-14T16:17:46+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+ERR: Cron:cron_1 Runat 2018-05-14 16:17:46 Use 0.001708 s
+
+[ 2018-05-14T16:17:46+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001504s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003609s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 173 LIMIT 1   [ RunTime:0.0008s ]
+SQL: UPDATE `mission` SET `status`='3' WHERE `mission_id` = 173 [ RunTime:0.0666s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001900s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.008290s ]
+INFO: [ app_end ] --END-- [ RunTime:0.012860s ]
+
+[ 2018-05-14T16:17:52+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+ERR: Cron:cron_1 Runat 2018-05-14 16:17:52 Use 0.001587 s
+
+[ 2018-05-14T16:17:52+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000940s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003013s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 173 LIMIT 1   [ RunTime:0.0012s ]
+SQL: UPDATE `mission` SET `status`='2',`start_time`='2018-05-14 15:00:00',`end_time`='2018-05-14 23:59:59' WHERE `mission_id` = 173 [ RunTime:0.1323s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001374s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.008284s ]
+INFO: [ app_end ] --END-- [ RunTime:0.012927s ]
+
+[ 2018-05-14T16:27:43+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+ERR: Cron:cron_1 Runat 2018-05-14 16:27:43 Use 0.001706 s
+
+[ 2018-05-14T16:27:43+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001316s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003784s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 170 LIMIT 1   [ RunTime:0.0018s ]
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 170 LIMIT 1   [ RunTime:0.0007s ]
+SQL: UPDATE `mission` SET `status`='2',`start_time`='2018-05-14 15:00:00',`end_time`='2018-05-14 23:59:59' WHERE `mission_id` = 170 [ RunTime:0.0509s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001238s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.011513s ]
+INFO: [ app_end ] --END-- [ RunTime:0.015409s ]
+
+[ 2018-05-14T16:27:58+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+ERR: Cron:cron_1 Runat 2018-05-14 16:27:58 Use 0.001718 s
+
+[ 2018-05-14T16:27:58+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001313s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003826s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 170 LIMIT 1   [ RunTime:0.0008s ]
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 170 LIMIT 1   [ RunTime:0.0008s ]
+SQL: UPDATE `mission` SET `status`='3' WHERE `mission_id` = 170 [ RunTime:0.1313s ]
+SQL: SHOW COLUMNS FROM `mem_mis` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `mem_mis` WHERE `mission_id` = 170 AND `status` = 2  [ RunTime:0.0007s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001459s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.023124s ]
+INFO: [ app_end ] --END-- [ RunTime:0.027482s ]
+
+[ 2018-05-14T16:28:29+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+ERR: Cron:cron_1 Runat 2018-05-14 16:28:29 Use 0.001614 s
+
+[ 2018-05-14T16:28:29+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001023s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003751s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 170 LIMIT 1   [ RunTime:0.0022s ]
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 170 LIMIT 1   [ RunTime:0.0007s ]
+SQL: UPDATE `mission` SET `status`='2' WHERE `mission_id` = 170 [ RunTime:0.0956s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001805s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.017770s ]
+INFO: [ app_end ] --END-- [ RunTime:0.022497s ]
+
+[ 2018-05-14T16:28:41+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+ERR: Cron:cron_1 Runat 2018-05-14 16:28:41 Use 0.001854 s
+
+[ 2018-05-14T16:28:41+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001048s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003240s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 170 LIMIT 1   [ RunTime:0.0008s ]
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 170 LIMIT 1   [ RunTime:0.0007s ]
+SQL: UPDATE `mission` SET `status`='3' WHERE `mission_id` = 170 [ RunTime:0.1207s ]
+SQL: SHOW COLUMNS FROM `mem_mis` [ RunTime:0.0016s ]
+SQL: SELECT * FROM `mem_mis` WHERE `mission_id` = 170 AND `status` = 2  [ RunTime:0.0007s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001466s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.009427s ]
+INFO: [ app_end ] --END-- [ RunTime:0.014379s ]
+
+[ 2018-05-14T16:52:03+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+ERR: Cron:cron_1 Runat 2018-05-14 16:52:03 Use 0.001707 s
+
+[ 2018-05-14T16:52:03+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001009s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004168s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 175 LIMIT 1   [ RunTime:0.0011s ]
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 175 LIMIT 1   [ RunTime:0.0008s ]
+SQL: UPDATE `mission` SET `status`='3' WHERE `mission_id` = 175 [ RunTime:0.1574s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001291s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.008365s ]
+INFO: [ app_end ] --END-- [ RunTime:0.012943s ]
+
+[ 2018-05-14T18:26:34+08:00 ] ::1 /lhq/Mobile/loginapi
+ERR: Cron:cron_1 Runat 2018-05-14 18:26:34 Use 0.001860 s
+
+[ 2018-05-14T18:27:27+08:00 ] ::1 /lhq/Mobile/loginapi
+ERR: Cron:cron_1 Runat 2018-05-14 18:27:27 Use 0.001989 s
+
+[ 2018-05-14T18:27:32+08:00 ] ::1 /lhq/Mobile/loginapi
+ERR: Cron:cron_1 Runat 2018-05-14 18:27:32 Use 0.001867 s
+
+[ 2018-05-14T18:28:14+08:00 ] ::1 /lhq/Mobile/loginapi
+ERR: Cron:cron_1 Runat 2018-05-14 18:28:14 Use 0.002503 s
+
+[ 2018-05-14T18:28:16+08:00 ] ::1 /lhq/Mobile/loginapi
+ERR: Cron:cron_1 Runat 2018-05-14 18:28:16 Use 0.001838 s
+
+[ 2018-05-14T18:28:17+08:00 ] ::1 /lhq/Mobile/loginapi
+ERR: Cron:cron_1 Runat 2018-05-14 18:28:17 Use 0.001768 s
+
+[ 2018-05-14T18:28:19+08:00 ] ::1 /lhq/Mobile/loginapi
+ERR: Cron:cron_1 Runat 2018-05-14 18:28:19 Use 0.002344 s
+
+[ 2018-05-14T18:28:20+08:00 ] ::1 /lhq/Mobile/loginapi
+ERR: Cron:cron_1 Runat 2018-05-14 18:28:20 Use 0.001713 s
+
+[ 2018-05-14T18:28:21+08:00 ] ::1 /lhq/Mobile/loginapi
+ERR: Cron:cron_1 Runat 2018-05-14 18:28:21 Use 0.001780 s
+
+[ 2018-05-14T18:28:22+08:00 ] ::1 /lhq/Mobile/loginapi
+ERR: Cron:cron_1 Runat 2018-05-14 18:28:22 Use 0.002808 s
+
+[ 2018-05-14T18:28:23+08:00 ] ::1 /lhq/Mobile/loginapi
+ERR: Cron:cron_1 Runat 2018-05-14 18:28:23 Use 0.002195 s
+
+[ 2018-05-14T18:28:24+08:00 ] ::1 /lhq/Mobile/loginapi
+ERR: Cron:cron_1 Runat 2018-05-14 18:28:24 Use 0.001752 s
+
+[ 2018-05-14T18:28:25+08:00 ] ::1 /lhq/Mobile/loginapi
+ERR: Cron:cron_1 Runat 2018-05-14 18:28:25 Use 0.002074 s
+
+[ 2018-05-14T18:28:28+08:00 ] ::1 /lhq/Mobile/loginapi
+ERR: Cron:cron_1 Runat 2018-05-14 18:28:28 Use 0.001753 s
+
+[ 2018-05-14T18:28:32+08:00 ] ::1 /lhq/Mobile/loginapi
+ERR: Cron:cron_1 Runat 2018-05-14 18:28:32 Use 0.001674 s
+
+[ 2018-05-14T18:28:42+08:00 ] ::1 /lhq/Mobile/loginapi
+ERR: Cron:cron_1 Runat 2018-05-14 18:28:42 Use 0.001885 s
+

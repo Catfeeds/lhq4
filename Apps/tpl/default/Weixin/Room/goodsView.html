@@ -1,0 +1,117 @@
+
+<link href="__WXP__/css/comm1.css" rel="stylesheet" type="text/css"/>
+<link href="__WXP__/css/goods1.css" rel="stylesheet" type="text/css"/>
+<link href="__WXP__/css/product1.css" rel="stylesheet" type="text/css">
+<script src="__WXP__/js/goodsPicSlider1.js"></script>
+
+
+<style>
+.focus .bd li img {
+	max-width: 360px;
+	min-width: 360px;
+}
+.focus {width: 100vw;}
+
+@media screen and (min-width: 360px) {
+	.focus .bd li img{
+		max-width: 100vw;
+		min-width: 100vw;
+		width: 100vw;
+	}
+}
+@media screen and (min-width: 560px) {
+	.focus .bd li img{
+		max-width: 360px;
+		min-width: 360px;
+		width: 360px;
+	}
+}
+</style>
+
+
+<div style="padding-top: 45px">
+
+	<div id="divPic" xclass="pPic">
+		<div xclass="pPic2">
+				<div id="focus" class="focus">
+					<div class="hd">
+						<ul></ul>
+					</div>
+					<div class="bd">
+					<ul>
+						<!-- 轮播图 -->
+						<volist name="goods_detail" id="vo2">
+						<li>
+							<img _src="__ROOT__/t/?w=600&h=500&src={$vo2.content}" style="height: 300px !important;" />
+						</li>
+						</volist>
+						</ul>
+					</div>
+				</div>
+		</div>
+	</div>
+	<!-- 产品信息 -->
+	<div class="pro_info2">
+		<h2 class="gray6">
+			{$goods.title}
+		</h2>
+		<div class="purchase-txt gray9 clearfix">
+			价值：￥{$goods.originprice}
+		</div>
+		<a href="{:U('Article/aboutUs')}&id=30">包场功能介绍</a>
+	</div>
+
+	<div class="progress_p">
+		<span class="step"><em>查看商品</em></span>
+		<hr/>
+		<span><em>创建包场/购买</em></span>
+		<hr/>
+		<span><em>揭晓获奖</em></span>
+	</div>
+
+	<div class="ann_btn">
+		<a href="{:U('Weixin/Room/goodsDetail','id=')}{$goods.id}">图文详情<s class="fr"></s></a>
+	</div>
+
+	<a href="javascript:createRoom();" class="whiteBtn create_btn">创建包场</a>
+
+</div>
+<script>
+	selfURL = "{:U('goodsView')}";
+	goodsID = {$goods.id};
+	nextURL = "{:U('Weixin/Room/showFriends')}";
+
+	function createRoom() {
+		$.post(
+				selfURL,
+				{goodsID: goodsID},
+				function (rel) {
+					console.log(rel);
+					if (rel.status == 1) {
+						location.href = nextURL;
+					} else {
+						layer.msg(rel.info);
+					}
+				}
+		);
+	}
+
+	$(function () {
+		// $("#sliderBox").picslider();
+
+		var w = $(window).width();
+		// $('#focus img').width('360px');
+		w < 360 && $('#focus').css('margin-left', (w - $('#focus img').width()) / 2);
+
+		// $("#sliderBox").picslider();
+		TouchSlide({
+			slideCell: "#focus",
+			titCell: ".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+			mainCell: ".bd ul",
+			effect: "left",
+			autoPlay: true, //自动播放
+			autoPage: true,
+			switchLoad: "_src" //自动分页
+		});
+	})
+</script>

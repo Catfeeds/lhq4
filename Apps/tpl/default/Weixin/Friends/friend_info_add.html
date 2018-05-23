@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no, maximum-scale=1.0" />
+        <meta content="yes" name="apple-mobile-web-app-capable" />
+        <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+        <meta content="telephone=no" name="format-detection" />
+        <title>详细资料</title>
+
+        <link href="__WXP__/css/comm.css" rel="stylesheet" type="text/css" />
+        <link href="__WXP__/css/member.css" rel="stylesheet" type="text/css" />
+        <script>
+
+            function addfriends(fid) {
+                $.post('', {id: fid}, function (res) {
+                   // $('.layui-layer-content').css({margin:'0 auto'});
+                    if (res.code == 1) {
+                        layer.msg("添加好友完成,请等待对方做出回应...",{area: '250px'});
+                        setTimeout(function(){
+                           window.history.go(-1);
+                            },2000);
+                        //window.history.go(-1);
+                    } else if(res.code == 2) {
+                        layer.msg("该用户已和您成为好友,请不要重复添加...");
+                    }else if(res.code==3){
+                        layer.msg("已经向该好友做出申请，<br>请不要重复申请...",{area: '60%'});
+                    }else{
+                        layer.msg("添加好友失败,请稍候重试...");
+                    }
+
+                });
+            }
+        </script>
+        <!--<script src="../../js/jquery-1.11.3.min.js"></script>-->
+    </head>
+
+    <body>
+    <style type="text/css">
+        .whiteBtn{width:60%; height:36px; font-size:16px; text-align:center; display:block; line-height:36px; margin:0 auto}
+    </style>
+        <div class="m_myInfo" style="padding-top: 41px">
+            <dl style="position: relative;">
+                <dt class="gray6">
+                <img src="{$res.pic}" /><!-- 用户头像 -->
+                <p>{$res.nickname}<!-- 用户昵称 -->
+                    <cite class="gray9">
+                        <span>{$res.addr}</span>
+                    </cite>
+                </p>
+                </dt>
+            </dl>
+        </div>
+        <!--获得的商品-->
+
+        <!--导航菜单-->
+        <div class="sub_nav marginB">
+            <a href="javascript:void(0)">性别:
+               <if condition="$res['sex'] eq 1"> <em>男</em>
+               <elseif condition="$res['sex'] eq 2" /> <em>女</em>
+               <else /><em>保密</em>
+               </if>
+            </a>
+            <a href="javascript:void(0)">生日:<em>{$res.birthday}</em></a>
+           <!--  <a href="javascript:void(0)">现居地:<em>{$res.addr}</em></a> -->
+        </div>
+
+        <a href="javascript:addfriends({$res.member_id})" class="whiteBtn addf">添加好友</a>
+
+    </body>
+
+</html>

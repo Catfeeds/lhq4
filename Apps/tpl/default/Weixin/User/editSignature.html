@@ -1,0 +1,37 @@
+
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+  <meta content="yes" name="apple-mobile-web-app-capable" />
+  <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+  <meta content="telephone=no" name="format-detection" />
+  <link href="__WXP__/css/member_ly.css" rel="stylesheet" type="text/css" />
+
+
+
+  <div class="edit-wrapper" style="padding-top: 45px">
+   <textarea name="txtPhone" type="text" id="txtQianming" class="inp-info" rows="5" cols="">{$qm} </textarea>
+   <p class="txt">编辑个性签名</p> 
+   <a id="btnT5" href="javascript:submit();" class="s-btn">保存</a> 
+  </div> 
+  
+   <script>
+   url="{:U('User/setInfo')}"; 
+   sucUrl="{:U('editInfo1')}";
+   function submit(){
+	   userName=$("#txtQianming").val();
+	   $.post(
+			   url,
+			   {
+				   name:"signature",
+				   value:userName
+			   },
+			   function(rel){
+				   layer.msg(rel.info);
+				   location.href=sucUrl;
+			   }
+	   );
+	   
+   }
+   
+   
+   </script>

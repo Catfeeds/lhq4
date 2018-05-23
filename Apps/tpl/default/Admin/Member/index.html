@@ -1,0 +1,64 @@
+		<header class="panel_header fix mb20">
+			<h2 class="title">{$title}</h2>
+		</header>
+
+		<div class="fix">
+				
+				<div class="btn-group periods-show-status" data-toggle="buttons">
+					<label class="btn btn-primary active">
+						<input type="radio" name="status" value="0" autocomplete="off" checked> 全部
+					</label>
+					<label class="btn btn-primary">
+						<input type="radio" name="status" value="1" autocomplete="off"> 显示
+					</label>
+					<label class="btn btn-primary">
+						<input type="radio" name="status" value="2" autocomplete="off"> 关闭
+					</label>
+				</div>
+				
+				
+				
+		</div>
+				
+		<div class="lists pct100 mt20">
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<table class="table table-hover table-condensed table-striped table-bordered">
+						<thead>
+							<tr>
+								<th>编号</th>
+								<th>用户名</th>
+								<th>晒单内容</th>
+								<th>创建时间</th>
+								<th>状态</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>0</td>
+								<td>测试</td>
+								<td>s</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="page"></div>
+				</div>
+			</div>
+		</div>
+
+<script src="__LIB_URL__/ja.js"></script>
+<script>
+var api = {
+	edit: '{:U('Admin/PeriodsShow/edit')}',
+	list: '{:U('Admin/PeriodsShow/lists')}',
+	update: '{:U('Admin/PeriodsShow/update')}',
+	toggleStatus: '{:U('Admin/PeriodsShow/toggleStatus')}',
+	del: '{:U('Admin/PeriodsShow/del')}'
+}
+</script>
+<script src="__STATIC__/admin/periods.show.js"></script>
+
+
+
+

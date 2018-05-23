@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+
+        <title>客服中心</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="default">
+        <meta name="msapplication-tap-highlight" content="no">
+        <script src="__PUBLIC__/mobile/js/jquery.min.js"></script>
+  
+        <link rel="stylesheet" href="__PUBLIC__/mobile/css/style.css" type="text/css">
+     
+    </head>
+
+    <body>
+				<div class="devBox">
+					<a href="{:U('About/more',array('member_id'=>I('get.member_id')))}"><img src="__PUBLIC__/mobile/images/a2.png" alt class="fl"></a>
+					<h1 class="biaoti">客服中心</h1>
+
+				</div>
+
+				    <ul>
+               <li class="hang">
+                <img src="__PUBLIC__/mobile/images/c1.png" class="kefu">
+                   官方服务热线：010-53659071
+                </li> 
+                <li class="hang">
+                    <img src="__PUBLIC__/mobile/images/c2.png" class="kefu">
+                   微信公共号：零花钱2
+                </li>
+                <!-- <li id='kf' class="hang" onclick="openSDK()" uid="{$memberInfo['member_id']}" name="{$memberInfo['nickname']}" mobile="{$memberInfo['phone']}">
+                    <img src="__PUBLIC__/mobile/images/kefu.png" class="kefu">
+                    在线客服
+                </li>   -->    
+            </ul>
+		<!--引入网易七鱼客服-->	
+        <script src="__PUBLIC__/mobile/js/kefu.js" defer async></script>
+        <!--自定义客服样式-->
+      <!--   <script type="text/javascript">
+            function openSDK(){  
+                var member_id = $('#kf').attr('uid');  
+                var nickname = $('#kf').attr('name');
+                var mobile = $('#kf').attr('mobile');
+                //企业配置信息
+                ysf.config({
+                    uid:member_id,  // 企业用户Id
+                    name:nickname,          // 企业用户名称
+                    mobile:mobile  // 企业电话
+                });
+                //ysf.open();
+                location.href = ysf.url();
+            }
+          
+        </script>     
+ -->
+            
+        
+
+    
+
+</body></html>

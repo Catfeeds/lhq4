@@ -1,0 +1,16 @@
+
+<div style="padding-top: 40px">
+	<div class="g-statistics gray9" id="div_title">
+		幸运得主本期总共参与<em class="orange">{$nums}</em>人次
+	</div>
+	<div class="buy-codes-con clearfix">
+		<ul id="ul_list">
+			<li><p> {$bbooking.lottery_time|_date='m/d/Y H:i:s.x',###}</p></li>
+			<li>
+			<volist name="bbooking_detail" id="vo">
+		<span><em class="orange">{$vo.bbcode}</em></span> 
+			</volist>
+			</li>
+		</ul>
+	</div>
+</div>

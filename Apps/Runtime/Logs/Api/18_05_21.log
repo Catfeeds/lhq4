@@ -1,0 +1,809 @@
+[ 2018-05-21T13:07:37+08:00 ] ::1 /lhq/Api/Queryidfamobile/queryId_mobile
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001026s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003456s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0033s ]
+SQL: SELECT `app_id`,`kwd_qx` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0012s ]
+SQL: SELECT `idfa` FROM `member` WHERE `member_id` = 100025  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `pc_config` [ RunTime:0.0546s ]
+SQL: SELECT `request`,`repeat_url`,`config_if` FROM `pc_config` WHERE `app_id` = 1762  [ RunTime:0.0160s ]
+NOTIC: [8] Undefined offset: 1 D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 23 行.
+SQL: SHOW COLUMNS FROM `row_repeat` [ RunTime:0.0758s ]
+SQL: INSERT INTO `row_repeat` (`app_id`,`idfa`,`rtime`,`result`,`chanid`,`ip`) VALUES ('1762',NULL,'2018-05-21 13:07:36','<html>
+<head><title>404 Not Found</title></head>
+<body bgcolor=\"white\">
+<center><h1>404 Not Found</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
+','-1','::1') [ RunTime:0.2768s ]
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 185 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 188 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 188 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 199 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 202 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 202 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 205 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 205 行.
+
+[ 2018-05-21T13:07:56+08:00 ] ::1 /lhq/Api/Queryidfamobile/queryId_mobile
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000904s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003203s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0030s ]
+SQL: SELECT `app_id`,`kwd_qx` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0009s ]
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0015s ]
+SQL: SELECT `idfa` FROM `member` WHERE `member_id` = 100025  [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `pc_config` [ RunTime:0.0011s ]
+SQL: SELECT `request`,`repeat_url`,`config_if` FROM `pc_config` WHERE `app_id` = 1762  [ RunTime:0.0012s ]
+NOTIC: [8] Undefined offset: 1 D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 23 行.
+SQL: SHOW COLUMNS FROM `row_repeat` [ RunTime:0.0032s ]
+SQL: INSERT INTO `row_repeat` (`app_id`,`idfa`,`rtime`,`result`,`chanid`,`ip`) VALUES ('1762',NULL,'2018-05-21 13:07:55','<html>
+<head><title>404 Not Found</title></head>
+<body bgcolor=\"white\">
+<center><h1>404 Not Found</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
+','-1','::1') [ RunTime:0.0839s ]
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 185 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 188 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 188 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 199 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 202 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 202 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 205 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 205 行.
+
+[ 2018-05-21T13:08:02+08:00 ] ::1 /lhq/Api/Queryidfamobile/queryId_mobile
+ERR: Cron:cron_1 Runat 2018-05-21 13:08:02 Use 0.004184 s
+
+[ 2018-05-21T14:22:12+08:00 ] ::1 /lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174
+ERR: Cron:cron_1 Runat 2018-05-21 14:22:12 Use 0.002837 s
+
+[ 2018-05-21T14:22:48+08:00 ] ::1 /lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174
+ERR: Cron:cron_1 Runat 2018-05-21 14:22:48 Use 0.003978 s
+
+[ 2018-05-21T14:31:25+08:00 ] ::1 /lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174
+ERR: Cron:cron_1 Runat 2018-05-21 14:31:25 Use 0.001997 s
+
+[ 2018-05-21T14:32:04+08:00 ] ::1 /lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174
+ERR: Cron:cron_1 Runat 2018-05-21 14:32:04 Use 0.001841 s
+
+[ 2018-05-21T14:32:08+08:00 ] ::1 /lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174
+ERR: Cron:cron_1 Runat 2018-05-21 14:32:08 Use 0.002434 s
+
+[ 2018-05-21T14:32:14+08:00 ] ::1 /lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174
+ERR: Cron:cron_1 Runat 2018-05-21 14:32:14 Use 0.001990 s
+
+[ 2018-05-21T14:32:16+08:00 ] ::1 /lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174
+ERR: Cron:cron_1 Runat 2018-05-21 14:32:16 Use 0.001826 s
+
+[ 2018-05-21T14:32:17+08:00 ] ::1 /lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174
+ERR: Cron:cron_1 Runat 2018-05-21 14:32:17 Use 0.001745 s
+
+[ 2018-05-21T14:32:18+08:00 ] ::1 /lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174
+ERR: Cron:cron_1 Runat 2018-05-21 14:32:18 Use 0.002266 s
+
+[ 2018-05-21T14:32:19+08:00 ] ::1 /lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174
+ERR: Cron:cron_1 Runat 2018-05-21 14:32:19 Use 0.001761 s
+
+[ 2018-05-21T14:32:20+08:00 ] ::1 /lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174
+ERR: Cron:cron_1 Runat 2018-05-21 14:32:20 Use 0.001851 s
+
+[ 2018-05-21T14:32:33+08:00 ] ::1 /lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174
+ERR: Cron:cron_1 Runat 2018-05-21 14:32:33 Use 0.002251 s
+
+[ 2018-05-21T14:32:38+08:00 ] ::1 /lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174
+ERR: Cron:cron_1 Runat 2018-05-21 14:32:38 Use 0.002415 s
+
+[ 2018-05-21T14:33:35+08:00 ] ::1 /lhq/Api/Queryidfamobile/queryId_mobile
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001288s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004595s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0009s ]
+SQL: SELECT `app_id`,`kwd_qx` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0012s ]
+SQL: SELECT `idfa` FROM `member` WHERE `member_id` = 100025  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `pc_config` [ RunTime:0.0022s ]
+SQL: SELECT `request`,`repeat_url`,`config_if` FROM `pc_config` WHERE `app_id` = 1762  [ RunTime:0.0008s ]
+NOTIC: [8] Undefined offset: 1 D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 23 行.
+SQL: SHOW COLUMNS FROM `row_repeat` [ RunTime:0.0041s ]
+SQL: INSERT INTO `row_repeat` (`app_id`,`idfa`,`rtime`,`result`,`chanid`,`ip`) VALUES ('1762','0EA05FD9-D660-445D-A250-8E429CF75A37','2018-05-21 14:33:35','<html>
+<head><title>404 Not Found</title></head>
+<body bgcolor=\"white\">
+<center><h1>404 Not Found</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
+','-1','::1') [ RunTime:0.1750s ]
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 185 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 188 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 188 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 199 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 202 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 202 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 205 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 205 行.
+
+[ 2018-05-21T14:33:42+08:00 ] ::1 /lhq/Api/Queryidfamobile/queryId_mobile
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001321s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004273s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0009s ]
+SQL: SELECT `app_id`,`kwd_qx` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0013s ]
+SQL: SELECT `idfa` FROM `member` WHERE `member_id` = 100025  [ RunTime:0.0013s ]
+SQL: SHOW COLUMNS FROM `pc_config` [ RunTime:0.0012s ]
+SQL: SELECT `request`,`repeat_url`,`config_if` FROM `pc_config` WHERE `app_id` = 1762  [ RunTime:0.0013s ]
+NOTIC: [8] Undefined offset: 1 D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 23 行.
+SQL: SHOW COLUMNS FROM `row_repeat` [ RunTime:0.0052s ]
+SQL: INSERT INTO `row_repeat` (`app_id`,`idfa`,`rtime`,`result`,`chanid`,`ip`) VALUES ('1762','0EA05FD9-D660-445D-A250-8E429CF75A37','2018-05-21 14:33:41','<html>
+<head><title>404 Not Found</title></head>
+<body bgcolor=\"white\">
+<center><h1>404 Not Found</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
+','-1','::1') [ RunTime:0.0441s ]
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 185 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 188 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 188 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 199 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 202 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 202 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 205 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 205 行.
+
+[ 2018-05-21T14:34:59+08:00 ] ::1 /lhq/Api/Queryidfamobile/queryId_mobile
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001078s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003068s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0011s ]
+SQL: SELECT `app_id`,`kwd_qx` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0013s ]
+SQL: SELECT `idfa` FROM `member` WHERE `member_id` = 100025  [ RunTime:0.0011s ]
+SQL: SHOW COLUMNS FROM `pc_config` [ RunTime:0.0014s ]
+SQL: SELECT `request`,`repeat_url`,`config_if` FROM `pc_config` WHERE `app_id` = 1762  [ RunTime:0.0009s ]
+NOTIC: [8] Undefined offset: 1 D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 23 行.
+SQL: SHOW COLUMNS FROM `row_repeat` [ RunTime:0.0035s ]
+SQL: INSERT INTO `row_repeat` (`app_id`,`idfa`,`rtime`,`result`,`chanid`,`ip`) VALUES ('1762','0EA05FD9-D660-445D-A250-8E429CF75A37','2018-05-21 14:34:59','<html>
+<head><title>404 Not Found</title></head>
+<body bgcolor=\"white\">
+<center><h1>404 Not Found</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
+','-1','::1') [ RunTime:0.0482s ]
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 185 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 188 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 188 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 199 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 202 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 202 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 205 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 205 行.
+
+[ 2018-05-21T14:34:59+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:34:59 Use 0.002097 s
+
+[ 2018-05-21T14:34:59+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=174&mid=100025
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002015s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004826s ]
+SQL: SHOW COLUMNS FROM `kwd_mount` [ RunTime:0.0034s ]
+SQL: SELECT `id`,`kkwd`,`mount`,`mount_re`,`lmount`,`lmount_re` FROM `kwd_mount` WHERE `mid` = 174  [ RunTime:0.0007s ]
+NOTIC: [8] Undefined offset: 0 D:\wamp64\www\lhq\Apps\Api\Controller\ChannelclickmobileapiController.class.php 第 12 行.
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0011s ]
+SQL: SELECT `app_id`,`kwd_qx` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0007s ]
+SQL: SELECT `kwd_qx` FROM `mission` WHERE `mission_id` = 174 LIMIT 1   [ RunTime:0.0013s ]
+NOTIC: [8] Use of undefined constant mission_id - assumed 'mission_id' D:\wamp64\www\lhq\Apps\Common\Model\MissionModel.class.php 第 497 行.
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 174 LIMIT 1   [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0020s ]
+SQL: SELECT `idfa` FROM `member` WHERE `member_id` = 100025  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `app` [ RunTime:0.0011s ]
+SQL: SELECT `adsid`,`provider_id`,`adtype_id` FROM `app` WHERE `app_id` = 1762  [ RunTime:0.0013s ]
+SQL: SHOW COLUMNS FROM `provider_config` [ RunTime:0.0036s ]
+SQL: SELECT `config_content`,`config_if` FROM `provider_config` WHERE `app_id` = 1762  [ RunTime:0.0017s ]
+NOTIC: [8] Undefined property: stdClass::$success D:\wamp64\www\lhq\Apps\Api\Controller\ChannelclickmobileapiController.class.php 第 236 行.
+NOTIC: [8] Undefined property: stdClass::$success D:\wamp64\www\lhq\Apps\Api\Controller\ChannelclickmobileapiController.class.php 第 236 行.
+SQL: SHOW COLUMNS FROM `channel_log` [ RunTime:0.0009s ]
+SQL: INSERT INTO `channel_log` (`idfa`,`mac`,`app_id`,`adsid`,`ip`,`time`,`chan_id`,`callback`,`provider_id`,`result`,`own_result`,`kid`) VALUES ('0EA05FD9-D660-445D-A250-8E429CF75A37','','1762','480079300','::1','2018-05-21 14:34:59','-1','http://localhost/lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174','41','{\"code\":0,\"message\":\"渠道callback更新，无效下载\",\"data\":\"\"}','{\"message\":\"fail\",\"success\":false}',NULL) [ RunTime:0.0608s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001186s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.023528s ]
+INFO: [ app_end ] --END-- [ RunTime:0.027419s ]
+
+[ 2018-05-21T14:35:48+08:00 ] ::1 /lhq/Api/Queryidfamobile/queryId_mobile
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001010s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003471s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0015s ]
+SQL: SELECT `app_id`,`kwd_qx` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0022s ]
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0021s ]
+SQL: SELECT `idfa` FROM `member` WHERE `member_id` = 100025  [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `pc_config` [ RunTime:0.0015s ]
+SQL: SELECT `request`,`repeat_url`,`config_if` FROM `pc_config` WHERE `app_id` = 1762  [ RunTime:0.0007s ]
+NOTIC: [8] Undefined offset: 1 D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 23 行.
+SQL: SHOW COLUMNS FROM `row_repeat` [ RunTime:0.0036s ]
+SQL: INSERT INTO `row_repeat` (`app_id`,`idfa`,`rtime`,`result`,`chanid`,`ip`) VALUES ('1762','0EA05FD9-D660-445D-A250-8E429CF75A37','2018-05-21 14:35:47','<html>
+<head><title>404 Not Found</title></head>
+<body bgcolor=\"white\">
+<center><h1>404 Not Found</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
+','-1','::1') [ RunTime:0.1766s ]
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 185 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 188 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 188 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 199 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 202 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 202 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 205 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 205 行.
+
+[ 2018-05-21T14:35:48+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:35:48 Use 0.001759 s
+
+[ 2018-05-21T14:35:48+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=174&mid=100025
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001389s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003619s ]
+SQL: SHOW COLUMNS FROM `kwd_mount` [ RunTime:0.0033s ]
+SQL: SELECT `id`,`kkwd`,`mount`,`mount_re`,`lmount`,`lmount_re` FROM `kwd_mount` WHERE `mid` = 174  [ RunTime:0.0007s ]
+NOTIC: [8] Undefined offset: 0 D:\wamp64\www\lhq\Apps\Api\Controller\ChannelclickmobileapiController.class.php 第 12 行.
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0010s ]
+SQL: SELECT `app_id`,`kwd_qx` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0007s ]
+SQL: SELECT `kwd_qx` FROM `mission` WHERE `mission_id` = 174 LIMIT 1   [ RunTime:0.0009s ]
+NOTIC: [8] Use of undefined constant mission_id - assumed 'mission_id' D:\wamp64\www\lhq\Apps\Common\Model\MissionModel.class.php 第 497 行.
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 174 LIMIT 1   [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0011s ]
+SQL: SELECT `idfa` FROM `member` WHERE `member_id` = 100025  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `app` [ RunTime:0.0021s ]
+SQL: SELECT `adsid`,`provider_id`,`adtype_id` FROM `app` WHERE `app_id` = 1762  [ RunTime:0.0009s ]
+SQL: SHOW COLUMNS FROM `provider_config` [ RunTime:0.0032s ]
+SQL: SELECT `config_content`,`config_if` FROM `provider_config` WHERE `app_id` = 1762  [ RunTime:0.0017s ]
+NOTIC: [8] Undefined property: stdClass::$success D:\wamp64\www\lhq\Apps\Api\Controller\ChannelclickmobileapiController.class.php 第 236 行.
+NOTIC: [8] Undefined property: stdClass::$success D:\wamp64\www\lhq\Apps\Api\Controller\ChannelclickmobileapiController.class.php 第 236 行.
+SQL: SHOW COLUMNS FROM `channel_log` [ RunTime:0.0010s ]
+SQL: INSERT INTO `channel_log` (`idfa`,`mac`,`app_id`,`adsid`,`ip`,`time`,`chan_id`,`callback`,`provider_id`,`result`,`own_result`,`kid`) VALUES ('0EA05FD9-D660-445D-A250-8E429CF75A37','','1762','480079300','::1','2018-05-21 14:35:48','-1','http://localhost/lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174','41','{\"code\":0,\"message\":\"渠道callback更新，无效下载\",\"data\":\"\"}','{\"message\":\"fail\",\"success\":false}',NULL) [ RunTime:0.1246s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001246s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.008539s ]
+INFO: [ app_end ] --END-- [ RunTime:0.013232s ]
+
+[ 2018-05-21T14:35:48+08:00 ] ::1 /lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174
+ERR: Cron:cron_1 Runat 2018-05-21 14:35:48 Use 0.001801 s
+
+[ 2018-05-21T14:36:00+08:00 ] ::1 /lhq/Api/Queryidfamobile/queryId_mobile
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000955s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002888s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0024s ]
+SQL: SELECT `app_id`,`kwd_qx` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0018s ]
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0012s ]
+SQL: SELECT `idfa` FROM `member` WHERE `member_id` = 100025  [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `pc_config` [ RunTime:0.0011s ]
+SQL: SELECT `request`,`repeat_url`,`config_if` FROM `pc_config` WHERE `app_id` = 1762  [ RunTime:0.0008s ]
+NOTIC: [8] Undefined offset: 1 D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 23 行.
+SQL: SHOW COLUMNS FROM `row_repeat` [ RunTime:0.0009s ]
+SQL: INSERT INTO `row_repeat` (`app_id`,`idfa`,`rtime`,`result`,`chanid`,`ip`) VALUES ('1762','0EA05FD9-D660-445D-A250-8E429CF75A37','2018-05-21 14:35:59','<html>
+<head><title>404 Not Found</title></head>
+<body bgcolor=\"white\">
+<center><h1>404 Not Found</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
+','-1','::1') [ RunTime:0.1238s ]
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 185 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 188 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 188 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 199 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 202 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 202 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 205 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 205 行.
+
+[ 2018-05-21T14:36:00+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:36:00 Use 0.001590 s
+
+[ 2018-05-21T14:36:00+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=174&mid=100025
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001522s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003572s ]
+SQL: SHOW COLUMNS FROM `kwd_mount` [ RunTime:0.0040s ]
+SQL: SELECT `id`,`kkwd`,`mount`,`mount_re`,`lmount`,`lmount_re` FROM `kwd_mount` WHERE `mid` = 174  [ RunTime:0.0008s ]
+NOTIC: [8] Undefined offset: 0 D:\wamp64\www\lhq\Apps\Api\Controller\ChannelclickmobileapiController.class.php 第 12 行.
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0010s ]
+SQL: SELECT `app_id`,`kwd_qx` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0007s ]
+SQL: SELECT `kwd_qx` FROM `mission` WHERE `mission_id` = 174 LIMIT 1   [ RunTime:0.0007s ]
+NOTIC: [8] Use of undefined constant mission_id - assumed 'mission_id' D:\wamp64\www\lhq\Apps\Common\Model\MissionModel.class.php 第 497 行.
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 174 LIMIT 1   [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0011s ]
+SQL: SELECT `idfa` FROM `member` WHERE `member_id` = 100025  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `app` [ RunTime:0.0010s ]
+SQL: SELECT `adsid`,`provider_id`,`adtype_id` FROM `app` WHERE `app_id` = 1762  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `provider_config` [ RunTime:0.0033s ]
+SQL: SELECT `config_content`,`config_if` FROM `provider_config` WHERE `app_id` = 1762  [ RunTime:0.0009s ]
+NOTIC: [8] Undefined property: stdClass::$success D:\wamp64\www\lhq\Apps\Api\Controller\ChannelclickmobileapiController.class.php 第 236 行.
+NOTIC: [8] Undefined property: stdClass::$success D:\wamp64\www\lhq\Apps\Api\Controller\ChannelclickmobileapiController.class.php 第 236 行.
+SQL: SHOW COLUMNS FROM `channel_log` [ RunTime:0.0016s ]
+SQL: INSERT INTO `channel_log` (`idfa`,`mac`,`app_id`,`adsid`,`ip`,`time`,`chan_id`,`callback`,`provider_id`,`result`,`own_result`,`kid`) VALUES ('0EA05FD9-D660-445D-A250-8E429CF75A37','','1762','480079300','::1','2018-05-21 14:36:00','-1','http://localhost/lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174','41','{\"code\":0,\"message\":\"渠道callback更新，无效下载\",\"data\":\"\"}','{\"message\":\"fail\",\"success\":false}',NULL) [ RunTime:0.0418s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001415s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.009199s ]
+INFO: [ app_end ] --END-- [ RunTime:0.013283s ]
+
+[ 2018-05-21T14:36:00+08:00 ] ::1 /lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174
+ERR: Cron:cron_1 Runat 2018-05-21 14:36:00 Use 0.001659 s
+
+[ 2018-05-21T14:36:01+08:00 ] ::1 /lhq/Api/Queryidfamobile/queryId_mobile
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001770s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003853s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0010s ]
+SQL: SELECT `app_id`,`kwd_qx` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0018s ]
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0011s ]
+SQL: SELECT `idfa` FROM `member` WHERE `member_id` = 100025  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `pc_config` [ RunTime:0.0010s ]
+SQL: SELECT `request`,`repeat_url`,`config_if` FROM `pc_config` WHERE `app_id` = 1762  [ RunTime:0.0008s ]
+NOTIC: [8] Undefined offset: 1 D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 23 行.
+SQL: SHOW COLUMNS FROM `row_repeat` [ RunTime:0.0012s ]
+SQL: INSERT INTO `row_repeat` (`app_id`,`idfa`,`rtime`,`result`,`chanid`,`ip`) VALUES ('1762','0EA05FD9-D660-445D-A250-8E429CF75A37','2018-05-21 14:36:01','<html>
+<head><title>404 Not Found</title></head>
+<body bgcolor=\"white\">
+<center><h1>404 Not Found</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
+','-1','::1') [ RunTime:0.0438s ]
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 185 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 188 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 188 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 199 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 202 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 202 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 205 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 205 行.
+
+[ 2018-05-21T14:36:02+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:36:02 Use 0.001678 s
+
+[ 2018-05-21T14:36:02+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=174&mid=100025
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001474s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003864s ]
+SQL: SHOW COLUMNS FROM `kwd_mount` [ RunTime:0.0011s ]
+SQL: SELECT `id`,`kkwd`,`mount`,`mount_re`,`lmount`,`lmount_re` FROM `kwd_mount` WHERE `mid` = 174  [ RunTime:0.0006s ]
+NOTIC: [8] Undefined offset: 0 D:\wamp64\www\lhq\Apps\Api\Controller\ChannelclickmobileapiController.class.php 第 12 行.
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0010s ]
+SQL: SELECT `app_id`,`kwd_qx` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0008s ]
+SQL: SELECT `kwd_qx` FROM `mission` WHERE `mission_id` = 174 LIMIT 1   [ RunTime:0.0011s ]
+NOTIC: [8] Use of undefined constant mission_id - assumed 'mission_id' D:\wamp64\www\lhq\Apps\Common\Model\MissionModel.class.php 第 497 行.
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 174 LIMIT 1   [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0012s ]
+SQL: SELECT `idfa` FROM `member` WHERE `member_id` = 100025  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `app` [ RunTime:0.0010s ]
+SQL: SELECT `adsid`,`provider_id`,`adtype_id` FROM `app` WHERE `app_id` = 1762  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `provider_config` [ RunTime:0.0014s ]
+SQL: SELECT `config_content`,`config_if` FROM `provider_config` WHERE `app_id` = 1762  [ RunTime:0.0011s ]
+NOTIC: [8] Undefined property: stdClass::$success D:\wamp64\www\lhq\Apps\Api\Controller\ChannelclickmobileapiController.class.php 第 236 行.
+NOTIC: [8] Undefined property: stdClass::$success D:\wamp64\www\lhq\Apps\Api\Controller\ChannelclickmobileapiController.class.php 第 236 行.
+SQL: SHOW COLUMNS FROM `channel_log` [ RunTime:0.0010s ]
+SQL: INSERT INTO `channel_log` (`idfa`,`mac`,`app_id`,`adsid`,`ip`,`time`,`chan_id`,`callback`,`provider_id`,`result`,`own_result`,`kid`) VALUES ('0EA05FD9-D660-445D-A250-8E429CF75A37','','1762','480079300','::1','2018-05-21 14:36:01','-1','http://localhost/lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174','41','{\"code\":0,\"message\":\"渠道callback更新，无效下载\",\"data\":\"\"}','{\"message\":\"fail\",\"success\":false}',NULL) [ RunTime:0.0276s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001352s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.009207s ]
+INFO: [ app_end ] --END-- [ RunTime:0.014594s ]
+
+[ 2018-05-21T14:36:02+08:00 ] ::1 /lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174
+ERR: Cron:cron_1 Runat 2018-05-21 14:36:02 Use 0.002141 s
+
+[ 2018-05-21T14:37:02+08:00 ] ::1 /lhq/Api/Queryidfamobile/queryId_mobile
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001337s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003533s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0023s ]
+SQL: SELECT `app_id`,`kwd_qx` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0015s ]
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0012s ]
+SQL: SELECT `idfa` FROM `member` WHERE `member_id` = 100025  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `pc_config` [ RunTime:0.0014s ]
+SQL: SELECT `request`,`repeat_url`,`config_if` FROM `pc_config` WHERE `app_id` = 1762  [ RunTime:0.0009s ]
+NOTIC: [8] Undefined offset: 1 D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 23 行.
+SQL: SHOW COLUMNS FROM `row_repeat` [ RunTime:0.0010s ]
+SQL: INSERT INTO `row_repeat` (`app_id`,`idfa`,`rtime`,`result`,`chanid`,`ip`) VALUES ('1762','0EA05FD9-D660-445D-A250-8E429CF75A37','2018-05-21 14:37:02','<html>
+<head><title>404 Not Found</title></head>
+<body bgcolor=\"white\">
+<center><h1>404 Not Found</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
+','-1','::1') [ RunTime:0.0453s ]
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 185 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 188 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 188 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 199 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 202 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 202 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 205 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 205 行.
+
+[ 2018-05-21T14:37:02+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=174&mid=100025
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001475s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003553s ]
+SQL: SHOW COLUMNS FROM `kwd_mount` [ RunTime:0.0008s ]
+SQL: SELECT `id`,`kkwd`,`mount`,`mount_re`,`lmount`,`lmount_re` FROM `kwd_mount` WHERE `mid` = 174  [ RunTime:0.0006s ]
+NOTIC: [8] Undefined offset: 0 D:\wamp64\www\lhq\Apps\Api\Controller\ChannelclickmobileapiController.class.php 第 12 行.
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0010s ]
+SQL: SELECT `app_id`,`kwd_qx` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0006s ]
+SQL: SELECT `kwd_qx` FROM `mission` WHERE `mission_id` = 174 LIMIT 1   [ RunTime:0.0006s ]
+NOTIC: [8] Use of undefined constant mission_id - assumed 'mission_id' D:\wamp64\www\lhq\Apps\Common\Model\MissionModel.class.php 第 497 行.
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 174 LIMIT 1   [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0016s ]
+SQL: SELECT `idfa` FROM `member` WHERE `member_id` = 100025  [ RunTime:0.0009s ]
+SQL: SHOW COLUMNS FROM `app` [ RunTime:0.0009s ]
+SQL: SELECT `adsid`,`provider_id`,`adtype_id` FROM `app` WHERE `app_id` = 1762  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `provider_config` [ RunTime:0.0009s ]
+SQL: SELECT `config_content`,`config_if` FROM `provider_config` WHERE `app_id` = 1762  [ RunTime:0.0009s ]
+NOTIC: [8] Undefined property: stdClass::$success D:\wamp64\www\lhq\Apps\Api\Controller\ChannelclickmobileapiController.class.php 第 236 行.
+NOTIC: [8] Undefined property: stdClass::$success D:\wamp64\www\lhq\Apps\Api\Controller\ChannelclickmobileapiController.class.php 第 236 行.
+SQL: SHOW COLUMNS FROM `channel_log` [ RunTime:0.0011s ]
+SQL: INSERT INTO `channel_log` (`idfa`,`mac`,`app_id`,`adsid`,`ip`,`time`,`chan_id`,`callback`,`provider_id`,`result`,`own_result`,`kid`) VALUES ('0EA05FD9-D660-445D-A250-8E429CF75A37','','1762','480079300','::1','2018-05-21 14:37:02','-1','http://localhost/lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174','41','{\"code\":0,\"message\":\"渠道callback更新，无效下载\",\"data\":\"\"}','{\"message\":\"fail\",\"success\":false}',NULL) [ RunTime:0.0403s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001383s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.019627s ]
+INFO: [ app_end ] --END-- [ RunTime:0.023665s ]
+
+[ 2018-05-21T14:37:03+08:00 ] ::1 /lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174
+ERR: Cron:cron_1 Runat 2018-05-21 14:37:03 Use 0.002204 s
+
+[ 2018-05-21T14:37:11+08:00 ] ::1 /lhq/Api/Queryidfamobile/queryId_mobile
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000944s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002904s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0019s ]
+SQL: SELECT `app_id`,`kwd_qx` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0019s ]
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0012s ]
+SQL: SELECT `idfa` FROM `member` WHERE `member_id` = 100025  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `pc_config` [ RunTime:0.0010s ]
+SQL: SELECT `request`,`repeat_url`,`config_if` FROM `pc_config` WHERE `app_id` = 1762  [ RunTime:0.0008s ]
+NOTIC: [8] Undefined offset: 1 D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 23 行.
+SQL: SHOW COLUMNS FROM `row_repeat` [ RunTime:0.0010s ]
+SQL: INSERT INTO `row_repeat` (`app_id`,`idfa`,`rtime`,`result`,`chanid`,`ip`) VALUES ('1762','0EA05FD9-D660-445D-A250-8E429CF75A37','2018-05-21 14:37:10','<html>
+<head><title>404 Not Found</title></head>
+<body bgcolor=\"white\">
+<center><h1>404 Not Found</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
+','-1','::1') [ RunTime:0.0431s ]
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 185 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 188 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 188 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 199 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 202 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 202 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 205 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 205 行.
+
+[ 2018-05-21T14:37:11+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:37:11 Use 0.001623 s
+
+[ 2018-05-21T14:37:11+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=174&mid=100025
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001295s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003211s ]
+SQL: SHOW COLUMNS FROM `kwd_mount` [ RunTime:0.0012s ]
+SQL: SELECT `id`,`kkwd`,`mount`,`mount_re`,`lmount`,`lmount_re` FROM `kwd_mount` WHERE `mid` = 174  [ RunTime:0.0008s ]
+NOTIC: [8] Undefined offset: 0 D:\wamp64\www\lhq\Apps\Api\Controller\ChannelclickmobileapiController.class.php 第 12 行.
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0015s ]
+SQL: SELECT `app_id`,`kwd_qx` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0007s ]
+SQL: SELECT `kwd_qx` FROM `mission` WHERE `mission_id` = 174 LIMIT 1   [ RunTime:0.0006s ]
+NOTIC: [8] Use of undefined constant mission_id - assumed 'mission_id' D:\wamp64\www\lhq\Apps\Common\Model\MissionModel.class.php 第 497 行.
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 174 LIMIT 1   [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0014s ]
+SQL: SELECT `idfa` FROM `member` WHERE `member_id` = 100025  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `app` [ RunTime:0.0009s ]
+SQL: SELECT `adsid`,`provider_id`,`adtype_id` FROM `app` WHERE `app_id` = 1762  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `provider_config` [ RunTime:0.0009s ]
+SQL: SELECT `config_content`,`config_if` FROM `provider_config` WHERE `app_id` = 1762  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined property: stdClass::$success D:\wamp64\www\lhq\Apps\Api\Controller\ChannelclickmobileapiController.class.php 第 236 行.
+NOTIC: [8] Undefined property: stdClass::$success D:\wamp64\www\lhq\Apps\Api\Controller\ChannelclickmobileapiController.class.php 第 236 行.
+SQL: SHOW COLUMNS FROM `channel_log` [ RunTime:0.0010s ]
+SQL: INSERT INTO `channel_log` (`idfa`,`mac`,`app_id`,`adsid`,`ip`,`time`,`chan_id`,`callback`,`provider_id`,`result`,`own_result`,`kid`) VALUES ('0EA05FD9-D660-445D-A250-8E429CF75A37','','1762','480079300','::1','2018-05-21 14:37:11','-1','http://localhost/lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174','41','{\"code\":0,\"message\":\"渠道callback更新，无效下载\",\"data\":\"\"}','{\"message\":\"fail\",\"success\":false}',NULL) [ RunTime:0.0434s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001410s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.023346s ]
+INFO: [ app_end ] --END-- [ RunTime:0.028485s ]
+
+[ 2018-05-21T14:37:11+08:00 ] ::1 /lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174
+ERR: Cron:cron_1 Runat 2018-05-21 14:37:11 Use 0.001876 s
+
+[ 2018-05-21T14:37:36+08:00 ] ::1 /lhq/Api/Queryidfamobile/queryId_mobile
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001011s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002984s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0009s ]
+SQL: SELECT `app_id`,`kwd_qx` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0019s ]
+SQL: SELECT `idfa` FROM `member` WHERE `member_id` = 100025  [ RunTime:0.0009s ]
+SQL: SHOW COLUMNS FROM `pc_config` [ RunTime:0.0009s ]
+SQL: SELECT `request`,`repeat_url`,`config_if` FROM `pc_config` WHERE `app_id` = 1762  [ RunTime:0.0011s ]
+NOTIC: [8] Undefined offset: 1 D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 23 行.
+SQL: SHOW COLUMNS FROM `row_repeat` [ RunTime:0.0009s ]
+SQL: INSERT INTO `row_repeat` (`app_id`,`idfa`,`rtime`,`result`,`chanid`,`ip`) VALUES ('1762','0EA05FD9-D660-445D-A250-8E429CF75A37','2018-05-21 14:37:35','<html>
+<head><title>404 Not Found</title></head>
+<body bgcolor=\"white\">
+<center><h1>404 Not Found</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
+','-1','::1') [ RunTime:0.1498s ]
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 185 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 188 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 188 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 199 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 202 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 202 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 205 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 205 行.
+
+[ 2018-05-21T14:37:36+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:37:36 Use 0.001700 s
+
+[ 2018-05-21T14:37:36+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=174&mid=100025
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001251s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003111s ]
+SQL: SHOW COLUMNS FROM `kwd_mount` [ RunTime:0.0010s ]
+SQL: SELECT `id`,`kkwd`,`mount`,`mount_re`,`lmount`,`lmount_re` FROM `kwd_mount` WHERE `mid` = 174  [ RunTime:0.0007s ]
+NOTIC: [8] Undefined offset: 0 D:\wamp64\www\lhq\Apps\Api\Controller\ChannelclickmobileapiController.class.php 第 12 行.
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0013s ]
+SQL: SELECT `app_id`,`kwd_qx` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0008s ]
+SQL: SELECT `kwd_qx` FROM `mission` WHERE `mission_id` = 174 LIMIT 1   [ RunTime:0.0009s ]
+NOTIC: [8] Use of undefined constant mission_id - assumed 'mission_id' D:\wamp64\www\lhq\Apps\Common\Model\MissionModel.class.php 第 497 行.
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 174 LIMIT 1   [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0014s ]
+SQL: SELECT `idfa` FROM `member` WHERE `member_id` = 100025  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `app` [ RunTime:0.0009s ]
+SQL: SELECT `adsid`,`provider_id`,`adtype_id` FROM `app` WHERE `app_id` = 1762  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `provider_config` [ RunTime:0.0008s ]
+SQL: SELECT `config_content`,`config_if` FROM `provider_config` WHERE `app_id` = 1762  [ RunTime:0.0009s ]
+NOTIC: [8] Undefined property: stdClass::$success D:\wamp64\www\lhq\Apps\Api\Controller\ChannelclickmobileapiController.class.php 第 236 行.
+NOTIC: [8] Undefined property: stdClass::$success D:\wamp64\www\lhq\Apps\Api\Controller\ChannelclickmobileapiController.class.php 第 236 行.
+SQL: SHOW COLUMNS FROM `channel_log` [ RunTime:0.0010s ]
+SQL: INSERT INTO `channel_log` (`idfa`,`mac`,`app_id`,`adsid`,`ip`,`time`,`chan_id`,`callback`,`provider_id`,`result`,`own_result`,`kid`) VALUES ('0EA05FD9-D660-445D-A250-8E429CF75A37','','1762','480079300','::1','2018-05-21 14:37:36','-1','http://localhost/lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174','41','{\"code\":0,\"message\":\"渠道callback更新，无效下载\",\"data\":\"\"}','{\"message\":\"fail\",\"success\":false}',NULL) [ RunTime:0.0367s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001231s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.008685s ]
+INFO: [ app_end ] --END-- [ RunTime:0.012666s ]
+
+[ 2018-05-21T14:37:36+08:00 ] ::1 /lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174
+ERR: Cron:cron_1 Runat 2018-05-21 14:37:36 Use 0.002048 s
+
+[ 2018-05-21T14:37:45+08:00 ] ::1 /lhq/Api/Queryidfamobile/queryId_mobile
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000976s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003038s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0018s ]
+SQL: SELECT `app_id`,`kwd_qx` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0012s ]
+SQL: SELECT `idfa` FROM `member` WHERE `member_id` = 100025  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `pc_config` [ RunTime:0.0011s ]
+SQL: SELECT `request`,`repeat_url`,`config_if` FROM `pc_config` WHERE `app_id` = 1762  [ RunTime:0.0015s ]
+NOTIC: [8] Undefined offset: 1 D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 23 行.
+SQL: SHOW COLUMNS FROM `row_repeat` [ RunTime:0.0035s ]
+SQL: INSERT INTO `row_repeat` (`app_id`,`idfa`,`rtime`,`result`,`chanid`,`ip`) VALUES ('1762','0EA05FD9-D660-445D-A250-8E429CF75A37','2018-05-21 14:37:45','<html>
+<head><title>404 Not Found</title></head>
+<body bgcolor=\"white\">
+<center><h1>404 Not Found</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
+','-1','::1') [ RunTime:0.1363s ]
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 185 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 188 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 188 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 199 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 202 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 202 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 205 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp64\www\lhq\Apps\Api\Controller\QueryidfamobileController.class.php 第 205 行.
+
+[ 2018-05-21T14:37:46+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:37:46 Use 0.001814 s
+
+[ 2018-05-21T14:37:46+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=174&mid=100025
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001237s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003231s ]
+SQL: SHOW COLUMNS FROM `kwd_mount` [ RunTime:0.0042s ]
+SQL: SELECT `id`,`kkwd`,`mount`,`mount_re`,`lmount`,`lmount_re` FROM `kwd_mount` WHERE `mid` = 174  [ RunTime:0.0006s ]
+NOTIC: [8] Undefined offset: 0 D:\wamp64\www\lhq\Apps\Api\Controller\ChannelclickmobileapiController.class.php 第 12 行.
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0010s ]
+SQL: SELECT `app_id`,`kwd_qx` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0007s ]
+SQL: SELECT `kwd_qx` FROM `mission` WHERE `mission_id` = 174 LIMIT 1   [ RunTime:0.0008s ]
+NOTIC: [8] Use of undefined constant mission_id - assumed 'mission_id' D:\wamp64\www\lhq\Apps\Common\Model\MissionModel.class.php 第 497 行.
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 174 LIMIT 1   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0011s ]
+SQL: SELECT `idfa` FROM `member` WHERE `member_id` = 100025  [ RunTime:0.0009s ]
+SQL: SHOW COLUMNS FROM `app` [ RunTime:0.0009s ]
+SQL: SELECT `adsid`,`provider_id`,`adtype_id` FROM `app` WHERE `app_id` = 1762  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `provider_config` [ RunTime:0.0036s ]
+SQL: SELECT `config_content`,`config_if` FROM `provider_config` WHERE `app_id` = 1762  [ RunTime:0.0011s ]
+NOTIC: [8] Undefined property: stdClass::$success D:\wamp64\www\lhq\Apps\Api\Controller\ChannelclickmobileapiController.class.php 第 236 行.
+NOTIC: [8] Undefined property: stdClass::$success D:\wamp64\www\lhq\Apps\Api\Controller\ChannelclickmobileapiController.class.php 第 236 行.
+SQL: SHOW COLUMNS FROM `channel_log` [ RunTime:0.0015s ]
+SQL: INSERT INTO `channel_log` (`idfa`,`mac`,`app_id`,`adsid`,`ip`,`time`,`chan_id`,`callback`,`provider_id`,`result`,`own_result`,`kid`) VALUES ('0EA05FD9-D660-445D-A250-8E429CF75A37','','1762','480079300','::1','2018-05-21 14:37:46','-1','http://localhost/lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174','41','{\"code\":0,\"message\":\"渠道callback更新，无效下载\",\"data\":\"\"}','{\"message\":\"fail\",\"success\":false}',NULL) [ RunTime:0.0588s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001304s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.009144s ]
+INFO: [ app_end ] --END-- [ RunTime:0.013497s ]
+
+[ 2018-05-21T14:37:46+08:00 ] ::1 /lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174
+ERR: Cron:cron_1 Runat 2018-05-21 14:37:46 Use 0.002212 s
+
+[ 2018-05-21T14:39:07+08:00 ] ::1 /lhq/api/channelclickmobileapi/channelclickmobileapi?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:39:07 Use 0.002573 s
+
+[ 2018-05-21T14:39:07+08:00 ] ::1 /lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174
+ERR: Cron:cron_1 Runat 2018-05-21 14:39:07 Use 0.002991 s
+
+[ 2018-05-21T14:39:08+08:00 ] ::1 /lhq/api/channelclickmobileapi/channelclickmobileapi?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:39:08 Use 0.001705 s
+
+[ 2018-05-21T14:39:08+08:00 ] ::1 /lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174
+ERR: Cron:cron_1 Runat 2018-05-21 14:39:08 Use 0.001732 s
+
+[ 2018-05-21T14:39:10+08:00 ] ::1 /lhq/api/channelclickmobileapi/channelclickmobileapi?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:39:10 Use 0.002869 s
+
+[ 2018-05-21T14:39:10+08:00 ] ::1 /lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174
+ERR: Cron:cron_1 Runat 2018-05-21 14:39:10 Use 0.001908 s
+
+[ 2018-05-21T14:39:16+08:00 ] ::1 /lhq/api/channelclickmobileapi/channelclickmobileapi?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:39:16 Use 0.001640 s
+
+[ 2018-05-21T14:39:16+08:00 ] ::1 /lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174
+ERR: Cron:cron_1 Runat 2018-05-21 14:39:16 Use 0.001844 s
+
+[ 2018-05-21T14:39:24+08:00 ] ::1 /lhq/api/channelclickmobileapi/channelclickmobileapi?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:39:24 Use 0.003243 s
+
+[ 2018-05-21T14:39:24+08:00 ] ::1 /lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174
+ERR: Cron:cron_1 Runat 2018-05-21 14:39:24 Use 0.002988 s
+
+[ 2018-05-21T14:46:26+08:00 ] ::1 /lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174
+ERR: Cron:cron_1 Runat 2018-05-21 14:46:26 Use 0.003261 s
+
+[ 2018-05-21T14:46:30+08:00 ] ::1 /lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174
+ERR: Cron:cron_1 Runat 2018-05-21 14:46:30 Use 0.001846 s
+
+[ 2018-05-21T14:46:32+08:00 ] ::1 /lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174
+ERR: Cron:cron_1 Runat 2018-05-21 14:46:32 Use 0.001751 s
+
+[ 2018-05-21T14:46:33+08:00 ] ::1 /lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174
+ERR: Cron:cron_1 Runat 2018-05-21 14:46:33 Use 0.002919 s
+
+[ 2018-05-21T16:06:43+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?mid=173&msid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 16:06:43 Use 0.002281 s
+
+[ 2018-05-21T16:08:18+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?mid=173&msid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 16:08:18 Use 0.002457 s
+
+[ 2018-05-21T16:09:18+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=173&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 16:09:18 Use 0.002347 s
+
+[ 2018-05-21T16:09:37+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=173&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 16:09:37 Use 0.002230 s
+
+[ 2018-05-21T16:09:55+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=173&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 16:09:55 Use 0.002395 s
+
+[ 2018-05-21T16:10:18+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=173&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 16:10:18 Use 0.002636 s
+
+[ 2018-05-21T16:11:07+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=173&mid=100025&XDEBUG_SESSION_START=14992
+ERR: Cron:cron_1 Runat 2018-05-21 16:11:07 Use 0.002897 s
+
+[ 2018-05-21T16:11:53+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=173&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 16:11:53 Use 0.002200 s
+
+[ 2018-05-21T16:12:21+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=173&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 16:12:21 Use 0.003028 s
+
+[ 2018-05-21T16:33:11+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 16:33:11 Use 0.002607 s
+
+[ 2018-05-21T16:33:16+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 16:33:16 Use 0.003267 s
+
+[ 2018-05-21T16:33:18+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 16:33:18 Use 0.004105 s
+
+[ 2018-05-21T16:33:20+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 16:33:20 Use 0.003762 s
+
+[ 2018-05-21T16:33:20+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 16:33:20 Use 0.003113 s
+
+[ 2018-05-21T16:33:21+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 16:33:21 Use 0.003779 s
+
+[ 2018-05-21T16:33:27+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 16:33:27 Use 0.002689 s
+
+[ 2018-05-21T18:01:33+08:00 ] ::1 /lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174
+ERR: Cron:cron_1 Runat 2018-05-21 18:01:33 Use 0.002610 s
+
+[ 2018-05-21T18:21:10+08:00 ] ::1 /lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174
+ERR: Cron:cron_1 Runat 2018-05-21 18:21:10 Use 0.001820 s
+
+[ 2018-05-21T18:21:23+08:00 ] ::1 /lhq/api/CallbackApi/index?appid=1762&chanid=-1&idfa=0EA05FD9-D660-445D-A250-8E429CF75A37&mac=&openudid=&ip=::1&missionId=174
+ERR: Cron:cron_1 Runat 2018-05-21 18:21:23 Use 0.002128 s
+
+[ 2018-05-21T18:22:15+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 18:22:15 Use 0.002482 s
+
+[ 2018-05-21T18:22:42+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 18:22:42 Use 0.003261 s
+
+[ 2018-05-21T18:22:48+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 18:22:48 Use 0.003115 s
+
+[ 2018-05-21T18:22:51+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 18:22:51 Use 0.002449 s
+
+[ 2018-05-21T18:22:53+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 18:22:53 Use 0.002419 s
+
+[ 2018-05-21T18:23:09+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 18:23:09 Use 0.003142 s
+
+[ 2018-05-21T18:23:14+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 18:23:14 Use 0.003141 s
+
+[ 2018-05-21T18:23:25+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 18:23:25 Use 0.002945 s
+
+[ 2018-05-21T18:24:06+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 18:24:06 Use 0.002169 s
+
+[ 2018-05-21T18:24:30+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 18:24:30 Use 0.003719 s
+
+[ 2018-05-21T18:24:32+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 18:24:32 Use 0.003336 s
+
+[ 2018-05-21T18:24:35+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 18:24:35 Use 0.003414 s
+
+[ 2018-05-21T18:24:47+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 18:24:47 Use 0.002128 s
+
+[ 2018-05-21T18:25:19+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 18:25:19 Use 0.003832 s
+
+[ 2018-05-21T18:25:21+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 18:25:21 Use 0.004263 s
+
+[ 2018-05-21T18:26:52+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 18:26:52 Use 0.003543 s
+

@@ -1,0 +1,1 @@
+alter table yytb_bbooking_detail add goods_id int(11) comment'商品ID';

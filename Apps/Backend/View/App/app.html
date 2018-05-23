@@ -1,0 +1,132 @@
+<include file ="Index:header"/>
+<include file ="Index:navibar"/>
+<include file ="Index:sidebar"/>
+<!-- TPLSTART 以上内容不需更改，保证该TPL页内的标签匹配即可 -->
+
+<div class="btn-toolbar" style="margin-bottom:2px;">
+    <a href="{:U(appAdd)}" class="btn btn-primary"><i class="icon-plus"></i> 添加广告应用</a>
+</div>
+<form class="form_search"  action="__ACTION__" method="GET" style="margin-bottom:0px">
+    <div style="float:left;margin-right:5px">
+        <label>查询应用</label>
+        <input type="text" name="app_name" value="{$_GET.app_name}" placeholder="输入应用名称" >
+        <input type="hidden" name="search" value="1" >
+    </div>
+    <if condition="$user_group eq 1|| $user_group eq 3 || $user_group eq 5">
+        <div style="float:left;margin-right:5px">
+            <label>选择广告商</label>
+            <select name="provider_id">
+                <foreach name="providers" item="provider" key="provider_id">
+                <option value="{$provider_id}"
+                    <if condition="$_GET['provider_id'] eq $provider_id">
+                                selected="selected"
+                    </if>
+                >{$provider}</option>
+                </foreach>
+            </select>
+        </div>
+    </if>
+  <!--  <div style="float:left;margin-right:5px">
+        <label>全部配置</label>
+        <select name="pz">
+            <option value="1">全部配置</option>
+        </select>
+    </div>
+    -->
+    <div class="btn-toolbar" style="padding-top:25px;padding-bottom:0px;margin-bottom:0px">
+        <button type="submit" class="btn btn-primary">检索</button>
+    </div>
+    <div style="clear:both;"></div>
+</form>
+<div class="block">
+	<a href="#page-stats" class="block-heading" data-toggle="collapse">广告应用管理</a>
+	<div id="page-stats" class="block-body collapse in">
+	<table class="table table-striped">
+			<thead>
+			<tr>
+				<th>应用id</th>
+				<th>应用名称</th>
+                <if condition="$user_group eq 1|| $user_group eq 3 || $user_group eq 5">
+                    <th>广告商</th>
+                </if>
+                <if condition="$user_group eq 1|| $user_group eq 4|| $user_group eq 5">
+                    <th>渠道</th>
+                </if>
+				<th>广告主广告id</th>
+				<th>下载地址</th>
+                <th>Url Scheme</th>
+				<th>备注</th>
+                <if condition="$user_group eq 1|| $user_group eq 5">
+                    <th>回调比例</th>
+                </if>
+                <th>广告类型</th>
+                <th>是否排重</th>
+                <th>logo</th>
+                <if condition="$user_group eq 1|| $user_group eq 5">
+			         <th>操作</th>
+                </if>
+				
+			</tr>
+			</thead>
+			<tbody>							  
+			<foreach name="apps" item="app">
+				 
+				<tr>
+				 
+				<td>{$app.app_id}</td>
+				
+				<td>{$app.app_name}</td>
+
+                <if condition="$user_group eq 1|| $user_group eq 3|| $user_group eq 5">
+				    <td>{$providers[$app['provider_id']]}</td>
+                </if>
+
+                <if condition="$user_group eq 1|| $user_group eq 4|| $user_group eq 5">
+				    <td>{$app.chan_name}</td>
+				</if>
+
+				<td>{$app.adsid}</td>
+				
+				<td>{$app.appstore_url}</td>
+                <td>{$app.url_scheme}</td>
+				<td>{$app.remark}</td>
+                <if condition="$user_group eq 1|| $user_group eq 5">
+				    <td>{$app.cutoff}</td>
+                </if>
+                <td>{$adtypes[$app['adtype_id']]}</td>
+                <td>{$app.is_repeat}
+                   <!-- <if condition="$app.is_repeat eq '3'">
+                        自身兼广告主排重
+                        <elseif condition= "$app.is_repeat eq '2'"/>
+                        广告主排重
+                        <elseif condition= "$app.is_repeat eq '4'"/>
+                        自身排重
+                        <elseif condition= "$app.is_repeat eq '1'"/>
+                        不排重
+                    </if>
+                    -->
+                </td>
+                <td><img style="height: 30px;width: 40px;" src="__PUBLIC__{$app.img}"></td>
+				<td>
+                    <if condition="$user_group eq 1|| $user_group eq 5">
+					    <a href="{:U('appModify',array('app_id'=>$app['app_id']))}" title= "修改" ><i class="icon-pencil"></i></a>
+					
+					&nbsp;
+					<a data-toggle="modal" href="{:U('app',array('app_id'=>$app['app_id'],'method'=>del))}" title= "删除" ><i class="icon-remove"></i></a>
+                    </if>
+				</td>
+				
+				</tr>
+			</foreach>
+		  </tbody>
+		</table>
+		<!--- START 分页模板 -->
+
+                    {$page_html}
+
+			   <!--- END -->	
+			    每页25项							
+	</div>
+</div>
+<!-- TPLEND 以下内容不需更改，请保证该TPL页内的标签匹配即可 -->
+<include file="Index:footer"/>

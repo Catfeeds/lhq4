@@ -1,0 +1,121 @@
+<!--<{include file ="header.tpl"}>-->
+<!--<{include file ="navibar.tpl"}>-->
+<!--<{include file ="sidebar.tpl"}>-->
+<include file="Index:header"/>
+<include file="Index:navibar"/>
+<include file="Index:sidebar"/>
+<!-- START 以上内容不需更改，保证该TPL页内的标签匹配即可 -->
+
+{$osadmin_action_alert}
+{$osadmin_quick_note}
+    
+<div class="well">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#home" data-toggle="tab">请选择你要发送的用户</a></li>
+    </ul>	
+	
+	<div id="myTabContent" class="tab-content">
+		  <div class="tab-pane active in" id="home">
+	
+           <form id="tab" method="post" action="">
+			    <label>用户区间</label>
+               <span>从</span><input type="text" name="st" value="{$_POST.st}" class="input-xlarge" required="true" autofocus="true" >
+               <span>到</span><input type="text" name="end" value="{$_POST.end}" class="input-xlarge" required="true" autofocus="true" >
+               <input type="hidden" name="search" value="1" >
+               <div class="btn-toolbar">
+					<button type="submit" value="2" class="btn btn-primary"><strong>提交</strong></button>
+				</div>
+			</form>
+        </div>
+    </div>
+</div>
+<div class="well">
+    <form class="form_search"  action="" method="GET" style="margin-bottom:0px">
+
+      <!--  <div style="float:left;margin-right:5px">
+            <label>会员编号</label>
+            <input type="text" name="user_num" value="{$_GET.user_num}" placeholder="输入会员编号" >
+            <input type="hidden" name="find" value="1" >
+        </div>-->
+        <div style="float:left;margin-right:5px">
+            <label>会员手机号</label>
+            <input type="text" name="phone" value="{$_GET.phone}" placeholder="输入会员手机号" >
+        </div>
+        <div style="float:left;margin-right:5px">
+            <label>会员ID</label>
+            <input type="text" name="member_id" value="{$_GET.member_id}" placeholder="输入会员ID" >
+        </div>
+        <div class="btn-toolbar" style="padding-top:25px;padding-bottom:0px;margin-bottom:0px">
+            <button type="submit" class="btn btn-primary">检索</button>
+        </div>
+        <div style="clear:both;"></div>
+    </form>
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#home" data-toggle="tab">请勾选发送人</a></li>
+    </ul>
+
+    <div id="myTabContent" class="tab-content">
+        <div class="tab-pane active in" id="home">
+            <form id="tab" method="post" action="">
+                <table class="table table-striped">
+                    <thead>
+                    <input type="button" onclick="check_all('mid[]')"  value="全选"/><input type="button" onclick="reverseClick('mid[]')"  value="反选"/><input type="button" onclick="cancelClick('mid[]')"  value="取消"/>
+
+                    <tr>
+                        <th><input type="checkbox"value="勾选"/>勾选ID</th>
+                        <th>会员编号</th>
+                        <th>会员名字</th>
+                        <th>会员昵称</th>
+                        <th>会员手机号</th>
+
+                    </tr>
+                    </thead>
+             <foreach name="members" item="member">
+                        <tr>
+
+                            <td><input type="checkbox" name="mid[]" value="{$member.member_id}"/>{$member.member_id}</td>
+                            <td>{$member.user_num}</td>
+                            <td>{$member.member_name}</td>
+                            <td>{$member.nickname}</td>
+                            <td>{$member.phone}</td>
+                        </tr>
+                        </foreach>
+                    <input type="hidden" name="search" value="2" >
+                </table>
+                <div class="btn-toolbar">
+                    <button type="submit" value="2" class="btn btn-primary"><strong>提交</strong></button>
+                </div>
+            </form>
+
+        </div>
+        <!--- START 分页模板 --->
+        {$page_html}
+        <!--- END --->
+        每页25项
+    </div>
+</div>
+	<script>
+        function check_all(name){
+            var allsel=document.getElementsByName(name);
+            for(var i=0;i<allsel.length;i++)
+            {
+                allsel[i].checked = true;
+            }
+        }
+        function reverseClick(name){
+            var allsel=document.getElementsByName(name);
+            for(var i=0;i<allsel.length;i++)
+            {
+                allsel[i].checked=!allsel[i].checked;
+            }
+        }
+        function cancelClick(name){
+            var allsel=document.getElementsByName(name);
+            for(var i=0;i<allsel.length;i++)
+            {
+                allsel[i].checked=false;
+            }
+        }
+	</script>
+<!-- END 以下内容不需更改，请保证该TPL页内的标签匹配即可 -->
+<include file="Index:footer"/>

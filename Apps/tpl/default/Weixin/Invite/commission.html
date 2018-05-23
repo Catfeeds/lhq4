@@ -1,0 +1,60 @@
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no, maximum-scale=1.0" />
+		<meta content="yes" name="apple-mobile-web-app-capable" />
+		<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+		<meta content="telephone=no" name="format-detection" />
+
+		<link href="__WXP__/css/invite.css" rel="stylesheet" type="text/css" />
+                <script>
+                    var actionurl="{:U('getcommis')}";
+                        var pageindex=1;
+                        var range = 50;                    
+                        var totalheight = 0;                        
+                        var data={page:pageindex};//定义post参数
+                    $(function(){                        
+                       
+                        asyndata(actionurl,data);//首次默认装载第一页
+                        $(window).scroll(function(){  
+                            var srollPos = $(window).scrollTop(); //滚动条距顶部距离(页面超出窗口的高度)  
+
+                            totalheight = parseFloat($(window).height()) + parseFloat(srollPos);  
+                            if(($(document).height()-range) <= totalheight) {
+                                var index = layer.load(0, {shade: false});
+                                pageindex++;
+                                data={page:pageindex};
+                                asyndata(actionurl,data);
+                                layer.close(index);
+                            }  
+                        }); 
+                    });
+                    /*
+                     * 异步加载数据
+                     */
+                   function asyndata(actionurl,data){
+                           $.post(actionurl,data,function(result){
+                                    if (pageindex===1&&result.length<=0) {
+                                             $("#ul_list").append('<h3 style="padding: 20px;">你还没有任何佣金\n\
+                                                o(︶︿︶)o ,邀请的好友越多越容易获得佣金哦...≥▽≤&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n\
+                                            <a onclick="javascript:window.history.back();">返回</a></h3></h3>');
+                                           return;     
+                                    }
+                                    for(var key in result){ 
+                                        if (key%2===0) {
+                                        $("#divList").append("<dd><span>"+result[key].phone+"</span><span>"+result[key].creatdate+"</span><span>"+result[key].consume+"</span><span>"+result[key].comval+"</span></dd>");
+                                    }else{
+                                        $("#divList").append("<dd style='background: aliceblue;'><span>"+result[key].phone+"</span><span>"+result[key].creatdate+"</span><span>"+result[key].consume+"</span><span>"+result[key].comval+"</span></dd>");
+                                    }
+                                }
+                            },'json');    
+                        }     
+                        
+                </script>
+		<div id="wrapper">
+			<div class="inviteDetails commiss">
+                            <p>佣金余额：<em class="orange">&yen;{$comye}</em><cite>（累计收入：&yen;{$sum}）</cite></p>
+				<dl id="divList">
+					<dt><span>用户名</span><span>时间</span><span>{:C('web_title')}金额(&yen;)</span><span>佣金(&yen;)</span></dt>
+					
+				</dl>
+			</div>
+		</div>

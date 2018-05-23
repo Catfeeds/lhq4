@@ -1,0 +1,110 @@
+
+		<header class="panel_header fix mb20">
+			<h2 class="title">{$title}</h2>
+		</header>
+                
+		<div class="fix">
+<!--                    <div style=" float: left;">
+                        &nbsp;<input placeholder="开始时间" value="{$keyword[0]}" id="start" style="width:110px; height: 34px;-moz-border-radius:20px;-webkit-border-radius:5px;border-radius:5px; " class="laydate-icon">
+                        &nbsp;&nbsp;至&nbsp;&nbsp;
+                        <input placeholder="结束时间" id="end" value="{$keyword[1]}" style="width:110px; height: 34px;-moz-border-radius:20px;-webkit-border-radius:5px;border-radius:5px; " class="laydate-icon">
+                    </div>-->
+				<div style="float: left;" class="input-group l w300 mr10">
+                                    <input type="text" class="form-control keyword" name="" maxlength="32" value="{$keyword[0]}" placeholder="关键字" />
+                                    <a href="javascript:;" onclick="getList();" class="input-group-addon btn btn-default">清空</a>
+					<div class="input-group-addon btn btn-default search" onclick="search();">搜索</div>
+				</div>
+		</div>
+				
+		<div class="lists pct100 mt20">
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<table  class="table table-hover table-condensed table-striped table-bordered">
+						<thead>
+							<tr >
+								<th>姓名</th>
+                                                                <th>手机</th>
+								<th>余额</th>
+								<th>全城积分余额</th>
+								<th>累计充值</th>
+								<th>累计购买</th>
+                                                                <th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+                                                    <volist name="list" id="v">
+							<tr>
+                                                            <td>{$v.nickname}</td>
+                                                            <td>{$v.phone}</td>
+                                                            <td>{$v.balance}</td>
+                                                            <td>{$v.comsum}</td>
+                                                            <td>{$v.grandrechange}</td>
+                                                            <td>{$v.grandbuy}</td>
+                                                            <td><a href="{:U('show')}&id={$v.id}">积分记录</a></td>
+                                                        </tr>
+                                                     </volist>
+                                                        <tr>
+                                                            <td colspan="2"><span>总计</span></td>
+                                                            <td>{$info['balance']}</td>
+                                                            <td>{$info['comsum']}</td>
+                                                            <td>{$info['grandrechange']}</td>
+                                                            <td>{$info['grandbuy']}</td>				
+							</tr>
+						</tbody>
+					</table>
+                                    <table class="table table-bordered table-striped">
+                                        <tr>
+                                                <td style="text-align:center;">{$page}</td>
+                                        </tr>
+                                        </table>
+					<!--<div class="page"></div>-->
+				</div>
+			</div>
+		</div>
+		
+
+
+<script src="__LIB_URL__/ja.js"></script>
+<!--<script src="__LIB_URL__/laydate/laydate.js"></script>-->
+<script>
+//    var start = {
+//    elem: '#start',
+//    max: laydate.now() ,
+//    istime: true,
+//    istoday: false,
+//    choose: function(datas){
+//         end.min = datas; 
+//         end.start = datas 
+//    }
+//};
+//var end = {
+//    elem: '#end',
+//    max: laydate.now() ,
+//    istime: true,
+//    istoday: false,
+//    choose: function(datas){
+//        start.max = datas; 
+//    }
+//};
+//laydate(start);
+//laydate(end);
+function getList(){
+//    $('#start').val('');
+//    $('#end').val('');
+    $('.keyword').val('');
+}
+function search(){
+//    var start = $.trim($('#start').val()),
+//    end = $.trim($('#end').val()),
+    keyword = $.trim($('.keyword').val());
+//    if((start && !end) || (!start && end)){
+//        alert('请选择完整时间！');
+//        return;
+//    }
+    var url = "{:U('Finance/index')}";
+//    var tmp_data = new Array();
+//    tmp_data= [start,end,keyword];
+    data = encodeURI(keyword);
+     window.location.href=url+'&keyword='+data; 
+}
+</script>

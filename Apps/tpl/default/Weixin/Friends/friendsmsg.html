@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<link href="__WXP__/css/address.css" rel="stylesheet" type="text/css" />
+<style>
+
+    .address_info p{
+        text-indent:1em;
+        font-size: 12px;
+    }
+    .new{
+        background: #f9c922;
+        padding: 5px;
+    }
+    .addr_box{
+         margin:10px auto; border-radius:5px;border:1px solid #CCCCCC; clear:both
+    }
+    .addr_box dt{
+        width:100%; height:26px; line-height:26px; border-bottom:1px dashed #CCCCCC;
+    }
+    .addr_box dd{
+        font-size:14px; line-height:26px; text-align:left; height:40px; padding:10px;
+    }
+    .red a{ color:red}
+</style>
+<script>
+    function modify(fid){
+        $.get("{:U('seemsg')}",{fid:fid});
+    }
+    var pageindex = 1;
+    var range = 50;
+    var totalheight = 0;
+    var data = {page: pageindex};//定义post参数
+    $(function () {
+
+        asyndata();//首次默认装载第一页
+        $(window).scroll(function () {
+            var srollPos = $(window).scrollTop(); //滚动条距顶部距离(页面超出窗口的高度)  
+
+            totalheight = parseFloat($(window).height()) + parseFloat(srollPos);
+            if (($(document).height() - range) <= totalheight) {                
+                pageindex++;
+                data = {page: pageindex};
+                asyndata();
+            }
+        });
+    });
+    /*
+     * 异步加载数据
+     */
+    function asyndata() {
+        $.post('', data, function (result) {
+            if (pageindex === 1 && result.length <= 0) {
+                $("#address").append('<h3 style="padding: 20px;">暂无消息<!--,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n\
+            <a style="color:#dd4f43" onclick="javascript:window.history.back();">返回&gt;&gt;&gt;</a>--></h3></h3>');
+                return;
+            }
+            for (var key in result) {
+                if(result[key].isSee==1){
+                    if (result[key].flag==1) {
+                        $("#address").append('<div class="addr_box"><dt><span style="padding-left:12px; float:left">'+result[key].nickname+'</span><span style="padding-left:12px; float:left; color:#F00">['+result[key].adddate+']</span></dt><dd>和您已成为好友，记得一起happy...</dd></div>');
+}else{
+    $("#address").append('<div class="addr_box"><dt><span style="padding-left:12px; float:right; padding-right:10px; font-size:14px;" class="red"><a href='+'{:U("friendmsg_add")}&id='+result[key].id+'>立即处理</a></span><span style="padding-left:12px; float:left">'+result[key].nickname+'</span><span style="padding-left:12px; float:left; color:#F00">['+result[key].adddate+']</span></dt><dd>请求添加您为好友,点击查看详情...</dd></div>');
+}
+                }else{
+                    if (result[key].flag==1) {
+                        $("#address").append('<div class="addr_box"><dt><span style="padding-left:12px; float:left">'+result[key].nickname+'</span><span style="padding-left:12px; float:left; color:#F00">['+result[key].adddate+']</span></dt><dd>和您已成为好友，记得一起happy...</dd></div>');
+}else{
+    $("#address").append('<div class="addr_box"><dt><span style="padding-left:12px; float:right; padding-right:10px; font-size:14px;" class="red"><a href='+'{:U("friendmsg_add")}&id='+result[key].id+'>立即处理</a></span><span style="padding-left:12px; float:left">'+result[key].nickname+'</span><span style="padding-left:12px; float:left; color:#F00">['+result[key].adddate+']</span></dt><dd>请求添加您为好友 ,点击查看详情...</dd></div>');
+}
+                }
+            }
+        });
+    }
+    
+</script>
+<div id="address" style=" padding:40px 10px;">
+    <!--
+    <div  id="" style=" margin: 5px auto;border-radius: 10px" class="address_info panel new">
+
+        <p>  封  添加您为好友 ,点击查看详情... 
+        </p>
+
+
+    </div>
+    <div id="" style=" margin: 5px auto;border-radius: 10px" class="address_info panel">
+
+        <p>  封  添加您为好友 ,点击查看详情... 
+        </p>
+
+
+    </div>
+    -->
+</div>
+

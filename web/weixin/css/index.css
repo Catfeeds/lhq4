@@ -1,0 +1,140 @@
+.footer > ul {
+	width: 100%;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+.footer > ul > li {
+	float: left;
+	display: inline-block;
+	width: 25%;
+	text-align: center;
+	padding: 0 !important;
+	margin: 0;
+	
+}
+
+.footer > ul > li > a {
+	display: inline-block;
+	width: 100%;
+}
+.footer > ul > li > a:hover,
+.footer > ul > li > a.cur {
+	color: #77b9f1;
+	background-color: #eee;
+}
+
+.item-list li {
+    border-right: 1px solid #dedede;
+    border-bottom: 1px solid #dedede;
+    padding-bottom: 3px;
+    margin-right: -1px;
+}
+.item-list li:nth-child(2n) {
+	border-right: none;
+}
+.animated {
+	-webkit-animation-duration:1s;
+	animation-duration:1s;
+	-webkit-animation-fill-mode:both;
+	animation-fill-mode:both;
+}
+
+@-webkit-keyframes rubberBand {
+	from {
+		-webkit-transform: scale3d(1,1,1);
+		transform: scale3d(1,1,1);
+	}
+
+	30% {
+		-webkit-transform: scale3d(1.25,0.75,1);
+		transform: scale3d(1.25,0.75,1);
+	}
+
+	40% {
+		-webkit-transform: scale3d(0.75,1.25,1);
+		transform: scale3d(0.75,1.25,1);
+	}
+
+	50% {
+		-webkit-transform: scale3d(1.15,0.85,1);
+		transform: scale3d(1.15,0.85,1);
+	}
+
+	65% {
+		-webkit-transform: scale3d(.95,1.05,1);
+		transform: scale3d(.95,1.05,1);
+	}
+
+	75% {
+		-webkit-transform: scale3d(1.05,.95,1);
+		transform: scale3d(1.05,.95,1);
+	}
+
+	to {
+		-webkit-transform: scale3d(1,1,1);
+		transform: scale3d(1,1,1);
+	}
+}
+
+@keyframes rubberBand {
+	from {
+		-webkit-transform: scale3d(1,1,1);
+		transform: scale3d(1,1,1);
+	}
+
+	30% {
+		-webkit-transform: scale3d(1.25,0.75,1);
+		transform: scale3d(1.25,0.75,1);
+	}
+
+	40% {
+		-webkit-transform: scale3d(0.75,1.25,1);
+		transform: scale3d(0.75,1.25,1);
+	}
+
+	50% {
+		-webkit-transform: scale3d(1.15,0.85,1);
+		transform: scale3d(1.15,0.85,1);
+	}
+
+	65% {
+		-webkit-transform: scale3d(.95,1.05,1);
+		transform: scale3d(.95,1.05,1);
+	}
+
+	75% {
+		-webkit-transform: scale3d(1.05,.95,1);
+		transform: scale3d(1.05,.95,1);
+	}
+
+	to {
+		-webkit-transform: scale3d(1,1,1);
+		transform: scale3d(1,1,1);
+	}
+}
+
+.rubberBand {
+	-webkit-animation-name: rubberBand;
+	animation-name: rubberBand;
+}
+
+
+
+.user-msg-num:not(:empty),
+.shop-cart-num:not(:empty) {
+	height: 15px;
+	min-width: 15px;
+	font-size: 15px;
+	line-height: 15px;
+	border-radius: 50%;
+	background-color: rgba(255,0,0,.6);
+	top: 0;
+	left: 50%;
+	color: #fff;
+	padding: 3px;
+}
+
+
+.focus .bd li img {
+	height: 150px !important;
+}

@@ -1,0 +1,57 @@
+.address_info{
+	
+	background-color: #fff;
+	border-bottom: 2px solid #DEDEDE;
+	display: block;
+}
+.address_info p{
+	font-size: 16px;
+	padding:auto 10px;
+}
+body{
+	background-color: #F7F7F7;
+}
+.confim{
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	color: #DE4849;
+	font-size: 18px;
+	background-color: #fff;
+}
+
+.input_area{
+	text-align: center;
+}
+.input_area input,.input_area select{
+	display: block;
+	margin: auto;
+	margin-top: 15px;
+	box-sizing: border-box;
+	width: 80%;
+	height: 50px;
+	border: 1px solid #dedede;
+        border-radius: 5px;
+        color: #000;
+        font-size: 16px;
+        height: 35px;
+        padding-left: 15px;
+}
+
+.input_area textarea{
+	width: 80%;
+	margin-top: 15px;
+	height: 100px;
+	font-size: 16px;
+	border: 1px solid #dedede;
+}
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    color: #dedede;
+}
+.input_area .confirm{
+	background-color: #DE4849;
+	color: #fff;
+	font-size: 18px;
+	letter-spacing: 2px;
+}

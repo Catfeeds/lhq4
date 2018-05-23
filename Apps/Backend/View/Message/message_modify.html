@@ -1,0 +1,111 @@
+<!--<{include file ="header.tpl"}>-->
+<!--<{include file ="navibar.tpl"}>-->
+<!--<{include file ="sidebar.tpl"}>-->
+<include file ="Index:header"/>
+<include file ="Index:navibar"/>
+<include file ="Index:sidebar"/>
+<!-- START 以上内容不需更改，保证该TPL页内的标签匹配即可 -->
+
+{$osadmin_action_alert}
+{$osadmin_quick_note}
+<script src="__PUBLIC__/ckeditor/ckeditor.js"></script>
+
+<div class="well">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#home" data-toggle="tab">请填写渠道信息</a></li>
+    </ul>	
+	
+	<div id="myTabContent" class="tab-content">
+		  <div class="tab-pane active in" id="home">
+	
+           <form id="tab" method="post" action="">
+			   <label>消息主题</label>
+				<input type="text" name="title" value="{$message.title}" class="input-xlarge" required="true" autofocus="true" >
+               <label>消息内容</label>
+               <textarea name="content" rows="5" class="input-xlarge">{$message.content}</textarea>
+
+               <label>消息来源</label>
+               <input type="text" name="msg_from" value="{$message.msg_from}" class="input-xlarge" required="true" autofocus="true" >
+               <label>消息去向</label>
+               <input type="text" name="msg_to" value="{$message.msg_to}" class="input-xlarge" required="true" autofocus="true" readonly="true">
+				<!--<label>消息状态</label>
+				<input type="text" name="status" value="<{$message.status}>" class="input-xlarge" required="true" autofocus="true" >-->
+				<label>是否发送</label>
+               <!--<input type="text" name="msg_to" value="<{$message.display}>" class="input-xlarge" required="true" autofocus="true" >-->
+               <select name="display" id="" class="input-xlarge" required="true" autofocus="true">
+                  <!-- <option value="1"> 是 </option>
+                   <option value="0"> 否 </option>-->
+
+                   <if condition=" $message.display eq '0'">
+                       <option value="0" selected="selected"> 否 </option>-->
+                       <option value="1"> 是 </option>
+                       <elseif condition="$message.display eq '1'" />
+                       <option value="1"  selected="selected"> 是 </option>
+                       <option value="0"> 否 </option>
+                       </if>
+
+               </select>
+               <label>消息类型</label>
+               <select name="m_type" class="input-xlarge" required="true" autofocus="true">
+                   <foreach name="msgtype" item="msgtype" key="id">
+                       <option value="{$id}"
+                       <if condition="$message['m_type'] eq $id">
+                           selected="selected"
+                       </if>
+                       >{$msgtype}</option>
+                   </foreach>
+               <!--    <if condition=" $message.m_type eq '0'">
+
+                       <option value="3"> 新人须知 </option>
+                       <option value="2"> 产品近况公告 </option>
+                       <option value="1"> 任务上线通知 </option>
+                       <option value="0" selected="selected"> 提现反馈通知 </option>
+                       <elseif condition="$message.m_type eq '1'" />
+                       <option value="3"> 新人须知 </option>
+                       <option value="2"> 产品近况公告 </option>
+                       <option value="1" selected="selected"> 任务上线通知 </option>
+                       <option value="0" > 提现反馈通知 </option>
+                       <elseif condition="$message.m_type eq '2'" />
+                       <option value="3"> 新人须知 </option>
+                       <option value="2" selected="selected"> 产品近况公告 </option>
+                       <option value="1"> 任务上线通知 </option>
+                       <option value="0" > 提现反馈通知 </option>
+                       <elseif condition="$message.m_type eq '3'" />
+                       <option value="3" selected="selected"> 新人须知 </option>
+                       <option value="2"> 产品近况公告 </option>
+                       <option value="1"> 任务上线通知 </option>
+                       <option value="0" > 提现反馈通知 </option>
+                   </if>-->
+
+               </select>
+
+               <label>创建时间</label>
+               <input type="text" id="start_date" name="create_time" value="{$message.create_time}" placeholder="起始时间" >
+
+               <div class="btn-toolbar">
+				<button type="submit" class="btn btn-primary"><strong>提交</strong></button>
+				</div>
+			</form>
+        </div>
+    </div>
+</div>
+<script>
+    $(function() {
+        var date=$( "#start_date" );
+        date.datetimepicker({
+            showSecond:true,
+            timeFormat: "HH:mm:ss"
+        });
+
+    });
+    $(function() {
+        var date=$( "#end_date" );
+        date.datetimepicker({
+            showSecond:true,
+            timeFormat: "HH:mm:ss"
+        });
+    });
+</script>
+<!-- END 以下内容不需更改，请保证该TPL页内的标签匹配即可 -->
+<!--<{include file="footer.tpl" }>-->
+<include file="Index:footer"/>

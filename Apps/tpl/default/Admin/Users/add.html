@@ -1,0 +1,177 @@
+<link href="__LIB_URL__/font-awesome.css,zxx.css" rel="stylesheet"/>
+<script src="__LIB_URL__/jquery.min.js" type="text/javascript"></script>
+<script src="__LIB_URL__/jquery.noty.js" type="text/javascript"></script>
+<script src="__LIB_URL__/jquery.nicescroll.min.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="__LIB_URL__/kindeditor/themes/default/default.css" />
+<link rel="stylesheet" href="__STATIC__/admin/admin.css" media="all" />
+<link rel="stylesheet" href="__LIB_URL__/bootstrap.min.css" media="all" />
+<link rel="stylesheet" href="__LIB_URL__/bootstrap-theme.min.css" media="all" />
+<script src="__LIB_URL__/kindeditor/kindeditor.js"></script>
+<script src="__LIB_URL__/kindeditor/lang/zh_CN.js"></script>
+
+<script>
+    ROOT= "__ROOT__";
+</script>
+
+<div class="m20" style="margin:10px;">
+
+	<header class="panel_header fix mb20">
+			<h2 class="title">添加用户</h2>
+	</header>	
+
+	<form action="__SELF__" method="post" class="goods-form">
+	
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">昵称</div>
+				<input type="search" class="form-control" name="nickname" value="" placeholder="昵称" required="required"/>
+			</div>
+		</div>
+		
+		<div class="form-group pl5 pr5">
+			<div class="input-group" style="width:100px;max-width:100%;">
+				<div class="input-group-addon">图片</div>
+				<img src="__ROOT__/upload/icon/icon.png" style="height:60px;width:auto;" class="form-control url-image" />
+				<input type="hidden" name="pic" value="__ROOT__/upload/icon/icon.png" class="icon-url" required="required"/>
+				<div class="input-group-addon upload poi">上传</div>
+			</div>
+		</div>	
+		
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">电话</div>
+				<input type="text" class="form-control" name="phone" value="" placeholder="电话" required="required" pattern="^1\d{10}$|^0\d{11}$|^0\d{10}$|\d{8}$|\d{7}$"/>
+			</div>
+		</div>
+		
+<!-- 		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">邮箱</div>
+				<input type="email" class="form-control" name="email" value="" placeholder="邮箱"/>
+			</div>
+		</div> -->
+		
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">地址</div>
+				<input type="text" class="form-control" name="addr" value="" placeholder="地址"/>
+			</div>
+		</div>
+        <div class="form-group pl5 pr5">
+            <div class="input-group">
+                <div class="input-group-addon">邮箱</div>
+                <input type="text" class="form-control" name="email" value="" placeholder="地址"/>
+            </div>
+        </div>
+		<!--<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">密码</div>
+				<input type="password" class="form-control" name="password" value="" placeholder="密码(六位以上数字或字母的组合)" required="required" pattern="\S{6,}" id="pw" />
+			</div>
+			
+			<div class="input-group">
+				<div class="input-group-addon">密码重复</div>
+				<input type="password" class="form-control" name="password1" value="" placeholder="再输一遍上面的密码" required="required" id="pw1" />
+			</div>
+		</div>-->
+
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">个性签名</div>
+				<input type="text" class="form-control" name="signature" value="" placeholder="个性签名"/>
+			</div>
+		</div>
+        <div class="form-group pl5 pr5">
+            <div class="input-group">
+                <div class="input-group-addon">IP</div>
+                <input type="text" class="form-control" name="ip" value="" placeholder="IP地址"/>
+            </div>
+        </div>
+      <!--  <div class="form-group pl5 pr5">
+            <div class="input-group">
+                <div class="input-group-addon">地址</div>
+                <input type="text" class="form-control" name="addr" value="" placeholder="住址"/>
+            </div>
+        </div>-->
+        <div class="form-group pl5 pr5">
+            <div class="input-group">
+                <div class="input-group-addon">是否是机器人</div>
+                <div class="form-control">
+                    <label style="margin:auto 10px;"><input type="radio"  name="is_robot" value="1" placeholder="是"/>是</label>
+                    <label style="margin:auto 10px;"><input type="radio"  name="is_robot" value="0" placeholder="否" checked="checked"/>否</label>
+
+                </div>
+            </div>
+        </div>
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">状态</div>
+				<div class="form-control">
+					<label style="margin:auto 10px;"><input type="radio"  name="status" value="2" placeholder="禁用"/>禁用</label>
+					<label style="margin:auto 10px;"><input type="radio"  name="status" value="1" placeholder="启用" checked="checked"/>启用</label>
+					
+				</div>
+			</div>
+		</div>
+		
+		
+
+		<div class="form-group pl5 pr5">			
+			<button type="submit" class="btn btn-primary" id="submit"><i class="fa fa-save"></i> 
+				<span>保存</span>
+			</button>
+		</div>
+
+	</form>
+
+</div>
+
+<script>
+
+		/*$(function(){
+			
+			$("#submit").click(function(){
+				
+				if($("#pw").val()!=$("#pw1").val()){
+					layer.msg("两次输入的密码不匹配");
+			    	return false;
+				}
+				
+			});
+			
+		});
+
+		function checkPasswords() {
+		    var pass1 = document.getElementById("password1");
+		    var pass2 = document.getElementById("password2");
+		
+		    if (pass1.value != pass2.value){
+		    	layer.msg("两次输入的密码不匹配");
+		    	return false;
+		        //alert("两次输入的密码不匹配");
+		    }
+		}
+*/
+		KindEditor.ready(function(K) {
+			var editor = K.editor({
+				fileManagerJson :  ROOT+'/php/file_manager_json.php',
+				uploadJson :  ROOT+'/php/upload_json.php?dir=image',
+				allowFileManager : true
+			});
+			K('.upload').click(function() {
+				editor.loadPlugin('image', function() {
+					editor.plugin.imageDialog({
+						showRemote : false,
+						imageUrl : K('.icon-url').val(),
+						clickFn : function(url, title) {
+							K('.icon-url').val(url);
+							$('.url-image').attr('src', url);
+							editor.hideDialog();
+						}
+					});
+				});
+			});
+
+		});
+</script>

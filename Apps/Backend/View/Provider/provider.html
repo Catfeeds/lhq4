@@ -1,0 +1,73 @@
+<include file ="Index:header"/>
+<include file ="Index:navibar"/>
+<include file ="Index:sidebar"/>
+<!-- TPLSTART 以上内容不需更改，保证该TPL页内的标签匹配即可 -->
+
+<div class="btn-toolbar" style="margin-bottom:2px;">
+    <a href="{:U('providerAdd')}" class="btn btn-primary"><i class="icon-plus"></i> 添加广告商</a>
+</div>
+<form class="form_search"  action="__ACTION__" method="GET" style="margin-bottom:0px">
+    <div style="float:left;margin-right:5px">
+        <label>查询广告商</label>
+        <input type="text" name="provider_name" value="{$_GET.provider_name}" placeholder="输入广告商名称" >
+        <input type="hidden" name="search" value="1" >
+    </div>
+    <div class="btn-toolbar" style="padding-top:25px;padding-bottom:0px;margin-bottom:0px">
+        <button type="submit" class="btn btn-primary">检索</button>
+    </div>
+    <div style="clear:both;"></div>
+</form>
+<div class="block">
+	<a href="#page-stats" class="block-heading" data-toggle="collapse">广告商管理</a>
+	<div id="page-stats" class="block-body collapse in">
+	<table class="table table-striped">
+			<thead>
+			<tr>
+				<th>广告商id</th>
+				<th>广告商名称</th>
+				<th>联系电话</th>
+				<th>邮箱</th>
+				<if condition="$user_group eq 1 || $user_group eq 5"><th>广告商添加者</th></if>
+			    <th>操作</th>
+				
+			</tr>
+			</thead>
+			<tbody>							  
+			<foreach name="providers" item="provider">
+				 
+				<tr>
+				 
+				<td>{$provider.provider_id}</td>
+				
+				<td>{$provider.provider_name}</td>
+				
+				<td>{$provider.mobile}</td>
+				 
+				<td>{$provider.email}</td>
+				<if condition="$user_group eq 1 || $user_group eq 5">
+					<if  condition=" $provider.user_id eq 0 "> <td></td><else />
+						<foreach name="userInfos"  item="userInfo">
+							<if condition="$provider['user_id'] eq $userInfo['user_id']">
+								<td>{$userInfo.user_name}</td>
+							</if>
+						</foreach>
+					</if>
+				</if>
+				<td>
+					<a href="{:U('providerModify',array('provider_id'=>$provider['provider_id']))}" title= "编辑" ><i class="icon-pencil"></i></a>
+				</td>
+				
+				</tr>
+			</foreach>
+		  </tbody>
+		</table>
+		<!--- START 分页模板 -->
+
+                    {$page_html}
+
+			   <!--- END -->	
+			    每页25项							
+	</div>
+</div>
+<!-- TPLEND 以下内容不需更改，请保证该TPL页内的标签匹配即可 -->
+<include file="Index:footer"/>

@@ -1,0 +1,4 @@
+insert into yytb_system (name,cn_name,val,orderid,cid,remarks,type,status) values('alipay_partner','支付宝合作伙伴身份PID','2088221172121599','0','0','支付宝合作伙伴身份PID','0','1');
+insert into yytb_system (name,cn_name,val,orderid,cid,remarks,type,status) values('alipay_key','支付宝安全检验码','zjkhw6zlttwc9y4zic7s7gcwtv8lke9t','0','0','数字和字母组成的32位字符,MD5加密','0','1');
+insert into yytb_system (name,cn_name,val,orderid,cid,remarks,type,status) values('alipay_account_email','付款账号','yykaiqiang@cndiandian.cn','0','0','付款账号','0','1');
+insert into yytb_system (name,cn_name,val,orderid,cid,remarks,type,status) values('alipay_account_name','付款账户名','点点时代（北京）科技有限公司','0','0','付款账户名','0','1');

@@ -1,0 +1,310 @@
+[ 2018-05-11T10:58:01+08:00 ] ::1 /lhq/Mobile/loginapi?phone=18611577589&idfa=6E222261B585-AF12-A69777F464CE&identify=AE964C21-3462-40FB-9221-97ECEB811E2D
+ERR: Cron:cron_1 Runat 2018-05-11 10:58:01 Use 0.003424 s
+
+[ 2018-05-11T10:58:01+08:00 ] ::1 /lhq/Mobile/loginapi?phone=18611577589&idfa=6E222261B585-AF12-A69777F464CE&identify=AE964C21-3462-40FB-9221-97ECEB811E2D
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000427s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003400s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001513s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003757s ]
+NOTIC: [8] Undefined index: code D:\wamp64\www\lhq\Apps\Mobile\Controller\LoginapiController.class.php 第 8 行.
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0014s ]
+SQL: SELECT `phone`,`yzm_code`,`identify`,`idfa` FROM `member` WHERE `phone` = '18611577589' LIMIT 1   [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `alter_idfa` [ RunTime:0.0011s ]
+SQL: UPDATE `alter_idfa` SET `idfa`='6E222261B585-AF12-A69777F464CE' WHERE `phone` = '18611577589' [ RunTime:0.0027s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001859s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.012128s ]
+INFO: [ app_end ] --END-- [ RunTime:0.018029s ]
+
+[ 2018-05-11T10:58:15+08:00 ] ::1 /lhq/Mobile/loginapi?phone=18611577589&idfa=6E2222261B585-AF12-A69777F464CE&identify=AE964C21-3462-40FB-9221-97ECEB811E2D
+ERR: Cron:cron_1 Runat 2018-05-11 10:58:15 Use 0.003544 s
+
+[ 2018-05-11T10:58:16+08:00 ] ::1 /lhq/Mobile/loginapi?phone=18611577589&idfa=6E2222261B585-AF12-A69777F464CE&identify=AE964C21-3462-40FB-9221-97ECEB811E2D
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000424s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003052s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002140s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005730s ]
+NOTIC: [8] Undefined index: code D:\wamp64\www\lhq\Apps\Mobile\Controller\LoginapiController.class.php 第 8 行.
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0017s ]
+SQL: SELECT `phone`,`yzm_code`,`identify`,`idfa` FROM `member` WHERE `phone` = '18611577589' LIMIT 1   [ RunTime:0.0016s ]
+SQL: SHOW COLUMNS FROM `alter_idfa` [ RunTime:0.0014s ]
+SQL: UPDATE `alter_idfa` SET `idfa`='6E2222261B585-AF12-A69777F464CE' WHERE `phone` = '18611577589' [ RunTime:0.0084s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001769s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.011678s ]
+INFO: [ app_end ] --END-- [ RunTime:0.017518s ]
+
+[ 2018-05-11T10:58:18+08:00 ] ::1 /lhq/Mobile/loginapi?phone=18611577589&idfa=6E2222261B585-AF12-A69777F464CE&identify=AE964C21-3462-40FB-9221-97ECEB811E2D
+ERR: Cron:cron_1 Runat 2018-05-11 10:58:18 Use 0.002431 s
+
+[ 2018-05-11T10:58:18+08:00 ] ::1 /lhq/Mobile/loginapi?phone=18611577589&idfa=6E2222261B585-AF12-A69777F464CE&identify=AE964C21-3462-40FB-9221-97ECEB811E2D
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000407s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003249s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001650s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004286s ]
+NOTIC: [8] Undefined index: code D:\wamp64\www\lhq\Apps\Mobile\Controller\LoginapiController.class.php 第 8 行.
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0012s ]
+SQL: SELECT `phone`,`yzm_code`,`identify`,`idfa` FROM `member` WHERE `phone` = '18611577589' LIMIT 1   [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `alter_idfa` [ RunTime:0.0009s ]
+SQL: UPDATE `alter_idfa` SET `idfa`='6E2222261B585-AF12-A69777F464CE' WHERE `phone` = '18611577589' [ RunTime:0.0031s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001398s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.009059s ]
+INFO: [ app_end ] --END-- [ RunTime:0.014172s ]
+
+[ 2018-05-11T10:58:20+08:00 ] ::1 /lhq/Mobile/loginapi?phone=18611577589&idfa=6E2222261B585-AF12-A69777F464CE&identify=AE964C21-3462-40FB-9221-97ECEB811E2D
+ERR: Cron:cron_1 Runat 2018-05-11 10:58:20 Use 0.003439 s
+
+[ 2018-05-11T10:58:20+08:00 ] ::1 /lhq/Mobile/loginapi?phone=18611577589&idfa=6E2222261B585-AF12-A69777F464CE&identify=AE964C21-3462-40FB-9221-97ECEB811E2D
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000377s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002848s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001662s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004150s ]
+NOTIC: [8] Undefined index: code D:\wamp64\www\lhq\Apps\Mobile\Controller\LoginapiController.class.php 第 8 行.
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0015s ]
+SQL: SELECT `phone`,`yzm_code`,`identify`,`idfa` FROM `member` WHERE `phone` = '18611577589' LIMIT 1   [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `alter_idfa` [ RunTime:0.0013s ]
+SQL: UPDATE `alter_idfa` SET `idfa`='6E2222261B585-AF12-A69777F464CE' WHERE `phone` = '18611577589' [ RunTime:0.0021s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001416s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.009925s ]
+INFO: [ app_end ] --END-- [ RunTime:0.014920s ]
+
+[ 2018-05-11T10:58:23+08:00 ] ::1 /lhq/Mobile/loginapi?phone=18611577589&idfa=6E2222261B585-AF12-A69777F464CE&identify=AE964C21-3462-40FB-9221-97ECEB811E2D
+ERR: Cron:cron_1 Runat 2018-05-11 10:58:23 Use 0.002211 s
+
+[ 2018-05-11T10:58:23+08:00 ] ::1 /lhq/Mobile/loginapi?phone=18611577589&idfa=6E2222261B585-AF12-A69777F464CE&identify=AE964C21-3462-40FB-9221-97ECEB811E2D
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000470s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002832s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001531s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003967s ]
+NOTIC: [8] Undefined index: code D:\wamp64\www\lhq\Apps\Mobile\Controller\LoginapiController.class.php 第 8 行.
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0020s ]
+SQL: SELECT `phone`,`yzm_code`,`identify`,`idfa` FROM `member` WHERE `phone` = '18611577589' LIMIT 1   [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `alter_idfa` [ RunTime:0.0010s ]
+SQL: UPDATE `alter_idfa` SET `idfa`='6E2222261B585-AF12-A69777F464CE' WHERE `phone` = '18611577589' [ RunTime:0.0024s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001570s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.008809s ]
+INFO: [ app_end ] --END-- [ RunTime:0.014029s ]
+
+[ 2018-05-11T10:59:08+08:00 ] ::1 /lhq/Mobile/loginapi?phone=18611577589&idfa=6E2222261B585-AF12-A69777F464CE&identify=AE964C21-3462-40FB-9221-97ECEB811E2D
+ERR: Cron:cron_1 Runat 2018-05-11 10:59:08 Use 0.002708 s
+
+[ 2018-05-11T10:59:08+08:00 ] ::1 /lhq/Mobile/loginapi?phone=18611577589&idfa=6E2222261B585-AF12-A69777F464CE&identify=AE964C21-3462-40FB-9221-97ECEB811E2D
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000495s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003069s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001472s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003933s ]
+NOTIC: [8] Undefined index: code D:\wamp64\www\lhq\Apps\Mobile\Controller\LoginapiController.class.php 第 8 行.
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0013s ]
+SQL: SELECT `phone`,`yzm_code`,`identify`,`idfa` FROM `member` WHERE `phone` = '18611577589' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `alter_idfa` [ RunTime:0.0011s ]
+SQL: UPDATE `alter_idfa` SET `idfa`='6E2222261B585-AF12-A69777F464CE' WHERE `phone` = '18611577589' [ RunTime:0.0024s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001767s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.012137s ]
+INFO: [ app_end ] --END-- [ RunTime:0.018710s ]
+
+[ 2018-05-11T11:04:24+08:00 ] ::1 /lhq/Mobile/loginapi?phone=18611577589&idfa=6E222261B585-AF12-A69777F464CE&identify=AE964C21-3462-40FB-9221-97ECEB811E2D
+ERR: Cron:cron_1 Runat 2018-05-11 11:04:24 Use 0.002258 s
+
+[ 2018-05-11T11:04:24+08:00 ] ::1 /lhq/Mobile/loginapi?phone=18611577589&idfa=6E222261B585-AF12-A69777F464CE&identify=AE964C21-3462-40FB-9221-97ECEB811E2D
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000727s ]
+INFO: [ app_init ] --END-- [ RunTime:0.004622s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001618s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004176s ]
+NOTIC: [8] Undefined index: code D:\wamp64\www\lhq\Apps\Mobile\Controller\LoginapiController.class.php 第 8 行.
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0019s ]
+SQL: SELECT `phone`,`yzm_code`,`identify`,`idfa` FROM `member` WHERE `phone` = '18611577589' LIMIT 1   [ RunTime:0.0012s ]
+SQL: SHOW COLUMNS FROM `alter_idfa` [ RunTime:0.0009s ]
+SQL: UPDATE `alter_idfa` SET `idfa`='6E222261B585-AF12-A69777F464CE' WHERE `phone` = '18611577589' [ RunTime:0.0081s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001808s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.012224s ]
+INFO: [ app_end ] --END-- [ RunTime:0.018495s ]
+
+[ 2018-05-11T11:12:09+08:00 ] ::1 /lhq/Mobile/loginapi?phone=18611577589&idfa=6E2222261B585-AF12-A69777F464CE&identify=AE964C21-3462-40FB-9221-97ECEB811E2D
+ERR: Cron:cron_1 Runat 2018-05-11 11:12:09 Use 0.002523 s
+
+[ 2018-05-11T11:12:09+08:00 ] ::1 /lhq/Mobile/loginapi?phone=18611577589&idfa=6E2222261B585-AF12-A69777F464CE&identify=AE964C21-3462-40FB-9221-97ECEB811E2D
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000390s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002838s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001548s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004264s ]
+NOTIC: [8] Undefined index: code D:\wamp64\www\lhq\Apps\Mobile\Controller\LoginapiController.class.php 第 8 行.
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0014s ]
+SQL: SELECT `phone`,`yzm_code`,`identify`,`idfa` FROM `member` WHERE `phone` = '18611577589' LIMIT 1   [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `alter_idfa` [ RunTime:0.0009s ]
+SQL: UPDATE `alter_idfa` SET `idfa`='6E2222261B585-AF12-A69777F464CE' WHERE `phone` = '18611577589' [ RunTime:0.0058s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001919s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.010059s ]
+INFO: [ app_end ] --END-- [ RunTime:0.016012s ]
+
+[ 2018-05-11T11:12:12+08:00 ] ::1 /lhq/Mobile/loginapi?phone=18611577589&idfa=6E2222261B585-AF12-A69777F464CE&identify=AE964C21-3462-40FB-9221-97ECEB811E2D
+ERR: Cron:cron_1 Runat 2018-05-11 11:12:12 Use 0.002160 s
+
+[ 2018-05-11T11:12:12+08:00 ] ::1 /lhq/Mobile/loginapi?phone=18611577589&idfa=6E2222261B585-AF12-A69777F464CE&identify=AE964C21-3462-40FB-9221-97ECEB811E2D
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000431s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003733s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001682s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004678s ]
+NOTIC: [8] Undefined index: code D:\wamp64\www\lhq\Apps\Mobile\Controller\LoginapiController.class.php 第 8 行.
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0013s ]
+SQL: SELECT `phone`,`yzm_code`,`identify`,`idfa` FROM `member` WHERE `phone` = '18611577589' LIMIT 1   [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `alter_idfa` [ RunTime:0.0011s ]
+SQL: UPDATE `alter_idfa` SET `idfa`='6E2222261B585-AF12-A69777F464CE' WHERE `phone` = '18611577589' [ RunTime:0.0023s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001576s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.008885s ]
+INFO: [ app_end ] --END-- [ RunTime:0.014247s ]
+
+[ 2018-05-11T11:12:47+08:00 ] ::1 /lhq/Mobile/loginapi?phone=18611577589&idfa=6E222261B585-AF12-A69777F464CE&identify=AE964C21-3462-40FB-9221-97ECEB811E2D
+ERR: Cron:cron_1 Runat 2018-05-11 11:12:47 Use 0.002374 s
+
+[ 2018-05-11T11:12:47+08:00 ] ::1 /lhq/Mobile/loginapi?phone=18611577589&idfa=6E222261B585-AF12-A69777F464CE&identify=AE964C21-3462-40FB-9221-97ECEB811E2D
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000457s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002435s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005542s ]
+NOTIC: [8] Undefined index: code D:\wamp64\www\lhq\Apps\Mobile\Controller\LoginapiController.class.php 第 8 行.
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0027s ]
+SQL: SELECT `phone`,`yzm_code`,`identify`,`idfa` FROM `member` WHERE `phone` = '18611577589' LIMIT 1   [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `alter_idfa` [ RunTime:0.0010s ]
+SQL: UPDATE `alter_idfa` SET `idfa`='6E222261B585-AF12-A69777F464CE' WHERE `phone` = '18611577589' [ RunTime:0.0089s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001508s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.009819s ]
+INFO: [ app_end ] --END-- [ RunTime:0.015541s ]
+
+[ 2018-05-11T11:12:48+08:00 ] ::1 /lhq/Mobile/loginapi?phone=18611577589&idfa=6E222261B585-AF12-A69777F464CE&identify=AE964C21-3462-40FB-9221-97ECEB811E2D
+ERR: Cron:cron_1 Runat 2018-05-11 11:12:48 Use 0.002236 s
+
+[ 2018-05-11T11:12:48+08:00 ] ::1 /lhq/Mobile/loginapi?phone=18611577589&idfa=6E222261B585-AF12-A69777F464CE&identify=AE964C21-3462-40FB-9221-97ECEB811E2D
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000410s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002964s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001570s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004134s ]
+NOTIC: [8] Undefined index: code D:\wamp64\www\lhq\Apps\Mobile\Controller\LoginapiController.class.php 第 8 行.
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0012s ]
+SQL: SELECT `phone`,`yzm_code`,`identify`,`idfa` FROM `member` WHERE `phone` = '18611577589' LIMIT 1   [ RunTime:0.0013s ]
+SQL: SHOW COLUMNS FROM `alter_idfa` [ RunTime:0.0020s ]
+SQL: UPDATE `alter_idfa` SET `idfa`='6E222261B585-AF12-A69777F464CE' WHERE `phone` = '18611577589' [ RunTime:0.0023s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001607s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.009983s ]
+INFO: [ app_end ] --END-- [ RunTime:0.017764s ]
+
+[ 2018-05-11T11:12:55+08:00 ] ::1 /lhq/Mobile/loginapi?phone=18611577589&idfa=6E2222261B585-AF12-A69777F464CE&identify=AE964C21-3462-40FB-9221-97ECEB811E2D
+ERR: Cron:cron_1 Runat 2018-05-11 11:12:55 Use 0.002107 s
+
+[ 2018-05-11T11:12:55+08:00 ] ::1 /lhq/Mobile/loginapi?phone=18611577589&idfa=6E2222261B585-AF12-A69777F464CE&identify=AE964C21-3462-40FB-9221-97ECEB811E2D
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000402s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003507s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001461s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003754s ]
+NOTIC: [8] Undefined index: code D:\wamp64\www\lhq\Apps\Mobile\Controller\LoginapiController.class.php 第 8 行.
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0014s ]
+SQL: SELECT `phone`,`yzm_code`,`identify`,`idfa` FROM `member` WHERE `phone` = '18611577589' LIMIT 1   [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `alter_idfa` [ RunTime:0.0011s ]
+SQL: UPDATE `alter_idfa` SET `idfa`='6E2222261B585-AF12-A69777F464CE' WHERE `phone` = '18611577589' [ RunTime:0.0069s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001411s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.008147s ]
+INFO: [ app_end ] --END-- [ RunTime:0.013075s ]
+
+[ 2018-05-11T11:13:03+08:00 ] ::1 /lhq/Mobile/loginapi?phone=15633777228&idfa=B79884F3-14D3-477C-555584555557CBCC8D0EE&identify=AE964C21-3462-40FB-9221-97ECEB811E2D
+ERR: Cron:cron_1 Runat 2018-05-11 11:13:03 Use 0.002838 s
+
+[ 2018-05-11T11:13:03+08:00 ] ::1 /lhq/Mobile/loginapi?phone=15633777228&idfa=B79884F3-14D3-477C-555584555557CBCC8D0EE&identify=AE964C21-3462-40FB-9221-97ECEB811E2D
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000549s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003406s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001483s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003841s ]
+NOTIC: [8] Undefined index: code D:\wamp64\www\lhq\Apps\Mobile\Controller\LoginapiController.class.php 第 8 行.
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0012s ]
+SQL: SELECT `phone`,`yzm_code`,`identify`,`idfa` FROM `member` WHERE `phone` = '15633777228' LIMIT 1   [ RunTime:0.0009s ]
+SQL: SHOW COLUMNS FROM `alter_idfa` [ RunTime:0.0010s ]
+SQL: UPDATE `alter_idfa` SET `idfa`='B79884F3-14D3-477C-555584555557CBCC8D0EE' WHERE `phone` = '15633777228' [ RunTime:0.0022s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001503s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.010710s ]
+INFO: [ app_end ] --END-- [ RunTime:0.016753s ]
+
+[ 2018-05-11T11:27:32+08:00 ] ::1 /lhq/Mobile/loginapi?phone=18611577589&idfa=6E2261B585-AF12-A69777F464CE&identify=AE964C21-3462-40FB-9221-97ECEB811E2D
+ERR: Cron:cron_1 Runat 2018-05-11 11:27:32 Use 0.003316 s
+
+[ 2018-05-11T11:28:04+08:00 ] ::1 /lhq/Mobile/loginapi?phone=18611577589&idfa=6E2261B585-AF12-A69777F464CE&identify=AE964C21-3462-40FB-9221-97ECEB811E2D
+ERR: Cron:cron_1 Runat 2018-05-11 11:28:04 Use 0.003572 s
+
+[ 2018-05-11T11:28:11+08:00 ] ::1 /lhq/Mobile/loginapi?phone=18611577589&idfa=6E2261B585-AF12-A69777F464CE&identify=AE964C21-3462-40FB-9221-97ECEB811E2D
+ERR: Cron:cron_1 Runat 2018-05-11 11:28:11 Use 0.002398 s
+
+[ 2018-05-11T11:28:45+08:00 ] ::1 /lhq/Mobile/loginapi?phone=18611577589&idfa=6-AF12-A69777F464CE&identify=AE964C21-3462-40FB-9221-97ECEB811E2D
+ERR: Cron:cron_1 Runat 2018-05-11 11:28:45 Use 0.002072 s
+
+[ 2018-05-11T11:30:01+08:00 ] ::1 /lhq/Mobile/loginapi?phone=15633777228&idfa=6-AF12-A69777F464CE&identify=AE964C21-3462-40FB-9221-97ECEB811E2D
+ERR: Cron:cron_1 Runat 2018-05-11 11:30:01 Use 0.003003 s
+
+[ 2018-05-11T11:30:08+08:00 ] ::1 /lhq/Mobile/loginapi?phone=15633777228&idfa=6-AF12-A69777F464CE&identify=AE964C21-3462-40FB-9221-97ECEB811E2D
+ERR: Cron:cron_1 Runat 2018-05-11 11:30:08 Use 0.002199 s
+
+[ 2018-05-11T11:31:18+08:00 ] ::1 /lhq/Mobile/loginapi?phone=15633777228&idfa=6-AF12-A69777F464CE&identify=AE964C21-3462-40FB-9221-97ECEB811E2D
+ERR: Cron:cron_1 Runat 2018-05-11 11:31:18 Use 0.003344 s
+
+[ 2018-05-11T11:32:59+08:00 ] ::1 /lhq/Mobile/loginapi?phone=15633777228&idfa=6-AF12-A69777F464CE&identify=AE964C21-3462-40FB-9221-97ECEB811E2D
+ERR: Cron:cron_1 Runat 2018-05-11 11:32:59 Use 0.002495 s
+

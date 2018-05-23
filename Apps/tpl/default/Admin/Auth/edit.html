@@ -1,0 +1,134 @@
+<div class="m20" style="margin: 10px;">
+
+	<header class="panel_header fix mb20">
+		<h2 class="title">修改权限</h2>
+	</header>
+
+	<form action="__SELF__" method="post" class="goods-form">
+
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">权限名称</div>
+				<input class="form-control" type="text" name="name" value="{$info['name']}" required="required" />
+			</div>
+		</div>
+
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">父权限（不指定即为顶级权限）</div>
+				<select class="form-control" name='pid'>
+					<option value='0'>-请选择-</option>
+					<volist name='pids' id='v'>
+					<if condition="$v['id'] eq $info['pid']">
+						<option value="{$v['id']}" selected="selected">{$v['name']}</option>
+					<else/>
+						<option value="{$v['id']}">{$v['name']}</option>
+					</if>
+					
+					</volist>
+				</select>
+			</div>
+		</div>
+		
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">菜单图标 <i class="{$info['icon']}"></i></div>
+				<input class="form-control" type="text" name="icon" value="{$info['icon']}" />
+			</div>
+		</div>
+
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">控制器(慎重)</div>				
+				<input class="form-control" type="text" name="auth_c"	value="{$info['auth_c']}"/>				
+			</div>
+		</div>
+
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">操作方法(慎重)</div>
+				<input class="form-control" type="text" name="auth_a" value="{$info['auth_a']}"  />
+			</div>
+		</div>
+
+		<div class="form-group pl5 pr5">
+			<input type="hidden" name="id" value="{$info['id']}"/>
+			<button type="submit" class="btn btn-primary">
+				<i class="fa fa-save"></i> <span>修改</span>
+			</button>
+		</div>
+
+
+	</form>
+</div>
+
+<script src="__LIB_URL__/layer/layer.js"></script>
+<script >
+
+$(function(){
+	var pid=$("select[name='pid']").val();
+	var auth_c=$("input[name='auth_c']").val();
+	var auth_a=$("input[name='auth_a']").val();
+	if(pid=="0"){		
+		$("input[name='auth_c']").val("");
+		$("input[name='auth_a']").val("");	
+		$("input[name='auth_c']").attr("disabled",true);
+		$("input[name='auth_a']").attr("disabled",true);			
+		$("input[name='icon']").attr("disabled",false);
+		
+	}else{
+				
+		$("input[name='auth_c']").attr("disabled",false);		
+		$("input[name='auth_a']").attr("disabled",false);		
+		$("input[name='icon']").val("");
+		$("input[name='icon']").attr("disabled",true);
+	}
+	
+	$("input[name='order']").click(function(){		
+		layer.tips("可重复,越小越靠前,范围0-65535","input[name='order']");
+	});
+	
+	$("select[name='pid']").change(function(){
+		var pid=$("select[name='pid']").val();
+		if(pid=="0"){
+			$("input[name='auth_c']").val("");
+			$("input[name='auth_a']").val("");	
+			$("input[name='auth_c']").attr("disabled",true);
+			$("input[name='auth_a']").attr("disabled",true);				
+			$("input[name='icon']").attr("disabled",false);
+			
+		}else{
+					
+			$("input[name='auth_c']").attr("disabled",false);
+			$("input[name='auth_a']").attr("disabled",false);
+			$("input[name='auth_c']").val(auth_c);
+			$("input[name='auth_a']").val(auth_a);
+			$("input[name='icon']").val("");
+			$("input[name='icon']").attr("disabled",true);
+		}
+	});
+	
+	$("button[type='submit']").click(function(){
+		var pid=$("select[name='pid']").val();
+		if(pid==0){			
+			if(!$('input[name="icon"]').val()){
+				layer.tips('为了美观，请指定图标！', 'input[name="icon"]');
+				return false;
+			}
+		}else{
+			//layer.msg("非父级");
+			if(!$('input[name="auth_c"]').val()){
+				layer.tips('请填写控制器名！', 'input[name="auth_c"]');
+				return false;
+			}
+			if(!$('input[name="auth_a"]').val()){
+				layer.tips('请填写操作方法名！', 'input[name="auth_a"]');
+				return false;
+			}
+			
+		}
+		//layer.msg(pid);
+		
+	});
+});
+</script>

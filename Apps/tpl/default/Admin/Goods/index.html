@@ -1,0 +1,111 @@
+		<header class="panel_header fix mb20">
+			<h2 class="title">{$title}</h2>
+		</header>
+
+		<div class="fix">
+				<a href-="{:U('Admin/Goods/add')}" class="goods-add btn btn-primary l mr10">
+					<i class="fa fa-plus"></i> <span>添加商品</span>
+				</a>
+
+				<div class="input-group l w300 mr10">
+					<input type="text" class="form-control keyword" name="{$keyword}" value="" placeholder="关键字" />
+					<a href="javascript:getList({page: 1, keyword: ''});" class="input-group-addon btn btn-primary white">清空</a>
+					<div class="input-group-addon btn btn-primary white search">搜索</div>
+				</div>
+				
+				<div class="input-group l w200 mr10">
+					<div class="input-group-addon">分类</div>
+					<select class="form-control goods-type" name="typeId">
+						<option value="0" >全部</option>
+						<volist name="types" id="v">
+							<option value="{$v.id}">{$v.typename}</option>
+						</volist>
+					</select>
+				</div>
+				
+				<div class="btn-group goods-status" data-toggle="buttons">
+					<label class="btn btn-primary active">
+						<input type="radio" name="status" value="-1" autocomplete="off" checked> 全部
+					</label>
+					<label class="btn btn-primary">
+						<input type="radio" name="status" value="1" autocomplete="off"> 在售
+					</label>
+					<label class="btn btn-primary">
+						<input type="radio" name="status" value="0" autocomplete="off"> 关闭
+					</label>
+				</div>
+				
+				<div class="input-group l w300 mr10">
+					<div class="input-group-addon btn btn-primary white ">商品人气阀值(期)</div>
+					<input id="rt" type="text" class="form-control keyword" name="" value="{:C('recommend_threshold')}" placeholder="人气阀值" />					
+					
+				</div>
+				
+		</div>
+				
+		<div class="goods-list pct100 mt20">
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<table class="table table-hover table-condensed table-striped table-bordered">
+						<thead>
+							<tr>
+								<th>&nbsp;</th>
+								<th>编号</th>
+								<th>产品</th>
+								<th>已售 / 总需</th>
+								<th>当前期数</th>
+								<th>创建时间</th>
+								<th>状态</th>
+								<th>是否推荐</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>0</td>
+								<td>测试</td>
+								<td>s</td>
+							</tr>
+						</tbody>
+					</table>
+                                    <div>
+                                        <input id="checkall" class="dom-check" type="radio" name="checkall"><label for="checkall">全选</label>
+                                        <input id="checknoall" class="dom-check" type="radio" name="checkall"><label for="checkall">全不选</label>                                        
+                                        &nbsp;&nbsp;&nbsp;&nbsp;<a class="poi btn btn-danger btn-xs" href="javascript:dellist();" title="关闭当前商品">删除选中项</a>
+                                    </div>
+					<div class="page"></div>
+				</div>
+			</div>
+		</div>
+
+
+<script src="__LIB_URL__/ja.js"></script>
+
+<script>
+var api = {
+	add: '{:U('Admin/Goods/add')}',
+	edit: '{:U('Admin/Goods/edit')}',
+	list: '{:U('Admin/Goods/lists')}',
+	update: '{:U('Admin/Goods/update')}',
+	toggleGoods: '{:U('Admin/Goods/toggleGoods')}',
+	switchRecommend: '{:U('Admin/Goods/switchRecommend')}',
+	setRT: '{:U('Admin/Goods/setRT')}',
+	del: '{:U('Admin/Goods/del')}',
+        listdel:'{:U('Admin/Goods/dellist')}',
+		zero: '{:U('Admin/Goods/zero')}'
+}
+
+//设置商品人气的阀值
+change("#rt",function(){
+	$.post(api.setRT,{rt:$("#rt").val()},function(rel){
+		alert(rel.info);
+		$("#rt").val(rel.url);
+	});	
+});
+
+</script>
+<script src="__STATIC__/admin/goods.js"></script>
+
+
+
+

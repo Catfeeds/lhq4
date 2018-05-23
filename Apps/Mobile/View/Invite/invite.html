@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+
+        <title>邀请好友</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="default">
+        <meta name="msapplication-tap-highlight" content="no">
+    <script src="__PUBLIC__/mobile/js/jquery.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="__PUBLIC__/mobile/css/common.css" type="text/css">
+        <link rel="stylesheet" href="__PUBLIC__/mobile/css/style.css" type="text/css">
+    <link rel="stylesheet" href="__PUBLIC__/mobile/css/content.css" type="text/css">
+
+    <script type="text/javascript">
+        var w,h,className;
+        function getSrceenWH(){
+            w = $(window).width();
+            h = $(window).height();
+            $('#dialogBg').width(w).height(h);
+        }
+
+        window.onresize = function(){
+            getSrceenWH();
+        }
+        $(window).resize();
+
+        $(function(){
+            getSrceenWH();
+
+            //显示弹框
+            $('.box a').click(function(){
+                className = $(this).attr('class');
+                $('#dialogBg').fadeIn(300);
+                $('#dialog').removeAttr('class').addClass('animated '+className+'').fadeIn();
+            });
+
+            //关闭弹窗
+            $('.claseDialogBtn').click(function(){
+                $('#dialogBg').fadeOut(300,function(){
+                    $('#dialog').addClass('bounceOutUp').fadeOut();
+                });
+            });
+        });
+    </script>
+    </head>
+
+    <body>
+
+    <!--引用soshm分享js-->
+     <!-- <script src="__PUBLIC__/mobile/js/soshm.js" type="text/javascript"></script>-->
+
+            <!--    <{include file="./tishikuang.tpl"}>-->
+				<div class="devBox">
+					<a href="{:U('Index/index',array('member_id'=>I('get.member_id')))}"><img src="__PUBLIC__/mobile/images/a2.png" alt class="fl"></a>
+					<h1 class="biaoti">邀请好友</h1>
+                    <a href="{:U('Invite/cheats',array('member_id'=>I('get.member_id')))}"  class="fr">邀请攻略</a>
+
+				</div>
+				<img src="__PUBLIC__/mobile/images/invite.jpg" alt="" class="hezuo">
+			<div class="invite">
+                <div class="kuang">
+                每成功邀请一位iOS用户，提成永久领。    
+                </div>
+                <div class="kuang">
+                好友每完成一款任务奖励 0.5元，上不封顶 。
+                </div>
+                <div class="kuang">
+                好友完成的越多，你的邀请收入就越高！
+                
+                </div>
+            </div>
+
+                <div class="kuang2">
+                    <div class="leftkuang left">
+                        <p class="shuzhi">
+                            <if condition="$members.total_invite eq ''"> 0
+                                <else /> {$members.total_invite}
+                            </if>
+
+                          </p>
+                        <p class="shu">累计收益</p>
+                    
+                    </div>
+                    <div class="rightkuang right">
+                        <p class="shuzhi">{$pid}</p>
+                        <p class="shu">累计邀请</p>
+                    </div>
+                   <!-- <div class="xia">今日邀请<{$todays}>人，好友累计奖励0元</div>-->
+                    
+                </div>
+
+
+                <!--<div class="dileft"><a href="javascript:;" class="bounceIn" style="color:#fff;">邀请好友</a></div>
+-->
+                <div class="box">
+                    <!--<div class="demo_dileft">
+                        <a href="javascript:;" class="bounceIn">邀请好友</a>
+
+                    </div>-->
+                    <!-- <div class="dileft"><a href="javascript:;" class="rollIn" style="color:#fff;">邀请好友</a></div> -->
+                    <div id="dialogBg"></div>
+                    <div id="dialog" class="animated">
+                        <!--<img class="dialogIco" width="50" height="50" src="images/ico.png" alt="" />-->
+                        <div class="dialogTop">
+                            <a href="javascript:;" class="claseDialogBtn">关闭</a>
+                        </div>
+                        <form action="" method="post" id="editForm">
+                            <ul class="editInfos">
+                                <li class="dileft"><label><a href="javascript:;" style="color:#fff;">分享给朋友</a></li>
+                                <li class="dileft"><label><a href="javascript:;" style="color:#fff;">分享到朋友圈</a></li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+
+                  <div id="mcover" onclick="document.getElementById('mcover').style.display='';" style="display:none;">
+                    <img src="__PUBLIC__/mobile/images/guide.png" />
+                </div>
+
+
+                <!-- <div ><img src="./images/erweima.png" class="diright"alt=""></div> -->
+                 <div id="popDiv" class="tanchusaomiao" style="display:none;">
+                 <img src="__PUBLIC__/qrcode/{$members.qrcode}" id="erweima">
+          </div>
+
+</div>
+<div id="bg" class="bg" style="display:none;"><a href="javascript:closeDiv()" class="bg"></a></div>
+                <!-- <span type="Submit" name="" value="显示层" class="diright"onclick="javascript:showDiv()" ><img src="<{$smarty.const.ADMIN_URL}>/assets/mobile/images/erweima.png" class="diright"alt=""></span> -->
+                <!--<div class="dileft" type="Submit" name="" value="显示层" onclick="javascript:inviteInfo()">邀请好友</div>-->
+    <div class="dileft" type="Submit" name="" value="显示层" onclick="checkOpenid()">邀请好友</div>
+                 <!--      <div class="dileft" type="Submit" name="" value="显示层" onclick="javascript:showDiv()">邀请好友</div>
+ -->
+              <!-- <script>
+                    document.getElementById('shareBtn').addEventListener('click', function() {
+                        soshm.popIn({
+                            title: '弹窗分享',
+                            sites: ['weixin', 'weixintimeline',  'qq','weibo',  'qzone','tqq', 'yixin','douban','tieba']
+                        });
+                    }, false);
+                </script>-->
+ <!--<script src="<{$smarty.const.ADMIN_URL}>/assets/mobile/js/application.js" type="text/javascript"></script>
+                -->
+               <script type="text/javascript">
+                function showDiv(){
+                document.getElementById('popDiv').style.display='block';
+                document.getElementById('bg').style.display='block';
+                }
+
+                function closeDiv(){
+                document.getElementById('popDiv').style.display='none';
+                document.getElementById('bg').style.display='none';
+                }
+                function inviteInfo(){
+                    window.location.href = "{:U('inviteInfo',array(member_id=>$member_id))}";
+                }
+               </script>
+            
+<script>
+    function checkOpenid(){
+        var mid = "{$member_id}";
+        var url = "{:U('Index/userMsg')}";
+        $.post(url,{mid:mid},function(e){
+            if (e == '1') {
+                window.location.href = "{:U('inviteInfo',array(member_id=>$member_id))}";
+            }else if(e == '2') {
+                alert('请关注公众号再邀请！');
+            }
+        });
+    }
+
+</script>
+
+    
+
+</body></html>

@@ -1,0 +1,108 @@
+<html>
+    <head>
+        <meta content="yes" name="apple-mobile-web-app-capable">
+        <meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+        <style>
+            .bgf7 {
+                background: #f7f7f7;
+            }
+            .dom-image {
+                display: inline-flex;
+                width: 60px;
+                height: 60px;
+                border: 2px solid #dedede;
+                line-height: 60px;
+                text-align: center;
+                overflow: hidden;
+            }
+
+            .dom-image img {
+                max-width: 100px;
+                hight: auto;
+            }
+
+            .fa-plus {
+                line-height: 60px;
+                font-size: 50px;
+                color: #dedede;
+            }
+
+            .btn {
+                padding: 5px 10px;
+                background: #f7f7f7;
+                border: 2px solid #dedede;
+            }
+
+
+
+
+        </style>
+
+    </head>
+
+    <body>
+        <form action="" method="post" onsubmit="return checkfile();" enctype="multipart/form-data">
+            <input type="hidden" name="pid" value="{:I('pid')}"/>
+            <div class="bgf7 p10 f16 bbc">
+                发布晒单信息
+            </div>
+
+
+            <div class="m5">
+                <textarea style="width:100%" rows="3" name="content" placeholder="晒单内容"></textarea>
+            </div>
+
+
+
+            <div class="bgf7 p10 f16 btc bbc">
+                选择图片<span style="font-size: 10px; color: red;">(*图片大小必须小于5M)<span><br>
+
+                <label class="dom-image" for="image1"><i style="margin: 0 auto;" class="fa fa-plus"></i></label>
+                <label class="dom-image" for="image2"><i style="margin: 0 auto;" class="fa fa-plus"></i></label>
+                <label class="dom-image" for="image3"><i style="margin: 0 auto;" class="fa fa-plus"></i></label>
+
+                <input type="file" name="image[]" id="image1" accept="image/*" class="dn" />
+                <input type="file" name="image[]" id="image2" accept="image/*" class="dn" />
+                <input type="file" name="image[]" id="image3" accept="image/*" class="dn" />
+            </div>
+            <input class="m10 db auto btn f14" type="submit" value="提交" />
+        </form>
+<!-- <script src="__CDN__/ja.debug.js?debug_id=ja"></script> -->
+<script>
+$('input:file').on('change', function () {
+	var a = this.files[0];
+	if(a.size > 1024 * 1024*100){
+		alert('请选择小于 5 MB 的图片');
+		return this.value = null;
+	}
+	var $dom = $('.dom-image[for=' + $(this).attr('id') + ']');
+	readBlobAsDataURL(this.files[0], function (s) {
+		//console.log($dom);
+		$dom.html('<img src="' + s + '"/>');
+	});
+});
+
+
+function readBlobAsDataURL(blob, callback) {
+	var a = new FileReader(), callback = callback || function () {
+	};
+	a.onload = function (e) {
+		callback(e.target.result);
+	};
+	a.readAsDataURL(blob);
+}
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

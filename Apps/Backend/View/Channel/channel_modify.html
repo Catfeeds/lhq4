@@ -1,0 +1,59 @@
+<include file ="Index:header"/>
+<include file ="Index:navibar"/>
+<include file ="Index:sidebar"/>
+<!-- START 以上内容不需更改，保证该TPL页内的标签匹配即可 -->
+{$osadmin_action_alert}
+{$osadmin_quick_note}
+    
+<div class="well">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#home" data-toggle="tab">修改渠道资料</a></li>
+    </ul>	
+	
+	<div id="myTabContent" class="tab-content">
+		  <div class="tab-pane active in" id="home">
+
+           <form id="tab" method="post" action="">
+           		<label>渠道id</label>
+				<input type="text" name="channel_id" disabled="disabled" value="{$channel.channel_id}" class="input-xlarge" required="true" autofocus="true" >
+				<label>渠道名称</label>
+				<input type="text" name="channel_name" value="{$channel.channel_name}" class="input-xlarge" required="true" autofocus="true" >
+               <label>渠道url</label>
+               <input type="text" name="channel_url" value="{$channel.channel_url}" class="input-xlarge" required="true" autofocus="true" >
+               <label>渠道管理人员</label>
+               <input type="text" name="channel_admin" value="{$channel.channel_admin}" class="input-xlarge" required="true" autofocus="true" >
+               <label>渠道介绍</label>
+               <textarea name="channel_introduce" rows="3" class="input-xlarge">{$channel.channel_introduce}</textarea>
+				<label>联系电话</label>
+				<input type="text" name="mobile" value="{$channel.mobile}" class="input-xlarge" required="true" autofocus="true" >
+				<label>邮箱</label>
+				<input type="text" name="email" value="{$channel.email}" class="input-xlarge" required="true" autofocus="true" >
+			   <if condition="$user_id eq 1">
+
+			   <label>渠道添加者</label>
+			   <select name="userid"  class="input-xlarge" required="true" autofocus="true">
+				   <foreach name="userInfos" item="userinfo">
+				   	<option value="{$userinfo.user_id}"
+					   <if condition="$channel.user_id eq $userinfo.user_id">
+					   selected="selected"
+					   </if>
+					   >{$userinfo.user_name}</option>
+				   </foreach>
+			   </select>
+
+			   </if>
+
+				<input type="hidden" name="httpref" value="{$_SERVER['HTTP_REFERER']}">
+
+				<div class="btn-toolbar">
+					<button type="submit" class="btn btn-primary"><strong>提交</strong></button>
+				</div>
+			</form>
+        </div>
+    </div>
+</div>	
+<!---操作的确认层，相当于javascript:confirm函数-->
+{$osadmin_action_confirm}
+
+<!-- END 以下内容不需更改，请保证该TPL页内的标签匹配即可 -->
+<include file="Index:footer"/>

@@ -1,0 +1,304 @@
+<script src="__LIB_URL__/layer/layer.js"></script>
+	
+		<header class="panel_header fix mb20">
+			<h2 class="title">{$title}</h2>
+		</header>
+
+		<div class="fix">
+			<div class="form-inline">
+				<div class="form-group">
+					<label>关键字:</label>
+					<input name="keyword" type="text" class="form-control input-sm dom-keyword" />
+				</div>
+				
+
+				<div class="form-group">
+					<label>快递类型:</label>
+					<select class="form-control list-express-id input-sm" name="express_id">
+						<option value="0" >全部</option>
+						<volist name="types" id="v">
+							<option value="{$v.id}">{$v.name}</option>
+						</volist>
+					</select>
+				</div>
+				
+				<div class="form-group">
+					<label>筛选:</label>
+					<div class="btn-group list-status" data-toggle="buttons">
+						<label data-id="2" type="button" class="btn btn-default btn-sm active">
+							<input type="radio" name="status" value="0" autocomplete="off" checked> 全部
+						</label>
+						<label data-id="2" type="button" class="btn btn-default btn-sm">
+							<input type="radio" name="status" value="1" autocomplete="off"> 待发货
+						</label>
+						<label data-id="2" type="button" class="btn btn-default btn-sm">
+							<input type="radio" name="status" value="2" autocomplete="off"> 已发货
+						</label>
+						<label data-id="2" type="button" class="btn btn-default btn-sm">
+							<input type="radio" name="status" value="3" autocomplete="off"> 已收货
+						</label>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label>类型:</label>
+					<div class="btn-group list-type" data-toggle="buttons">
+						<label data-id="2" type="button" class="btn btn-default btn-sm active">
+							<input type="radio" name="type" value="0" autocomplete="off" checked> 全部
+						</label>
+						<label data-id="2" type="button" class="btn btn-default btn-sm">
+							<input type="radio" name="type" value="1" autocomplete="off"> 普通商品
+						</label>
+						<label data-id="2" type="button" class="btn btn-default btn-sm">
+							<input type="radio" name="type" value="2" autocomplete="off"> 包场
+						</label>
+						<label data-id="2" type="button" class="btn btn-default btn-sm">
+							<input type="radio" name="type" value="3" autocomplete="off"> 零元购
+						</label>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label>时间选择:</label>
+					<div class="input-group">
+						<input type="text" class="form-control input-sm" name="date" id="dom-date" style="width:200px">
+						<label class="input-group-addon" for="dom-date"><i class="fa fa-calendar"></i></label>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+		<div class="goods-list pct100 mt20">
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<table class="table table-hover table-condensed table-striped table-bordered">
+						<thead>
+							<tr>
+								<th>编号</th>
+								<th>商品名称</th>
+								<th>快递公司</th>
+								<th>快递单号(点击跟踪)</th>
+								<th>收件地址</th>
+								<th>收件人</th>
+								<th>中奖人</th>
+								<th>中奖时间</th>								
+								<th>领取时间</th>
+								<th>发货时间</th>
+								<th>类型</th>
+								<th>状态</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody class="dom-list">
+						</tbody>
+					</table>
+					
+					<div class="dom-page"></div>
+					<input type="hidden" class="dom-rows" value="10"/>
+
+<!--
+					<div class="form-inline col-xs-5">
+						<div class="form-group">
+							<label>每页数量:</label>
+							<select class="form-control dom-rows input-sm">
+								<option value="10" selected>10</option>
+								<option value="30">30</option>
+								<option value="50">50</option>
+							</select>
+						</div>
+					</div>
+-->
+				</div>
+			</div>
+		</div>
+
+<template class="tpl-list dn">
+
+	{{each list as ja}}
+	<tr >
+		<td>{{ja.id}}</td>
+		<td>{{ja.goods_title}}</td>
+		<td >{{ja.exp_com}}</td>
+		<td ><a  href="javascript:genzong('{{ja.express_no}}','{{ja.key}}');" >{{ja.express_no}}</a></td>
+		<td>{{ja.address}}</td>
+		<td>{{ja.recipient}}</td>
+		<td>{{ja.winner}}</td>
+		<td>
+			{{if ja.lottery_time=='0.000'||ja.lottery_time==null}}
+				未开奖
+			{{else}}
+				{{ja.lottery_time | date}}
+			{{/if}}			
+		</td>
+		<td>		
+			{{if ja.get_time=='0'||ja.get_time==null}}
+				未领奖
+			{{else}}
+				{{ja.get_time | date}}
+			{{/if}}		
+		</td>
+		<td>		
+			{{if ja.deliver_time=='0'||ja.deliver_time==null}}
+				未发货
+			{{else}}
+				{{ja.deliver_time | date}}
+			{{/if}}
+		</td>
+		<td>
+			{{if ja.type == 1}}
+				<span class="label label-success label-xs">普通</span>
+			{{else if ja.type == 2}}
+				<span class="label label-success label-xs">包场</span>
+			{{else if ja.type == 3}}
+				<span class="label label-success label-xs">0元购</span>
+			{{/if}}
+		</td>
+		<td>
+			{{if ja.status == 1}}
+				<span class="label label-warning label-xs">待发货</span>
+			{{else if ja.status == 2}}
+				<span class="label label-danger label-xs">已发货</span>
+			{{else if ja.status == 3}}
+				<span class="label label-success label-xs">已收货</span>
+			{{/if}}
+		</td>
+		<td>
+			{{if ja.status == 1}}
+				<a class="btn btn-success btn-xs" onClick="deliver({{ja.id}},{{ja.ur_id}},'{{ja.goods_title}}');">发货</a>
+			{{else if ja.status == 2}}
+				<a class="btn btn-danger btn-xs" onClick="deliver({{ja.id}});">修改信息</a>
+			{{else if ja.status == 3}}
+				<span class="label label-info label-xs">已收货</span>
+			{{/if}}
+		</td>
+	</tr>
+	{{/each}}
+
+	{{if !list[0]}}
+	<tr>
+		<td colspan=30>无数据</td>
+	</tr>
+	{{/if}}
+</template>
+
+<script src="__LIB_URL__/ja.js"></script>
+<script src="__LIB_URL__/template.js"></script>
+
+<link rel="stylesheet" href="__CDN__/jquery.daterangepicker.css" media="all" />
+<script src="__CDN__/moment.js"></script>
+<script src="__CDN__/jquery.daterangepicker.js"></script>
+<script>
+template.helper('date', _date);
+var _o = {
+	tpl: template.compile($('.tpl-list').html(), {escape: false}),
+	list: $('.dom-list'),
+	page: $('.dom-page'),
+	rows: $('.dom-rows'),
+	keyword: $('.dom-keyword'),
+};
+$('#dom-date').dateRangePicker({
+	separator : ' - ',
+	showShortcuts: true,
+	shortcuts: {
+		'prev-days': [3, 5, 7, 30]
+	},
+	endDate: date('Y-m-d'),
+	autoClose: true
+}).bind('datepicker-change', function(){getExpressList();});
+
+function genzong(e_no,e_com){	
+	if(!e_no){
+		layer.msg("请填写快递单号");return;
+	}
+	if(!e_com){
+		layer.msg("请选择快递公司");return;
+	}
+	
+	var url='http://www.kuaidi.com/chaxun?com='+e_com+'&nu='+e_no ;
+	layer.open({
+	    type: 2, 
+	    area:['1050px','650px'],
+	    shadeClose:true,
+	    moveOut: true,
+	    title:'快递详细信息（往下拉）',
+	    content: url,
+	}); 
+}
+
+getExpressList();
+
+$('.list-status, .list-type, .list-express-id').on('change', getExpressList);
+change('.dom-keyword', getExpressList, 500);
+
+
+function getExpressList(p){
+	var p = typeof p == 'number' || typeof p == 'string' ? p : 1;
+
+	_o.list.html('<tr><td colspan=30><i class="fa fa-spinner fa-pulse fa-2x"></i></td></tr>');
+	$.post('', {
+		date: $.trim($('#dom-date').val()),
+		status: $('[name=status]:checked').val(),
+		express_id: $('.list-express-id').val(),
+		rows: _o.rows.val(),
+		type: $('[name=type]:checked').val(),
+		keywrod: _o.keyword.val(),
+
+		page: p
+	}, function(j){
+		j.href = 'javascript:getExpressList({{page}});';
+		_o.page.html(page(j));
+		_o.list.html(_o.tpl(j));
+		
+		
+	}, 'json')
+}
+
+/* 
+ {
+	total: j.total,
+	page: j.page,
+	row: j.row,
+	status: j.status,
+	href: 'javascript:getList({page:{{page}} });'
+}
+*/
+
+function deliver(id,ur_id,title){
+	dialog({
+		// id: 'item-edit-id-',
+		title: '发货操作',
+		width: 780,
+		height: 350,
+		url: '{:U('deliver', 'id=')}' + id+'&ur_id='+ur_id+'&title='+title,
+		cancel: function () {
+			this.close().remove();
+			// return false;
+		},
+		onclose: function () {
+			if (this.returnValue) {
+				msg('保存成功', 'success');
+				 window.location.reload();
+			}
+		},
+		cancelDisplay: false,
+		oniframeload: function(){
+			//this.reset();
+		},
+		statusbar: '',
+		zIndex: 99999
+	}).show();
+}
+
+
+
+
+
+
+
+
+</script>
+
+
+
+

@@ -1,0 +1,181 @@
+<link href="__WXP__/css/comm1.css" rel="stylesheet" type="text/css"/>
+<link href="__WXP__/css/goods1.css" rel="stylesheet" type="text/css"/>
+<style>
+
+    #yicanyu table {
+        margin: auto;
+        width: 100%;
+    }
+
+    #yicanyu table th, td {
+        text-align: center;
+        color: #de4849;
+        border: 1px solid #abc;
+    }
+</style>
+<div class="column">
+    <a href="{:U('index_canyu')}" class="entry-list" {$index_canyu}>包场进行中<b class="fr"></b></a>
+
+    <a href="{:U('index')}" class="entry-list">创建包场<b class="fl"></b></a>
+
+    <a href="{:U('index_finish')}" class="ann-publicly">已揭晓<b class="fl"></b></a>
+</div>
+
+
+<!-- 包场进行中 -->
+
+<div class="marginB" style="padding-bottom:50px ">
+    <div class="goodList_room">
+        <ul>
+
+            <volist name="bbooking" id="vo1">
+                <li>
+							<span class="gList_l fl">
+								<img src="__ROOT__/t/?w=200&h=200&src={$vo1.goods_img}">
+							</span>
+                    <div class="gList_r">         
+                        <h3 class="gray6">{$vo1.goods_title}</h3>
+                        <em class="gray9">价值：￥{$vo1.goods_value}</em>
+                        <i class="gray6">发起人 : {$vo1.nickname}</i>
+                    </div>
+                    <if condition='$vo1.lottery_time gt 0 && $vo1.status eq 2 '>
+                        <div class="time-item2" style="font-size: 12px;">
+                            <i class="fa fa-fw fa-clock-o fa-lg"></i><span class="lxftime" baocid="{$vo1.id}" endtime="{$vo1.lottery_time}"
+                                                                           lxfday="no"></span>
+
+                        </div>
+                    </if>
+                    <div style="float:right; padding:10px;">
+                        <a href="javascript:showFriends({$vo1.bbid})" style="right:85px; width:75px;">谁已参与</a>
+                        <a href="{:U('Weixin/Room/bookingDetail','bbid=')}{$vo1.id}">参与</a>
+                        <a href="javascript:del({$vo1.id});">删除</a>
+                    </div>
+                </li>
+
+
+            </volist>
+            <script>
+                var identify=false;
+
+                var modifystatusurl="{:U('modifyStatus')}";
+                function lxfEndtime() {
+                    $(".lxftime").each(function () {
+
+                        var lxfday = $(this).attr("lxfday");//用来判断是否显示天数的变量
+                        var endtime = Date.parse(new Date(parseInt($(this).attr("endtime")) * 1000));//取结束日期(毫秒值)
+                        var nowtime = Date.parse(new Date());        //今天的日期(毫秒值)
+                        if (nowtime > endtime) {
+                            if(identify)return;
+                            identify=true;
+                            $.post(modifystatusurl,{id:$(this).attr("baocid")});
+                            $(this).html("该包场已揭晓,请在'已揭晓'中查看...");
+                            return;
+                        }
+                        var youtime = endtime - nowtime;//还有多久(毫秒值)
+                        var seconds = youtime / 1000;
+                        var minutes = Math.floor(seconds / 60);
+                        var hours = Math.floor(minutes / 60);
+                        var days = Math.floor(hours / 24);
+                        var CDay = days;
+                        var CHour = hours % 24;
+                        var CMinute = minutes % 60;
+                        var CSecond = Math.floor(seconds % 60);//"%"是取余运算，可以理解为60进一后取余数，然后只要余数。
+                        if ($(this).attr("lxfday") == "no") {
+                            $(this).html("<i>剩余时间: </i><span>" + CHour + "</span>时<span>" + CMinute + "</span>分<span>" + CSecond + "</span>秒");          //输出没有天数的数据
+                        }
+
+                    });
+                    setTimeout("lxfEndtime()", 1000);
+                }
+                ;
+                $(function () {
+                    lxfEndtime();
+                });
+            </script>
+            <empty name="bbooking">
+
+                <script>
+
+                    layer.confirm('暂无您可以参与的包场.是否要创建?', {
+                        shift: "4",
+                        btn: ['创建', '取消']
+                    }, function () {
+                        location.href = "{:U('Room/index')}";
+                    }, function (index) {
+                        layer.close(index);
+                    });
+
+                </script>
+            </empty>
+
+        </ul>
+
+
+    </div>
+</div>
+
+<div id="yicanyu" style="display:none;">
+    <table>
+
+
+    </table>
+</div>
+
+<script>
+
+    var yicanyuURL = "{:U('yicanyu')}";
+    var delRoomURL = "{:U('Weixin/Room/delRoom')}";
+
+    //删除包场
+    function del(bbid) {
+
+        $.post(delRoomURL, {bbid: bbid}, function (rel) {
+            layer.msg(rel.info, {area: "70%"});
+            if (rel.status == 1) {
+                setTimeout(function () {
+                    location.href = location.href;
+                }, 1500);
+            }
+        });
+
+    }
+
+    function showFriends(bbid) {
+       // alert(bbid);
+        $.post(
+                yicanyuURL,
+                {bbid: bbid},
+
+                function (rel) {
+                    //console.log(rel);
+                    $("#yicanyu table").empty();
+                    $("#yicanyu table").append('<tr><th>昵称</th><th>电话</th></tr>');
+                    //循环输出已参与的好友
+                    for (var i = 0; i < rel.length; i++) {
+                        $("#yicanyu table").append('<tr><td>' + rel[i]["nickname"] + '</td><td>' + rel[i]["phone"] + '</td></tr>');
+                    }
+
+                    layer.open({
+                        type: 1,
+                        title: '谁已参与',
+                        //area: '70%',
+                        skin: 'layui-layer-demo', //样式类名
+                        closeBtn: 2, //不显示关闭按钮
+                        shift: 4,
+                        shadeClose: true, //开启遮罩关闭
+                        content: $("#yicanyu")
+                    });
+
+                }
+        );
+
+    }
+
+</script>
+
+
+
+
+
+		
+	

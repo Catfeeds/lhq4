@@ -1,0 +1,123 @@
+
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+  <meta content="yes" name="apple-mobile-web-app-capable" />
+  <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+  <meta content="telephone=no" name="format-detection" />
+  <link href="__WXP__/css/member_ly.css" rel="stylesheet" type="text/css"/>
+  <script type="text/javascript" src="__WXP__/js/address_json.js"></script>
+
+
+
+  <div class="edit-wrapper" style="padding-top: 45px">
+   <ul class="briday address-list clearfix"> 
+   
+    <li> 
+    <span class="year"> 
+      <div id="province" class="num">
+       --请选择--
+      </div> <i class="s-icon"></i> 
+      <select id="selProvince" onChange="getCities();" class="opt">
+      	<option value="" selected="selected">--请选择--</option>
+      </select> 
+    </span> 
+   </li> 
+   
+    <li> 
+    <span class="month"> 
+      <div id="city" class="num">
+       --请选择--
+      </div> <i class="s-icon"></i> 
+      <select id="selCity" onChange="getAreas();" class="opt" province=""> </select> 
+     </span> 
+    </li> 
+    
+    <li> 
+    <span class="month"> 
+      <div id="area" class="num">
+       --请选择--
+      </div> <i class="s-icon"></i> 
+      <select id="selArea" onChange="setArea();" class="opt" province="" city=""> </select> 
+     </span> 
+    </li> 
+    
+   </ul> 
+   <a id="btnT5" href="javascript:submit();" class="s-btn">保存</a> 
+  </div> 
+  
+  <script type="text/javascript">
+  url="{:U('setInfo')}";
+  sucUrl="{:U('editInfo1')}";
+  _key="{$key}";
+  function submit(){
+	  value=$("#province").text()+"."+$("#city").text()+"."+$("#area").text();
+	  $.post(
+		  		url,
+		  		{
+		  			name:_key,
+		  			value:value
+		  		},
+		  		function(rel){
+		  			layer.msg(rel.info);
+		  			location.href=sucUrl;
+		  		}
+		  	);
+  }
+  
+  	$(function(){
+  		//生成省级下拉选
+  		for(var a=0;a<provinceList.length;a++){
+			var province = provinceList[a].name;
+			var str = '<option value="'+a+'">'+province+'</option>';
+			$('#selProvince').append(str);
+		}
+  		
+  	});
+  
+  	//点击省份之后生成地级市下拉选
+  	function getCities(){
+  		$('#selCity').empty();
+  		$('#selArea').empty();
+  		$('#city').text('--请选择--');
+  		$('#area').text('--请选择--');
+  		
+  		var index = $('#selProvince').val();//省下标
+  		$('#selCity').attr('province',index);
+  		$('#province').text(provinceList[index].name);
+  		
+  		var cities = provinceList[index].cityList;
+  		$('#selCity').append('<option value="">--请选择--</option>');
+  		for(var b=0;b<cities.length;b++){
+  			var str = '<option value="'+b+'">'+cities[b].name+'</option>';
+  			$('#selCity').append(str);
+  		}
+  	}
+  	//点击地级市后生成县级市下拉选
+  	function getAreas(){
+  		$('#selArea').empty();
+  		$('#area').text('--请选择--');
+  		
+  		var provinceIndex = $('#selCity').attr('province');//省下标
+  		var cityIndex = $('#selCity').val();//地级市下标
+  		$('#selArea').attr('province',provinceIndex);
+  		$('#selArea').attr('city',cityIndex);
+  		$('#city').text(provinceList[provinceIndex].cityList[cityIndex].name);
+  		var areas = provinceList[provinceIndex].cityList[cityIndex].areaList;
+  		$('#selArea').append('<option value="">--请选择--</option>');
+  		for(var c=0;c<areas.length;c++){
+  			var str = '<option value="'+c+'">'+areas[c]+'</option>';
+  			$('#selArea').append(str);
+  		}
+  	}
+  	//点击县级市后写在上边
+  	function setArea(){
+  		var provinceIndex = $('#selArea').attr('province');//省下标
+  		var cityIndex = $('#selArea').attr('city');//地级市下标
+  		var index = $('#selArea').val();
+  		$('#area').text(provinceList[provinceIndex].cityList[cityIndex].areaList[index]);
+  	}
+  	
+  </script>
+
+
+

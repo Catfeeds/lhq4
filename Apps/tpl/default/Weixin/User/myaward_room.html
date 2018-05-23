@@ -1,0 +1,96 @@
+	<style>
+		.get_award1{
+			padding: 3px;
+			background: #de4849;
+			text-align: center;
+			margin:5px auto auto auto;
+			border: 1px solid #fff;
+			border-radius: 5px;
+			width: 90px;
+		}
+		.get_award1 a{
+			color: #FFFFFF;
+		}
+	</style>
+			<div class="btn-list0" style="padding-top: 41px">
+			<div class="btn_list1">
+			
+				<a class="white1Btn"  href="{:U('myaward')}">抢宝</a>
+		
+				<a class="blue1Btn"  href="{:U('myaward_room')}">包场</a>
+
+			</div>
+		</div>
+
+		
+	<volist name="bbooking" id="vo" empty="$empty">
+		<div id="divBuyList" class="m_buylist">
+			<ul id="ul_list">  
+				<li style="    padding: 5px 10px;">
+					<a href='{:U('Room/lottery', array( 'id' => $vo['id'] ))}'>
+						<cite class="big_cite">
+								<img class="big_img" src="{$vo.goods_img}"/>
+							</cite>
+						<dl>
+							<dt>{$vo.goods_title}</dt>
+							<dd>总需人次：<em class="blue">{$vo.amount}</em></dd>
+							<dd>本期参与：<em class="orange">{$vo.canyushu}</em></dd>
+							<dd>中奖号码：<em class="blue">{$vo.lottery_code}</em></dd>
+							<dd>揭晓时间：{$vo.lottery_time|date="Y-m-d h:i:s",###}</dd>
+						</dl>
+					</a><div class="get_award1">
+
+					<if condition="$vo['status'] != 4">
+						<a href="javascript:layerMsg({$vo['status']}, {$vo['id']})">
+							领取奖品
+						</a>
+						<elseif condition="$vo['status']==4 and $vo['express_status']==1"/>
+						待发货
+						<elseif condition="$vo['status']==4 and $vo['express_status']==2"/>
+						<a href="javascript:confirm(2, {$vo['id']})">
+							确认收货
+						</a>
+						<elseif condition="$vo['status']==4 and $vo['express_status']==3"/>
+						已收货
+					</if>
+
+				</div>
+				</li>
+			</ul>
+		</div>
+
+		
+	</volist>	
+	
+	<script>
+		function layerMsg(flag, id){
+		 	if(flag == 4){
+				layer.alert('已领奖');
+				return;
+			} 
+		 	
+		 	var adurl = "{:U('address',array('iden'=>1))}";
+		 	location.href = adurl + "&roompid=" + id;
+		}
+		
+		function confirm(type, id){
+			var url = "{:U('Room/confirm')}";
+			var params = {};
+			params['type'] = type;
+			params['pid'] = id;
+			$.ajax({
+	            type:'post',
+	            url:url,
+	            data:params,
+	            success:function(data){
+					if(data)
+						window.location.reload();
+					else
+						layer.msg('确认不成功！');
+	            },
+	            dataType:"JSON"
+			})
+		}
+	</script>
+	
+		

@@ -1,0 +1,83 @@
+<style>
+.ann_btn{
+    margin-bottom: 10px;
+}
+</style>
+<div style="padding-top: 40px">
+    <!--获得者信息-->
+    <div class="bgColor-white clearfix">
+        <div class="g-winn-con clearfix">
+            <div class="winn-info clearfix">
+                <p class="fl">      
+                    <img src="{$winerinfo.pic}" />
+                </p>
+                <dl class="gray9">
+                    <dt>
+                    <a href="{:U('Goods/user_page','userid=')}{$winerinfo.member_id}" class="blue">{$winerinfo.nickname}</a></dt>
+                  <!--   <dd>
+                        来自： {$winerinfo.addr}
+                    </dd> -->
+                    <dd>
+                        本期参与： <i class="orange">
+                            {$buy_num}</i>人次
+                    </dd>
+                    <dd>
+                        幸运{:C('web_title')}码： <i class="orange">
+                            {$booking.lottery_code}</i>
+                    </dd>
+                    <dd class="ann-time">
+                        揭晓时间： {$booking.lottery_time|_date='m/d/Y H:i:s.x',###}
+                    </dd>
+                </dl>
+                <div class="rNowTitle">获得者</div>
+                <!--分享-->
+                <!--
+                <div class="z-share-right">
+                        <a id="btnShare" class="colorbbb" href="javascript:;">
+                                <i class="z-set"></i> 分享
+                        </a>
+                </div>
+                -->
+            </div>
+
+            <cite onclick=""><a href="{:U('room/buy_detail','uid=')}{$winerinfo.member_id}&bbid={$booking['id']}" class="gray9">获得者本期所有幸运{:C('web_title')}码<s class="z-set"></s></a></cite>
+        </div>
+    </div>
+    <!--商品信息-->
+    <div class="announced-detail clearfix">
+        <ul>
+            <li class="fl ann-pic">
+                <img src="{$goodsinfo.image}" />
+            </li>
+            <li class="ann-con gray9">
+                <p class="gray6">{$goodsinfo.title}</p>价值：￥{$goodsinfo.originprice}
+            </li>
+        </ul>
+    </div>
+
+        <div class="ann_btn clearfix">
+        <!--计算详情-->
+        <a  href="{:U('Weixin/Goods/bbjisuan','id=')}{$booking.id}">查看计算方式<s class="fr"></s></a>
+        <!--所有参与记录-->
+         <a class="chanyu-url" data-url="{:U('Weixin/Goods/bbplayer_record')}&goodsId={$booking.goods_id}&bbid={$booking.id}">参与记录<s
+                class="fr"></s></a>
+    </div> 
+</div>
+<div class="footer2" >
+        <li style="background-color: #FF6600;"><a href="" style="color: white;font-size: 16px;">本包场已开奖</a></li>
+</div>
+
+<script type="text/javascript">
+    $(function(){
+        $.get($('a.chanyu-url').data('url'), function(a){
+            html = $(a).find('#divBuyList').html();
+            if(!html){
+                return false;
+            }
+            html = '<div id="divBuyList" class="m_buylist">'+html+'</div>';
+            $('.ann_btn').after(html);
+        });
+    });
+</script>
+
+

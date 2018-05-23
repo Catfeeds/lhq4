@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no, maximum-scale=1.0" />
+        <meta content="yes" name="apple-mobile-web-app-capable" />
+        <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+        <meta content="telephone=no" name="format-detection" />
+        <title>详细资料</title>
+
+        <link href="__WXP__/css/comm.css" rel="stylesheet" type="text/css" />
+        <link href="__WXP__/css/member.css" rel="stylesheet" type="text/css" />
+        
+               <script src="__LIB_URL__/jquery.min.js"></script>
+        <script>
+
+            $(function () { 
+               
+                $("input[type='text']").keyup(function () {
+
+                    var Keyword = $('#searchfriends').val();
+                    if (Keyword === ''){
+                        $('.friendsarea').html('');
+                        return;}
+                    else {
+                        $.post('', {keywords: Keyword}, function (res) {
+                            $('.friendsarea').html('');
+                            for (var i = 0, max = res.length; i < max; i++) { 
+                                
+                                $('.friendsarea').append('<a href="{:U(\'friend_info_add\')}&id='+res[i]["member_id"]+'"><li class="list"><div>\n\
+                    <img src="'+res[i]['pic']+'">\n\
+</div><div style="height: 50px;width: 60%;float: left;">\n\
+<p><span>昵称:</span><span>'+res[i]['nickname']+'</span></p><p style="color:#666">\n\
+<span>地址:</span><span>'+res[i]['addr']+'\n\
+</span></p><p style="color:#666"><span>生日:</span><span>'+res[i]['birthday']+'\n\
+</span></p></div><div style="margin-left: 30px;\n\
+ line-height: 50px; vertical-align: middle;color: \n\
+darkgrey;" class="f24 fa fa-chevron-right"></div></li></a>');
+                            }
+                        });
+                    }
+                });
+            });
+
+
+
+        </script>
+        <style>
+            .friendsarea{
+                background: ghostwhite;
+            }
+            ul .list{
+                background: gainsboro;
+                line-height: 45px;
+                margin: 2px auto;
+                height: 50px;
+                border-radius: 5px;
+            	clear:both
+            }
+            .list img{
+                width: 45px;
+                border-radius: 10px;
+                float: left;
+                margin: 3px;
+                margin-left: 20px;
+            	height:45px;
+            }
+            .list p{
+                float: left;
+                line-height: 15px;
+                margin: 1px;
+                width: 100%;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <div style="margin-top:40px">
+        <input id="searchfriends" type="text" placeholder="请输入用户昵称或手机号，系统自动查询" style="height: 50px;width:100%;font-size: 16px;padding-left: 5px;border-bottom: 1px solid #DEDEDE;border-top: 1px solid #DEDEDE;box-sizing: border-box;"/>
+        <ul class="friendsarea">
+
+            <!--
+            <a href="#"><li class="list">
+                    <div><img src="__WXP__/img/20151109130539623.jpg"></div>
+                    <div style="
+                         height: 50px;
+                         width: 60%;
+                         float: left;
+                         "><p >
+                            <span>昵称:</span><span>SSSS</span>
+                        </p>
+                        <p >
+                            <span>地址:</span><span>山东省&nbsp;&nbsp;济宁市</span>
+                        </p>
+                        <p>
+                            <span>生日:</span><span>1911-12-55</span>
+                        </p></div>
+                    <div style="margin-left: 30px; line-height: 50px; vertical-align: middle;color: darkgrey;" class="f24 fa fa-chevron-right"></div>
+                </li></a>
+            -->
+
+        </ul>
+    </div>
+</body>
+
+<script>
+
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,229 @@
+<include file ="Index:header"/>
+<include file ="Index:navibar"/>
+<include file ="Index:sidebar"/>
+<!-- START 以上内容不需更改，保证该TPL页内的标签匹配即可 -->
+<script  type="text/javascript" src="__PUBLIC__/lib/jquery-1.8.1.min.js"></script>
+<link rel="stylesheet" href="__PUBLIC__/css/poi.css" />
+<link rel="stylesheet" href="__PUBLIC__/lib/kindeditor/themes/default/default.css" />
+<script src="__PUBLIC__/lib/kindeditor/kindeditor.js"></script>
+<script src="__PUBLIC__/lib/kindeditor/plugins/image/image.js"></script>
+<script src="__PUBLIC__/lib/kindeditor/lang/zh_CN.js"></script>
+<script src="__PUBLIC__/js/k.js" type="text/javascript"></script>
+<script>var ROOT="__ROOT__";</script>
+
+{$osadmin_action_alert}
+<script type="text/javascript">
+    $(document).ready(function(){
+        var QS_city=new Array()
+        OpenCategoryLayer(
+                "#district_cn",
+                "#sel_district",
+                "#district_cn",
+                "#citycategory",
+                QS_city,
+                14);
+    });
+</script>
+<div class="well">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#home" data-toggle="tab">请填写广告应用信息</a></li>
+    </ul>	
+	
+	<div id="myTabContent" class="tab-content">
+		  <div class="tab-pane active in" id="home">
+	
+           <form id="tab" method="post" action="" name="upform" enctype="multipart/form-data" onsubmit="return check()">
+				<label>应用名称</label>
+				<input type="text" name="app_name" value="{$_POST.app_name}" class="input-xlarge" required="true" autofocus="true" >
+               <label>广告商名称</label>
+				     <select name="provider_id">
+                    <foreach name="providers" item="provider" key="provider_id">
+                    <option value="{$provider_id}"
+                        <if condition="$app['provider_id'] eq $provider_id">
+                            selected="selected"
+                        </if>
+                    >{$provider}</option>
+                    </foreach>
+                </select>
+               <label>Logo</label>
+              <!-- <input id="file0" class="input-xlarge"  type="file" size="30" accept="image/*"
+                      capture="camera"  multiple="true" name="goods_img" value="{$_POST.goods_img}" />
+                -->
+               <div >
+                   <img   src="__PUBLIC__/app_logo/default_logo.png" style="height:60px;width:auto;" class="poi url-image icon-url id__9" />
+                   <input   type="hidden" name="img" value="__PUBLIC__/app_logo/default_logo.png" class="icon-url id__9" required="required"/>
+                   <div class="xz k-browse-image poi" data-id="9">选择</div>
+                   <div class="sc k-upload-image poi" data-id="9">上传</div>
+               </div>
+
+				<!--<select name="chan_id">
+                    <foreach name="channels" item="channel" key="chan_id">
+                    <option value="{$chan_id}"
+                        <if condition="$app['chan_id'] eq $chan_id">
+                            selected="selected"
+                        </if>
+                    >{$channel}</option>
+                    </foreach>
+                </select>-->
+				<label style="clear: both">广告主广告id</label>
+				<input type="text" name="adsid" value="{$_POST.adsid}" class="input-xlarge" required="true" autofocus="true" >
+               <div >
+                   <label style="clear: both">应用id</label>
+                   <input type="text" id="bundle" name="appid" value="{$_POST.appid}" class="input-xlarge" required="true" autofocus="true" >
+                   <input type="button" value="获取" onclick="getbundle(this)">
+                   <input type="text" id="bundleid" name="bundleid" value="{$_POST.bundleid}">
+               </div>
+
+
+               	<label>广告类型</label>
+               	<select name="adtype_id" id="DropDownAdtypeId" onchange=" return change()">
+                    <foreach name="adtypes" item="adtype" key="adtype_id">
+                    <option value="{$adtype_id}"
+                        <if condition="$app['adtype_id'] eq $adtype_id">
+                            selected="selected"
+                        </if>
+                    >{$adtype}</option>
+                    </foreach>
+                </select>
+               <label >渠道名称</label>
+
+               <input name="channel_id"  id="district_cn" type="text" value="请选择渠道名称"  readonly="true" class="sltinput" />
+               <input name="channel_id" id="citycategory" type="hidden" value="" />
+
+               <div style="display:none" id="sel_district">
+                   <!--<div class="OpenFloatBoxBg"></div>-->
+                   <div class="OpenFloatBox">
+                       <div class="title">
+                           <h4>请选择渠道名称</h4>
+                           <div class="DialogClose" title="关闭"></div>
+                       </div>
+                       <div class="content" style="margin-left:0px;min-height: 450px;">
+                           <div class="txt">
+                               <foreach name="channels" item="channel" key="chan_id">
+                                   <div class="item" id="593">
+                                       <label title="{$channel.channel_id}" class="titem"><input name="channel_name" type="checkbox" value="{$channel.channel_id}" title="{$channel.channel_name}" class="b"/>{$channel.channel_name}</label>
+                                       <div class="sitem"></div>
+                                   </div>
+                               </foreach>
+
+                               <div class="clear"></div>
+                           </div>
+                           <div class="txt">
+                               <div class="selecteditem"></div>
+                           </div>
+                           <div class="txt">
+                               <div align="center" style="margin-top: 20px;"><input type="button"  class="but80 Set" value="确定" style="width: 81px"  /></div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+               <!--<{html_options name="chan_id" id="DropDownProvider"  options=$channels selected=$_POST.chan_id}>-->
+               <label class="ad">配置比例</label>
+               <table  class="ad" width="50%">
+                   <tr>
+                       <td>渠道名称</td>
+                       <td>回调比例(请直接填写数字，如50代表50%等)</td>
+                   </tr>
+                   <tbody id="bili">
+                   <tr>
+
+                   </tr>
+                   </tbody>
+               </table>
+               <br/>
+               <label>是否排重</label>
+               <select name="is_repeat" id="" class="input-xlarge" required="true" autofocus="true">
+                   <option value="否"> 否 </option>
+                   <option value="是"> 是 </option>
+               </select>
+  <!--              <label>是否排重</label>
+        <select name="is_repeat" id="" class="input-xlarge" required="true" autofocus="true">
+            <option value="0"> 请选择排重的类型 </option>
+            <option value="3"> 广告主兼自身排重 </option>
+            <option value="2"> 广告主排重 </option>
+            <option value="4"> 自身排重 </option>
+            <option value="1"> 不排重 </option>
+        </select>
+   -->            	<label>下载地址</label>
+				<input type="text" name="appstore_url" value="{$_POST.appstore_url}" class="input-xlarge" required="true" autofocus="true" >
+				<label>Url Scheme</label>
+               	<input type="text" name="url_scheme" value="{$_POST.url_scheme}" class="input-xlarge" required="true" autofocus="true" >
+				<label>备注</label>
+        <textarea name="remark" value="{$_POST.remark}" class="input-xlarge"  autofocus="true" rows="5" cols="10"></textarea>
+				
+		<!--		<label>回调比例(请直接填写数字，如50代表50%等)</label>
+				<input type="text" name="cutoff" value="{$_POST.cutoff}" class="input-xlarge" required="true" autofocus="true" >%
+         -->
+				<div class="btn-toolbar">
+					<button type="submit" class="btn btn-primary" id="send"><strong>提交</strong></button>
+				</div>
+			</form>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    // function check(){
+    //     var str = document.getElementById("file0").value;
+    //     if(str.length==0)
+    //     {
+    //         alert("请选择上传广告图片");
+    //         return false;
+    //     }
+    //     return true;
+    // }
+
+</script>
+<script type="text/javascript">
+    function check(){
+        var temp;
+        if ($('#citycategory').val() == null || $('#citycategory').val()== "") {
+            alert('请选择渠道');
+            return false;
+        };
+        //判断回调比例配置是否符合规范
+        $('#bili input').each(function(){
+            if($(this).val() == null || $(this).val()==""){
+                alert("请配置回调比例");
+                temp = 1;
+                return false;
+            }
+
+            if (!$.isNumeric($(this).val())) {
+                temp = 1;
+                alert("回调比例应为数字");
+                return false;
+            };
+            if ($(this).val() > 100 || $(this).val() < 0) {
+                temp = 1;
+                alert("回调比例是0到100");
+                return false;
+            };
+        });
+
+        if (temp) {
+            return false;
+        };
+        return true;
+    }
+
+   function change(){
+    adtype_id=document.getElementById("DropDownAdtypeId").value;
+    if(adtype_id > 2){
+      $(".ad").hide();
+    }else{
+      $(".ad").show();
+    }
+  }
+</script>
+<script>
+    function getbundle(){
+        var appid = document.getElementById('bundle').value;
+        var url = "{:U('Backend/App/getBundle')}";
+        $.post(url, {appid: appid},function(e){
+            document.getElementById('bundleid').value=e.replace(/\"/g, "");
+        });
+    }
+</script>
+<!-- END 以下内容不需更改，请保证该TPL页内的标签匹配即可 -->
+<include file="Index:footer"/>

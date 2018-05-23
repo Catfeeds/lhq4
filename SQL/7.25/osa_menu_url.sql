@@ -1,0 +1,3 @@
+INSERT INTO osa_menu_url (menu_name,menu_url,module_id,is_show,online,shortcut_allowed,menu_desc,father_menu) VALUES ("广告财务列表","/backend/adFinancial.php","7","1","1","1","广告财务列表","0");
+INSERT INTO osa_menu_url (menu_name,menu_url,module_id,is_show,online,shortcut_allowed,menu_desc,father_menu) VALUES ("财务列表","/backend/financeList.php","7","1","1","1","财务列表","0");
+INSERT INTO osa_menu_url (menu_name,menu_url,module_id,is_show,online,shortcut_allowed,menu_desc,father_menu) VALUES ("平台用户钱包列表","/backend/usersPurse.php","7","1","1","1","平台用户钱包列表","0");

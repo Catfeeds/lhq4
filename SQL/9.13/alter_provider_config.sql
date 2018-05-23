@@ -1,0 +1,1 @@
+alter table provider_config add config_if text;

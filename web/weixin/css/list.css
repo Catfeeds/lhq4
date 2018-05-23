@@ -1,0 +1,101 @@
+body {
+	font-family: "宋体";
+}
+.goods_detail .goods_name {
+	font-size: 14px;
+	word-wrap: break-word;
+	word-break: break-all;
+	width: 100%;
+	line-height: 15px;
+	height: 30px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: normal;
+}
+.goods_detail .goods_price {
+	font-size: 12px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	font-weight: 400;
+	color: #666;
+}
+.goods_detail dl {
+	width: 100%;
+}
+.goods_detail dl dt {
+	height: 6px;
+	width: 100%;
+	background: #ddd none repeat scroll 0 0;
+}
+.goods_detail dl dt b {
+	height: 6px;
+	background: #FF4000;
+	display: block;
+	font-size: 12px;
+}
+.goods_detail dd {
+	margin: 0px;
+}
+.goods_detail dl dd span {
+	color: #666;
+	font-weight: 400;
+	width: 33%;
+	font-size: 12px;
+	float: left;
+}
+.goods_detail dl dd span em {
+	display: block;
+}
+.goods_detail dl dd span.orange {
+	float: left;
+	font-size: 12px;
+	text-align: left;
+}
+.goods_detail dl dd span.orange em {
+	color: #f60;
+}
+.goods_detail dl dd span.blue {
+	float: right;
+	font-size: 12px;
+	text-align: right;
+}
+.goods_detail dl dd span.blue em {
+	color: #2af;
+}
+.goods_detail dl dd span.total {
+	text-align: center;
+}
+.sort {
+	font-family: "宋体";
+	font-size: 12px;
+	font-weight: 400;
+	color: #454545;
+}
+.sort_2 li {
+	list-style: none;
+	border-bottom: 1px solid #BBBBBB;
+	padding: 10px;
+}
+.sort_2 a {
+	text-decoration: none;
+	color: #454545;
+}
+.sort_1 div.border-in {
+	float: left;
+	width: 33.3%;
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid #BBBBBB;
+	text-align: center;
+	background: #F3F3F3;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.sort_1 div.border-in div{
+	border-right: 1px solid #BBBBBB;
+	margin: 1px;
+}
+.sort_1 a {
+	text-decoration: none;
+	color: #454545;
+}

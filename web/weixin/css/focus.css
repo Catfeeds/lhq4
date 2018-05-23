@@ -1,0 +1,276 @@
+	* {
+		margin: 0px;
+		padding: 0px;
+	}
+	
+	.focus {
+		margin: 0 auto;
+		overflow: hidden;
+		position: relative;
+		width: 100%;
+	}
+	
+	.focus .hd {
+		width: 100%;
+		height: 11px;
+		position: absolute;
+		z-index: 1;
+		bottom: 5px;
+		text-align: center;
+	}
+	
+	.focus .hd ul {
+		display: inline-block;
+		height: 5px;
+		padding: 3px 5px;
+		background-color: rgba(0, 0, 0, 0);
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+		font-size: 0;
+		vertical-align: top;
+	}
+	
+	.focus .hd ul li {
+		display: inline-block;
+		width: 5px;
+		height: 5px;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+		background: #8C8C8C;
+		margin: 0 5px;
+		vertical-align: top;
+		overflow: hidden;
+	}
+	
+	.focus .hd ul .on {
+		background: #f60;
+	}
+	
+	.focus .bd {
+		position: relative;
+		z-index: 0;
+	}
+	
+	.focus .bd li img {
+		display: block;
+		margin: auto;
+		max-width: 480px;
+		min-width: 320px;
+		width: 100%;
+		height: 203px;
+	}
+	
+	.focus .bd li a {
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+		/* 取消链接高亮 */
+	}
+	
+	.tabBox .hd {
+		height: 40px;
+		line-height: 40px;
+		padding: 0 10px;
+		font-size: 1.0rem;
+		background: #F3F3F3;
+		border-top: 1px solid #CECECE;
+		border-bottom: 1px solid #CECECE;
+	}
+	
+	.tabBox .hd ul {
+		overflow: hidden;
+	}
+	
+	.tabBox .hd ul li {
+		float: left;
+		color: #515151;
+		width: 25%;
+		list-style: none;
+		text-align: center;
+		overflow: hidden;
+		height: 35px;
+	}
+	
+	.tabBox .hd ul a {
+		text-decoration: none;
+		color: #1F1F1F;
+		font-family: "宋体";
+	}
+	
+	.tabBox .hd ul .on {
+		border-bottom: 2px solid #BA2636;
+		color: #BA2636;
+	}
+	
+	.tabBox .hd ul .on a {
+		display: block;
+	}
+	
+	.tabBox .bd a {
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	}
+	/* 去掉链接触摸高亮 */
+	
+	.tabBox .bd li a {
+		color: #555;
+	}
+	
+	.tabBox .bd ul {
+		margin-top: 5px;
+	}
+	
+	.tabBox .bd li div.list_div {
+		margin: 6px;
+		background: #FFFFFF;
+	}
+	
+	.item-list {
+		width: 100%;
+	}
+	
+	.item-list li {
+		float: left;
+		width: 50%;
+		list-style: none;
+	}
+	
+	.item-list img {
+		display: block;
+		margin: 0 auto;
+		width: 100%;
+		border: 1px solid #ccc;
+	}
+	
+	.item-list div.list_p {
+		margin: 7px 10px;
+		border: 1px solid #E9E9E9;
+	}
+	
+	.item-list div.list_n {
+		line-height: 18px;
+		height: 18px;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		text-align:left;
+		font-size: 12px;
+		padding: 2px;
+	}
+	
+	.item-list div.list_price {
+		line-height: 12px;
+		height: 12px;
+		font-size: 12px;
+		color: #666;
+		text-align:left;
+		text-indent:5px;
+		padding: 2px;
+	}
+	
+	.item-list dl {
+		padding: 1px 5px;
+	}
+	
+	.item-list dt {
+		height: 6px;
+		width: 100%;
+		background: #ddd none repeat scroll 0 0;
+		margin-bottom:7px;
+	}
+	
+	.item-list dt b {
+		height: 6px;
+		background: #DE4849;
+		display: block;
+		font-size: 12px;
+	}
+	
+	.item-list dd span {
+		color: #666 !important;
+		height: 36px;
+		line-height: 16px;
+		width: 50%;
+		font-size: 12px;
+	}
+	
+	.item-list dd span.orange {
+		float: left;
+		text-align:left;
+	}
+	
+	.item-list dd span.orange em {
+	
+		display: block;
+		
+	}
+	
+	.item-list dd span.blue {
+		text-align: right;
+		float: right;
+	}
+	
+	.item-list dd span.blue em {
+	
+		display: block;
+		
+	}
+	
+	.item-list li {text-align: center;}
+	.item-list li a.u-imm {
+		background: #fff none repeat scroll 0 0;
+		border-radius: 5px;
+		border: 1px solid #DE4849;
+		clear: both;
+		color: #DE4849;
+		display: inline-block;
+		/*height: 20px;*/
+		margin: 0 auto;
+		margin-bottom:5px;
+		text-align: center;
+		width: auto;
+		padding: 3px 15px;
+		text-decoration: none;
+		position: relative;
+		left: -30px;
+		font-size: 12px;
+	}
+	
+	.item-list li a.u-imm i {
+		display: block;
+		width: 30px;
+		height: 30px;
+		border-radius: 80px;
+		position: relative;
+		left: 200%;
+		top: -24px;
+		box-sizing: border-box;
+		background: url(../img/SHOPPING-CART---ADD@2x.png) no-repeat;
+		background-size: 25px;
+		background-color: #DE4849;
+		background-position: 1px 1px;
+	}
+	
+	.yun_item {
+		background: #DEDEDE;
+	}
+	
+	.yun_item a {
+		width: 28%;
+		float: left;
+		text-align: center;
+		background: #EDEDED;
+		height: 30px;
+		line-height: 30px;
+		border: 1px solid #DEDEDE;
+		box-sizing: border-box;
+	}
+	
+	.yun_item a:nth-child(4) {
+		width: 16%;
+		float: left;
+		text-align: center;
+		font-size: 18px;
+	}
+	
+	.yun_item a.checked {
+		background: #fff;
+	}

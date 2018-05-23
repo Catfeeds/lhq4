@@ -1,0 +1,226 @@
+<include file="Index:header"/>
+<include file="Index:navibar"/>
+<include file="Index:sidebar"/>
+
+<!--- START 以上内容不需更改，保证该TPL页内的标签匹配即可 --->
+
+<!--<{$osadmin_action_alert}>-->
+
+
+<form class="form_search"  action="" method="GET" style="margin-bottom:0px">
+   <!-- <div style="float:left;margin-right:5px">
+        <label> 选择起始时间 </label>
+        <input type="text" id="start_date" name="start_date" value="<{$_GET.start_date}>" placeholder="起始时间" >
+    </div>
+    <div style="float:left;margin-right:5px">
+        <label>选择结束时间</label>
+        <input type="text" id="end_date" name="end_date" value="<{$_GET.end_date}>" placeholder="结束时间" >
+    </div>
+    -->
+    <div style="float:left;margin-right:5px">
+        <label>开户名</label>
+        <input type="text" name="account" value="{$_GET.account}" placeholder="输入开户名" >
+
+    </div>
+	<div class="btn-toolbar" style="padding-top:25px;padding-bottom:0px;margin-bottom:0px">
+		<button type="submit" class="btn btn-primary">检索</button>
+	</div>
+	<div style="clear:both;"></div>
+</form>
+</div>
+
+    <div class="block">
+        <a href="#page-stats" class="block-heading" data-toggle="collapse">财务审核列表</a>
+        <div id="page-stats" class="block-body collapse in">
+
+            <form id="tab" method="post" action="">
+               <!-- <div class="btn-toolbar" style="margin-bottom:2px;">
+                    <a href="javascript:void(0)" id="del_all_btn" class="btn btn-primary"><i class="icon-plus"></i> 批量删除</a>
+                </div>-->
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                    <!--
+                    <th><input type="checkbox" name="all" value="check it" onclick="if(!this.checked)unSelectAll();if(this.checked)selectAll()" />select all  </th>
+					-->
+					<th style="width:30px">交易号</th>
+                    <th style="width:90px">提现金额</th>
+					<th style="width:90px">打款金额</th>
+					<th style="width:180px">是否提供发票</th>
+					<th style="width:80px">发票抬头</th>
+					<th style="width:80px">开户人姓名</th>
+					<th style="width:80px">银行账户</th>
+					<th style="width:80px">开户行地址</th>
+					<th style="width:80px">申请时间</th>
+					<th style="width:180px">完结时间</th>
+                    <th style="width:160px">状态</th>
+					<th style="width:100px">操作</th>
+                </tr>
+              </thead>
+              <tbody>							  
+
+                    <foreach name="finances" item="list">
+					<tr>
+                        <!--
+                     <td><input type="checkbox" name="selectedids" value="mission_id"/></td>
+					-->
+                        <td>{$list.t_number}</td>
+					<td>{$list.widthdraw_money}</td>
+                    <td>{$list.paid_money}</td>
+					<td>
+                        <if condition="$list.offer eq 1">
+                        提供
+                        <else/>
+                        不提供
+                        </if></td>
+                    <td>{$list.invoice_title}</td>
+                    <td>{$list.account}</td>
+                    <td>{$list.bank_account}</td>
+                    <td>{$list.address}</td>
+					<td>{$list.apply_time}</td>
+                    <td>{$list.end_time}</td>
+                    <td>
+                        <if condition="$list.status eq 2">
+                        已审核
+                        <elseif  condition="$list.status eq 1"/>
+                        待审核
+                            <elseif  condition="$list.status eq 3"/>
+                            审核失败
+                        </if>
+                    </td>
+
+                    <td>
+                    <a class="shcg" mid="{$list.id}">
+
+                    <!--    <if condition="$list.status eq 1">
+                        <img xs='1' value="已审核"  class="wo" src="__PUBLIC__/images/true.png">
+                                <else/>
+                        <img xs='2' value="待审核" class="wo" src="__PUBLIC__/images/error.png">
+                                </if>-->
+                        <if condition="$list.status eq 1">
+                            <img xs='1' value="待审核"  class="wo" src="__PUBLIC__/images/true.png"/>
+                        </if>
+                    </a>
+                        <a class="shsb" mid="{$list.id}">
+                            <if condition="$list.status eq 1">
+                                <img sh='2' value="审核失败"  class="wo" src="__PUBLIC__/images/error.png"/>
+
+                            </if>
+                    </a>
+                        </td>
+					</tr>
+				</foreach>
+              </tbody>
+            </table>
+                </form>
+<!--- START 分页模板 --->
+            <div style="margin-bottom: 20px">
+                <table id="page-table-fenye" cellspacing="0" >
+                    <tr>
+                        <td align="center" nowrap="true">
+                            {$page}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+<!--- END 分页--->			   
+        </div>
+        每页25项
+    </div>
+<script>
+
+ /*   $(function(){
+        $(".zt").find('img').click(function() {
+            var statu = confirm("你确定要审核吗");
+            if(!statu){
+                return false;
+            }
+            var url = "{:U('Finance/statusAjax2')}";
+            var val = $(this).attr('xs');
+            var mid = $(this).parent().attr('mid');
+           // alert(val);
+          //  alert(mid);
+            if (val == 1) {
+                $.post(url, {val: val, mid: mid});
+                $(this).attr('src', "__PUBLIC__/images/error.png");
+                $(this).attr('xs', '2');
+                window.location.reload();
+            } else {
+                $.post(url, {val: val, mid: mid});
+                $(this).attr('src', "__PUBLIC__/images/true.png");
+                $(this).attr('xs', '1');
+                window.location.reload();
+            }
+        })
+    })*/
+
+ $(function(){
+     $(".shcg").find('img').click(function() {
+
+         //   var url = "{:U('Finance/drawingAjax')}";
+         var val = $(this).attr('xs');
+         var mid = $(this).parent().attr('mid');
+         /*  alert(val);
+          alert(mid);*/
+         if (val == 1) {
+             var statu = confirm("你确定要通过审核成功吗！");
+             if(!statu){
+                 return false;
+             }
+             $.post("{:U('Finance/statusAjax2')}", {val: val, mid: mid});
+             // $(this).attr('src', "../assets/images/wan.png");
+             $(this).attr('xs', '1');
+             window.location.reload();
+         } else{
+             alert('你已经审核过了');
+             return false;
+         }
+     })
+ })
+ //审核失败
+ $(function(){
+     $(".shsb").find('img').click(function() {
+
+         var url = "{:U('Finance/statusAjax2')}";
+         var val = $(this).attr('sh');
+         var mid = $(this).parent().attr('mid');
+         //alert(mid);
+         if (val == 2) {
+             var statu = confirm("你确定要审核失败吗！");
+             if(!statu){
+                 return false;
+             }
+             $.post(url, {val: val, mid: mid});
+             //  $(this).attr('src', "../assets/images/true.png");
+             $(this).attr('sh', '2');
+             window.location.reload();
+         } else{
+             alert('你已经审核过了');
+             return false;
+         }
+     })
+ })
+</script>
+<script>
+
+
+    $(function() {
+        var date=$( "#start_date" );
+        date.datetimepicker({
+            showSecond:true,
+            timeFormat: "HH:mm:ss"
+        });
+
+    });
+    $(function() {
+        var date=$( "#end_date" );
+        date.datetimepicker({
+            showSecond:true,
+            timeFormat: "HH:mm:ss"
+        });
+    });
+</script>
+<!---操作的确认层，相当于javascript:confirm函数--->
+<!--<{$osadmin_action_confirm}>-->
+<!--- END 以下内容不需更改，请保证该TPL页内的标签匹配即可 --->
+<include file="Index:footer"/>

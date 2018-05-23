@@ -1,0 +1,80 @@
+		<header class="panel_header fix mb20">
+			<h2 class="title">{$title}</h2>
+		</header>
+
+		<div class="fix">
+				<a href="javascript:openWin('{:U('Admin/Article/add')}', 'add')" class="btn btn-primary l mr10">
+					<i class="fa fa-plus"></i> <span>添加文章</span>
+				</a>
+
+				<div class="input-group l w300 mr10">
+					<input type="text" class="form-control keyword" name="{$keyword}" value="" placeholder="关键字" />
+					<a href="javascript:getList({page: 1, keyword: ''});" class="input-group-addon btn btn-primary white">清空</a>
+					<div class="input-group-addon btn btn-primary white search">搜索</div>
+				</div>
+				
+				<div class="input-group l w200 mr10">
+					<div class="input-group-addon">分类</div>
+					<select class="form-control goods-type" name="typeId">
+						<option value="0" >全部</option>
+						<volist name="types" id="v">
+							<option value="{$v.id}">{$v.typename}</option>
+						</volist>
+					</select>
+				</div>
+				
+				<div class="btn-group goods-status" data-toggle="buttons">
+					<label class="btn btn-primary active">
+						<input type="radio" name="status" value="0" autocomplete="off" checked> 全部
+					</label>
+					<label class="btn btn-primary">
+						<input type="radio" name="status" value="1" autocomplete="off"> 显示
+					</label>
+					<label class="btn btn-primary">
+						<input type="radio" name="status" value="2" autocomplete="off"> 关闭
+					</label>
+				</div>
+
+		</div>
+				
+		<div class="article-list pct100 mt20">
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<table class="table table-hover table-condensed table-striped table-bordered">
+						<thead>
+							<tr>
+								<th>编号</th>
+								<th>文章</th>
+								<th>创建时间</th>
+								<th>状态</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>0</td>
+								<td>测试</td>
+								<td>s</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="page"></div>
+				</div>
+			</div>
+		</div>
+
+<script src="__LIB_URL__/ja.js"></script>
+<script>
+var api = {
+	edit: '{:U('Admin/Article/edit')}',
+	list: '{:U('Admin/Article/lists')}',
+	update: '{:U('Admin/Article/update')}',
+	togglearticle: '{:U('Admin/Article/togglearticle')}',
+	del: '{:U('Admin/Article/del')}'
+}
+</script>
+<script src="__STATIC__/admin/article.js"></script>
+
+
+
+

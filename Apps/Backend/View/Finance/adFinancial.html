@@ -1,0 +1,65 @@
+<include file="Index:header"/>
+<include file="Index:navibar"/>
+<include file="Index:sidebar"/>
+<!-- TPLSTART 以上内容不需更改，保证该TPL页内的标签匹配即可 -->
+
+<div class="block">
+	<a href="#page-stats" class="block-heading" data-toggle="collapse">广告财务列表</a>
+	<div id="page-stats" class="block-body collapse in">
+	<table class="table table-striped">
+			<thead>
+			<tr>
+				<th>广告Id</th>
+                <!--<th>用户Id</th>-->
+				<th>广告名称</th>
+				<th>金额预算</th>
+                <th>单价</th>
+				<th>计划投放量</th>
+			    <th>实际投放量</th>
+                <th>操作</th>
+			</tr>
+			</thead>
+			<tbody>							  
+			<foreach name="missions" item="mission">
+				 
+				<tr>
+				<td>{$mission['app_id']}</td>
+                <td>{$apps[$mission['app_id']]}</td>
+                <td>{$moneys[$mission['mission_id']]}</td>
+                <td>{$mission['price']}</td>
+                <td>{$mission['amount']}</td>
+                <td>{$numbers[$mission['app_id']]}</td>
+                <td><a href="{:U('Finance/adFinancialList',array('app_id'=>$mission['app_id'],'adtype_id'=>$adids[$mission['app_id']]))}">查看明细</a></td>
+
+				</tr>
+			</foreach>
+		  </tbody>
+		</table>
+		<!--- START 分页模板 --->
+		<div style="margin-bottom: 20px">
+			<table id="page-table-fenye" cellspacing="0" >
+				<tr>
+					<td align="center" nowrap="true">
+						{$page}
+					</td>
+				</tr>
+			</table>
+		</div>
+			    每页25项
+	</div>
+</div>
+
+<script>
+    $(function() {
+        var date=$( "#start_date" );
+        date.datepicker({ dateFormat: "yy-mm-dd" });
+        date.datepicker( "option", "firstDay", 1 );
+    });
+    $(function() {
+        var date=$( "#end_date" );
+        date.datepicker({ dateFormat: "yy-mm-dd" });
+        date.datepicker( "option", "firstDay", 1 );
+    });
+</script>
+<!-- TPLEND 以下内容不需更改，请保证该TPL页内的标签匹配即可 -->
+<include file="Index:footer"/>

@@ -1,0 +1,109 @@
+
+<link rel="stylesheet" href="__LIB_URL__/jui/jquery.ui.css" />
+<script src="__LIB_URL__/layer/layer.js"></script>
+<script src="__LIB_URL__/jquery-ui-1.10.3.custom.min.js"></script>
+
+<header>
+	<h2 class="title">充值记录</h2>
+</header>
+<br>
+
+<div class="fix">
+
+	<div class="btn-group periods-show-status" data-toggle="buttons">	
+		<label class="btn btn-primary "> 
+			<input type="radio" name="status" value="0" autocomplete="off"> 所有
+		</label> 
+		
+		<label class="btn btn-primary"> 
+			<input type="radio" name="status" value="1" autocomplete="off"> 启用
+		</label> 
+		
+		<label class="btn btn-primary"> 
+			<input type="radio" name="status" value="2" autocomplete="off"> 禁用	
+		</label>
+	</div>
+</div>
+
+
+<div class="lists pct100 mt20">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+
+			<table border="1"
+				class="table table-hover table-condensed table-striped table-bordered">
+
+				<colgroup>
+					<col>
+					<col span="1">
+				</colgroup>
+
+				<thead>
+					<tr>
+						<th>编号</th>
+						<th>用户编号</th>
+						<th>充值编号</th>
+						<th>金额</th>
+						<th>方式</th>
+						<th>充值时间</th>
+						<th>状态</th>
+						<th>备注</th>
+					</tr>
+				</thead>
+				
+				<tbody>
+				
+					<volist name="recharge" id="vo">
+					<tr>
+						<td>{$vo["id"]}</td>
+						<td >{$vo["userid"]}</td>
+						<td>{$vo["rechargesn"]}</td>
+						<td >{$vo["money"]}</td>
+						<td>{$vo["mode"]}</td>
+						<td >{$vo["creatdate"]|date='Y-m-d H:i:s',###}</td>						
+						<td >
+							<switch name="vo.status"> 
+								<case value="1">启用</case> 
+								<case value="2">禁用</case> 
+								
+							</switch>
+						</td>
+						<td >{$vo["more"]}</td>
+					</tr>
+					</volist>
+
+				</tbody>
+				
+			</table>
+			<div class="page"></div>
+		</div>
+	</div>
+</div>
+
+
+<script>
+	selfUrl="{:U('Admin/Recharge/index')}";
+	
+	//输出分页
+	$(".page").html(page({:json_encode($page);}));
+	
+	
+	$(function(){
+		
+		//修改状态按钮的选中状态
+		var status=getUrlVal("status");
+		if(status){	
+			$("div[data-toggle='buttons'] label:eq("+status+")").prop("class","btn btn-primary active");	
+		}else{
+			$("div[data-toggle='buttons'] label:eq(0)").prop("class","btn btn-primary active");	
+		}
+		
+		//	切换状态
+		$(".btn").click(function() {
+			var status = $(this).find("input").attr("value");
+			
+			window.location.href = selfUrl+"&status=" + status;
+		});
+		
+	});
+</script>

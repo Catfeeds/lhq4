@@ -1,0 +1,77 @@
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no, maximum-scale=1.0" />
+		<meta content="yes" name="apple-mobile-web-app-capable" />
+		<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+		<meta content="telephone=no" name="format-detection" />
+
+		<link href="__WXP__/css/invite.css" rel="stylesheet" type="text/css" />
+<div style="padding-top: 40px">
+            <div id="wrapper" >
+                <div class="inv-ad">
+                    <img src="__WXP__/img/inv-ad.png" />
+                </div>
+                <div class="inv-con gray9">
+                    <a id="btnShare" style="float: none;" href="javascript:;" class="defaultRedBtn">立即赚钱</a>
+                    <p>长按复制以下链接发送给好友</p>
+                    <span id="txtInfo">{:C('site_url')}{:U('Index/Index',array('invitenum'=>cookie('selfinvite')))}</span>
+                </div>
+                <div class="inv-count clearfix">
+                    <ul>
+                        <li>
+                            <em class="orange">{$count}</em>
+                            <i class="colorbbb">邀请好友</i>
+                        </li>
+                        <li>
+                                                <em class="orange" id="emMoney">&yen;{$comye}</em>
+                            <i class="colorbbb">佣金余额</i>
+                        </li>
+                    </ul>
+                </div>
+                <div class="ann_btn">
+                    <a href="{:U('invite_record')}">邀请记录<s class="fr"></s></a>
+                                    <a href="{:U('commission')}">佣金明细<s class="fr"></s></a>
+                                    <p style="height: 100px;"></p>
+                </div>
+                        <div style="bottom: 48px;" class="pro_foot">
+                    <ul>
+                                        <li style="float: none;width: inherit;" id="liRechagre"><a href="#" style="" onclick="onekey()" class="defaultRedBtn">佣金一键转入{:C("web_title")}账户</a>  </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="m_popUp" style="display: block;">
+                <span ></span>
+                <div class="m_how">
+                    <h4>怎么赚钱？</h4>
+                    <p>1: 点击本页面右上角的三个点的图标</p>
+                    <p>2: 选择[发送给朋友]或[分享到朋友圈]</p>
+                    <p>3: 经您邀请的好友，成功参与{:C('web_title')}后，您可获得好友消费额6%的佣金奖励</p>
+                </div>
+                <div class="m_guide"></div>
+            </div>
+</div>
+		<script>
+			$('#btnShare').click(function(){
+				$('.m_popUp').css('display','block');
+			});
+			$('.m_popUp').click(function(){
+				$('.m_popUp').css('display','none');
+			});
+
+                    var actionurl="{:U('onekeybal')}";
+                    function onekey(){
+                        if ($('#emMoney').text().substring(1)<=0) {
+                           layer.msg('佣金额为0,不能转到余额!');
+                           return;
+                        }
+                        $.get(actionurl,'',function(result){
+                                if (result) {
+                                    layer.msg('转到余额成功!');
+                                    $('#emMoney').html("&yen;0.00");
+                                    return;
+                                }
+                                layer.msg('转到余额失败,请稍候重试!');
+                            },'json');
+                    }
+
+                </script>

@@ -1,0 +1,48 @@
+<include file ="Index:header"/>
+<include file ="Index:navibar"/>
+<include file ="Index:sidebar"/>
+<!-- START 以上内容不需更改，保证该TPL页内的标签匹配即可 -->
+{$osadmin_action_alert}
+{$osadmin_quick_note}
+    
+<div class="well">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#home" data-toggle="tab">修改渠道配置信息资料</a></li>
+    </ul>	
+	
+	<div id="myTabContent" class="tab-content">
+		  <div class="tab-pane active in" id="home">
+
+           <form id="tab" method="post" action="">
+				<label>配置信息名称</label>
+				<input type="text" name="config_name" value="{$config.config_name}" class="input-xlarge" required="true" autofocus="true" >
+				<label>应用名称</label>
+				<select name="app_id" required="true">
+                    <foreach name="apps" item="app" key="app_id">
+                        <if condition="$app_id eq 0" >
+                            <option value="">请选择广告名称</option>
+                            <else/>
+                            <option value="{$app_id}"
+                            <if condition="$config['app_id'] eq $app_id">
+                                selected="selected"
+                            </if>
+                            >{$app}</option>
+                        </if>
+
+                    </foreach>
+                </select>
+				<label>配置url</label>
+				<textarea name="config_content" rows="3" class="input-xlarge">{$config.config_content|htmlspecialchars}</textarea>
+                <input type="hidden" name="httpref" value="{$_SERVER['HTTP_REFERER']}">
+				<div class="btn-toolbar">
+					<button type="submit" class="btn btn-primary"><strong>提交</strong></button>
+				</div>
+			</form>
+        </div>
+    </div>
+</div>	
+<!---操作的确认层，相当于javascript:confirm函数-->
+{$osadmin_action_confirm}
+
+<!-- END 以下内容不需更改，请保证该TPL页内的标签匹配即可 -->
+<include file="Index:footer"/>

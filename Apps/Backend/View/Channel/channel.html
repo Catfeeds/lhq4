@@ -1,0 +1,91 @@
+<include file ="Index:header"/>
+<include file ="Index:navibar"/>
+<include file ="Index:sidebar"/>
+<!-- TPLSTART 以上内容不需更改，保证该TPL页内的标签匹配即可 -->
+
+<div class="btn-toolbar" style="margin-bottom:2px;">
+    <a href="{:U('channel_add')}" class="btn btn-primary"><i class="icon-plus"></i> 添加渠道</a>
+</div>
+<form class="form_search"  action="__ACTION__" method="GET" style="margin-bottom:0px">
+    <div style="float:left;margin-right:5px">
+        <label>查询渠道商</label>
+        <input type="text" name="channel_name" value="{$_GET.channel_name}" placeholder="输入渠道名称" >
+        <input type="hidden" name="search" value="1" >
+    </div>
+    <div class="btn-toolbar" style="padding-top:25px;padding-bottom:0px;margin-bottom:0px">
+        <button type="submit" class="btn btn-primary">检索</button>
+    </div>
+    <div style="clear:both;"></div>
+</form>
+<div class="block">
+	<a href="#page-stats" class="block-heading" data-toggle="collapse">渠道管理</a>
+	<div id="page-stats" class="block-body collapse in">
+	<table class="table table-striped">
+			<thead>
+			<tr>
+				<th>渠道id</th>
+				<th>渠道名称</th>
+                <th>渠道url</th>
+                <th>渠道管理人员</th>
+                <th>渠道介绍</th>
+				<th>联系电话</th>
+				<th>邮箱</th>
+				<if condition="$user_id eq 1">
+				<th>渠道添加者</th>
+				</if>
+			    <th>操作</th>
+				
+			</tr>
+			</thead>
+			<tbody>							  
+			<foreach name="channels" item="channel">
+				 
+				<tr>
+				 
+				<td>{$channel.channel_id}</td>
+				
+				<td>{$channel.channel_name}</td>
+
+                <td>{$channel.channel_url}</td>
+
+                <td>{$channel.channel_admin}</td>
+
+                <td>{$channel.channel_introduce}</td>
+				
+				<td>{$channel.mobile}</td>
+				 
+				<td>{$channel.email}</td>
+
+				<if condition="$user_id eq 1">
+					<if condition="$channel.user_id eq 0">
+						<td>{$channel.user_id}</td>
+					<else />
+						<foreach  name="userInfos" item="userInfo">
+							<if condition="$userInfo['user_id'] eq $channel['user_id']" >
+								<td>{$userInfo.user_name}</td>
+							</if>
+						</foreach>
+					</if>
+				</if>
+
+				<td>
+					<a href="{:U('channel_modify',array('channel_id'=>$channel['channel_id']))}" title= "编辑" ><i class="icon-pencil"></i></a>
+					
+					&nbsp;
+					<a data-toggle="modal" href="{:U('channel',array('channel_id'=>$channel['channel_id'],'method'=>del))}" title= "删除" ><i class="icon-remove"></i></a>
+				</td>
+				
+				</tr>
+			</foreach>
+		  </tbody>
+		</table>
+
+
+		<!--- START 分页模板 -->
+		{$page_html}
+			   <!--- END -->
+			    每页25项							
+	</div>
+</div>
+<!-- TPLEND 以下内容不需更改，请保证该TPL页内的标签匹配即可 -->
+<include file="Index:footer"/>

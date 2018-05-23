@@ -1,0 +1,1 @@
+alter table channel_active_log add result varchar(255) comment'·µ»Ø½á¹û';

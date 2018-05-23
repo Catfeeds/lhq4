@@ -1,0 +1,1 @@
+INSERT INTO `osa_module`(`module_name`,`module_url`, `module_sort`, `module_desc`,`module_icon`, `online`) VALUES ('财务管理','/panel/index.php','5','财务信息',' icon-magnet','1');

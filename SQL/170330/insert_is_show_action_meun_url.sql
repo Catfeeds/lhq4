@@ -1,0 +1,1 @@
+INSERT INTO `osa_menu_url`(`menu_name`, `menu_url`, `module_id`, `is_show`, `online`, `shortcut_allowed`, `menu_desc`, `father_menu`) VALUES ('激活页面显示','/Backend/IsShowAction/index','8','1','1','1','激活页面提示','0');

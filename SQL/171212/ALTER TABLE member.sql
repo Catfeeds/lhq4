@@ -1,0 +1,1 @@
+﻿update member set member_id=concat('1000',member_id) where member_id<100;

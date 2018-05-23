@@ -1,0 +1,36 @@
+{__NOLAYOUT__}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+	 <link rel="stylesheet" href="__ROOT__/web/weixin/css/style.css" type="text/css">
+</head>
+
+<body>
+     <div id="tishiDiv" class="tishidiv" style="display:none;" >
+        <div class="tishitop">钥匙以及掉线，请重新返回全民音乐重新打开</div>
+        <div class="tishidown" onclick="javascript:closeTishi()"><a style="color: #1e8dec;"  >确定</a></div>
+    </div>
+    <div id="bbg" class="bg" style="display:none;"
+        <a  href="javascript:closeTishi()" class="bg"></a>
+    </div>
+</body>
+<script type="text/javascript">
+
+    function showTishi(){
+            document.getElementById('tishiDiv').style.display='block';
+            document.getElementById('bbg').style.display='block';
+    }
+    function closeTishi(){
+        parent.location.href='<{$smarty.const.ADMIN_URL}>/mobile/index.php';
+//        if($res ==false) {
+//            parent.location.href=welcome/index.php;}
+        document.getElementById('tishiDiv').style.display='none';
+        document.getElementById('bbg').style.display='none';
+    }
+    <{if $noaccess == 0}>
+         showTishi();
+     <{/if}>    
+</script>
+</html>

@@ -1,0 +1,1 @@
+ALTER TABLE `member` ADD `online` TINYINT NOT NULL DEFAULT '0' COMMENT '是否在线' AFTER `click_time`;

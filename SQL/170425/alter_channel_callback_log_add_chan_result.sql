@@ -1,0 +1,1 @@
+alter table channel_callback_log add chan_result varchar(200) comment '渠道返回值记录';

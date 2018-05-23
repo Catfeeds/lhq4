@@ -1,0 +1,85 @@
+html,body,h1,h2,h3,h4,h5,h6,div,dl,dt,dd,ul,ol,li,p,blockquote,pre,hr,figure,table,caption,th,td,form,fieldset,legend,input,button,textarea,menu{margin:0;padding:0;-webkit-text-size-adjust:none;/*-webkit-backface-visibility:hidden;-webkit-perspective:1000;*/}
+header,footer,section,article,aside,nav,hgroup,address,figure,figcaption,menu,details{display:block;}
+table{border-collapse:collapse;border-spacing:0;}
+caption,th{text-align:left;font-weight:normal;}
+html,body,fieldset,img,iframe,abbr{border:0;}
+i,cite,em,var,address,dfn{font-style:normal;}
+[hidefocus],summary{outline:0;}
+li{list-style:none;}
+h1,h2,h3,h4,h5,h6,small{font-size:100%;}
+sup,sub{font-size:83%;}
+pre,code,kbd,samp{font-family:inherit;}
+q:before,q:after{content:none;}
+textarea{overflow:auto;resize:none;}
+label,summary{cursor:default;}
+a,button{cursor:pointer;}
+h1,h2,h3,h4,h5,h6,em,strong,b{font-weight:bold;}
+del,ins,u,s,a,a:hover{text-decoration:none;}
+body,textarea,input,button,select,keygen,legend{font:12px/1.14 "Helvetica Neue Light","Helvetica Neue","Helvetica","HeiTi SC", sans-serif;color:#333;outline:0;}
+html{background: rgb(235,235,235)}
+body{background:rgb(235,235,235);box-sizing: border-box;min-height:100%}
+a,a:hover{color:#333;}
+a, img {-webkit-touch-callout: none; }
+title{display:block;}
+html, body ,a,div,span,header,nav{/*-webkit-user-select: none;user-select: none;*/-webkit-tap-highlight-color:rgba(0,0,0,0.0);/*touch-action: none;*/}
+.dl{display:inline-block;*display:inline;*zoom:1;}
+.txt-jy{text-align:justify;text-justify:inter-ideograph;}
+.break{white-space:normal;word-wrap:break-word;word-break:break-all;}
+.cutoff{overflow:hidden;word-wrap:normal;white-space:nowrap;text-overflow:ellipsis;}
+.cf:before,.cf:after{content:"";display:table;}
+.cf:after{clear:both;}
+.cf{zoom:1;}
+.fl{float:left;}
+.fr{float:right;}
+.pr{position:relative;}
+.top-box{background:rgb(246,246,246);padding-bottom:1px;color:#FFF}
+.title-box{position:relative;text-align:center;color:#525252;font-size:1.6em;padding:14px 0}
+.title-box a{color:#FFF}
+.title-box a.back{position:absolute;top:8px;left:10px;width:30px;height:30px;background:url('/site_media/images/green_back.png') no-repeat 0 0px;background-size:120%}
+.title-box a.card{position:absolute;top:13px;right:4px;font-size:0.7em;padding:5px 7px;border-radius:3px;color:rgb(100,193,17)}
+
+.icon{background:url('/site_media/images/icons2.png') no-repeat;}
+#isload{display:none;color:rgb(218, 78, 78);text-align: center;margin-top: 240px;font-size: 2em;}
+
+.empty {text-align: center}
+.empty p {font-size: 1.6em;margin: 70px auto 20px;color: #908C8C;font-weight: 700}
+.empty img {width: 60px}
+.rhl-btn {
+	display: block;
+	border-radius: 3px;
+	cursor: pointer;
+	background: rgb(0,174,102);
+	text-align: center;
+	color: #FFF;
+	letter-spacing: 2px;
+	width: 170px;
+	height: 45px;
+	line-height: 45px;
+	font-size: 16px;
+	border: 0px;
+}
+.loading-box {width: 100%;height: 20px;}
+.loading {width: 100%;text-align: center;color: #E65C30}
+.morebtn {
+	display: block;
+	width: 40%;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	background: #f5f5f5;
+	border: 1px solid #D6D6D6;
+	border-radius: 5px;
+	margin: 0px auto 25px;
+	color: #747474;
+	box-shadow: 0 0 10px #D8D8D8
+}
+@media only screen and (max-width: 320px) {
+	
+}
+
+@media only screen and (max-width: 400px) {
+	
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation:landscape){
+	
+}

@@ -1,0 +1,46 @@
+正在加载,请稍候...
+<script>
+	orderListUrl="{:U('Order/index')}";
+	
+	//自动发送支付请求
+	$(callpay());
+	
+	//调用微信JS api 支付
+	function jsApiCall(){
+		WeixinJSBridge.invoke(
+			'getBrandWCPayRequest',
+			{$jsApiParameters},
+			function(res){  //微信付款的回调, 不安全
+				WeixinJSBridge.log(res.err_msg);
+				if(res.err_msg=="get_brand_wcpay_request:ok"){
+					layer.msg("充值成功,到账时间可能会有延迟,请注意查收!正在为您转至订单列表,请稍候...");
+					setTimeout(function(){
+						location.href=orderListUrl;
+					},3000);
+					
+				}else{
+					layer.msg("付款失败, 请核实后重试...");
+					setTimeout(function(){
+						history.go(-1);
+					},2000);
+					
+				}
+				
+			}
+		);
+	}
+	
+	function callpay(){
+		if (typeof WeixinJSBridge == "undefined"){
+		    if( document.addEventListener ){
+		        document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+		    }else if (document.attachEvent){
+		        document.attachEvent('WeixinJSBridgeReady', jsApiCall);
+		        document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+		    }
+		}else{
+		    jsApiCall();
+		}
+	}
+	
+</script>

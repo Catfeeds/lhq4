@@ -1,0 +1,160 @@
+		<div class="btn-list0" style="padding-top: 41px">
+			<div class="btn_list1">
+			
+				<a class="blue1Btn"  href="{:U('myaward')}">抢宝</a>
+		
+				<a class="white1Btn"  href="{:U('myaward_room')}">包场</a>
+
+			</div>
+		</div>
+
+<script>
+
+    var pageindex = 1;
+    var range = 50;
+    var totalheight = 0;
+    var data = {page: pageindex};//定义post参数
+    $(function () {
+
+        asyndata();//首次默认装载第一页
+        $(window).scroll(function () {
+            var srollPos = $(window).scrollTop(); //滚动条距顶部距离(页面超出窗口的高度)  
+
+            totalheight = parseFloat($(window).height()) + parseFloat(srollPos);
+            if (($(document).height() - range) <= totalheight) {
+                var index = layer.load(0, {shade: false});
+                pageindex++;
+                data = {page: pageindex};
+                asyndata();
+                layer.close(index);
+            }
+        });
+    });
+    /*
+     * 异步加载数据
+     */
+    function asyndata() {
+        $.post('', data, function (result) {
+            if (pageindex === 1 && result.length <= 0) {
+                $("#ul_list").append('<h3 style="padding: 20px;">你还没有中奖过\n\
+                                o(︶︿︶)o ,买的越多约有可能中奖哦... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n\
+                         <!--   <a style="color:#dd4f43" onclick="javascript:window.history.back();">返回&gt;&gt;&gt;</a>--></h3></h3>');
+
+                return;
+            }
+            adurl = "{:U('address',array('iden'=>1))}";
+            for (var key in result) {
+            	
+                $("#ul_list").append(
+                		'<li style=\'padding: 5px 10px\'>\
+                			<a href="{:U("goods/product_detail2")}&id=' + checkNull(result[key].goodsid) + '&qishu=' + checkNull(result[key].qishu) + '">\n\
+                        		<cite><img src="' + checkNull(result[key].image) + '"/>\n</cite>\
+	                        	<dl>\
+                        			<p>(第' + checkNull(result[key].qishu) + '期)' + checkNull(result[key].title) + '</p>\
+	                        		<p>已参与\n<em class="blue">' + checkNull(result[key].nums) + '</em>次</p>\n\
+		                        	<p>中奖号码：<em class="orange">' + checkNull(result[key].winningcode) + '\n</em></p>\
+	                        		<p>揭晓时间：' + checkNull(result[key].disclosedate) + '</p>\
+                        		</dl>\
+                        	</a>' +checkflag(result[key].flag, result[key].pid,result[key].status) + 
+                        '</li>'
+                );
+            }
+        });
+    }
+    /*d
+     * 判断是领奖还是已领取
+     */
+    function checkflag(flag, pid,status) {
+
+        switch (parseInt(flag)) {
+            case 0:
+                return '<a href="javascript:layer.msg(\'请等待发货...\');">\n\
+                        <div class=\'get_award\'>\n\
+                        待发货</div></a>';
+                break;
+            case 1:
+                return '<a href={:U("address",array("iden"=>1))}&pid=' + pid + '>\n\
+                        <div class=\'get_award\'>\n\
+                        领奖</div></a>';
+            case 2:
+                return '<a data-sh-pid=' + pid + ' href="javascript:confirmgoods(' + pid + ');">\n\
+                        <div class="get_award" class=\'get_award\'>\n\
+                        确认收货</div></a>';
+            case 3:
+                return '<a href="{:U(\'addPeriodsShow\', \'pid=\')}'+pid+'">\n\
+                <div class="get_award" class=\'get_award\'>\n\
+                        晒单</div></a>';
+            default:            	
+                return "<a><div onclick=\"javascript:layer.msg(\'您已经晒过单了!\');\" class='get_award'>\n\
+                        已晒单</div></a>";
+        }
+
+    }
+
+    
+     function confirmgoods(pid) {
+        if (!confirm('是否确认收货')) return;
+
+        var pid = pid;
+        
+        $.post('{:U("sh")}', {
+            pid: pid
+        },
+        function(j) {
+            if (j.code && j.code == 1) {
+                layer.msg('确认收货完毕');
+                var that = $('[data-sh-pid=' + pid + ']');
+                that.attr("href", "{:U('addPeriodsShow', 'pid=')}" + pid);
+                that.html('<div class="get_award">晒单</div>');
+            } else {
+                layer.msg(j.msg);
+            }
+        });
+        
+        //return false;
+    } 
+    
+/*     function confirmgoods(id) {
+
+        if (!id) {
+            layer.msg('缺少必备参数,不能确认收获!');
+            return;
+        }
+            $.post("{:U('sh')}", {pid: id}, function (res) {
+
+            if (res.code == 0) {
+                layer.msg('不存在此信息,不能确认收获!');
+                return;
+            }
+            layer.msg('确认收获完成!');
+            $('#divqrsh').text('已收货');
+        });
+        
+
+    } */
+    
+    /*
+     * 为Null验证
+     */
+    function checkNull(value) {
+        return value === null || value === undefined ? '' : value;
+    }
+</script>   
+<style>
+    a div{
+        padding: 3px;
+        margin: 5px auto 0 auto;
+        border:2px solid #fff;                        
+        border-radius: 5px;  
+        width: 90px;  
+        cursor: pointer;
+    }
+
+</style>
+<div id="divBuyList" class="m_buylist">
+    <ul id="ul_list">
+
+    </ul>
+</div>
+<div style="clear:both"></div>
+<div style="height: 60px;"></div>

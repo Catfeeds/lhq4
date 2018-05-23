@@ -1,0 +1,96 @@
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no, maximum-scale=1.0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+
+<link href="__WXP__/css/address.css" rel="stylesheet" type="text/css" />
+<script src="__WXP__/js/address.js" type="text/javascript"></script>
+<script src="__LIB_URL__/layer/layer.js"></script>
+<script type="text/javascript">
+    $(function () {
+        loadurl = "{:U('getarea')}";
+        loader();
+        $('.confirm').click(function () {
+            var username = $('#name').val();
+            if (username === '') {
+                layer.msg('请输入收件人姓名!');
+                return;
+            }
+            var iphone = $('#phone').val();
+            if (iphone === '') {
+
+                layer.msg('请输入手机号码!');
+                return;
+            }
+            if (!/^1\d{10}$/.test(iphone)) {
+                layer.msg('请输入正确的手机号码!');
+                return;
+            }
+            var province = $('#province option:selected').text();
+            if (province === '--请选择--') {
+                layer.msg('请选择省份!');
+                return;
+            }
+            var city = $('#city option:selected').text();
+            if (city === '--请选择--') {
+                layer.msg('请选择地区!');
+                return;
+            }
+            var county = $('#county option:selected').text();
+            if (county === '--请选择--') {
+                layer.msg('请选择县市!');
+                return;
+            }
+            var dtaddr = $('#dtaddr').val();
+            if (dtaddr === '') {
+                layer.msg('请输入详情地址!');
+                return;
+            }
+            loadurl = "{:U('addrsave')}";
+            var addr = $('#province option:selected').text() + "/" + $('#city option:selected').text()
+                    + "/" + $('#county option:selected').text() + "/" + dtaddr;
+            var data = {name: username, phone: iphone, addr: addr};
+
+            $.post(loadurl, data, function (msg) {
+                if (msg) {
+                     layer.msg('新增地址完成!');
+                     setTimeout(function () {
+                        if ($('#awardpid').val() !== '') {
+
+                          location.href = "{:U('address')}&iden=1&pid="+$('#awardpid').val();
+                        } else {
+
+                            location.href = "{:U('address')}";
+                        }
+
+                    }, 1000);
+                }
+                else {
+                    layer.msg('系统错误,增加收失败!');
+                }
+            });
+        });
+    });
+
+</script>
+<div class="input_area" style="padding-top: 40px">
+    <input id="name" type="text" placeholder="请输入收件人姓名"/>
+    <input id="phone" type="text" maxlength=11 placeholder="请输入收件人电话"/>
+    <div>
+        <select onchange="getarea(this.value, 'a');"id="province" class="input_area select">
+            <option>--请选择--</option>
+        </select>
+        <select onchange="getarea(this.value, 'b');" id="city" class="input_area select">
+            <option>--请选择--</option>
+        </select>
+        <select onchange="getarea(this.value);" id="county" class="input_area select">
+            <option>--请选择--</option>
+        </select>
+    </div>
+    <textarea id="dtaddr" placeholder="请填写详细地址" style="border:1px solid #DDDDDD; border-radius:5px; text-indent:10px; line-height:23px;"></textarea>
+     <input id="awardpid" type="hidden" value="{$awardpid}"/>
+    <input class="confirm" type="button" value="确定"/>
+</div>
+

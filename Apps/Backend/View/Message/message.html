@@ -1,0 +1,149 @@
+<!--<{include file ="header.tpl"}>-->
+<!--<{include file ="navibar.tpl"}>-->
+<!--<{include file ="sidebar.tpl"}>-->
+<include file="Index:header"/>
+<include file="Index:navibar"/>
+<include file="Index:sidebar"/>
+<!-- TPLSTART 以上内容不需更改，保证该TPL页内的标签匹配即可 -->
+
+<div class="btn-toolbar" style="margin-bottom:2px;">
+    <a href="message_add" class="btn btn-primary"><i class="icon-plus"></i> 添加消息</a>
+</div>
+<form class="form_search"  action="" method="GET" style="margin-bottom:0px">
+    <div style="float:left;margin-right:5px">
+        <label> 选择起始时间 </label>
+        <input type="text" id="start_date" name="start_time" value="{$_GET.start_time}" placeholder="起始时间" >
+    </div>
+    <div style="float:left;margin-right:5px">
+        <label>选择结束时间</label>
+        <input type="text" id="end_date" name="end_time" value="{$_GET.end_time}" placeholder="结束时间" >
+    </div>
+
+
+    <div style="float:left;margin-right:5px">
+        <label>消息来源</label>
+        <input type="text" name="msg_from" value="{$_GET.msg_from}" placeholder="输入消息创建人" >
+
+    </div>
+
+    <div style="float:left;margin-right:5px">
+        <label>查询消息标题</label>
+        <input type="text" name="title" value="{$_GET.title}" placeholder="输入信息标题" >
+    </div>
+    <div class="btn-toolbar" style="padding-top:25px;padding-bottom:0px;margin-bottom:0px">
+        <button type="submit" class="btn btn-primary">检索</button>
+    </div>
+    <div style="clear:both;"></div>
+</form>
+<div class="block">
+	<a href="#page-stats" class="block-heading" data-toggle="collapse">消息管理</a>
+	<div id="page-stats" class="block-body collapse in">
+
+
+        <table class="table table-striped">
+			<thead>
+			<tr>
+				<th>消息ID</th>
+				<th>消息标题</th>
+                <th>消息内容</th>
+                <th>消息来源</th>
+                <th>消息去向</th>
+			<!--	<th>消息状态</th>-->
+				<th>创建时间</th>
+                <th>是否发送</th>
+                <th>消息类型</th>
+			    <th>操作</th>
+				
+			</tr>
+			</thead>
+			<tbody>							  
+			<foreach name="messages" item="message">
+				 
+				<tr>
+				<td>{$message.message_id}</td>
+
+				<td>{$message.title}</td>
+
+                <td>{$message.content}</td>
+
+                <td>{$message.msg_from}</td>
+
+                <td><if condition="$message.msg_to eq '0'">
+                    全部用户
+                    <elseif condition= "$message.msg_to eq '-1'"/>
+                    部分用户
+                    <else/>
+                    个人
+                </if>
+                </td>
+				
+		<!--		<td><if condition="$message.status eq '0'">
+                    未读
+                    <elseif condition= "$message.status eq '1'"/>
+                    已读
+                </if>
+-->
+                </td>
+				 
+				<td>{$message.create_time}</td>
+
+                <td><if condition=" $message.display eq '0'">
+                    否
+                    <elseif condition="$message.display eq '1'" />
+                    是
+                    </if></td>
+                 <td><if condition="$message.m_type eq '1'">
+                     新人须知
+                     <elseif condition= "$message.m_type eq '2'"/>
+                     产品近况公告
+                     <elseif condition= "$message.m_type eq '3'"/>
+                     任务上线通知
+                     <elseif condition= "$message.m_type eq '4'"/>
+                     提现成功通知
+                     <elseif condition= "$message.m_type eq '5'"/>
+                     提现失败通知
+                     <elseif condition= "$message.m_type eq '6'"/>
+                     任务完成通知
+                     <elseif condition= "$message.m_type eq '7'"/>
+                     任务失败通知
+                 </if>
+                 </td>
+
+				<td>
+					<!--<a href="{:U('message_modify'),array('message_id'=>$message['message_id'])}" title= "编辑" ><i class="icon-pencil"></i></a>-->
+                    <a href="{:U('message_modify',array('message_id'=>$message['message_id']))}" title= "编辑" ><i class="icon-pencil"></i></a>
+					&nbsp;
+
+					<a data-toggle="modal" href="{:U('message',array('message_id'=>$message['message_id'],'method'=>del))}" title= "删除" ><i class="icon-remove"></i></a>
+
+				</td>
+				
+				</tr>
+			</foreach>
+		  </tbody>
+		</table>	
+		<!--- START 分页模板 --->
+              {$page_html}
+			   <!--- END --->
+			    每页25项
+	</div>
+</div>
+<script>
+    $(function() {
+        var date=$( "#start_date" );
+        date.datetimepicker({
+            showSecond:true,
+            timeFormat: "HH:mm:ss"
+        });
+
+    });
+    $(function() {
+        var date=$( "#end_date" );
+        date.datetimepicker({
+            showSecond:true,
+            timeFormat: "HH:mm:ss"
+        });
+    });
+</script>
+<!-- TPLEND 以下内容不需更改，请保证该TPL页内的标签匹配即可 -->
+<include file="Index:footer"/>

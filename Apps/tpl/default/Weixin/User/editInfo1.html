@@ -1,0 +1,127 @@
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="telephone=no" name="format-detection"/>
+<link href="__WXP__/css/member_ly.css" rel="stylesheet" type="text/css"/>
+<link rel="__WXP__/stylesheet" href="css/normalize3.0.2.min.css"/>
+<link href="__WXP__/css/mobiscroll.css" rel="stylesheet"/>
+<link href="__WXP__/css/mobiscroll_date.css" rel="stylesheet"/>
+<script src="__LIB_URL__/mobiscroll_date.js" charset="gb2312"></script>
+<script src="__LIB_URL__/mobiscroll.js"></script>
+<div class="sub_nav" style="padding-top: 40px">
+	<div class="link-wrapper">
+		<a href="{:U('editNickName')}"><em>昵称</em><i></i><span class="fr"></span>&nbsp;&nbsp;&nbsp;{$info.nickname}</a>
+	</div>
+	<div class="link-wrapper">
+		<a href="javascript:;" id="gender"><em>性别</em>
+
+            <if condition="$info.sex eq 1">
+                <span class="fr">男</span>
+                <elseif condition="$info.sex eq 2"/>
+                <span class="fr">女</span>
+                <elseif condition="$info.sex eq 3"/>
+                <span class="fr">保密</span>
+            </if>
+		<select id="selSex" onchange="getSex(this.value);" class="sex">
+			<option value="1">男</option>
+			<option value="2">女</option>
+			<option value="3">保密</option>
+		</select>
+		</a>
+		<a href="javascript:;"><em>生日</em><input id="dateBirth" value="{$info.birthday|date='Y-m-d',###}" class="date"></a>
+		<a href="{:U('editTel')}"><em>电话</em>&nbsp;&nbsp;&nbsp;{$info.phone1}<strong>备用联系信息不作公开</strong><i></i><span class="fr"></span></a>
+	</div>
+	<div class="link-wrapper">
+		<a href="{:U('editAddress','key=addr')}"><em>现居地</em><i ></i><input id="address" value="{$info.addr}" readonly class="date"></a>
+		<a href="{:U('editAddress','key=hometown')}"><em>家乡</em><i ></i><input id="home" value="{$info.hometown}" readonly class="date"></a>
+
+	</div>
+	<div class="link-wrapper">
+		<a href="{:U('editSignature')}" class="underwrite"><em>个性签名</em>&nbsp;&nbsp;&nbsp;{$info.signature}<i></i><span></span></a>
+	</div>
+</div>
+<!--<a style=" width: 100%;    width: 80%;
+	 margin: 20px 10%;"  href="/index.php?m=Weixin&amp;c=User&amp;a=logout" class="defaultRedBtn">退出当前账号</a>-->
+	<script>
+
+	url = "{:U('User/setInfo')}";
+
+	$(function() {
+	    $('#gender').click(function() {
+	        $('#selSex').show();
+	    });
+
+	    var currYear = (new Date()).getFullYear();
+	    var opt = {};
+	    opt.date = {
+	        preset: 'date'
+	    };
+	    opt.datetime = {
+	        preset: 'datetime'
+	    };
+	    opt.time = {
+	        preset: 'time'
+	    };
+	    opt.
+	default = {
+	        theme: 'android-ics light',
+	        //皮肤样式
+	        display: 'modal',
+	        //显示方式
+	        mode: 'scroller',
+			//修改生日
+	        onSelect:function(data){
+				$.post(
+						url,
+						{
+							name:"birthday",
+							value:data
+						},
+						function(rel){
+							layer.msg(rel.info);
+
+						}
+				);
+	        },
+	        //日期选择模式
+	        dateFormat: 'yyyy-mm-dd',
+	        lang: 'zh',
+	        //showNow: true,
+	        nowText: "今天",
+	        startYear: currYear - 100,
+	        //开始年份
+	        endYear: currYear  //结束年份
+	    };
+
+	   $("#dateBirth").mobiscroll($.extend(opt['date'], opt['default']));
+
+	});
+
+	//修改性别
+	function getSex(a) {
+		var data={
+				name:"sex",
+				value:"data"
+			};
+
+	    if (a == 1) {
+	    	data.value="1";
+	        $('#gender').find('span').text('男');
+	    }
+	    if (a == 2) {
+	    	data.value="2";
+	        $('#gender').find('span').text('女');
+	    }
+	    if (a == 3) {
+	    	data.value="3";
+	        $('#gender').find('span').text('保密');
+	    }
+
+	    $.post(url,data,function(rel){
+			layer.msg(rel.info);
+		});
+
+
+	}
+
+</script>

@@ -1,0 +1,112 @@
+
+    <script type="text/javascript">
+    	$(function(){
+    		var width = $('.goodUl').width()-100;
+    		$('.goodUl .gl3,.goodUl .gl4').width(width-10);
+    	});
+    </script>
+
+
+    <div class="order_wrapper">
+    	<div class="addr">
+    		<textarea class="txt" rows="2" cols="">{$users.addr}</textarea>
+    	</div>
+    	<div class="info">
+    		<dl>
+    			<dt class="infoTrack">信息跟踪</dt>
+    			<hr class="hr1"/>
+    			<dd>
+    				<ul class="trackUl">
+    					<li class="{$jindutiao.hr1}" >
+    						<div class="line1"></div>
+    						<div class="line3"></div>
+    						<div class="line4"></div>
+    					</li>
+    					<li class="msg">会员已填写配送地址信息，等待商城发货！</li>
+    					<li class="date">{$dates|date='Y-m-d H:i:s',###}（操作员：会员本人）</li>
+    				</ul>
+    				
+    			</dd>
+    			<hr class="hr2"/>
+    			<dd>
+    				<ul class="trackUl">
+    					<li class="{$jindutiao.hr2}">
+    						<div class="line1"></div>
+    						<div class="line3"></div>
+    						<div class="line4"></div>
+    					</li>
+    					<li class="msg">恭喜您开抢成功，请尽快填写收货地址，以便我们为您配送！</li>
+    					<li class="date">{$dates|date='Y-m-d H:i:s',###}（操作员：一元开抢管理员）</li>
+    				</ul>
+    				
+    			</dd>
+    		</dl>
+    	</div>
+    	
+    	<div class="goodInfo">
+    	
+    		<ul class="goodUl">
+    			<li class="gl1">获得的商品信息</li>
+    			
+    			<empty name="periodss">暂无信息</empty>
+    			<if condition="$periodss neq null">
+	    			<li class="gl2"><img width="100px" height="100px;" src="{$periodss.image}"/></li>
+	    			<li class="gl3">（第{$periodss.qishu}期）{$periodss.title}</li>
+	    			<li class="gl4">幸运开抢码：{$periodss.winningcode}</li>
+	    			<li class="gl4">揭晓时间：{$periodss.disclosedate|date='m/d/Y H:i:s',###}</li>
+    			</if>
+    			
+    		</ul>
+    		
+    	</div>
+    	
+    <!-- 	<div class="share">
+	    	<h2>向朋友们炫耀一下吧！</h2>
+    	</div>
+    	
+    	<div class="share1">
+    		<a href="javascript:sharefriend(0);"><span class="wx"></span>分享给微信好友</a>
+    		<a href="javascript:sharefriendarea(1);"><span class="pyq"></span>分享到微信朋友圈</a>
+    	</div> -->
+    	
+    </div>
+    
+    <script>
+    function sharefriend(iden){
+		if(!iden)return;
+    	var shareData = {
+				desc:"1元买iphone6S,最奇(ci)葩(ji)的玩法,快来挑战!现在分享朋友圈、微信群组更可获得好友消费金额6%的消费佣金!",
+				title: "{$periodss.title}",
+				link: "{:C('site_url')}{:U('goods/product_detail2')}&id={$periodss.title}&invitenum={:I('cookie.selfinvite')}",
+				imgUrl: "{:C('site_url')}{$periodss.image}"
+			};
+    
+	
+    if(typeof wx != 'undefined' && typeof shareData != 'undefined' && typeof shareData != 'gshareurl'){
+    	// alert('获取 signature');
+    	$.get(gshareurl,function(result){
+    		wx.config({
+    			debug: false,
+    			appId:result.appId,
+    			timestamp:result['timestamp'] ,
+    			nonceStr: result['nonceStr'],
+    			signature: result['signature'],
+    			jsApiList: [
+    				'onMenuShareTimeline',
+    				'onMenuShareAppMessage',    				
+    			]
+    		});
+    	});
+		
+    	
+    	
+    }if(iden===0)
+		wx.onMenuShareAppMessage(shareData);
+	if(iden===1)
+			wx.onMenuShareTimeline(shareData);
+    }	
+					</script>
+<if condition="IS_WEIXIN"> <script>var gshareurl = "{:U('WeixinSDK/getSignPackage')}";</script>
+<script src="__WXP__/js/jweixin-1.0.0.js"></script> <script
+	src="__WXP__/js/shareJS.js"></script> </if>
+

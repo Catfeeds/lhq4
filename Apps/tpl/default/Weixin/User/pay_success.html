@@ -1,0 +1,103 @@
+{__NOLAYOUT__}
+<!DOCTYPE html>
+<!-- saved from url=(0042)http://m.yyyg.com/mobile/mobile/item/28479 -->
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>
+	商品详情</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no, maximum-scale=1.0" /> 
+  <meta content="yes" name="apple-mobile-web-app-capable" />
+  <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+  <meta content="telephone=no" name="format-detection" /> 
+  <link href="__WXP__/css/comm2.css" rel="stylesheet" type="text/css" /> 
+  <link href="__WXP__/css/goods2.css" rel="stylesheet" type="text/css" /> 
+
+<style type="text/css">
+  .biaoti{
+    position: absolute;
+    width: 45%;
+    z-index: 1;
+    height: 36px;
+    font-size: 20px;
+    left: 26%;
+    color: #ffffff;
+    padding: 2px 0;
+    /* text-shadow: rgba(0,0,0,0.8) 0 -1px 0; */
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  .fl{float:left;height:35px; }
+</style>
+ </head> 
+ <body > 
+  <div  style="height:40px;background:#de4849";>
+    <a href="{:U('Weixin/Index/index')}"><img src="__ROOT__/t/a2.png"class="fl"></a>
+    <h1 class="biaoti" style="text-line:center">一元开枪</h1>
+</div>
+  <div class="h5-1yyg-v1" id="loadingPicBlock" style="magrin-top: 40px;clear:left">
+   <section class="goodsCon pCon"> 
+    <!-- 导航 --> 
+    <div class="pDetails "> 
+     <b class="pay">支付成功，请耐心等待揭晓结果 ！<span></span></b> 
+     <p class="price">成功支付{$count}个商品！</p> 
+
+     <div id="btnBuyBox" class="pBtn" codeid="28479"> 
+      <if condition="$type eq periods">
+      <a href="{:U('ygrecord')}" class="fl buyBtn">查看开抢记录</a> 
+      <a href="{:U('Goods/product_list_new')}" class="fr addBtn">继续购物</a> 
+      <elseif condition="$type eq bbooking"/>
+         <a href="{:U('Room/my_record')}" class="fl buyBtn">查看开抢记录</a> 
+         <a href="{:U('Room/index_canyu')}" class="fr addBtn">继续购物</a>
+    </if>
+     </div> 
+    </div> 
+    <!-- 参与记录，商品详细，晒单导航 --> 
+  <if condition="$type eq periods">
+    <div class="joinAndGet"> 
+     <dl> 
+     <em class="goods" style="position:absolute;left:20px;font-size:13px;color:#c0c0c0">以下{$count}件商品支付成功！</em><br /> 
+       <volist name="goods" id="vo"> 
+      <a> 
+        <b class="jil"> <em><img style="height:70px;margin-top:13px;float:left" src="__ROOT__/t/?w=600&amp;h=600&amp;src={$vo.image}" alt="" /></em> <b>(第{$vo.qishu}期){$vo.title}<br /> <em style="color:#de4849; font-size:13px;">{$vo.nums}</em><em style="margin-right:6px;font-size:13px;">人次</em> </b></b>
+       <b class="jil"><b>
+        <a style="height:30px;background-color:#de4849;text-align:center;" href="{:U('Weixin/Goods/buy_detail','uid=')}{$userid}&amp;goodsid={$vo.goods_id}&amp;qishu={$vo.qishu}"><span style="color:#fff;">查看开抢码</span></a>
+       </b> </b> 
+       </a>
+       </volist>
+       
+     </dl> 
+     <!-- 上期获得者 --> 
+    </div> 
+<elseif condition="$type eq bbooking"/>
+       <div class="joinAndGet"> 
+     <dl> 
+     <em class="goods" style="position:absolute;left:20px;font-size:13px;color:#c0c0c0">以下{$count}件商品支付成功！</em><br /> 
+       <volist name="goods" id="vo"> 
+      <a> 
+        <b class="jil"> <em><img style="height:70px;margin-top:13px;float:left" src="__ROOT__/t/?w=600&amp;h=600&amp;src={$vo.image}" alt="" /></em> <b>{$vo.goods_title}<br /> <em style="color:#de4849; font-size:13px;">{$vo.nums}</em><em style="margin-right:6px;font-size:13px;">人次</em> </b></b>
+       <b class="jil"><b>
+        <a style="height:30px;background-color:#de4849;text-align:center;" href="{:U('Weixin/Room/buy_detail','uid=')}{$userid}&amp;bbid={$vo.bbid}"><span style="color:#fff;">查看开抢码</span></a>
+       </b> </b> 
+       </a>
+       </volist>
+     
+     </dl> 
+     <!-- 上期获得者 --> 
+    </div> 
+
+</if>
+   </section> 
+   <p> <br /> </p> 
+   <p> <br /> </p> 
+   <p> <br /> </p> 
+  </div> 
+<!--   
+  <div class="footerdi"> 
+   <a title="首页" href="#"><i>&nbsp;</i>分享好友求祝福</a> 
+  </div> 
+   -->
+ </body>
+</html>

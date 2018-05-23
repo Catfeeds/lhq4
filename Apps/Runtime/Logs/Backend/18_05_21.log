@@ -1,0 +1,114 @@
+[ 2018-05-21T09:23:15+08:00 ] ::1 /lhq/backend/login
+ERR: Cron:cron_1 Runat 2018-05-21 09:23:15 Use 0.003566 s
+
+[ 2018-05-21T09:23:16+08:00 ] ::1 /lhq/backend/panel/verify_code_cn
+ERR: Cron:cron_1 Runat 2018-05-21 09:23:16 Use 0.002476 s
+
+[ 2018-05-21T09:23:27+08:00 ] ::1 /lhq/backend/login
+ERR: Cron:cron_1 Runat 2018-05-21 09:23:27 Use 0.002079 s
+
+[ 2018-05-21T09:23:28+08:00 ] ::1 /lhq/backend/
+ERR: Cron:cron_1 Runat 2018-05-21 09:23:28 Use 0.002766 s
+
+[ 2018-05-21T09:24:04+08:00 ] ::1 /lhq/Backend/App/appModify/app_id/1762?XDEBUG_SESSION_START=10760
+ERR: Cron:cron_1 Runat 2018-05-21 09:24:04 Use 0.002312 s
+
+[ 2018-05-21T09:25:10+08:00 ] ::1 /lhq/Backend/App/appModify/app_id/1762
+ERR: Cron:cron_1 Runat 2018-05-21 09:25:10 Use 0.004980 s
+
+[ 2018-05-21T09:25:27+08:00 ] ::1 /lhq/Backend/App/appModify/app_id/1762?XDEBUG_SESSION_START=10453
+ERR: Cron:cron_1 Runat 2018-05-21 09:25:27 Use 0.003270 s
+
+[ 2018-05-21T09:25:48+08:00 ] ::1 /lhq/Backend/App/appModify/app_id/1762?XDEBUG_SESSION_START=13319
+ERR: Cron:cron_1 Runat 2018-05-21 09:25:48 Use 0.003360 s
+
+[ 2018-05-21T09:26:38+08:00 ] ::1 /lhq/Backend/Task/task
+ERR: Cron:cron_1 Runat 2018-05-21 09:26:38 Use 0.002974 s
+
+[ 2018-05-21T09:26:40+08:00 ] ::1 /lhq/Backend/Adtype/adType
+ERR: Cron:cron_1 Runat 2018-05-21 09:26:40 Use 0.004050 s
+
+[ 2018-05-21T09:26:45+08:00 ] ::1 /lhq/Backend/App/app
+ERR: Cron:cron_1 Runat 2018-05-21 09:26:45 Use 0.002992 s
+
+[ 2018-05-21T09:27:13+08:00 ] ::1 /lhq/Backend/App/app?XDEBUG_SESSION_START=19989
+ERR: Cron:cron_1 Runat 2018-05-21 09:27:13 Use 0.002543 s
+
+[ 2018-05-21T09:28:05+08:00 ] ::1 /lhq/Backend/App/app?XDEBUG_SESSION_START=10620
+ERR: Cron:cron_1 Runat 2018-05-21 09:28:05 Use 0.007823 s
+
+[ 2018-05-21T09:28:18+08:00 ] ::1 /lhq/Backend/App/app?XDEBUG_SESSION_START=10620
+ERR: Cron:cron_1 Runat 2018-05-21 09:28:18 Use 0.002687 s
+
+[ 2018-05-21T09:28:40+08:00 ] 127.0.0.1 /lhq/backend/login
+ERR: Cron:cron_1 Runat 2018-05-21 09:28:40 Use 0.002531 s
+
+[ 2018-05-21T09:28:40+08:00 ] 127.0.0.1 /lhq/backend/login
+ERR: Cron:cron_1 Runat 2018-05-21 09:28:40 Use 0.002704 s
+
+[ 2018-05-21T09:30:47+08:00 ] ::1 /lhq/Backend/App/app?XDEBUG_SESSION_START=18852
+ERR: Cron:cron_1 Runat 2018-05-21 09:30:47 Use 0.004019 s
+
+[ 2018-05-21T09:36:11+08:00 ] ::1 /lhq/Backend/App/app?XDEBUG_SESSION_START=18836
+ERR: Cron:cron_1 Runat 2018-05-21 09:36:11 Use 0.003318 s
+
+[ 2018-05-21T09:36:23+08:00 ] ::1 /lhq/Backend/App/app?XDEBUG_SESSION_START=11501
+ERR: Cron:cron_1 Runat 2018-05-21 09:36:23 Use 0.003299 s
+
+[ 2018-05-21T09:41:33+08:00 ] ::1 /lhq/Backend/App/app?XDEBUG_SESSION_START=16208
+ERR: Cron:cron_1 Runat 2018-05-21 09:41:33 Use 0.002826 s
+
+[ 2018-05-21T09:44:06+08:00 ] ::1 /lhq/Backend/App/app
+ERR: Cron:cron_1 Runat 2018-05-21 09:44:06 Use 0.005721 s
+
+[ 2018-05-21T12:37:57+08:00 ] ::1 /lhq/backend/Log/providerCallbackLog
+ERR: Cron:cron_1 Runat 2018-05-21 12:37:57 Use 0.002260 s
+
+[ 2018-05-21T12:47:59+08:00 ] ::1 /lhq/Backend/Task/task
+ERR: Cron:cron_1 Runat 2018-05-21 12:47:59 Use 0.005828 s
+
+[ 2018-05-21T12:48:06+08:00 ] ::1 /lhq/Backend/Adtype/adType
+ERR: Cron:cron_1 Runat 2018-05-21 12:48:06 Use 0.002712 s
+
+[ 2018-05-21T13:03:34+08:00 ] ::1 /lhq/backend/
+ERR: Cron:cron_1 Runat 2018-05-21 13:03:34 Use 0.002160 s
+
+[ 2018-05-21T13:03:44+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-21 13:03:44 Use 0.003954 s
+
+[ 2018-05-21T13:03:50+08:00 ] ::1 /lhq/Backend/Mission/missionModify/mission_id/174
+ERR: Cron:cron_1 Runat 2018-05-21 13:03:50 Use 0.002218 s
+
+[ 2018-05-21T13:04:27+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-21 13:04:27 Use 0.002858 s
+
+[ 2018-05-21T13:04:34+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-21 13:04:34 Use 0.002242 s
+
+[ 2018-05-21T15:53:25+08:00 ] ::1 /lhq/Backend/App/app
+ERR: Cron:cron_1 Runat 2018-05-21 15:53:25 Use 0.003267 s
+
+[ 2018-05-21T15:53:31+08:00 ] ::1 /lhq/backend/app/appmodify/app_id/1762
+ERR: Cron:cron_1 Runat 2018-05-21 15:53:31 Use 0.004436 s
+
+[ 2018-05-21T15:53:43+08:00 ] ::1 /lhq/Backend/App/app
+ERR: Cron:cron_1 Runat 2018-05-21 15:53:43 Use 0.004609 s
+
+[ 2018-05-21T15:53:49+08:00 ] ::1 /lhq/backend/app/appmodify/app_id/1762
+ERR: Cron:cron_1 Runat 2018-05-21 15:53:49 Use 0.002698 s
+
+[ 2018-05-21T15:54:31+08:00 ] ::1 /lhq/Backend/Adtype/adType
+ERR: Cron:cron_1 Runat 2018-05-21 15:54:31 Use 0.002770 s
+
+[ 2018-05-21T15:54:32+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-21 15:54:32 Use 0.003402 s
+
+[ 2018-05-21T15:54:36+08:00 ] ::1 /lhq/backend/mission/missionmodify/mission_id/174
+ERR: Cron:cron_1 Runat 2018-05-21 15:54:36 Use 0.004328 s
+
+[ 2018-05-21T16:49:00+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-21 16:49:00 Use 0.004366 s
+
+[ 2018-05-21T16:49:04+08:00 ] ::1 /lhq/backend/mission/missionmodify/mission_id/174
+ERR: Cron:cron_1 Runat 2018-05-21 16:49:04 Use 0.002624 s
+

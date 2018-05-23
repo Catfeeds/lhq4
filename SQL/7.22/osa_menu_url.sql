@@ -1,0 +1,1 @@
+INSERT INTO osa_menu_url (menu_name,menu_url,module_id,is_show,online,shortcut_allowed,menu_desc,father_menu) VALUES ("渠道应用列表","/backend/channelList.php","2","0","1","1","渠道所有应用列表","111")

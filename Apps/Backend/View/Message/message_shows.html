@@ -1,0 +1,63 @@
+<!--<{include file ="header.tpl"}>-->
+<!--<{include file ="navibar.tpl"}>-->
+<!--<{include file ="sidebar.tpl"}>-->
+<include file="Index:header"/>
+<include file="Index:navibar"/>
+<include file="Index:sidebar"/>
+<!-- TPLSTART 以上内容不需更改，保证该TPL页内的标签匹配即可 -->
+{$osadmin_action_alert}
+{$osadmin_quick_note}
+
+<form class="form_search"  action="" method="GET" style="margin-bottom:0px">
+    <div style="float:left;margin-right:5px">
+        <label>查询</label>
+        <input type="text" name="nickname" value="{$_GET.nickname}" placeholder="输入要查询的文字" >
+        <input type="hidden" name="search" value="1" >
+    </div>
+    <div class="btn-toolbar" style="padding-top:25px;padding-bottom:0px;margin-bottom:0px">
+        <button type="submit" class="btn btn-primary">检索</button>
+    </div>
+    <div style="clear:both;"></div>
+</form>
+<div class="block">
+	<a href="#page-stats" class="block-heading" data-toggle="collapse">渠道管理</a>
+	<div id="page-stats" class="block-body collapse in">
+	<table class="table table-striped">
+			<thead>
+			<tr>
+				<th>ID</th>
+				<th>发送人名称</th>
+                <th>发送体</th>
+                <th>回复体</th>
+			    <th>操作</th>
+				
+			</tr>
+			</thead>
+			<tbody>
+			<foreach name="Customers" item="Customers">
+				<tr>
+				<td>{$Customers.id}</td>
+				
+				<td>{$Customers.nickname}</td>
+
+                <td>{$Customers.message}</td>
+
+                <td>{$Customers.reply}</td>
+
+				<td>
+					<a href="reply?id={$Customers.id}" title= "编辑" ><i class="icon-pencil"></i></a>
+				</td>
+				
+				</tr>
+			</foreach>
+		  </tbody>
+		</table>	
+		<!--- START 分页模板 --->
+               {$page}
+			   <!--- END --->
+			    每页25项							
+	</div>
+</div>
+<!-- TPLEND 以下内容不需更改，请保证该TPL页内的标签匹配即可 -->
+<!--<{include file="footer.tpl" }>-->
+<include file="Index:footer"/>

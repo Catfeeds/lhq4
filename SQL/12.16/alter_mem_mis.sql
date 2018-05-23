@@ -1,0 +1,1 @@
+alter table mem_mis add cd_time int(10) comment'倒计时时间';

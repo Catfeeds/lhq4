@@ -1,0 +1,81 @@
+<!--<{include file ="header.tpl"}>
+<{include file ="navibar.tpl"}>
+<{include file ="sidebar.tpl"}>-->
+<include file="Index:header"/>
+<include file="Index:navibar"/>
+<include file="Index:sidebar"/>
+<!-- TPLSTART 以上内容不需更改，保证该TPL页内的标签匹配即可 -->
+
+
+<div class="block">
+	<a href="#page-stats" class="block-heading" data-toggle="collapse">钱包明细列表</a>
+	<div id="page-stats" class="block-body collapse in">
+	<table class="table table-striped">
+			<thead>
+			<tr>
+				<th>ID</th>
+				<th>用户id</th>
+                <th>被邀请人id</th>
+				<th>总收益</th>
+				<th>收益类型</th>
+				<th>创建时间</th>
+				<th>来源任务名称</th>
+				
+			</tr>
+			</thead>
+			<tbody>							  
+
+				<foreach name="incomes" item="income">
+				<tr>
+				 
+				<td>{$income.income_id}</td>
+                <td>{$income.member_id}</td>
+				<td>{$income.invited_id}</td>
+
+				<td>{$income.income}</td>
+
+                <td>
+					<if condition="$income.income_type eq 1">
+                    完成任务
+                    <else/>
+                    分成
+                    </if></td>
+<!--
+                <td><{$income.income_type}></td>
+-->
+				<td>{$income.time}</td>
+
+				<td>{$missions[$income["mission_id"]]}</td>
+			
+				</tr>
+			</foreach>
+		  </tbody>
+		</table>	
+		<!--- START 分页模板 --->
+	<!--	<div style="margin-bottom: 20px">
+			<table id="page-table-fenye" cellspacing="0" >
+				<tr>
+					<td align="center" nowrap="true">
+						{$page}
+					</td>
+				</tr>
+			</table>
+		</div>-->
+		{$page}
+			    每页25项
+	</div>
+</div>
+<script>
+$(function() {
+	var date=$( "#start_date" );
+	date.datepicker({ dateFormat: "yy-mm-dd" });
+	date.datepicker( "option", "firstDay", 1 );
+});
+$(function() {
+	var date=$( "#end_date" );
+	date.datepicker({ dateFormat: "yy-mm-dd" });
+	date.datepicker( "option", "firstDay", 1 );
+});
+</script>
+<!-- TPLEND 以下内容不需更改，请保证该TPL页内的标签匹配即可 -->
+<include file="Index:footer"/>

@@ -1,0 +1,66 @@
+<include file="Index:header"/>
+<include file="Index:navibar"/>
+<include file="Index:sidebar"/>
+<!-- TPLSTART 以上内容不需更改，保证该TPL页内的标签匹配即可 -->
+
+<div class="block">
+	<a href="#page-stats" class="block-heading" data-toggle="collapse">广告财务明细</a>
+	<div id="page-stats" class="block-body collapse in">
+	<table class="table table-striped">
+			<thead>
+			<tr>
+				<th>广告主</th>
+                <!--<th>用户Id</th>-->
+				<th>广告应用</th>
+				<th>渠道商</th>
+                <th>Mac</th>
+				<th>IDFA</th>
+			    <th>回调地址</th>
+                <th>回调时间</th>
+                <th>IP地址</th>
+			</tr>
+			</thead>
+			<tbody>
+            <foreach name="datas" item="data">
+            <tr>
+                <td>{$data['provider_id']}</td>
+                <td>{$apps[$data['app_id']]}</td>
+                <td>{$channels[$data['chan_id']]}</td>
+                <td>{$data['mac']}</td>
+                <td>{$data['idfa']}</td>
+                <td>{$data['callback']}</td>
+                <td>{$data['time']}</td>
+                <td>{$data['ip']}</td>
+            </tr>
+            </foreach>
+		  </tbody>
+		</table>
+		<!--- START 分页模板 --->
+		<div style="margin-bottom: 20px">
+			<table id="page-table-fenye" cellspacing="0" >
+				<tr>
+					<td align="center" nowrap="true">
+						{$page}
+					</td>
+				</tr>
+			</table>
+		</div>
+
+			    每页25项
+	</div>
+</div>
+
+<script>
+    $(function() {
+        var date=$( "#start_date" );
+        date.datepicker({ dateFormat: "yy-mm-dd" });
+        date.datepicker( "option", "firstDay", 1 );
+    });
+    $(function() {
+        var date=$( "#end_date" );
+        date.datepicker({ dateFormat: "yy-mm-dd" });
+        date.datepicker( "option", "firstDay", 1 );
+    });
+</script>
+<!-- TPLEND 以下内容不需更改，请保证该TPL页内的标签匹配即可 -->
+<include file="Index:footer"/>

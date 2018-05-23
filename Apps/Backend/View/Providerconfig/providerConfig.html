@@ -1,0 +1,85 @@
+<include file ="Index:header"/>
+<include file ="Index:navibar"/>
+<include file ="Index:sidebar"/>
+<!-- TPLSTART 以上内容不需更改，保证该TPL页内的标签匹配即可 -->
+{$osadmin_action_alert}
+<div class="btn-toolbar" style="margin-bottom:2px;">
+    <a href="{:U('providerConfig_add')}" class="btn btn-primary"><i class="icon-plus"></i> 添加广告主配置信息</a>
+</div>
+<form class="form_search"  action="__ACTION__" method="GET" style="margin-bottom:0px">
+    <div style="float:left;margin-right:5px">
+        <label>查询配置信息名称</label>
+        <input type="text" name="config_name" value="{$_GET.config_name}" placeholder="输入配置信息名称" >
+        <input type="hidden" name="search" value="1" >
+    </div>
+	<div style="float:left;margin-right:5px">
+		<label>选择广告商</label>
+		<select name="provider_id" required="true">
+			<foreach name="providers" item="provider" key="provider_id" >
+				<option value="{$provider_id}"
+					<if condition="$provider_id eq $_GET['provider_id']">
+						selected="selected"
+					</if>
+				>{$provider}</option>
+			</foreach>
+		</select>
+	</div>
+    <div class="btn-toolbar" style="padding-top:25px;padding-bottom:0px;margin-bottom:0px">
+        <button type="submit" class="btn btn-primary">检索</button>
+    </div>
+    <div style="clear:both;"></div>
+</form>
+<div class="block">
+	<a href="#page-stats" class="block-heading" data-toggle="collapse">广告主配置信息</a>
+	<div id="page-stats" class="block-body collapse in">
+	<table class="table table-striped">
+			<thead>
+			<tr>
+				<th>配置信息名称</th>
+				<th>应用名称</th>
+				<th>广告商</th>
+				<th>配置url</th>
+				<th>配置返回结果(只填写正确返回值)</th>
+			    <th>操作</th>
+				
+			</tr>
+			</thead>
+			<tbody>							  
+			<foreach name="configs" item="config">
+				 
+				<tr>
+				 
+				<td>{$config.config_name}</td>
+				<td>{$apps[$config['app_id']]}</td>
+				<td>{$provider_name[$appPids[$config['app_id']]]}</td>
+				<td>{$config.config_content|htmlspecialchars}</td>
+				<td>{$config.config_if}</td>
+				<td>
+					<a href="{:U('Providerconfig/providerConfig_modify',array('config_id'=>$config['config_id']))}" title= "修改" ><i class="icon-pencil"></i></a>
+					
+					&nbsp;
+					<a data-toggle="modal" href="{:U('Providerconfig/providerConfig',array('config_id'=>$config['config_id'],'method'=>del))}" title= "删除" ><i class="icon-remove"></i></a>
+				</td>
+				
+				</tr>
+			</foreach>
+		  </tbody>
+		</table>
+	       <!-- 分页开始 -->
+                        <div style="margin-bottom: 20px">
+        <table id="page-table-fenye" cellspacing="0" >
+            <tr>
+                <td align="center" nowrap="true">
+                    {$page}
+                </td>
+            </tr>
+        </table>
+        </div>
+   
+        <!-- 分页结束 -->
+		    每页25项							
+	</div>
+</div>
+{$osadmin_action_confirm}
+<!-- TPLEND 以下内容不需更改，请保证该TPL页内的标签匹配即可 -->
+<include file="Index:footer"/>

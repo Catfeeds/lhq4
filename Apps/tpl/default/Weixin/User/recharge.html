@@ -1,0 +1,94 @@
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no, maximum-scale=1.0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+
+<link href="__WXP__/css/accounts.css" rel="stylesheet" type="text/css" />
+<link href="__WXP__/css/cart_list.css" rel="stylesheet" type="text/css" />
+
+
+<div class="acc-menu g-rechargeNav">
+    <a href="{:U('recharge')}" class="z-checked">网银充值</a>
+    <a href="{:U('recharge_card')}">充值卡充值</a>
+</div>
+
+<div class="g-accounts-details">
+    <h4 class="gray9">您的当前余额：<em class="orange">￥{$balance}</em>元</h4>
+</div>
+
+<div class="g-Recharge clearfix">
+    <ul id="ulOption">
+        <li money="50" class="checked"><a href="javascript:;">50元</a><s class="z-set"></s></li>
+        <li money="100"><a href="javascript:;">100元</a><s class="z-set"></s></li>
+        <li money="200"><a href="javascript:;">200元</a><s class="z-set"></s></li>
+        <li money="500"><a href="javascript:;">500元</a><s class="z-set"></s></li>
+        <li money="1000"><a href="javascript:;">1000元</a><s class="z-set"></s></li>
+        <li>
+        <input type="text" id="czje" placeholder="请输入" maxlength="8"><s class="z-set"></s>
+        </li>
+    </ul>
+</div>
+
+<div class="other_pay">
+    <div style="height: 50px;line-height: 50px;padding-left: 10px;font-size: 16px;color: #666666">请选择支付方式</div>
+    <div class="other">
+        <a href="javascript:;">
+            微信支付
+            <b class="z-set2"></b>
+        </a>				
+    </div>
+</div>
+
+<div class="f-Recharge-btn">
+    <a id="btnSubmit" href="javascript:test();"  style='height: 40px;' class="defaultRedBtn">确认充值</a>
+</div>
+
+<script>
+    $(function () {
+        $('#ulOption').children('li').click(function () {
+            $(this).addClass('checked');
+            $(this).siblings().removeClass('checked');
+        });
+        /*
+         $('.other').children('a').click(function() {
+         $(this).children('b').addClass('z-set2');
+         $(this).siblings().children('b').removeClass('z-set2');
+         })*/
+    })
+</script>
+
+<script>
+    function test() {
+
+        var select = $('.z-set2').parent().text();
+        if (select === '') {
+            layer.msg("请选择支付方式!");
+        } else
+        {
+            var czje = 0;
+            var a = $("li[class='checked']").attr("money");
+            var b = $('#czje').val();
+            if (a > 0)
+                czje += a;
+            if (b > 0)
+                czje += b;
+            if (parseFloat(czje) <= 0)
+            {
+
+                layer.msg('您充值的金额小于零!');
+                return;
+            }
+
+            var wxpayurl = "{:U('recharge/prepay')}";
+
+            $.post(wxpayurl, {paymethod: "weixin", cost: parseFloat(czje)}, function (res) {
+                wxpayurl = "{:U('Recharge/wxchongzhi')}";
+                location.href = wxpayurl + "&cost=" + parseFloat(czje) + "&ordercode=" + res;
+            });
+        }
+
+
+    }
+</script>
+

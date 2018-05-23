@@ -1,0 +1,146 @@
+		<header class="panel_header fix mb20">
+			<h2 class="title">{$title}</h2>
+		</header>
+
+		<div class="fix">
+			<div class="form-inline">
+				<div class="form-group">
+					<label>关键字:</label>
+					<input name="keyword" type="text" class="form-control input-sm dom-keyword"/>
+				</div>
+				<div class="form-group">
+					<label>时间选择:</label>
+					<div class="input-group">
+						<input type="text" class="form-control input-sm" name="date" id="dom-date" style="width:200px">
+						<label class="input-group-addon" for="dom-date"><i class="fa fa-calendar"></i></label>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="goods-list pct100 mt20">
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<table class="table table-hover table-condensed table-striped table-bordered">
+						<thead>
+							<tr>
+								<th>编号</th>
+								<th>商品</th>
+								<th>中奖码</th>
+								<th>时间</th>
+								<th>中奖人</th>
+								<!-- <th>IP 归属地</th>
+								<th>支付状态</th>
+								<th>操作</th> -->
+							</tr>
+						</thead>
+						<tbody class="dom-list">
+						</tbody>
+					</table>
+					
+					<div class="dom-page"></div>
+					<input type="hidden" class="dom-rows" value="10"/>
+
+				</div>
+			</div>
+		</div>
+
+<template class="tpl-list dn">
+	{{each list as ja}}
+	<tr>
+		<td>{{ja.id}}</td>
+		<td>【{{ja.qishu}}】 {{ja.title}}</td>
+		<td>{{ja.winningcode}}</td>
+		<td>{{ja.disclosedate | date:'Y-m-d H:i:s'}}</td>
+		<td>
+			{{ja.nickname}}
+			{{if ja.phone}}
+				[{{ja.phone}}]
+			{{/if}}
+		</td>
+		<!--
+		<td>{{ja.area}} {{ja.ip}}</td>
+		<td>
+		</td>
+		<td>
+			<a class="btn btn-success btn-xs" href="#">详情</a>
+		</td>
+		-->
+		
+	</tr>
+	{{/each}}
+
+	{{if !list[0]}}
+	<tr>
+		<td colspan=30>无数据</td>
+	</tr>
+	{{/if}}
+</template>
+
+<script src="__LIB_URL__/ja.js"></script>
+<script src="__LIB_URL__/template.js"></script>
+
+
+<link rel="stylesheet" href="__CDN__/jquery.daterangepicker.css" media="all" />
+<script src="__CDN__/moment.js"></script>
+<script src="__CDN__/jquery.daterangepicker.js"></script>
+
+
+<script>
+$('#dom-date').dateRangePicker({
+	separator : ' - ',
+	showShortcuts: true,
+	shortcuts: {
+		'prev-days': [3, 5, 7, 30]
+	},
+	endDate: date('Y-m-d'),
+	autoClose: true
+}).bind('datepicker-change', function(){AjaxGetList();});
+
+template.helper('date', _date);
+
+var _o = {
+	tpl: template.compile($('.tpl-list').html(), {escape: false}),
+	list: $('.dom-list'),
+	page: $('.dom-page'),
+	rows: $('.dom-rows'),
+	keyword: $('.dom-keyword'),
+};
+
+
+
+AjaxGetList();
+
+$('.list-type, .list-status').on('change', AjaxGetList);
+change('.dom-keyword', function(){ AjaxGetList(0); }, 500);
+
+
+
+function AjaxGetList(p){
+	var p = typeof p == 'number' || typeof p == 'string' ? p : 1;
+
+	_o.list.html('<tr><td colspan=30><i class="fa fa-spinner fa-pulse fa-2x"></i></td></tr>');
+	$.post('', {
+		date: $.trim($('#dom-date').val()),
+		type: $('[name=type]:checked').val(),
+		status: $('[name=status]:checked').val(),
+		express_id: $('.list-express-id').val(),
+		rows: _o.rows.val(),
+		keyword: _o.keyword.val(),
+		page: p
+	}, function(j){
+
+		_o.list.html(_o.tpl(j));
+		j.href = 'javascript:AjaxGetList({{page}});';
+		_o.page.html(page(j));
+
+	}, 'json')
+}
+ 
+
+
+</script>
+
+
+
+

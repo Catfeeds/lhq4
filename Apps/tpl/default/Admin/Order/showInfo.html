@@ -1,0 +1,46 @@
+
+<style>
+body {
+	height: 100%;
+}
+</style>
+
+<div class="f14" style="">
+	<p>订&ensp;单&ensp;号: {$info.order_code}</p>
+	<p>总&ensp;金&ensp;额: {$info.cost}</p>
+	<p>类&emsp;&emsp;型: {$types[$info['order_type']]?$types[$info['order_type']]:''}</p>
+	<p>用&emsp;&emsp;户: {$info.nickname}</p>
+	<p>手&emsp;&emsp;机: {$info.phone}</p>
+	<p>支付状态: {$payTypes[$info['pay_method']]?$payTypes[$info['pay_method']]:''}</p>
+	<p>支付状态: {$info['order_status']==0?'失败':'成功'}</p>
+	<!--
+	<p>订单状态: {$info['status']==1?'启用':'禁用'}</p>
+	-->
+
+	<if condition="!empty($info['goods'])">
+		<p>&nbsp;</p>
+		商品详情:
+		<table class="table table-hover table-condensed table-striped table-bordered f12">
+			<thead>
+				<tr>
+					<th>期数</th>
+					<th>商品名</th>
+					<th>单价</th>
+					<th>数量</th>
+					<th>总价</th>
+				</tr>
+			</thead>
+			<tbody>
+				<volist name="info.goods" id="v">
+					<tr>
+						 <td>第{$v.qishu}云</td>
+						 <td>{$v.title}</td>
+						 <td>{$v.price}</td>
+						 <td>{$v.nums}</td>
+						 <td>{$v['price'] * $v['nums']}</td>
+					</tr>
+				</volist>
+			</tbody>
+		</table>
+	</if>
+</div>

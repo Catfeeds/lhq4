@@ -1,0 +1,120 @@
+<include file ="Index:header"/>
+<include file ="Index:navibar"/>
+<include file ="Index:sidebar"/>
+<!-- TPLSTART 以上内容不需更改，保证该TPL页内的标签匹配即可 -->
+
+
+<form class="form_search"  action="" method="GET" style="margin-bottom:0px">
+    <div style="float:left;margin-right:5px">
+        <label> 选择起始时间 </label>
+        <input type="text" id="start_date" name="start_date" value="{$_GET.start_date}" placeholder="起始时间" >
+    </div>
+    <div style="float:left;margin-right:5px">
+        <label>选择结束时间</label>
+        <input type="text" id="end_date" name="end_date" value="{$_GET.end_date}" placeholder="结束时间" >
+    </div>
+
+    <div style="float:left;margin-right:5px">
+        <label>会员昵称</label>
+        <input type="text" name="member_name" value="{$_GET.member_name}" placeholder="输入会员昵称" >
+
+    </div>
+
+    <div class="btn-toolbar" style="padding-top:25px;padding-bottom:0px;margin-bottom:0px">
+        <button type="submit" class="btn btn-primary">检索</button>
+    </div>
+    <div style="clear:both;"></div>
+</form>
+<div class="block">
+    <a href="#page-stats" class="block-heading" data-toggle="collapse">任务分类</a>
+    <div id="page-stats" class="block-body collapse in">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>会员昵称</th>
+                <th>消息标题</th>
+                <th>消息状态</th>
+                <th>消息类型</th>
+                <th>消息去向</th>
+                <th>时间</th>
+
+            </tr>
+            </thead>
+            <tbody>
+           <!-- <foreach name='msgLogs' item='msgLog'>
+                <tr>
+                    <td>{$msgLog.id}</td>
+                    <td>{$msgLog.nickname}</td>
+                    <td>{$msgLog.title}</td>
+                    <td><if condition="$msgLog.status eq 0">
+                        未读
+                        <else />
+                        已读
+                    </if>
+                    </td>&lt;!&ndash; |date_format:"%Y-%m-%d %H:%M:%S" &ndash;&gt;
+                    <td>{$msgLog.create_time}</td>
+                </tr>
+            </foreach>-->
+        <foreach name='msgLogs' item='msgLog'>
+                <tr>
+                    <td>{$msgLog.id}</td>
+                    <td>{$memberName[$msgLog['member_id']]}</td>
+                    <td>{$title[$msgLog['message_id']]}</td>
+                    <td><if condition="$msgLog.status eq 0">
+                        未读
+                        <elseif condition="$msgLog.status eq 1" />
+                        已读
+                        </if></td>
+                    <td><if condition="$type[$msgLog['message_id']] eq 0">
+                        公告
+                        <elseif condition="$type[$msgLog['message_id']] eq 1" />
+                        通知
+                    </if></td>
+                    <td><if condition="$msgto[$msgLog['message_id']] eq '0'">
+                        群体
+                        <elseif condition="$msgto[$msgLog['message_id']] eq '-1'" />
+                        多人
+                        <else />
+                        个人
+                    </if></td>
+
+                    <td>{$msgLog.create_time}</td>
+                </tr>
+                </foreach>
+            </tbody>
+        </table>
+        <!--- START 分页模板 --->
+        {$page_html}
+        <!--- END --->
+    <!--    <div style="margin-bottom: 20px">
+            <table id="page-table-fenye" cellspacing="0" >
+                <tr>
+                    <td align="center" nowrap="true">
+                        {$page_html}
+                    </td>
+                </tr>
+            </table>
+        </div>-->
+        每页25项
+    </div>
+</div>
+<script>
+    $(function() {
+        var date=$( "#start_date" );
+        date.datetimepicker({
+            showSecond:true,
+            timeFormat: "HH:mm:ss"
+        });
+
+    });
+    $(function() {
+        var date=$( "#end_date" );
+        date.datetimepicker({
+            showSecond:true,
+            timeFormat: "HH:mm:ss"
+        });
+    });
+</script>
+<!-- TPLEND 以下内容不需更改，请保证该TPL页内的标签匹配即可 -->
+<include file ="Index:footer"/>

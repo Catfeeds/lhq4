@@ -1,0 +1,128 @@
+<style>
+
+	.kaiguan{		
+		cursor:hand;
+		cursor:pointer;		
+	}
+	
+	.kaiguan:hover{	
+		font-weight:bold ;
+	}
+
+</style>
+<header class="panel_header fix mb20">
+<h2 class="title">{$title}</h2>
+</header>
+<div class="fix">
+	<a href="{:U('Admin/Bbooking/addBCheat')}" class="goods-add btn btn-primary l mr10">
+		<i class="fa fa-plus"></i><span>添加</span>
+	</a>
+	
+	<div class="btn-group goods-status" data-toggle="buttons" style="display:none;">
+	
+		<label class="btn btn-primary active">
+			<input type="radio" name="status" value="-1" autocomplete="off" checked> 全部
+		</label>
+		
+		<label class="btn btn-primary">
+			<input type="radio" name="status" value="1" autocomplete="off"> 在售
+		</label>
+		
+		<label class="btn btn-primary">
+			<input type="radio" name="status" value="0" autocomplete="off"> 关闭
+		</label>
+		
+	</div>
+</div>
+<div class="goods-list pct100 mt20">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<table class="table table-hover table-condensed table-striped table-bordered">
+				<thead>
+					<tr>
+						<th>编号</th>
+						<th>包场编号</th>
+						<th>商品名称</th>	
+						<th>中奖人</th>
+						<th>是否开启(点击切换)</th>
+						<th >操作</th>
+					</tr>
+				</thead>
+					
+				<tbody>
+				<volist name="list" id="v">
+				<tr>
+					<td>{$v.id}</td>
+					<td>{$v.bbid}</td>
+					<td>{$v.title}</td>					
+					<td>{$v.phone}--{$v.nickname}</td>
+					<td class="kaiguan" val="{$v.switch}" cid="{$v.id}">
+						<if condition="$v.switch eq 1">
+							开启
+						<else/>
+							关闭
+						</if>					
+					</td>
+					<!-- <td><a href="javascript:edit({$v.id});">修改</a></td> -->
+					<td><a href="javascript:del({$v.id});">删除</a></td>
+				</tr>
+				</volist>
+				</tbody>
+			</table>
+			<div class="page"></div>
+		</div>
+	</div>
+</div>
+
+<script>	
+	
+	cheatSwitchURL = "{:U('Bbooking/cheatSwitch')}";
+	cheatDelURL = "{:U('Bbooking/delBCheat')}";
+	cheatEditURL = "{:U('Bbooking/editBCheat')}";
+	
+	//删除自动购买
+	function del(id) {
+		$.post(cheatDelURL, {
+			id : id
+		}, function(rel) {
+			layer.msg(rel.info);
+			setTimeout(function() {
+				if (rel.status == 1) {
+					location.href = location.href;
+				}
+			}, 600);
+		});
+	}
+	
+	//编辑自动购买
+	function edit(id) {
+		location.href = cheatEditURL + "&id=" + id;
+	}	
+
+	
+	//规则开关
+	$(".kaiguan").click(function(){
+		var cheatSwitch=$(this).attr("val");		
+		var cheatId=$(this).attr("cid");
+		cheatSwitch=1-cheatSwitch;
+		
+		$.post(
+			cheatSwitchURL,
+			{
+				cheatSwitch:cheatSwitch,
+				cheatId:cheatId
+			},
+			function(rel){
+				layer.msg(rel.info);
+				if(rel.status==1){
+					setTimeout(function(){
+						location.href= location.href;
+					},1000);
+				}				
+			}
+		);
+		
+		
+	});
+
+</script>

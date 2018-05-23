@@ -1,0 +1,66 @@
+
+<header class="panel_header fix mb20">
+	<h2 class="title">角色列表</h2>
+</header>
+
+<div class="fix">
+	<a href="{:U('Admin/Role/add')}" class="btn btn-primary l mr10">
+		<i class="fa fa-plus"></i> <span>添加角色</span>
+	</a>
+
+</div>
+
+
+<div class="goods-list pct100 mt20">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<table
+				class="table table-hover table-condensed table-striped table-bordered">
+				<tbody>
+					<tr style="font-weight: bold;">
+						<td>序号</td>
+						<td>角色名称</td>						
+						<!-- <td>权限集</td>		 -->				
+						<td align="center" colspan='100'>操作</td>
+					</tr>
+					<volist name="info" id="v">
+					<tr id="product1">
+						<td>{$v['id']}</td>
+						<td>{$ge|str_repeat=$v['level']}{$v['name']}</td>							
+						<!-- <td>{$v['auth_ids']}</td> -->
+						<td><a href='{:U("Admin/Role/distribute")}&id={$v["id"]}'">权限分配</a></td>						
+						<td><a href="javascript:role_del({$v['id']});">删除</a></td>						
+					</tr>
+					</volist>					
+				</tbody>
+
+			</table>
+			<div class="page"></div>
+		</div>
+	</div>
+</div>
+
+
+<script>
+selfUrl="{:U('Admin/Role/showlist')}";
+delUrl="{:U('Admin/Role/del')}";
+
+//输出分页
+$(".page").html(page({:json_encode($page);}));
+
+function role_del(id){
+	if(confirm("确定要删除编号为 "+id+" 的角色吗？")){
+		$.post(
+				delUrl,
+				{id:id},
+				function(rel){
+					layer.msg(rel);	
+					window.location.reload () ;
+				}
+		);
+	}
+}
+
+
+
+</script>

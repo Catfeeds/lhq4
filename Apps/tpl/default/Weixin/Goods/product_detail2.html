@@ -1,0 +1,166 @@
+<script>
+var addCartUrl = "{:U('Cart/add')}";
+var cartUrl = "{:U('Cart/index')}";
+var isExistUrl = "{:U('Cart/isExist')}";
+var loginUrl = "{:U('Login/index')}";
+</script>
+<style>
+.focus .bd li img {
+	max-width: 360px;
+	min-width: 360px;
+}
+.focus {width: 100vw;}
+
+@media screen and (min-width: 360px) {
+	.focus .bd li img{
+		max-width: 100vw;
+		min-width: 100vw;
+		width: 100vw;
+	}
+}
+@media screen and (min-width: 560px) {
+	.focus .bd li img{
+		max-width: 360px;
+		min-width: 360px;
+		width: 360px;
+	}
+
+}
+</style>
+<link href="__WXP__/css/goods.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="__ROOT__/web/weixin/css/index.css">
+<script src="__WXP__/js/shop-cart.js"></script>
+<script src="__LIB_URL__/layer/layer.js"></script>
+<div style="padding-top: 40px">
+<ul class="yun_item" >
+	<volist name="cloudlist" id="clist" >
+		<if condition='$currqishu==$clist["qishu"]'>
+			<a style="width:{$width}%" href="{:U('product_detail2',array('id'=>$clist['goodsid'],'qishu'=>$clist['qishu']))}" class="checked"><li>第{$clist.qishu}期</li></a>
+			<else/>
+			<a style="width:{$width}%" href="{:U('product_detail2',array('id'=>$clist['goodsid'],'qishu'=>$clist['qishu']))}"><li>第{$clist.qishu}期</li></a>
+		</if>
+	</volist>
+	<a style="width:{$width}%" href="{:U('come_out','id='. $vo1['id'])}"><li>+</li></a>
+</ul>
+
+
+
+<div id="focus" class="focus">
+	<div class="hd">
+		<ul></ul>
+	</div>
+	<div class="bd">
+	<ul>
+		<!-- 轮播图 -->
+		<volist name="goodsdetails" id="vo2">
+		<li>
+			<img _src="__ROOT__/t/?w=600&h=500&src={$vo2.content}" style="height: 300px !important;" />
+		</li>
+		</volist>
+		</ul>
+	</div>
+</div>
+
+<!-- 商品详情 -->
+<div class="goods_detail fix" style="height: 120px;">
+	<div class="goods_name" style="height: auto;">
+		{$vo1.title}
+	</div>
+	<div class="goods_price">
+		价值：￥{$vo1.originprice}
+	</div>
+	<dl>
+		<dt title="已完成{$vo1['canyushu']/$vo1['fenshu']*100}%">
+		<b style="width:{$vo1['canyushu']/$vo1['fenshu']*100}%;"></b>
+		</dt>
+		<dd>
+			<span class="orange">
+				<em>{$vo1.canyushu}</em>
+				已参与
+			</span>
+			<span class="total">
+				<em>{$vo1.fenshu}</em>
+				总需人次
+			</span>
+			<span class="blue">
+				<em>{$vo1['fenshu']-$vo1['canyushu']}</em>
+				剩余
+			</span>
+		</dd>
+	</dl>
+</div>
+
+<div class="fix"></div>
+
+<div class="listview">
+	<a class="buy_count">
+		已购买<b>{$vo1.canyushu}</b>人次
+		<span onclick="layerNumber()">查看幸运码</span>
+	</a>
+	<a href="{:U('Weixin/Goods/photo_detail','id='. $vo1['id'])}">图文详情<i></i></a>
+	<a href="{:U('Weixin/Goods/come_out','id='. $vo1['id'])}">往期揭晓<i></i></a>
+	<a href="{:U('Weixin/Goods/share_product','id='. $vo1['id'])}">晒单记录<i></i></a>
+	<a class="chanyu-url" data-url="{:U('Weixin/Goods/player_record', array('goodsId' => $vo1['id'], 'qishu' => $vo1['qishu']))}">参与记录<i></i></a>
+</div>
+
+<div style="height: 50px;"></div>
+
+<div class="footer1">
+   <ul style="border: 1px solid #DE4849;">
+		<li style="background-color: #fff;"><a href="javascript:addCart({$id});" style="display: inline-block;width: 100%;color: #DE4849;font-size: 16px;">加入购物车</a></li>
+		<li style="background-color: #DE4849;"><a href="javascript:addCart({$id},1);" style="display: inline-block;width: 100%;color: #fff;font-size: 16px;">立即参与</a></li>
+	</ul>
+</div>
+
+
+
+<div id="layer" style="width: 260px;;padding: 5px;border: 1px solid #DE4849;display: none;">
+	<volist name="periods_details" id="vv">
+		<span style="display: inline-block;">{$vv.pcode}</span>&nbsp;&nbsp;
+	</volist>
+</div>
+</div>
+<script src="__WXP__/js/goodsPicSlider.js"></script>
+<script>
+$(function () {
+
+	lxfEndtime();
+
+	var w = $(window).width();
+
+	// $('#focus img').width('360px');
+	w < 360 && $('#focus').css('margin-left', (w - $('#focus img').width()) / 2);
+
+	// $("#sliderBox").picslider();
+	TouchSlide({
+		slideCell: "#focus",
+		titCell: ".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+		mainCell: ".bd ul",
+		effect: "left",
+		autoPlay: true, //自动播放
+		autoPage: true,
+		switchLoad: "_src" //自动分页
+	});
+
+	$.get($('a.chanyu-url').data('url'), function(a){
+		html = $(a).find('#divBuyList').html();
+		if(!html){
+			return false;
+		}
+		html = '<div id="divBuyList" class="m_buylist">'+html+'</div>';
+		$('.listview').after(html);
+	});
+
+})
+
+function layerNumber() {
+	layer.open({
+		type: 1,
+		title: false,
+		closeBtn: 0, //不显示关闭按钮
+		shadeClose: true, //开启遮罩关闭
+		content: $('#layer'),
+		move: '#layer'
+	});
+}
+</script>

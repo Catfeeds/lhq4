@@ -1,0 +1,286 @@
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no, maximum-scale=1.0"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="telephone=no" name="format-detection"/>
+<link href="__WXP__/css/address.css" rel="stylesheet" type="text/css"/>
+<script src="__LIB_URL__/layer/layer.js"></script>
+<script>
+    var actionurl = "{:U('deladdrbyId')}";
+    function deladdr(obj, id) {
+
+
+        layer.confirm('您确定要删除吗?', {
+                    btn: ['确定', '取消'] //按钮
+                }, function () {
+                    var temp = $(obj).parent().parent().children()[0].children[0].innerText;
+                    if (temp.trim() === '已选择') {
+                        layer.msg('您已选择该地址,不能将其删除!');
+                        return;
+                    }
+                    if (temp.trim() === '默认') {
+                        layer.msg('您必须设置一个默认地址,才可以删除!');
+                        return;
+                    }
+                    $.get(actionurl, {addrid: id}, function (msg) {
+                        if (msg) {
+
+                            $("#addr_id" + id).remove();
+                            layer.msg('已成功删除!');
+                        } else {
+
+                            layer.msg('系统出错,删除失败!');
+                        }
+                    });
+                }
+        );
+    }
+
+
+    function setdef(id, obj, isling) {
+        actionurl = "{:U('setdefaddr')}";
+        $.get(actionurl, {addrid: id}, function (msg) {
+            if (msg) {
+                $("#address div").removeAttr("class");
+                $("#address div").addClass("address_info");
+                $("#addr_id" + id).removeAttr("class");
+                $('#addr_id' + id).addClass("address_info defdiv");
+                $(".setdef a").removeAttr("class");
+                $(".setdef a").addClass("fa fa-square-o");
+                if (isling) {
+                    $(".setdef a").html("&nbsp;&nbsp;选择");
+                    $(obj).removeClass("fa fa-square-o");
+                    $(obj).addClass('fa fa-check-square-o defa');
+                    obj.innerHTML = "&nbsp;&nbsp;已选择";
+                } else {
+                    $(".setdef a").html("&nbsp;&nbsp;设为默认");
+                    $(obj).removeClass("fa fa-square-o");
+                    $(obj).addClass('fa fa-check-square-o defa');
+                    obj.innerHTML = "&nbsp;&nbsp;默认";
+                    layer.msg('已成功设置默认!');
+                }
+            } else {
+
+                layer.msg('系统出错,设置默认失败!');
+            }
+        });
+    }
+    function saveaddr() {
+
+        if (!(document.getElementsByClassName('fa fa-check-square-o defa').length > 0)) {
+            layer.msg('请选择发货地址!');
+            return;
+        }
+        if ($('#pid').val()) {
+
+            actionurl = "{:U('saveaddr')}";
+            var pid = $('#pid').val();
+            $.post(actionurl, {pid: pid}, function (msg) {
+                if (msg) {
+
+                    var width = ($(window).width() - 250) / 2;
+                    layer.msg('领奖成功,发货地址已保存,请留意发货通知!', {
+                        area: '200px',
+                        offset: ['', width]
+                    });
+                    actionurl = "{:U('myaward')}";
+                    setTimeout(function () {
+                        location.href = actionurl;
+                    }, 1000);
+                } else {
+                    layer.msg('系统出错,设置默认!');
+                }
+            });
+        }
+        //包场，添加地址
+        if ($('#roompid').val()) {
+            actionurl = "{:U('saveaddr_room')}";
+            var roompid = $('#roompid').val();
+            console.log(roompid);
+            $.post(actionurl, {roompid: roompid}, function (msg) {
+                if (msg['b']) {
+                    actionurl = "{:U('myaward_room')}";
+                    layer.msg('领奖成功,发货地址已保存,请留意发货通知!');
+                    setTimeout(function () {
+                        location.href = actionurl;
+                    }, 1000);
+                } else {
+                    layer.msg('系统出错!');
+                    setTimeout(function () {
+                        location.href = actionurl;
+                    }, 1000);
+                }
+            });
+        }
+    }
+</script>
+<style>
+    fieldset {
+        border: 2px solid #de4849;
+        padding-bottom:10px;padding-left: 10px;padding-right: 10px;
+        width: 90%;
+        margin: 50px  10px ;
+        border-radius: 10px;
+    }
+
+    legend {
+        font-size: 16px;
+        color: #de4849;
+
+    }
+
+    .behavor {
+        float: right;
+        margin-right: 10px;
+        color: #de4849;
+        font-size: 12px;
+    }
+
+    .defdiv {
+        background: papayawhip;
+
+    }
+
+    .setdef a {
+        font-size: 12px;
+    }
+
+    .defa {
+        color: #de4849;
+    }
+
+    #ljqr {
+
+        padding: 3px;
+        color: white;
+        background: #de4849;
+        text-align: center;
+        margin: 20px auto 0 auto;
+        border: 2px solid #fff;
+        border-radius: 5px;
+        width: 90px;
+    }
+
+    .emptyaddr {
+        padding: 10px;
+        font-size: 16px;
+        text-align: center
+    }
+</style>
+<!--如果判断标志是否为添加地址和设置中奖收获的地址-->
+<if condition="$iden eq 1">
+    <fieldset>
+        <legend>请选择发货地址</legend>
+        <div id="address">
+            <volist name="result" id="data" empty="$empty">
+                <if condition="$data.status eq 1">
+                    <div id="addr_id{$data.addr_id}" style=" margin: 5px auto;border-radius: 10px"
+                         class="address_info defdiv">
+                        <else/>
+                        <div id="addr_id{$data.addr_id}" style=" margin: 5px auto;border-radius: 10px"
+                             class="address_info">
+                </if>
+                <p style="text-indent:1em">&nbsp;&nbsp;{$data.name}&nbsp;&nbsp;&nbsp;&nbsp;{$data.phone}
+                </p>
+                <p style="font-size: 10px;text-indent: 2em">{$data.addr}</p>
+
+                <p>
+                                <span class="setdef" style="padding-left: 20px;">                
+                                    <if condition="$data.status eq 1">
+                                        <a class="fa fa-check-square-o defa" href='javascript:void(0);'
+                                           onclick="setdef({$data.addr_id}, this, 1);">&nbsp;&nbsp;已选择</a>
+                                        <else/>
+                                        <a class="fa fa-square-o" href='javascript:void(0);'
+                                           onclick="setdef({$data.addr_id}, this, 1);">&nbsp;&nbsp;选择</a>
+                                    </if>
+                                </span> 
+                                <span class="behavor"> 
+
+                                    <a class="fa fa-edit" 　style="color: #888888"
+                                       href={:U('edit',array('id'=>$data['addr_id'],'pid'=>$pid))};编辑</a>
+
+                                    <a class="fa fa-trash-o" 　style="color: #888888" href="javascript:void(0);"
+                                       onclick="deladdr(this, {$data.addr_id});">&nbsp;&nbsp;删除</a>
+                                </span>
+                </p>
+        </div>
+        </volist>
+        </div>
+        <notempty name="result">
+            <div class="control_btn" style="display: flex;">
+                <div id="ljqr">
+
+                    <p style=" cursor: pointer" onclick="javascript:location.href = '{:U('addradd')}&pid={$pid}'">
+                        新增收获地址</p>
+                </div>
+                <div id="ljqr">
+
+                    <p style=" cursor: pointer" onclick="saveaddr();">确认</p>
+                </div>
+            </div>
+        </notempty>
+        <input id="pid" type="hidden" value="{$pid}"/>
+        <input id="roompid" type="hidden" value="{$roompid}"/>
+    </fieldset>
+
+    <else/>
+
+    <div id="address" style=" padding:40px;">
+        <volist name="result" id="data">
+            <if condition="$data.status eq 1">
+                <div id="addr_id{$data.addr_id}" style=" margin: 5px auto;border-radius: 10px"
+                     class="address_info defdiv">
+                    <else/>
+                    <div id="addr_id{$data.addr_id}" style=" margin: 5px auto;border-radius: 10px" class="address_info">
+            </if>
+            <p style="text-indent:1em">&nbsp;&nbsp;{$data.name}&nbsp;&nbsp;&nbsp;&nbsp;{$data.phone}
+            </p>
+            <p style="font-size: 10px;text-indent: 2em">{$data.addr}</p>
+
+            <p style=" line-height: 20px">
+                                            <span class="setdef" style="padding-left: 20px; ">                
+                                                <if condition="$data.status eq 1">
+                                                    <a class="fa fa-check-square-o defa" href='javascript:void(0);'
+                                                       onclick="setdef({$data.addr_id}, this);">&nbsp;&nbsp;默认</a>
+                                                    <else/>
+                                                    <a class="fa fa-square-o" href='javascript:void(0);'
+                                                       onclick="setdef({$data.addr_id}, this);">&nbsp;&nbsp;设为默认</a>
+                                                </if>
+
+                                            </span>
+                                            <span class="behavor"> 
+
+                                                <a class="fa fa-edit" style="color: #888888"
+                                                   href={:U('edit',array('id'=>$data['addr_id'],'pid'=>$pid))}>&nbsp;&nbsp;编辑</a>
+
+                                                <a class="fa fa-trash-o" style="color: #888888"
+                                                   href="javascript:void(0);" onclick="deladdr(this, {$data.addr_id});">
+                                                    &nbsp;&nbsp;删除</a>
+                                            </span>
+            </p>
+
+    </div>
+    </volist>
+    </div>
+    <div class="confim" style="background: #de4849;
+                                     margin: 10px auto;
+                                     width: 180px;
+                                     height: 30px;
+                                     line-height: 30px;
+                                     color: white;border-radius: 5px;">
+        <a href="{:U('addradd')}" style="color: white;">&plus;添加地址</a>
+    </div>
+
+</if>
+<script>
+
+    $(function () {
+
+        if ($('.emptyaddr').length > 0) {
+            $('.control_btn').attr('style', 'display:none');
+        }
+
+    });
+
+</script>
+

@@ -1,0 +1,150 @@
+<include file ="Index:header"/>
+<include file ="Index:navibar"/>
+<include file ="Index:sidebar"/>
+<!-- START 以上内容不需更改，保证该TPL页内的标签匹配即可 -->
+{$osadmin_action_alert}
+{$osadmin_quick_note}
+
+<script>
+    jQuery(document).ready(function($) {
+        $('.theme-login').click(function(){
+//            $('.theme-popover-mask').fadeIn(100);
+            $('.theme-popover').slideDown(200);
+        })
+        $('.theme-poptit .close').click(function(){
+            $('.theme-popover-mask').fadeOut(100);
+            $('.theme-popover').slideUp(200);
+        })
+
+        $('.theme-login1').click(function(){
+//            $('.theme-popover-mask').fadeIn(100);
+            $('.theme-popover1').slideDown(200);
+        })
+        $('.theme-poptit1 .close1').click(function(){
+            $('.theme-popover-mask1').fadeOut(100);
+            $('.theme-popover1').slideUp(200);
+        })
+
+    })
+
+    function fun(){
+        $('.theme-popover-mask').fadeOut(100);
+        $('.theme-popover').slideUp(200);
+        obj = document.getElementsByName("config_contents[]");
+
+        check_val = [];
+        for(k in obj){
+            if(obj[k].checked)
+                check_val.push(obj[k].value);
+        }
+        var bale= check_val.join(';');
+        $('#config_content').val(bale);
+    }
+
+    function fun1(){
+        $('.theme-popover-mask1').fadeOut(100);
+        $('.theme-popover1').slideUp(200);
+        obj = document.getElementsByName("config_ifs[]");
+
+        check_val = [];
+        for(k in obj){
+            if(obj[k].checked)
+                check_val.push(obj[k].value);
+        }
+        var bale= check_val.join(';');
+        $('#config_if').val(bale);
+    }
+
+
+</script>
+
+<div class="well">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#home" data-toggle="tab">修改广告商激活配置信息资料</a></li>
+    </ul>	
+	
+	<div id="myTabContent" class="tab-content">
+		  <div class="tab-pane active in" id="home">
+
+           <form id="tab" method="post" action="">
+
+				<label>配置信息名称</label>
+				<input type="text" name="config_name" value="{$config.config_name}" class="input-xlarge" required="true" autofocus="true" >
+				<label>应用名称</label>
+				<select name="app_id" required="true">
+                    <foreach name="apps" item="app" key="app_id">
+                        <if condition="$app_id eq 0" >
+                            <option value="">请选择广告名称</option>
+                            <else/>
+                            <option value="{$app_id}"
+                            <if condition="$config['app_id'] eq $app_id">
+                                selected="selected"
+                            </if>
+                            >{$app}</option>
+                        </if>
+
+                    </foreach>
+                </select>
+				<label>配置url</label>
+				<textarea  id="config_content" name="config_content" rows="3" class="input-xlarge">{$config.config_content}</textarea>
+                <a class="btnn btnp  theme-login" href="javascript:;">选择url</a>
+
+                <div class="theme-popover" style="overflow: auto;">
+                <div class="theme-poptit">
+                     <a href="javascript:;" title="关闭" class="close">×</a>
+                     <h5>请选择url</h5>
+                </div>
+                <div action="" method="post">
+                    <foreach name="configArrs"  item="configArr">
+                        <if condition="!empty($configArr.config_content) ">
+                        <label><input name="config_contents[]" type="checkbox" value="{$configArr.config_content}">
+                            {$configArr.config_content|htmlspecialchars} </label>
+                        </if>
+                    </foreach>
+                     </div>
+                     <div class="btn-toolbar ">
+                         <!--<a type="submit" class="btn btn-primary" value="{$_POST.label}">确定</a>-->
+                         <button type="button" class="btnprimary" onclick="fun()"><strong>确定</strong></button>
+
+                     </div>
+                </div>
+
+
+				<label>配置返回结果(只填写正确返回值)</label>
+				<textarea id="config_if" name="config_if" rows="5" class="input-xlarge" onchange="return change();">{$config.config_if}</textarea>
+
+               <a class="btnn btnp  theme-login1" href="javascript:;">配置结果</a>
+
+               <div class="theme-popover1" style="overflow: auto;">
+                 <div class="theme-poptit1">
+                     <a href="javascript:;" title="关闭" class="close1">×</a>
+                     <h5>请选择返回结果</h5>
+                 </div>
+                 <div action="" method="post">
+                    <foreach name="configArrs1"  item="configArr1">
+                        <if condition="!empty($configArr1.config_if)" >
+                            <label><input name="config_ifs[]" type="checkbox" value='{$configArr1.config_if}'>
+                            {$configArr1.config_if} </label>
+                        </if>
+                    </foreach>
+                     </div>
+                     <div class="btn-toolbar ">
+                         <!--<a type="submit" class="btn btn-primary" value="{$_POST.label}">确定</a>-->
+                         <button type="button" class="btnprimary" onclick="fun1()"><strong>确定</strong></button>
+
+                     </div>
+                 </div>
+                <input type="hidden" name="httpref" value="{$_SERVER['HTTP_REFERER']}">
+				<div class="btn-toolbar">
+					<button type="submit" class="btn btn-primary"><strong>提交</strong></button>
+				</div>
+		
+			</form>
+        </div>
+    </div>
+</div>	
+<!---操作的确认层，相当于javascript:confirm函数-->
+{$osadmin_action_confirm}
+
+<!-- END 以下内容不需更改，请保证该TPL页内的标签匹配即可 -->
+<include file="Index:footer"/>

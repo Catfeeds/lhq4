@@ -1,0 +1,176 @@
+ <!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0,user-scalable=no">
+	<link href="__WXP__/css/lottery.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="__WXP__/css/share.css?_={:C('last_update_time')}">
+	<link rel="stylesheet" href="__WXP__/css/index.css?_={:C('last_update_time')}">
+	<link rel="stylesheet" href="__WXP__/css/goods.css?_={:C('last_update_time')}">
+	<link rel="stylesheet" href="__WXP__/css/publish.css?_={:C('last_update_time')}">
+	<link rel="stylesheet" href="__WXP__/css/limit_buy.css?_={:C('last_update_time')}">
+	<link rel="stylesheet" href="__WXP__/css/list.css?_={:C('last_update_time')}">
+	<link href="__WXP__/css/order.css" rel="stylesheet" type="text/css" />
+	<link href="__LIB_URL__/font-awesome.css,zxx.css" rel="stylesheet" type="text/css" />
+	<link href="__WXP__/css/member.css" rel="stylesheet" type="text/css" />
+	<link href="__WXP__/css/lottery.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="__WXP__/css/focus.css?_={:C('last_update_time')}">
+	<link href="__WXP__/css/comm.css?_={:C('last_update_time')}" rel="stylesheet" type="text/css" />
+	<link href="__WXP__/css/footer.css?_={:C('last_update_time')}" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="__WXP__/css/product.css">
+	<link href="__WXP__/css/star.css?_={:C('last_update_time')}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="__WXP__/css/style.css" type="text/css">
+
+	<script src="__LIB_URL__/jquery.min.js"></script>
+	<script src="__LIB_URL__/TouchSlide1.1/TouchSlide.1.1.js"></script>
+	<script src="__LIB_URL__/layer/layer.js"></script>
+	<script src="__LIB_URL__/ja.js"></script>
+	<script src="__WXP__/js/common.js"></script>
+	<script src="__WXP__/js/jquery.lazyload.min.js"></script>
+	<script src="__WXP__/js/jquery.SuperSlide.2.1.1.js"></script>
+	<script src="__WXP__/js/shop-cart.js"></script>
+	<title>{$title}</title>
+
+<script>
+var addCartUrl = "{:U('Cart/add')}";
+var cartUrl = "{:U('Cart/index')}";
+var isExistUrl = "{:U('Cart/isExist')}";
+var loginUrl = "{:U('Login/index')}";
+</script>
+</head>
+
+<body style="background-color:white;">
+	  <div class="devBox clearfix" style="position:fixed; top:0; left:0; width:100%;z-index:99999999999999999";>
+        <a href="javascript:tz()"><img src="__ROOT__/t/a2.png" alt class="fl"></a>
+        <h1 class="biaoti">一元开抢</h1>
+        <a href="javascript:zf()"><img src="__ROOT__/t/title_right.png" alt class="fz" ></a>
+      </div>
+
+	{__CONTENT__}
+
+<script>
+$(function(){
+	var urls = [
+				'{:U('Weixin/Index/index')}',
+				'{:U('Weixin/Goods/share_list')}',
+				'{:U('Weixin/Cart/index')}',
+				'{:U('Weixin/User/index')}',
+		],
+		href = window.location.href;
+
+	for(k in urls){
+		var _url = urls[k];
+		if(href.indexOf(_url) > 0){
+			$('.footer > ul > li:eq('+k+') > a').addClass('cur');
+		}
+	}
+});
+</script>
+  	<div class="footer clearfix">
+			<ul>
+				<li>
+					<a href="{:U('Weixin/Index/index')}" rel="external">
+						<i class="fa fa-home f24 db"></i>
+						开抢
+					</a>
+				</li>
+				
+				<!-- <li>
+					<a href="{:U('Weixin/Goods/share_list')}" rel="external">
+						<i class="fa fa-camera f030 f24 db"></i>
+						晒单
+					</a>
+				</li> -->
+
+				<li>
+					<a href="{:U('Weixin/Goods/new_publish')}" class="{$cur}" rel="external">
+						<i class="fa fa-clock-o f24 db"></i>
+						最新揭晓
+					</a>
+				</li>
+
+				<li class="rel">
+					<a id="btnCart" href="{:U('Weixin/Cart/index')}" class="rel shop-cart" rel="external">
+						<i class="fa fa-shopping-cart f24 db"></i>
+						购物车
+						<i class="shop-cart-num abs"></i>
+					</a>
+				</li>
+
+				<li class="rel">
+					<a href="{:U('Weixin/User/index')}" rel="external">
+						<i class="fa fa-user f24 db"></i>
+						个人中心
+						<i class="user-msg-num abs"></i>
+					</a>
+				</li>
+
+				<!--
+				<li class="f_home">
+					<a href="{:U('Weixin/Index/index')}" rel="external"></a>
+				</li>
+
+				<li class="f_announced">
+					<a href="{:U('Weixin/Goods/product_list_new')}" rel="external"></a>
+				</li>
+
+				<li class="f_single">
+					<a href="{:U('Weixin/Goods/new_publish')}" rel="external"></a>
+				</li>
+
+				<li class="f_car">
+					<a id="btnCart" href="{:U('Weixin/Cart/index')}" rel="external"></a>
+				</li>
+
+				<li class="f_personal">
+					<a href="{:U('Weixin/User/index')}" rel="external"></a>
+				</li>
+				-->
+			</ul>
+	</div>
+		<script type="text/javascript">
+		    function tz(){	    
+		    	var str = getStr(top.location.href,'?');
+		    	if (str == ('m=Weixin&c=Index&a=index')) {
+                    window.location.href='__ROOT__/Mobile';
+		    	}else{
+			        history.go(-1);
+			    }
+		    }
+		    function getStr(string,str){
+			    var str_after = string.split(str)[1];
+			    return str_after;
+			}
+			function zf(){
+				window.location.href='__ROOT__/Mobile';
+			}
+		</script>
+		<script>
+			var shareData = {
+				desc:"1元买iphone6S,最奇(ci)葩(ji)的玩法,快来挑战!现在分享朋友圈、微信群组更可获得好友消费金额6%的消费佣金!",
+				title: "1元就能买iphone 6s,一种最新颖的购物方式,快来看看吧!",
+				link: "{:C('site_url')}{:U('index/index')}&invitenum={:cookie('selfinvite')}",
+				imgUrl: "{:C('site_url')}__WXP__/img/inv-share.jpg"
+			};
+		</script>
+		<if condition="IS_WEIXIN">
+			<script>var gshareurl = "{:U('WeixinSDK/getSignPackage')}";</script>
+			<script src="__WXP__/js/jweixin-1.0.0.js"></script>
+			<script src="__WXP__/js/shareJS.js"></script>
+		</if>
+<script>
+$(function(){
+	$.get('{:U('Cart/getNum')}', function(a){
+		console.log(a);
+		if(a.status && a.nums){
+			$.each(a.nums, function(a, b){
+				b > 0 && $(['.',a,'-num'].join('')).html(b);
+			});
+		}
+	});
+});
+</script>
+</body>
+
+</html>

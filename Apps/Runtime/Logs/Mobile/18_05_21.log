@@ -1,0 +1,502 @@
+[ 2018-05-21T13:01:50+08:00 ] ::1 /lhq/Mobile/Task/task/member_id/100018
+ERR: Cron:cron_1 Runat 2018-05-21 13:01:50 Use 0.002266 s
+
+[ 2018-05-21T13:01:53+08:00 ] ::1 /lhq/Mobile/Index/index
+ERR: Cron:cron_1 Runat 2018-05-21 13:01:53 Use 0.003226 s
+
+[ 2018-05-21T13:02:42+08:00 ] ::1 /lhq/mobile/?member_id=100025
+ERR: Cron:cron_1 Runat 2018-05-21 13:02:42 Use 0.003889 s
+
+[ 2018-05-21T13:02:56+08:00 ] ::1 /lhq/Mobile/Invite/invite/member_id/100025
+ERR: Cron:cron_1 Runat 2018-05-21 13:02:56 Use 0.002485 s
+
+[ 2018-05-21T13:02:59+08:00 ] ::1 /lhq/Mobile/Index/index/member_id/100025
+ERR: Cron:cron_1 Runat 2018-05-21 13:02:59 Use 0.003490 s
+
+[ 2018-05-21T13:03:01+08:00 ] ::1 /lhq/Mobile/Task/task/member_id/100025
+ERR: Cron:cron_1 Runat 2018-05-21 13:03:01 Use 0.003059 s
+
+[ 2018-05-21T13:04:33+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+ERR: Cron:cron_1 Runat 2018-05-21 13:04:33 Use 0.001657 s
+
+[ 2018-05-21T13:04:33+08:00 ] ::1 /lhq/Mobile/Apiajax/statusAjax
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001143s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003239s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0034s ]
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 174 LIMIT 1   [ RunTime:0.0014s ]
+SQL: SELECT * FROM `mission` WHERE `mission_id` = 174 LIMIT 1   [ RunTime:0.0007s ]
+SQL: UPDATE `mission` SET `status`='2' WHERE `mission_id` = 174 [ RunTime:0.0528s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001265s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.009672s ]
+INFO: [ app_end ] --END-- [ RunTime:0.013690s ]
+
+[ 2018-05-21T13:06:55+08:00 ] ::1 /lhq/Mobile/Task/task/member_id/100025
+ERR: Cron:cron_1 Runat 2018-05-21 13:06:55 Use 0.004214 s
+
+[ 2018-05-21T13:06:59+08:00 ] ::1 /lhq/Mobile/Task/taskDownAjax?mission_id=174
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001503s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003414s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0041s ]
+SQL: SELECT `re_num` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0007s ]
+SQL: SELECT `end_time`,`re_num` FROM `mission` WHERE `mission_id` = 174 LIMIT 1   [ RunTime:0.0008s ]
+
+[ 2018-05-21T13:07:29+08:00 ] ::1 /lhq/Mobile/Task/taskDownAjax?mission_id=174
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001252s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003535s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0011s ]
+SQL: SELECT `re_num` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0006s ]
+SQL: SELECT `end_time`,`re_num` FROM `mission` WHERE `mission_id` = 174 LIMIT 1   [ RunTime:0.0007s ]
+
+[ 2018-05-21T13:07:35+08:00 ] ::1 /lhq/Mobile/Task/task/member_id/100025
+ERR: Cron:cron_1 Runat 2018-05-21 13:07:35 Use 0.003163 s
+
+[ 2018-05-21T13:07:36+08:00 ] ::1 /lhq/Mobile/Task/taskDownAjax?mission_id=174
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002139s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004763s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0043s ]
+SQL: SELECT `re_num` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0006s ]
+SQL: SELECT `end_time`,`re_num` FROM `mission` WHERE `mission_id` = 174 LIMIT 1   [ RunTime:0.0010s ]
+
+[ 2018-05-21T13:07:42+08:00 ] ::1 /lhq/Mobile/Index/index/member_id/100025
+ERR: Cron:cron_1 Runat 2018-05-21 13:07:42 Use 0.003277 s
+
+[ 2018-05-21T13:07:43+08:00 ] ::1 /lhq/Mobile/Index/index/member_id/100025
+ERR: Cron:cron_1 Runat 2018-05-21 13:07:43 Use 0.002753 s
+
+[ 2018-05-21T13:07:49+08:00 ] ::1 /lhq/Mobile/Task/task/member_id/100025
+ERR: Cron:cron_1 Runat 2018-05-21 13:07:49 Use 0.003996 s
+
+[ 2018-05-21T13:07:55+08:00 ] ::1 /lhq/Mobile/Task/taskDownAjax?mission_id=174
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001739s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004558s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0010s ]
+SQL: SELECT `re_num` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0006s ]
+SQL: SELECT `end_time`,`re_num` FROM `mission` WHERE `mission_id` = 174 LIMIT 1   [ RunTime:0.0012s ]
+
+[ 2018-05-21T14:18:23+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Think\Model:getIdfa方法不存在！
+
+[ 2018-05-21T14:19:07+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Think\Model:getIdfa方法不存在！
+
+[ 2018-05-21T14:20:31+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:20:31 Use 0.003430 s
+
+[ 2018-05-21T14:21:27+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:21:27 Use 0.002413 s
+
+[ 2018-05-21T14:22:43+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:22:43 Use 0.004201 s
+
+[ 2018-05-21T14:23:10+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:23:10 Use 0.003291 s
+
+[ 2018-05-21T14:23:14+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:23:14 Use 0.003107 s
+
+[ 2018-05-21T14:25:41+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:25:41 Use 0.003300 s
+
+[ 2018-05-21T14:25:59+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:25:59 Use 0.002037 s
+
+[ 2018-05-21T14:28:02+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:28:02 Use 0.004261 s
+
+[ 2018-05-21T14:28:26+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:28:26 Use 0.002624 s
+
+[ 2018-05-21T14:28:33+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:28:33 Use 0.002087 s
+
+[ 2018-05-21T14:28:59+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:28:59 Use 0.004040 s
+
+[ 2018-05-21T14:29:02+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:29:02 Use 0.003732 s
+
+[ 2018-05-21T14:29:58+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:29:58 Use 0.003883 s
+
+[ 2018-05-21T14:30:04+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:30:04 Use 0.002187 s
+
+[ 2018-05-21T14:30:10+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:30:10 Use 0.002067 s
+
+[ 2018-05-21T14:30:39+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:30:39 Use 0.005342 s
+
+[ 2018-05-21T14:30:46+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:30:46 Use 0.002244 s
+
+[ 2018-05-21T14:31:06+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:31:06 Use 0.002484 s
+
+[ 2018-05-21T14:31:25+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:31:25 Use 0.001672 s
+
+[ 2018-05-21T14:32:04+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:32:04 Use 0.002035 s
+
+[ 2018-05-21T14:32:08+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:32:08 Use 0.001887 s
+
+[ 2018-05-21T14:32:14+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:32:14 Use 0.004473 s
+
+[ 2018-05-21T14:32:17+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:32:17 Use 0.001961 s
+
+[ 2018-05-21T14:32:17+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:32:17 Use 0.002250 s
+
+[ 2018-05-21T14:32:18+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:32:18 Use 0.002233 s
+
+[ 2018-05-21T14:32:19+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:32:19 Use 0.001820 s
+
+[ 2018-05-21T14:32:20+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:32:20 Use 0.002846 s
+
+[ 2018-05-21T14:32:33+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:32:33 Use 0.003527 s
+
+[ 2018-05-21T14:32:38+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:32:38 Use 0.001969 s
+
+[ 2018-05-21T14:33:31+08:00 ] ::1 /lhq/Mobile/Task/task/member_id/100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:33:31 Use 0.003856 s
+
+[ 2018-05-21T14:33:34+08:00 ] ::1 /lhq/Mobile/Task/taskDownAjax?mission_id=174
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001859s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004306s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0013s ]
+SQL: SELECT `re_num` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0014s ]
+SQL: SELECT `end_time`,`re_num` FROM `mission` WHERE `mission_id` = 174 LIMIT 1   [ RunTime:0.0007s ]
+
+[ 2018-05-21T14:33:41+08:00 ] ::1 /lhq/Mobile/Task/taskDownAjax?mission_id=174
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001431s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003490s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0011s ]
+SQL: SELECT `re_num` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0010s ]
+SQL: SELECT `end_time`,`re_num` FROM `mission` WHERE `mission_id` = 174 LIMIT 1   [ RunTime:0.0006s ]
+
+[ 2018-05-21T14:34:57+08:00 ] ::1 /lhq/Mobile/Task/task/member_id/100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:34:57 Use 0.007655 s
+
+[ 2018-05-21T14:34:58+08:00 ] ::1 /lhq/Mobile/Task/taskDownAjax?mission_id=174
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002384s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005178s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0009s ]
+SQL: SELECT `re_num` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0007s ]
+SQL: SELECT `end_time`,`re_num` FROM `mission` WHERE `mission_id` = 174 LIMIT 1   [ RunTime:0.0006s ]
+
+[ 2018-05-21T14:35:44+08:00 ] ::1 /lhq/Mobile/Task/task/member_id/100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:35:44 Use 0.005561 s
+
+[ 2018-05-21T14:35:47+08:00 ] ::1 /lhq/Mobile/Task/taskDownAjax?mission_id=174
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001532s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003473s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0010s ]
+SQL: SELECT `re_num` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0014s ]
+SQL: SELECT `end_time`,`re_num` FROM `mission` WHERE `mission_id` = 174 LIMIT 1   [ RunTime:0.0015s ]
+
+[ 2018-05-21T14:35:48+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:35:48 Use 0.002447 s
+
+[ 2018-05-21T14:35:48+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002759s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006232s ]
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0017s ]
+SQL: SELECT `idfa` FROM `member` WHERE `member_id` = 100025  [ RunTime:0.0011s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0010s ]
+SQL: SELECT `app_id`,`kwd_qx` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `channel_log` [ RunTime:0.0015s ]
+SQL: SELECT `callback`,`chan_id` FROM `channel_log` WHERE `app_id` = 1762 AND `idfa` = '0EA05FD9-D660-445D-A250-8E429CF75A37'  [ RunTime:0.0008s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001386s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.011616s ]
+INFO: [ app_end ] --END-- [ RunTime:0.015940s ]
+
+[ 2018-05-21T14:35:59+08:00 ] ::1 /lhq/Mobile/Task/taskDownAjax?mission_id=174
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001536s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003595s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0009s ]
+SQL: SELECT `re_num` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0007s ]
+SQL: SELECT `end_time`,`re_num` FROM `mission` WHERE `mission_id` = 174 LIMIT 1   [ RunTime:0.0007s ]
+
+[ 2018-05-21T14:36:00+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:36:00 Use 0.002884 s
+
+[ 2018-05-21T14:36:00+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001436s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003285s ]
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0014s ]
+SQL: SELECT `idfa` FROM `member` WHERE `member_id` = 100025  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0010s ]
+SQL: SELECT `app_id`,`kwd_qx` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `channel_log` [ RunTime:0.0011s ]
+SQL: SELECT `callback`,`chan_id` FROM `channel_log` WHERE `app_id` = 1762 AND `idfa` = '0EA05FD9-D660-445D-A250-8E429CF75A37'  [ RunTime:0.0008s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001339s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.012850s ]
+INFO: [ app_end ] --END-- [ RunTime:0.017148s ]
+
+[ 2018-05-21T14:36:01+08:00 ] ::1 /lhq/Mobile/Task/taskDownAjax?mission_id=174
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001498s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003679s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0010s ]
+SQL: SELECT `re_num` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0007s ]
+SQL: SELECT `end_time`,`re_num` FROM `mission` WHERE `mission_id` = 174 LIMIT 1   [ RunTime:0.0009s ]
+
+[ 2018-05-21T14:36:02+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:36:02 Use 0.002981 s
+
+[ 2018-05-21T14:36:02+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001513s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003479s ]
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0012s ]
+SQL: SELECT `idfa` FROM `member` WHERE `member_id` = 100025  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0015s ]
+SQL: SELECT `app_id`,`kwd_qx` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `channel_log` [ RunTime:0.0015s ]
+SQL: SELECT `callback`,`chan_id` FROM `channel_log` WHERE `app_id` = 1762 AND `idfa` = '0EA05FD9-D660-445D-A250-8E429CF75A37'  [ RunTime:0.0007s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001371s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.010875s ]
+INFO: [ app_end ] --END-- [ RunTime:0.015612s ]
+
+[ 2018-05-21T14:36:59+08:00 ] ::1 /lhq/Mobile/Task/task/member_id/100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:36:59 Use 0.003027 s
+
+[ 2018-05-21T14:37:02+08:00 ] ::1 /lhq/Mobile/Task/taskDownAjax?mission_id=174
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001481s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003443s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0009s ]
+SQL: SELECT `re_num` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0006s ]
+SQL: SELECT `end_time`,`re_num` FROM `mission` WHERE `mission_id` = 174 LIMIT 1   [ RunTime:0.0006s ]
+
+[ 2018-05-21T14:37:03+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001822s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004269s ]
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0011s ]
+SQL: SELECT `idfa` FROM `member` WHERE `member_id` = 100025  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0010s ]
+SQL: SELECT `app_id`,`kwd_qx` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `channel_log` [ RunTime:0.0009s ]
+SQL: SELECT `callback`,`chan_id` FROM `channel_log` WHERE `app_id` = 1762 AND `idfa` = '0EA05FD9-D660-445D-A250-8E429CF75A37'  [ RunTime:0.0009s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001338s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.003456s ]
+INFO: [ app_end ] --END-- [ RunTime:0.008273s ]
+
+[ 2018-05-21T14:37:10+08:00 ] ::1 /lhq/Mobile/Task/taskDownAjax?mission_id=174
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001528s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003704s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0017s ]
+SQL: SELECT `re_num` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0006s ]
+SQL: SELECT `end_time`,`re_num` FROM `mission` WHERE `mission_id` = 174 LIMIT 1   [ RunTime:0.0011s ]
+
+[ 2018-05-21T14:37:11+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:37:11 Use 0.002006 s
+
+[ 2018-05-21T14:37:11+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001459s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003370s ]
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0010s ]
+SQL: SELECT `idfa` FROM `member` WHERE `member_id` = 100025  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0009s ]
+SQL: SELECT `app_id`,`kwd_qx` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `channel_log` [ RunTime:0.0016s ]
+SQL: SELECT `callback`,`chan_id` FROM `channel_log` WHERE `app_id` = 1762 AND `idfa` = '0EA05FD9-D660-445D-A250-8E429CF75A37'  [ RunTime:0.0009s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001344s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.010003s ]
+INFO: [ app_end ] --END-- [ RunTime:0.015347s ]
+
+[ 2018-05-21T14:37:35+08:00 ] ::1 /lhq/Mobile/Task/taskDownAjax?mission_id=174
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001876s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004375s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0014s ]
+SQL: SELECT `re_num` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0012s ]
+SQL: SELECT `end_time`,`re_num` FROM `mission` WHERE `mission_id` = 174 LIMIT 1   [ RunTime:0.0010s ]
+
+[ 2018-05-21T14:37:36+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:37:36 Use 0.002385 s
+
+[ 2018-05-21T14:37:36+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001590s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003520s ]
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0018s ]
+SQL: SELECT `idfa` FROM `member` WHERE `member_id` = 100025  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0010s ]
+SQL: SELECT `app_id`,`kwd_qx` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `channel_log` [ RunTime:0.0010s ]
+SQL: SELECT `callback`,`chan_id` FROM `channel_log` WHERE `app_id` = 1762 AND `idfa` = '0EA05FD9-D660-445D-A250-8E429CF75A37'  [ RunTime:0.0008s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001916s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.011433s ]
+INFO: [ app_end ] --END-- [ RunTime:0.017099s ]
+
+[ 2018-05-21T14:37:37+08:00 ] ::1 /lhq/Mobile/Task/task/member_id/100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:37:37 Use 0.002850 s
+
+[ 2018-05-21T14:37:39+08:00 ] ::1 /lhq/Mobile/Index/index/member_id/100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:37:39 Use 0.002936 s
+
+[ 2018-05-21T14:37:40+08:00 ] ::1 /lhq/Mobile/Index/index/member_id/100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:37:40 Use 0.002826 s
+
+[ 2018-05-21T14:37:44+08:00 ] ::1 /lhq/Mobile/Task/task/member_id/100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:37:44 Use 0.003080 s
+
+[ 2018-05-21T14:37:45+08:00 ] ::1 /lhq/Mobile/Task/taskDownAjax?mission_id=174
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001676s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004334s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0010s ]
+SQL: SELECT `re_num` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0010s ]
+SQL: SELECT `end_time`,`re_num` FROM `mission` WHERE `mission_id` = 174 LIMIT 1   [ RunTime:0.0011s ]
+
+[ 2018-05-21T14:37:46+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:37:46 Use 0.002054 s
+
+[ 2018-05-21T14:37:46+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002106s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004456s ]
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0014s ]
+SQL: SELECT `idfa` FROM `member` WHERE `member_id` = 100025  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `mission` [ RunTime:0.0010s ]
+SQL: SELECT `app_id`,`kwd_qx` FROM `mission` WHERE `mission_id` = 174  [ RunTime:0.0013s ]
+SQL: SHOW COLUMNS FROM `channel_log` [ RunTime:0.0013s ]
+SQL: SELECT `callback`,`chan_id` FROM `channel_log` WHERE `app_id` = 1762 AND `idfa` = '0EA05FD9-D660-445D-A250-8E429CF75A37'  [ RunTime:0.0008s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001318s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.009226s ]
+INFO: [ app_end ] --END-- [ RunTime:0.013707s ]
+
+[ 2018-05-21T14:38:33+08:00 ] ::1 /lhq/Mobile/Task/task/member_id/100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:38:33 Use 0.003776 s
+
+[ 2018-05-21T14:38:53+08:00 ] ::1 /lhq/Mobile/Task/task/member_id/100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:38:53 Use 0.003089 s
+
+[ 2018-05-21T14:38:54+08:00 ] ::1 /lhq/Mobile/Task/task/member_id/100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:38:54 Use 0.005152 s
+
+[ 2018-05-21T14:38:56+08:00 ] ::1 /lhq/Mobile/Task/task/member_id/100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:38:56 Use 0.003007 s
+
+[ 2018-05-21T14:39:03+08:00 ] ::1 /lhq/Mobile/Task/task/member_id/100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:39:03 Use 0.004912 s
+
+[ 2018-05-21T14:39:07+08:00 ] ::1 /lhq/mobile/task/callback?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:39:07 Use 0.001660 s
+
+[ 2018-05-21T14:39:08+08:00 ] ::1 /lhq/mobile/task/callback?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:39:08 Use 0.002053 s
+
+[ 2018-05-21T14:39:10+08:00 ] ::1 /lhq/mobile/task/callback?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:39:10 Use 0.001775 s
+
+[ 2018-05-21T14:39:16+08:00 ] ::1 /lhq/mobile/task/callback?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:39:16 Use 0.002214 s
+
+[ 2018-05-21T14:39:24+08:00 ] ::1 /lhq/mobile/task/callback?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:39:24 Use 0.003266 s
+
+[ 2018-05-21T14:46:26+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:46:26 Use 0.003582 s
+
+[ 2018-05-21T14:46:30+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:46:30 Use 0.003407 s
+
+[ 2018-05-21T14:46:32+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:46:32 Use 0.002834 s
+
+[ 2018-05-21T14:46:33+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 14:46:33 Use 0.003194 s
+
+[ 2018-05-21T17:32:43+08:00 ] ::1 /lhq/Mobile/Index/index/member_id/100025
+ERR: Cron:cron_1 Runat 2018-05-21 17:32:43 Use 0.002205 s
+
+[ 2018-05-21T17:32:43+08:00 ] ::1 /lhq/mobile/index/usermsg
+ERR: Cron:cron_1 Runat 2018-05-21 17:32:43 Use 0.002787 s
+
+[ 2018-05-21T17:33:14+08:00 ] ::1 /lhq/Mobile/Index/index/member_id/100025
+ERR: Cron:cron_1 Runat 2018-05-21 17:33:14 Use 0.003821 s
+
+[ 2018-05-21T17:33:14+08:00 ] ::1 /lhq/mobile/index/usermsg
+ERR: Cron:cron_1 Runat 2018-05-21 17:33:14 Use 0.002039 s
+
+[ 2018-05-21T17:33:18+08:00 ] ::1 /lhq/Mobile/Index/index/member_id/100025
+ERR: Cron:cron_1 Runat 2018-05-21 17:33:18 Use 0.002426 s
+
+[ 2018-05-21T17:33:18+08:00 ] ::1 /lhq/mobile/index/usermsg
+ERR: Cron:cron_1 Runat 2018-05-21 17:33:18 Use 0.003320 s
+
+[ 2018-05-21T17:33:22+08:00 ] ::1 /lhq/Mobile/Index/index/member_id/100025
+ERR: Cron:cron_1 Runat 2018-05-21 17:33:22 Use 0.004080 s
+
+[ 2018-05-21T17:33:22+08:00 ] ::1 /lhq/mobile/index/usermsg
+ERR: Cron:cron_1 Runat 2018-05-21 17:33:22 Use 0.002215 s
+
+[ 2018-05-21T17:33:44+08:00 ] ::1 /lhq/mobile/my/bindweixin/member_id/100025
+ERR: Cron:cron_1 Runat 2018-05-21 17:33:44 Use 0.003580 s
+
+[ 2018-05-21T17:33:53+08:00 ] ::1 /lhq/mobile/my/my/member_id/100025
+ERR: Cron:cron_1 Runat 2018-05-21 17:33:53 Use 0.002985 s
+
+[ 2018-05-21T17:33:56+08:00 ] ::1 /lhq/mobile/index/index/member_id/100025
+ERR: Cron:cron_1 Runat 2018-05-21 17:33:56 Use 0.004939 s
+
+[ 2018-05-21T17:33:58+08:00 ] ::1 /lhq/mobile/index/index/member_id/100025
+ERR: Cron:cron_1 Runat 2018-05-21 17:33:58 Use 0.002631 s
+
+[ 2018-05-21T18:01:33+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 18:01:33 Use 0.001844 s
+
+[ 2018-05-21T18:21:10+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 18:21:10 Use 0.001807 s
+
+[ 2018-05-21T18:21:23+08:00 ] ::1 /lhq/Mobile/Task/callBack?msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-21 18:21:23 Use 0.001839 s
+

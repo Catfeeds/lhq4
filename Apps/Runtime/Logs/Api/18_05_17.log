@@ -1,0 +1,36 @@
+[ 2018-05-17T17:06:08+08:00 ] ::1 /lhq/api/callbackApi?appid=1707&chanid=1&idfa=EE751FF6-347D-4DA9-BEE5-59226CFBF663&mac=02:00:00:00:00:00&openudid=&ip=49.67.70.155
+ERR: Cron:cron_1 Runat 2018-05-17 17:06:08 Use 0.001870 s
+
+[ 2018-05-17T17:06:58+08:00 ] ::1 /lhq/api/callbackApi?appid=1707&chanid=1&idfa=EE751FF6-347D-4DA9-BEE5-59226CFBF663&mac=02:00:00:00:00:00&openudid=&ip=49.67.70.155
+ERR: Cron:cron_1 Runat 2018-05-17 17:06:58 Use 0.002699 s
+
+[ 2018-05-17T17:12:18+08:00 ] ::1 /lhq/api/callbackApi?appid=1707&chanid=1&idfa=EE751FF6-347D-4DA9-BEE5-59226CFBF663&mac=02:00:00:00:00:00&openudid=&ip=49.67.70.155
+ERR: Cron:cron_1 Runat 2018-05-17 17:12:18 Use 0.002281 s
+
+[ 2018-05-17T17:18:54+08:00 ] ::1 /lhq/api/callbackApi?appid=1707&chanid=-1&idfa=EE751FF6-347D-4DA9-BEE5-59226CFBF663&mac=02:00:00:00:00:00&openudid=&ip=49.67.70.155
+ERR: Cron:cron_1 Runat 2018-05-17 17:18:54 Use 0.002151 s
+
+[ 2018-05-17T17:19:43+08:00 ] ::1 /lhq/api/callbackApi?appid=1707&chanid=-1&idfa=EE751FF6-347D-4DA9-BEE5-59226CFBF663&mac=02:00:00:00:00:00&openudid=&ip=49.67.70.155
+ERR: Cron:cron_1 Runat 2018-05-17 17:19:43 Use 0.002466 s
+
+[ 2018-05-17T17:23:22+08:00 ] ::1 /lhq//api/callbackApi
+ERR: Cron:cron_1 Runat 2018-05-17 17:23:22 Use 0.002181 s
+
+[ 2018-05-17T17:24:47+08:00 ] ::1 /lhq//api/callbackApi?XDEBUG_SESSION_START=11671
+ERR: Cron:cron_1 Runat 2018-05-17 17:24:47 Use 0.002039 s
+
+[ 2018-05-17T17:33:36+08:00 ] ::1 /lhq//api/callbackApi?XDEBUG_SESSION_START=16289
+ERR: Cron:cron_1 Runat 2018-05-17 17:33:36 Use 0.003031 s
+
+[ 2018-05-17T17:35:17+08:00 ] ::1 /lhq//api/callbackApi?XDEBUG_SESSION_START=12940
+ERR: Cron:cron_1 Runat 2018-05-17 17:35:17 Use 0.002041 s
+
+[ 2018-05-17T17:39:26+08:00 ] ::1 /lhq/api/callbackApi?appid=1707&chanid=-1&idfa=EE751FF6-347D-4DA9-BEE5-59226CFBF663&mac=02:00:00:00:00:00&openudid=&ip=49.67.70.155
+ERR: Cron:cron_1 Runat 2018-05-17 17:39:26 Use 0.002149 s
+
+[ 2018-05-17T17:39:39+08:00 ] ::1 /lhq/api/callbackApi?appid=1707&chanid=-1&idfa=EE751FF6-347D-4DA9-BEE5-59226CFBF663&mac=02:00:00:00:00:00&openudid=&ip=49.67.70.155
+ERR: Cron:cron_1 Runat 2018-05-17 17:39:39 Use 0.001944 s
+
+[ 2018-05-17T17:39:40+08:00 ] ::1 /lhq/api/callbackApi?appid=1707&chanid=-1&idfa=EE751FF6-347D-4DA9-BEE5-59226CFBF663&mac=02:00:00:00:00:00&openudid=&ip=49.67.70.155
+ERR: Cron:cron_1 Runat 2018-05-17 17:39:40 Use 0.002027 s
+

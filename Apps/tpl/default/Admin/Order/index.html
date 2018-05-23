@@ -1,0 +1,284 @@
+		<header class="panel_header fix mb20">
+			<h2 class="title">{$title}</h2>
+		</header>
+
+		<div class="fix">
+			<div class="form-inline">
+				<div class="form-group">
+					<label>关键字:</label>
+					<input name="keyword" type="text" class="form-control input-sm dom-keyword"/>
+				</div>
+				<!-- <div class="form-group">
+					<label>类型:</label>
+					<select class="form-control list-type-id input-sm" name="express_id">
+						<option value="0" >全部</option>
+						<volist name="types" id="v">
+							<option value="{$v.id}">{$v.name}</option>
+						</volist>
+					</select>
+				</div> -->
+				<div class="form-group">
+					<label>订单类型:</label>
+					<div class="btn-group list-type" data-toggle="buttons">
+						<label type="button" class="btn btn-default btn-sm active">
+							<input type="radio" name="type" value="-1" autocomplete="off" checked> 全部
+						</label>
+						<label type="button" class="btn btn-default btn-sm">
+							<input type="radio" name="type" value="0" autocomplete="off"> 云购
+						</label>
+						<label type="button" class="btn btn-default btn-sm">
+							<input type="radio" name="type" value="1" autocomplete="off"> 充值
+						</label>
+						<label type="button" class="btn btn-default btn-sm">
+							<input type="radio" name="type" value="3" autocomplete="off"> 包场
+						</label>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label>支付状态:</label>
+					<div class="btn-group list-status" data-toggle="buttons">
+						<label type="button" class="btn btn-default btn-sm active">
+							<input type="radio" name="status" value="-1" autocomplete="off" checked> 全部
+						</label>
+						<label type="button" class="btn btn-default btn-sm">
+							<input type="radio" name="status" value="0" autocomplete="off"> 失败
+						</label>
+						<label type="button" class="btn btn-default btn-sm">
+							<input type="radio" name="status" value="1" autocomplete="off"> 成功
+						</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="btn-group list-status" data-toggle="buttons">
+						<label type="button" class="btn btn-default btn-sm active">
+							<input type="radio" name="is_robot" value="-1" autocomplete="off" checked> 全部
+						</label>
+						<label type="button" class="btn btn-default btn-sm">
+							<input type="radio" name="is_robot" value="1" autocomplete="off"> 辅助
+						</label>
+						<label type="button" class="btn btn-default btn-sm">
+							<input type="radio" name="is_robot" value="0" autocomplete="off"> 非辅助
+						</label>
+					</div>
+				</div>
+			
+				<div class="form-group">
+					<label>时间选择:</label>
+					<div class="input-group">
+						<input type="text" class="form-control input-sm" name="date" id="dom-date" style="width:200px">
+						<label class="input-group-addon" for="dom-date"><i class="fa fa-calendar"></i></label>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="goods-list pct100 mt20">
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<table class="table table-hover table-condensed table-striped table-bordered">
+						<thead>
+							<tr>
+								<th>编号</th>
+								<th>订单号</th>
+								<th>用户</th>
+								<th>手机号码</th>
+								<th>IP 信息</th>
+								<th>时间</th>
+								<th>订单类型</th>
+								<th>支付类型</th>
+								<th>支付状态</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody class="dom-list">
+						</tbody>
+					</table>
+
+
+					<div>
+						<button class="btn btn-default btn-sm dom-total-btn">统计</button> <span class="dom-total"></span>
+						<button class="btn btn-default btn-sm" onclick="导出数据();">导出数据</button>
+					</div>
+					<div class="dom-page"></div>
+					<input type="hidden" class="dom-rows" value="10"/>
+
+				</div>
+			</div>
+		</div>
+
+<template class="tpl-list dn">
+	{{each list as ja}}
+	<tr>
+		<td>{{ja.id}}</td>
+		<td>{{ja.order_code}}</td>
+		<td>{{ja.nickname}}</td>
+		<td>{{ja.phone}}</td>
+		<td>{{ja.ip}} {{ja.area}}</td>
+		<td>{{ja.creat_date | date}}</td>
+		<td>
+			{{if ja.order_type == 0}}
+				<span class="label label-warning label-xs">云购</span>
+			{{else if ja.order_type == 1}}
+				<span class="label label-info label-xs">充值</span>
+			{{else if ja.order_type == 3}}
+				<span class="label label-warning label-xs">包场</span>
+			{{/if}}
+		</td>
+		
+		<td>
+			{{if ja.pay_method == 'balance'}}
+				<a class="label label-success label-xs">余额</a>
+			{{else if ja.pay_method == 'weixin'}}
+				<a class="label label-success label-xs">微信</a>
+			{{else if ja.pay_method == 'app1'}}
+				<a class="label label-success label-xs">APP</a>
+			{{else}}
+				<a class="label label-warning label-xs">NULL</a>
+			{{/if}}
+		</td>
+		
+		<td>
+			{{if ja.order_status == 0}}
+				<a class="label label-danger label-xs">失败</a>
+			{{else if ja.order_status == 1}}
+				<a class="label label-success label-xs">成功</a>
+			{{/if}}
+		</td>
+		<td>
+			<a class="btn btn-success btn-xs" href="javascript:show_info( {{ja.id}}, '{{ja.order_code}}');">详情</a>
+		</td>
+		
+	</tr>
+	{{/each}}
+
+	{{if !list[0]}}
+	<tr>
+		<td colspan=30>无数据</td>
+	</tr>
+	{{/if}}
+</template>
+
+<script src="__LIB_URL__/ja.js"></script>
+<script src="__LIB_URL__/template.js"></script>
+<link rel="stylesheet" href="__CDN__/jquery.daterangepicker.css" media="all" />
+<script src="__CDN__/moment.js"></script>
+<script src="__CDN__/jquery.daterangepicker.js"></script>
+<script>
+template.helper('date', _date);
+
+var _o = {
+	tpl: template.compile($('.tpl-list').html(), {escape: false}),
+	list: $('.dom-list'),
+	page: $('.dom-page'),
+	rows: $('.dom-rows'),
+	keyword: $('.dom-keyword'),
+};
+
+
+AjaxGetList();
+
+
+
+$('#dom-date').dateRangePicker({
+	separator : ' - ',
+	showShortcuts: true,
+	shortcuts: {
+		'prev-days': [3, 5, 7, 30]
+	},
+	endDate: moment().format('YYYY-MM-DD'),
+	autoClose: true
+}).bind('datepicker-change', function(){AjaxGetList(0);});
+
+
+$('.list-type, .list-status').on('change', AjaxGetList);
+change('.dom-keyword', function(){ AjaxGetList(0); }, 500);
+
+
+function show_info(id){
+	var win_show_info = dialog({
+		// id: 'item-edit-id-',
+		title: '订单详情',
+		width: 500,
+		height: 400,
+		// url: '{:U('showInfo', 'id=')}' + id,
+		content: '<iframe width="100%" height="100%" src="{:U('showInfo', 'id=')}' + id + '" border="0" frameborder="0"></ifram>',
+		cancel: function () {
+			this.close().remove();
+			// return false;
+		},
+		cancelDisplay: false,
+		oniframeload: function(){
+			this.reset();
+		},
+		statusbar: '',
+		zIndex: 99999
+	}).show();
+
+}
+
+
+function AjaxGetList(p){
+	var p = typeof p == 'number' || typeof p == 'string' ? p : 1;
+
+	_o.list.html('<tr><td colspan=30><i class="fa fa-spinner fa-pulse fa-2x"></i></td></tr>');
+	$.post('', {
+		date: $.trim($('#dom-date').val()),
+		type: $('[name=type]:checked').val(),
+		status: $('[name=status]:checked').val(),
+		is_robot: $('[name=is_robot]:checked').val(),
+		express_id: $('.list-express-id').val(),
+		rows: _o.rows.val(),
+		keyword: _o.keyword.val(),
+		page: p
+	}, function(j){
+
+		_o.list.html(_o.tpl(j));
+		j.href = 'javascript:AjaxGetList({{page}});';
+		_o.page.html(page(j));
+
+	}, 'json')
+}
+
+
+function 导出数据(){
+	var u = window.location.href;
+	u += u.indexOf('?') == -1 ? '?' : '&';
+	u += $.param({
+		date: $.trim($('#dom-date').val()),
+		type: $('[name=type]:checked').val(),
+		status: $('[name=status]:checked').val(),
+		payt: $('[name=payt]:checked').val(),
+		usert: $('[name=usert]:checked').val(),
+		keyword: _o.keyword.val(),
+		'export': true
+	});
+	window.open(u);
+}
+
+/* 统计按钮 */
+$('.dom-total-btn').on('click', function(){
+	var that = this;
+	if(that.loading){
+		return;
+	}
+	that.loading = true;
+	$(that).html('统计 <i class="fa fa-spinner fa-spin fa-lg"></i>');
+	$.post('', {
+		date: $.trim($('#dom-date').val()),
+		type: $('[name=type]:checked').val(),
+		status: $('[name=status]:checked').val(),
+		payt: $('[name=payt]:checked').val(),
+		usert: $('[name=usert]:checked').val(),
+		keyword: _o.keyword.val(),
+		totalVal: true
+	}, function(j){
+		console.log(j);
+
+		that.loading = false;
+		$(that).html('统计');
+		$('.dom-total').html('总金额:'+ j.total +' 订单数:'+ j.count +' 用户数:'+ j.member);
+	}, 'json');
+});
+
+</script>

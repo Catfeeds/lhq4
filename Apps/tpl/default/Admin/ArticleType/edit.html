@@ -1,0 +1,90 @@
+<link rel="stylesheet" href="__LIB_URL__/kindeditor/themes/default/default.css" />
+<script src="__LIB_URL__/kindeditor/kindeditor.js"></script>
+<script src="__LIB_URL__/kindeditor/lang/zh_CN.js"></script>
+
+<div class="m20">
+
+	<form action="__SELF__" class="goods-form" method="post" enctype="multipart/form-data" >
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<!-- 编号 -->
+				<input type="hidden" class="form-control" name="id" value="{$article_type.id}" />
+			</div>
+		</div>
+		
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">类型名</div>
+				<input type="text" class="form-control" name="typeName" value="{$article_type.typename}" />
+			</div>
+		</div>
+		
+		<div class="form-group pl5 pr5">
+			<div class="input-group" style="width:100px;max-width:100%;">
+				<div class="input-group-addon">图片</div>
+				<img src="{$article_type.url}" style="height:60px;width:auto;" class="form-control url-image" />
+				<input type="hidden" name="url" value="{$article_type.url}" class="icon-url"/>
+				<div class="input-group-addon show-image poi">选择</div>
+				<div class="input-group-addon upload poi">上传</div>
+			</div>
+		</div>	
+
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">描述</div>
+				<textarea class="form-control" style="height:280px;" name="description" placeholder="描述">{$article_type.description}</textarea>
+				<div class="input-group-addon"></div>
+			</div>
+		</div>
+		
+		<div class="form-group pl5 pr5">			
+			<button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> <span>保存</span></button>
+		</div>
+
+	</form>
+
+</div>
+
+
+<script>
+    ROOT= "__ROOT__";
+</script>
+
+		<script>
+		KindEditor.ready(function(K) {
+			var editor = K.editor({
+				fileManagerJson :  ROOT+'/php/file_manager_json.php',
+				uploadJson :  ROOT+'/php/upload_json.php?dir=image',
+				allowFileManager : true
+			});
+			K('.upload').click(function() {
+				editor.loadPlugin('image', function() {
+					editor.plugin.imageDialog({
+						showRemote : false,
+						imageUrl : K('.icon-url').val(),
+						clickFn : function(url, title) {
+							K('.icon-url').val(url);
+							$('.url-image').attr('src', url);
+							editor.hideDialog();
+						}
+					});
+				});
+			});
+			
+			K('.show-image').click(function() {
+				editor.loadPlugin('filemanager', function() {
+					editor.plugin.filemanagerDialog({
+						viewType : 'VIEW',
+						dirName : 'image',
+						clickFn : function(url, title) {
+							K('.icon-url').val(url);
+							$('.url-image').attr('src', url);
+							editor.hideDialog();
+						}
+					});
+				});
+			});
+
+		});
+
+		</script>

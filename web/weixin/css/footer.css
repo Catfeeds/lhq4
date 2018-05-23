@@ -1,0 +1,96 @@
+
+.footer {
+	clear: both;
+	width: 100%;
+	background: #f7f7f7;
+	border-top: 1px solid #ddd;
+	height: 48px;
+	
+	position: fixed;
+	bottom: 0;
+	z-index: 100;
+}
+.footer a {
+	display: block;
+	float: left;
+	width: 20%;
+	height: 44px;
+	padding-top: 4px;
+	text-align: center;
+	color: #888;
+}
+.footer a.hover,
+.footer a.active {
+	color: #f60;
+}
+.footer li.f_home a {
+	background: url(../img/winxin_cut/首页@2x.png) no-repeat;
+	background-size: 64px 49px;
+}
+.footer li.f_home a:hover {
+	background: url(../img/winxin_cut/首页1@2x.png) no-repeat;
+	background-size: 64px 49px;
+}
+.footer li.f_home a:active {
+	background: url(../img/winxin_cut/首页1@2x.png) no-repeat;
+	background-size: 64px 49px;
+}
+.footer li.f_announced a {
+	background: url(../img/winxin_cut/最新商品@2x.png) no-repeat;
+	background-size: 64px 49px;
+}
+.footer li.f_announced a:hover {
+	background: url(../img/winxin_cut/最新商品1@2x.png) no-repeat;
+	background-size: 64px 49px;
+}
+.footer li.f_announced a:active {
+	background: url(../img/winxin_cut/最新商品1@2x.png) no-repeat;
+	background-size: 64px 49px;
+}
+.footer li.f_single a {
+	background: url(../img/winxin_cut/最新揭晓@2x.png) no-repeat;
+	background-size: 64px 49px;
+}
+.footer li.f_single a:hover {
+	background: url(../img/winxin_cut/最新揭晓1@2x.png) no-repeat;
+	background-size: 64px 49px;
+}
+.footer li.f_single a:active {
+	background: url(../img/winxin_cut/最新揭晓1@2x.png) no-repeat;
+	background-size: 64px 49px;
+}
+.footer li.f_car a {
+	background: url(../img/winxin_cut/购物车@2x.png) no-repeat;
+	background-size: 64px 49px;
+}
+.footer li.f_car a:hover {
+	background: url(../img/winxin_cut/购物车1@2x.png) no-repeat;
+	background-size: 64px 49px;
+}
+.footer li.f_car a:active {
+	background: url(../img/winxin_cut/购物车1@2x.png) no-repeat;
+	background-size: 64px 49px;
+}
+.footer li.f_personal a {
+	background: url(../img/winxin_cut/我@2x.png) no-repeat;
+	background-size: 64px 49px;
+}
+.footer li.f_personal a:hover {
+	background: url(../img/winxin_cut/我1@2x.png) no-repeat;
+	background-size: 64px 49px;
+}
+.footer li.f_personal a:active {
+	background: url(../img/winxin_cut/我1@2x.png) no-repeat;
+	background-size: 64px 49px;
+}
+.footer {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.footer a {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, .1);
+}

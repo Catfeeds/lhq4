@@ -1,0 +1,271 @@
+[ 2018-05-23T10:58:47+08:00 ] ::1 /lhq/Mobile/Index/index/member_id/100018
+ERR: Cron:cron_1 Runat 2018-05-23 10:58:47 Use 0.031138 s
+
+[ 2018-05-23T10:58:47+08:00 ] ::1 /lhq/Mobile/Index/userMsg
+ERR: Cron:cron_1 Runat 2018-05-23 10:58:47 Use 0.001786 s
+
+[ 2018-05-23T10:58:47+08:00 ] ::1 /lhq/Mobile/Index/userMsg
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.037420s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.039563s ]
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0048s ]
+SQL: SELECT `openid` FROM `member` WHERE `member_id` = 100018 LIMIT 1   [ RunTime:0.0007s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001641s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.010850s ]
+INFO: [ app_end ] --END-- [ RunTime:0.016520s ]
+
+[ 2018-05-23T10:59:30+08:00 ] ::1 /lhq/Mobile/My/bindweixin/member_id/100018
+ERR: Cron:cron_1 Runat 2018-05-23 10:59:30 Use 0.002313 s
+
+[ 2018-05-23T11:00:34+08:00 ] ::1 /lhq/Mobile/My/bindweixin/member_id/100018
+ERR: Cron:cron_1 Runat 2018-05-23 11:00:34 Use 0.002417 s
+
+[ 2018-05-23T11:00:43+08:00 ] ::1 /lhq/Mobile/Index/userMsg
+ERR: Cron:cron_1 Runat 2018-05-23 11:00:43 Use 0.001709 s
+
+[ 2018-05-23T11:00:43+08:00 ] ::1 /lhq/Mobile/Index/userMsg
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001796s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003915s ]
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0039s ]
+SQL: SELECT `openid` FROM `member` WHERE `member_id` = 100018 LIMIT 1   [ RunTime:0.0025s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001201s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.010844s ]
+INFO: [ app_end ] --END-- [ RunTime:0.015813s ]
+
+[ 2018-05-23T11:00:45+08:00 ] ::1 /lhq/Mobile/My/bindweixin/member_id/100018
+ERR: Cron:cron_1 Runat 2018-05-23 11:00:45 Use 0.001694 s
+
+[ 2018-05-23T11:03:21+08:00 ] ::1 /lhq/Mobile/My/my/member_id/100018
+ERR: Cron:cron_1 Runat 2018-05-23 11:03:21 Use 0.006115 s
+
+[ 2018-05-23T11:05:33+08:00 ] ::1 /lhq/Mobile/My/bindweixin/member_id/100018
+ERR: Cron:cron_1 Runat 2018-05-23 11:05:33 Use 0.003766 s
+
+[ 2018-05-23T11:23:46+08:00 ] ::1 /lhq/Mobile/Index/index/member_id/100018
+ERR: Cron:cron_1 Runat 2018-05-23 11:23:46 Use 0.005303 s
+
+[ 2018-05-23T11:23:59+08:00 ] ::1 /lhq/Mobile/Invite/invite/member_id/100018
+ERR: Cron:cron_1 Runat 2018-05-23 11:23:59 Use 0.005316 s
+
+[ 2018-05-23T11:24:27+08:00 ] ::1 /lhq/Mobile/Invite/invite/member_id/100018
+ERR: Cron:cron_1 Runat 2018-05-23 11:24:27 Use 0.002254 s
+
+[ 2018-05-23T11:24:54+08:00 ] ::1 /lhq/Mobile/Invite/invite/member_id/100018
+ERR: Cron:cron_1 Runat 2018-05-23 11:24:54 Use 0.002587 s
+
+[ 2018-05-23T11:24:58+08:00 ] ::1 /lhq/Mobile/Invite/invite/member_id/100018
+ERR: Cron:cron_1 Runat 2018-05-23 11:24:58 Use 0.002585 s
+
+[ 2018-05-23T11:25:06+08:00 ] ::1 /lhq/Mobile/Index/index/member_id/100018
+ERR: Cron:cron_1 Runat 2018-05-23 11:25:06 Use 0.003703 s
+
+[ 2018-05-23T11:26:29+08:00 ] ::1 /lhq/Mobile/Index/index/member_id/100018
+ERR: Cron:cron_1 Runat 2018-05-23 11:26:29 Use 0.003273 s
+
+[ 2018-05-23T11:26:32+08:00 ] ::1 /lhq/Mobile/Index/index/member_id/100018
+ERR: Cron:cron_1 Runat 2018-05-23 11:26:32 Use 0.003440 s
+
+[ 2018-05-23T11:27:41+08:00 ] ::1 /lhq/Mobile/Index/index/member_id/100018
+ERR: Cron:cron_1 Runat 2018-05-23 11:27:41 Use 0.004832 s
+
+[ 2018-05-23T11:27:46+08:00 ] ::1 /lhq/Mobile/Invite/invite/member_id/100018
+ERR: Cron:cron_1 Runat 2018-05-23 11:27:46 Use 0.005225 s
+
+[ 2018-05-23T11:48:12+08:00 ] ::1 /lhq/Mobile/Index/index/member_id/100018
+ERR: Cron:cron_1 Runat 2018-05-23 11:48:12 Use 0.003745 s
+
+[ 2018-05-23T11:48:38+08:00 ] ::1 /lhq/Mobile/Invite/invite/member_id/100018
+ERR: Cron:cron_1 Runat 2018-05-23 11:48:38 Use 0.002294 s
+
+[ 2018-05-23T11:48:49+08:00 ] ::1 /lhq/Mobile/Invite/checkOpenid
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001287s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003426s ]
+ERR: 非法操作:checkOpenid
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at D:\wamp64\www\lhq\ThinkPHP\Common\functions.php:102) D:\wamp64\www\lhq\ThinkPHP\Library\Think\Think.class.php 第 229 行.
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at D:\wamp64\www\lhq\ThinkPHP\Common\functions.php:102) D:\wamp64\www\lhq\ThinkPHP\Library\Think\Think.class.php 第 230 行.
+
+[ 2018-05-23T11:49:10+08:00 ] ::1 /lhq/Mobile/Invite/invite/member_id/100018
+ERR: Cron:cron_1 Runat 2018-05-23 11:49:10 Use 0.002912 s
+
+[ 2018-05-23T11:49:21+08:00 ] ::1 /lhq/Mobile/Invite/checkOpenid
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001193s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003224s ]
+ERR: 非法操作:checkOpenid
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at D:\wamp64\www\lhq\ThinkPHP\Common\functions.php:102) D:\wamp64\www\lhq\ThinkPHP\Library\Think\Think.class.php 第 229 行.
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at D:\wamp64\www\lhq\ThinkPHP\Common\functions.php:102) D:\wamp64\www\lhq\ThinkPHP\Library\Think\Think.class.php 第 230 行.
+
+[ 2018-05-23T11:49:42+08:00 ] ::1 /lhq/Mobile/Invite/checkOpenid
+ERR: 非法操作:checkOpenid
+
+[ 2018-05-23T11:50:53+08:00 ] ::1 /lhq/Mobile/Invite/invite/member_id/100018
+ERR: Cron:cron_1 Runat 2018-05-23 11:50:53 Use 0.002606 s
+
+[ 2018-05-23T11:51:01+08:00 ] ::1 /lhq/Mobile/Index/userMsg
+ERR: Cron:cron_1 Runat 2018-05-23 11:51:01 Use 0.001813 s
+
+[ 2018-05-23T11:51:01+08:00 ] ::1 /lhq/Mobile/Index/userMsg
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001259s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003277s ]
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0011s ]
+SQL: SELECT `openid` FROM `member` WHERE `member_id` = 100018 LIMIT 1   [ RunTime:0.0006s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001260s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.008830s ]
+INFO: [ app_end ] --END-- [ RunTime:0.012792s ]
+
+[ 2018-05-23T11:52:13+08:00 ] ::1 /lhq/Mobile/Invite/invite/member_id/100018
+ERR: Cron:cron_1 Runat 2018-05-23 11:52:13 Use 0.002209 s
+
+[ 2018-05-23T11:52:28+08:00 ] ::1 /lhq/Mobile/Index/userMsg
+ERR: Cron:cron_1 Runat 2018-05-23 11:52:28 Use 0.002097 s
+
+[ 2018-05-23T11:52:28+08:00 ] ::1 /lhq/Mobile/Index/userMsg
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001747s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004092s ]
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0012s ]
+SQL: SELECT `openid` FROM `member` WHERE `member_id` = 100018 LIMIT 1   [ RunTime:0.0007s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001171s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.055991s ]
+INFO: [ app_end ] --END-- [ RunTime:0.059765s ]
+
+[ 2018-05-23T11:53:12+08:00 ] ::1 /lhq/Mobile/Index/userMsg
+ERR: Cron:cron_1 Runat 2018-05-23 11:53:12 Use 0.001562 s
+
+[ 2018-05-23T11:53:12+08:00 ] ::1 /lhq/Mobile/Index/userMsg
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001135s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002965s ]
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0015s ]
+SQL: SELECT `openid` FROM `member` WHERE `member_id` = 100018 LIMIT 1   [ RunTime:0.0008s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001175s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.007661s ]
+INFO: [ app_end ] --END-- [ RunTime:0.011328s ]
+
+[ 2018-05-23T11:53:18+08:00 ] ::1 /lhq/Mobile/Index/userMsg
+ERR: Cron:cron_1 Runat 2018-05-23 11:53:18 Use 0.001586 s
+
+[ 2018-05-23T11:53:18+08:00 ] ::1 /lhq/Mobile/Index/userMsg
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001151s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003015s ]
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0011s ]
+SQL: SELECT `openid` FROM `member` WHERE `member_id` = 100018 LIMIT 1   [ RunTime:0.0007s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001283s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.009360s ]
+INFO: [ app_end ] --END-- [ RunTime:0.013424s ]
+
+[ 2018-05-23T11:53:39+08:00 ] ::1 /lhq/Mobile/Index/userMsg
+ERR: Cron:cron_1 Runat 2018-05-23 11:53:39 Use 0.001620 s
+
+[ 2018-05-23T11:53:39+08:00 ] ::1 /lhq/Mobile/Index/userMsg
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001174s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003102s ]
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0016s ]
+SQL: SELECT `openid` FROM `member` WHERE `member_id` = 100018 LIMIT 1   [ RunTime:0.0008s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001135s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.022798s ]
+INFO: [ app_end ] --END-- [ RunTime:0.026692s ]
+
+[ 2018-05-23T11:53:40+08:00 ] ::1 /lhq/Mobile/Invite/inviteInfo/member_id/100018
+ERR: Cron:cron_1 Runat 2018-05-23 11:53:40 Use 0.003244 s
+
+[ 2018-05-23T11:53:55+08:00 ] ::1 /lhq/Mobile/Invite/invite/member_id/100018
+ERR: Cron:cron_1 Runat 2018-05-23 11:53:55 Use 0.003529 s
+
+[ 2018-05-23T11:54:11+08:00 ] ::1 /lhq/Mobile/Index/userMsg
+ERR: Cron:cron_1 Runat 2018-05-23 11:54:11 Use 0.001640 s
+
+[ 2018-05-23T11:54:11+08:00 ] ::1 /lhq/Mobile/Index/userMsg
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001162s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003079s ]
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0012s ]
+SQL: SELECT `openid` FROM `member` WHERE `member_id` = 100018 LIMIT 1   [ RunTime:0.0009s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001288s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.007690s ]
+INFO: [ app_end ] --END-- [ RunTime:0.011548s ]
+
+[ 2018-05-23T11:54:34+08:00 ] ::1 /lhq/Mobile/Index/userMsg
+ERR: Cron:cron_1 Runat 2018-05-23 11:54:34 Use 0.001960 s
+
+[ 2018-05-23T11:54:35+08:00 ] ::1 /lhq/Mobile/Index/userMsg
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001258s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003406s ]
+SQL: SHOW COLUMNS FROM `member` [ RunTime:0.0015s ]
+SQL: SELECT `openid` FROM `member` WHERE `member_id` = 100018 LIMIT 1   [ RunTime:0.0009s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001204s ]
+NOTIC: [2] include(./Apps/Common/Cron/test.php): failed to open stream: No such file or directory D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+NOTIC: [2] include(): Failed opening './Apps/Common/Cron/test.php' for inclusion (include_path='.;C:\php\pear') D:\wamp64\www\lhq\ThinkPHP\Library\Behavior\CronRunBehavior.class.php 第 44 行.
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.106999s ]
+INFO: [ app_end ] --END-- [ RunTime:0.111263s ]
+
+[ 2018-05-23T11:55:32+08:00 ] ::1 /lhq/Mobile/Index/index/member_id/100018
+ERR: Cron:cron_1 Runat 2018-05-23 11:55:32 Use 0.003721 s
+
+[ 2018-05-23T11:55:47+08:00 ] ::1 /lhq/Mobile/My/my/member_id/100018
+ERR: Cron:cron_1 Runat 2018-05-23 11:55:47 Use 0.002552 s
+
+[ 2018-05-23T11:55:51+08:00 ] ::1 /lhq/Mobile/My/bindweixin/member_id/100018
+ERR: Cron:cron_1 Runat 2018-05-23 11:55:51 Use 0.002374 s
+
+[ 2018-05-23T11:57:00+08:00 ] ::1 /lhq/Mobile/My/my/member_id/100018
+ERR: Cron:cron_1 Runat 2018-05-23 11:57:00 Use 0.002766 s
+
+[ 2018-05-23T11:57:04+08:00 ] ::1 /lhq/Mobile/My/bindweixin/member_id/100018
+ERR: Cron:cron_1 Runat 2018-05-23 11:57:04 Use 0.001869 s
+
+[ 2018-05-23T11:57:45+08:00 ] ::1 /lhq/Mobile/My/my/member_id/100018
+ERR: Cron:cron_1 Runat 2018-05-23 11:57:45 Use 0.002026 s
+
+[ 2018-05-23T12:01:09+08:00 ] ::1 /lhq/Mobile/My/bindalipay/member_id/100018
+ERR: Cron:cron_1 Runat 2018-05-23 12:01:09 Use 0.002306 s
+
+[ 2018-05-23T12:01:10+08:00 ] ::1 /lhq/Mobile/Tixian/verify
+ERR: Cron:cron_1 Runat 2018-05-23 12:01:10 Use 0.002519 s
+
+[ 2018-05-23T12:01:12+08:00 ] ::1 /lhq/Mobile/My/my/member_id/100018
+ERR: Cron:cron_1 Runat 2018-05-23 12:01:12 Use 0.002791 s
+
+[ 2018-05-23T12:01:13+08:00 ] ::1 /lhq/Mobile/My/bindweixin/member_id/100018
+ERR: Cron:cron_1 Runat 2018-05-23 12:01:13 Use 0.002550 s
+
+[ 2018-05-23T12:02:35+08:00 ] ::1 /lhq/Mobile/My/bindweixin/member_id/100018
+ERR: Cron:cron_1 Runat 2018-05-23 12:02:35 Use 0.003415 s
+
+[ 2018-05-23T12:02:41+08:00 ] ::1 /lhq/Mobile/My/bindweixin/member_id/100018
+ERR: Cron:cron_1 Runat 2018-05-23 12:02:41 Use 0.002288 s
+
+[ 2018-05-23T12:02:52+08:00 ] ::1 /lhq/Mobile/My/bindweixin/member_id/100018
+ERR: Cron:cron_1 Runat 2018-05-23 12:02:52 Use 0.002805 s
+

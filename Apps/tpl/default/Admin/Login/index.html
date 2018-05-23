@@ -1,0 +1,39 @@
+<include file="inc/header" />
+
+</head>
+<!-- 登录模板 -->
+<body class="bg-1">
+
+<div class="auto login-box-1">
+	<h1 class="title en mb10">{$title}</h1>
+	<form class="login-form" action="{:U('Admin/Login/index')}" method="post">
+		<div class="form-group">
+			<div class="input-group">
+				<div class="input-group-addon"><i class="fa fa-user"></i></div>
+				<input type="text" id="i-username" class="form-control" name="username" value="{$user}" placeholder="用户名">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="input-group">
+				<div class="input-group-addon"><i class="fa fa-lock"></i></div>
+				<input type="password" id="i-password" class="form-control" name="password" placeholder="密码">
+				<div class="input-group-addon hide-pwd poi"><i class="fa fa-eye-slash"></i></div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="input-group">
+				<div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
+				<input type="text" class="form-control i-imgcode" name="imgcode" placeholder="验证码" autocomplete='off'>
+				<div class="input-group-addon poi rest-imgcode"><i class="fa fa-rotate-right"></i></div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<input type="submit" class="btn btn-primary btn-block" value="登录"/>
+			<!--<button type="button" class="btn btn-primary btn-block">注册</button>-->
+		</div>
+	</form>
+</div>
+<include file="inc/footer" />

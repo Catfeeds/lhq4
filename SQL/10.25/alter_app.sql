@@ -1,0 +1,1 @@
+ALTER TABLE `app` ADD `is_repeat` ENUM('否','是') COMMENT '是否排重' AFTER `adtype_id`;

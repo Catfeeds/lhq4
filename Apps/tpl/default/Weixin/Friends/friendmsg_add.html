@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no, maximum-scale=1.0" />
+        <meta content="yes" name="apple-mobile-web-app-capable" />
+        <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+        <meta content="telephone=no" name="format-detection" />
+        <title>详细资料</title>
+
+        <link href="__WXP__/css/comm.css" rel="stylesheet" type="text/css" />
+        <link href="__WXP__/css/member.css" rel="stylesheet" type="text/css" />
+        <script>
+
+            function friendsmsg(fid) {
+                
+
+                layer.confirm('您要同意  {$res.nickname}  的添加请求吗?', {
+                    btn: ['确定', '取消'] //按钮
+                }, function () {
+                    $.post('', {fid: fid}, function (res) {
+                        if (res.code!=0) {
+                            layer.msg("添加好友完成,马上进入好友列表");
+                            setTimeout(function(){
+                                location.href="{:U('my_friends')}";
+                            },2000);
+                            
+                        } else {
+                            layer.msg("同意好友申请失败,不存在的好友...");
+                        }
+
+                    });
+                }
+                );
+
+
+            }
+        </script>
+        <!--<script src="../../js/jquery-1.11.3.min.js"></script>-->
+        <style>
+            .toolsbardiv{
+                height: 50px;
+                line-height: 50px;
+                text-align: center;  
+            }
+            .toolsbardiv a{
+                font-size: 16px;
+                padding: 5px 20px;
+                border-radius: 5px;
+                margin: 0 15px;
+                letter-spacing: 5px;
+            }
+            .toolsbardiv #ty{
+                border: 2px double #00abec;
+                color: #00abec;
+            }
+            .toolsbardiv #jj{
+
+                border: 2px double #f60;
+                color: #f60;
+            }
+        </style>
+    </head>
+
+    <body>
+    <div style="padding-top: 40px">
+        <div class="m_myInfo" >
+            <dl style="position: relative;">
+                <dt class="gray6">
+                <img src="{$res.pic}" /><!-- 用户头像 -->
+                <p>{$res.nickname}<!-- 用户昵称 -->
+                    <cite class="gray9">
+                        <span>{$res.phone}</span>
+                    </cite>
+                </p>
+                </dt>
+            </dl>
+        </div>
+        <!--获得的商品-->
+
+        <!--导航菜单-->
+        <div class="sub_nav marginB">
+             <a href="javascript:void(0)">性别:
+               <if condition="$res['sex'] eq 1"> <em>男</em>
+               <elseif condition="$res['sex'] eq 2" /> <em>女</em>
+               <else /><em>保密</em>
+               </if>
+            </a>
+            <a href="javascript:void(0)">生日:<em>{$res.birthday}</em></a>
+            <a href="javascript:void(0)">现居地:<em>{$res.addr}</em></a>
+        </div>
+
+        <div class="toolsbardiv">
+            <a id="ty" href="javascript:friendsmsg({$res.id})" class="">同意</a>
+            
+        </div>
+    </div>
+    </body>
+
+</html>

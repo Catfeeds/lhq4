@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="__LIB_URL__/kindeditor/themes/default/default.css" />
+<link rel="stylesheet" href="__LIB_URL__/bootstrap.min.css" />
+<link rel="stylesheet" href="__LIB_URL__/bootstrap.min.css" />
+<link rel="stylesheet" href="__LIB_URL__/font-awesome.css,zxx.css" />
+<script src="__LIB_URL__/kindeditor/kindeditor.js"></script>
+<script src="__LIB_URL__/kindeditor/lang/zh_CN.js"></script>
+<script src="__LIB_URL__/ja.js"></script>
+
+{__NOLAYOUT__}
+<div class="m20">
+
+	<form action="__SELF__" method="post" class="goods-form" enctype="multipart/form-data" >		
+		
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">类型名</div>
+				<input type="text" class="form-control" name="typeName" value="" />
+			</div>
+		</div>
+		
+		<div class="form-group pl5 pr5">
+			<div class="input-group" >
+				<div class="input-group-addon">图片(选择后上传)</div>
+				<input  type="file" class="form-control" name="url" style="padding:0px;"></input>
+			</div>
+		</div>		
+
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">描述</div>
+				<textarea class="form-control" style="height:280px;" name="description" placeholder="描述"></textarea>
+				<div class="input-group-addon"></div>
+			</div>
+		</div>
+		
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">状态 (请选择 , 默认为禁用)</div>
+				<select name="status" class="form-control">
+					<option value="0">禁用</option>
+					<option value="1">启用</option>				
+				</select>
+				
+			</div>
+		</div>
+		
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">序号 (请指定序号 , 默认为 0)</div>
+				<input type="text" class="form-control" name="taxis" value="" />
+			</div>
+		</div>
+		
+		<div class="form-group pl5 pr5">			
+			<button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> <span>保存</span></button>
+		</div>
+
+	</form>
+
+</div>

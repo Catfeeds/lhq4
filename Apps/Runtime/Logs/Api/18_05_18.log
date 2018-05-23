@@ -1,0 +1,140 @@
+[ 2018-05-18T10:38:42+08:00 ] ::1 /lhq//api/callbackApi?XDEBUG_SESSION_START=13837
+ERR: Cron:cron_1 Runat 2018-05-18 10:38:42 Use 0.002058 s
+
+[ 2018-05-18T14:56:39+08:00 ] ::1 /lhq/api/Channelclickmobileapi/Channelclickmobileapi?appid=1707&chanid=-1&idfa=EE751FF6-347D-4DA9-BEE5-59226CFBF663&mac=02:00:00:00:00:00&openudid=&ip=49.67.70.155
+ERR: Cron:cron_1 Runat 2018-05-18 14:56:39 Use 0.002454 s
+
+[ 2018-05-18T14:59:36+08:00 ] ::1 /lhq/api/Channelclickmobileapi/Channelclickmobileapi?mac=02:00:00:00:00:00&msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-18 14:59:36 Use 0.002225 s
+
+[ 2018-05-18T15:00:22+08:00 ] ::1 /lhq/api/Channelclickmobileapi/Channelclickmobileapi?mac=02:00:00:00:00:00&msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-18 15:00:22 Use 0.002112 s
+
+[ 2018-05-18T15:00:34+08:00 ] ::1 /lhq/api/Channelclickmobileapi/Channelclickmobileapi?mac=02:00:00:00:00:00&msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-18 15:00:34 Use 0.002179 s
+
+[ 2018-05-18T15:00:53+08:00 ] ::1 /lhq/api/Channelclickmobileapi/Channelclickmobileapi?mac=02:00:00:00:00:00&msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-18 15:00:53 Use 0.002238 s
+
+[ 2018-05-18T15:02:34+08:00 ] ::1 /lhq/api/Channelclickmobileapi/Channelclickmobileapi?mac=02:00:00:00:00:00&msid=174&mid=100025
+ERR: 1054:Unknown column 'idfentify' in 'field list'
+ [ SQL语句 ] : SELECT `idfentify` FROM `member` WHERE `member_id` = 100025 
+
+[ 2018-05-18T15:03:04+08:00 ] ::1 /lhq/api/Channelclickmobileapi/Channelclickmobileapi?mac=02:00:00:00:00:00&msid=174&mid=100025
+ERR: 1054:Unknown column 'idfentify' in 'field list'
+ [ SQL语句 ] : SELECT `idfentify` FROM `member` WHERE `member_id` = 100025 
+
+[ 2018-05-18T15:03:09+08:00 ] ::1 /lhq/api/Channelclickmobileapi/Channelclickmobileapi?mac=02:00:00:00:00:00&msid=174&mid=100025
+ERR: 1054:Unknown column 'idfentify' in 'field list'
+ [ SQL语句 ] : SELECT `idfentify` FROM `member` WHERE `member_id` = 100025 
+
+[ 2018-05-18T15:03:12+08:00 ] ::1 /lhq/api/Channelclickmobileapi/Channelclickmobileapi?mac=02:00:00:00:00:00&msid=174&mid=100025
+ERR: 1054:Unknown column 'idfentify' in 'field list'
+ [ SQL语句 ] : SELECT `idfentify` FROM `member` WHERE `member_id` = 100025 
+
+[ 2018-05-18T15:03:13+08:00 ] ::1 /lhq/api/Channelclickmobileapi/Channelclickmobileapi?mac=02:00:00:00:00:00&msid=174&mid=100025
+ERR: 1054:Unknown column 'idfentify' in 'field list'
+ [ SQL语句 ] : SELECT `idfentify` FROM `member` WHERE `member_id` = 100025 
+
+[ 2018-05-18T15:03:14+08:00 ] ::1 /lhq/api/Channelclickmobileapi/Channelclickmobileapi?mac=02:00:00:00:00:00&msid=174&mid=100025
+ERR: 1054:Unknown column 'idfentify' in 'field list'
+ [ SQL语句 ] : SELECT `idfentify` FROM `member` WHERE `member_id` = 100025 
+
+[ 2018-05-18T15:03:15+08:00 ] ::1 /lhq/api/Channelclickmobileapi/Channelclickmobileapi?mac=02:00:00:00:00:00&msid=174&mid=100025
+ERR: 1054:Unknown column 'idfentify' in 'field list'
+ [ SQL语句 ] : SELECT `idfentify` FROM `member` WHERE `member_id` = 100025 
+
+[ 2018-05-18T15:03:17+08:00 ] ::1 /lhq/api/Channelclickmobileapi/Channelclickmobileapi?mac=02:00:00:00:00:00&msid=174&mid=100025
+ERR: 1054:Unknown column 'idfentify' in 'field list'
+ [ SQL语句 ] : SELECT `idfentify` FROM `member` WHERE `member_id` = 100025 
+
+[ 2018-05-18T15:03:18+08:00 ] ::1 /lhq/api/Channelclickmobileapi/Channelclickmobileapi?mac=02:00:00:00:00:00&msid=174&mid=100025
+ERR: 1054:Unknown column 'idfentify' in 'field list'
+ [ SQL语句 ] : SELECT `idfentify` FROM `member` WHERE `member_id` = 100025 
+
+[ 2018-05-18T15:03:20+08:00 ] ::1 /lhq/api/Channelclickmobileapi/Channelclickmobileapi?mac=02:00:00:00:00:00&msid=174&mid=100025
+ERR: 1054:Unknown column 'idfentify' in 'field list'
+ [ SQL语句 ] : SELECT `idfentify` FROM `member` WHERE `member_id` = 100025 
+
+[ 2018-05-18T15:03:21+08:00 ] ::1 /lhq/api/Channelclickmobileapi/Channelclickmobileapi?mac=02:00:00:00:00:00&msid=174&mid=100025
+ERR: 1054:Unknown column 'idfentify' in 'field list'
+ [ SQL语句 ] : SELECT `idfentify` FROM `member` WHERE `member_id` = 100025 
+
+[ 2018-05-18T15:03:27+08:00 ] ::1 /lhq/api/Channelclickmobileapi/Channelclickmobileapi?mac=02:00:00:00:00:00&msid=174&mid=100025
+ERR: 1054:Unknown column 'idfentify' in 'field list'
+ [ SQL语句 ] : SELECT `idfentify` FROM `member` WHERE `member_id` = 100025 
+
+[ 2018-05-18T15:03:29+08:00 ] ::1 /lhq/api/Channelclickmobileapi/Channelclickmobileapi?mac=02:00:00:00:00:00&msid=174&mid=100025
+ERR: 1054:Unknown column 'idfentify' in 'field list'
+ [ SQL语句 ] : SELECT `idfentify` FROM `member` WHERE `member_id` = 100025 
+
+[ 2018-05-18T15:03:30+08:00 ] ::1 /lhq/api/Channelclickmobileapi/Channelclickmobileapi?mac=02:00:00:00:00:00&msid=174&mid=100025
+ERR: 1054:Unknown column 'idfentify' in 'field list'
+ [ SQL语句 ] : SELECT `idfentify` FROM `member` WHERE `member_id` = 100025 
+
+[ 2018-05-18T15:03:46+08:00 ] ::1 /lhq/api/Channelclickmobileapi/Channelclickmobileapi?mac=02:00:00:00:00:00&msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-18 15:03:46 Use 0.003541 s
+
+[ 2018-05-18T15:04:05+08:00 ] ::1 /lhq/api/Channelclickmobileapi/Channelclickmobileapi?mac=02:00:00:00:00:00&msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-18 15:04:05 Use 0.002433 s
+
+[ 2018-05-18T15:04:23+08:00 ] ::1 /lhq/api/Channelclickmobileapi/Channelclickmobileapi?mac=02:00:00:00:00:00&msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-18 15:04:23 Use 0.002187 s
+
+[ 2018-05-18T15:04:31+08:00 ] ::1 /lhq/api/Channelclickmobileapi/Channelclickmobileapi?mac=02:00:00:00:00:00&msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-18 15:04:31 Use 0.002563 s
+
+[ 2018-05-18T15:04:35+08:00 ] ::1 /lhq/api/Channelclickmobileapi/Channelclickmobileapi?mac=02:00:00:00:00:00&msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-18 15:04:35 Use 0.002065 s
+
+[ 2018-05-18T15:04:36+08:00 ] ::1 /lhq/api/Channelclickmobileapi/Channelclickmobileapi?mac=02:00:00:00:00:00&msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-18 15:04:36 Use 0.002961 s
+
+[ 2018-05-18T15:05:42+08:00 ] ::1 /lhq/api/Channelclickmobileapi/Channelclickmobileapi?mac=02:00:00:00:00:00&msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-18 15:05:42 Use 0.002292 s
+
+[ 2018-05-18T15:08:44+08:00 ] ::1 /lhq/api/ReportActiveMobileApi?mac=02:00:00:00:00:00&msid=174&mid=100025
+ERR: 无法加载控制器:ReportActiveMobileApi
+
+[ 2018-05-18T15:08:51+08:00 ] ::1 /lhq/api/ReportActiveMobileApi?mac=02:00:00:00:00:00&msid=174&mid=100025
+ERR: 无法加载控制器:ReportActiveMobileApi
+
+[ 2018-05-18T15:09:23+08:00 ] ::1 /lhq/api/ReportActiveMobileApi/index?mac=02:00:00:00:00:00&msid=174&mid=100025
+ERR: 无法加载控制器:ReportActiveMobileApi
+
+[ 2018-05-18T15:09:52+08:00 ] ::1 /lhq/api/ReportActiveMobileApi?mac=02:00:00:00:00:00&msid=174&mid=100025
+ERR: 无法加载控制器:ReportActiveMobileApi
+
+[ 2018-05-18T15:11:52+08:00 ] ::1 /lhq/api/ReportActiveMobileApi
+ERR: 无法加载控制器:ReportActiveMobileApi
+
+[ 2018-05-18T15:11:58+08:00 ] ::1 /lhq/api/ReportActiveMobileApi
+ERR: 无法加载控制器:ReportActiveMobileApi
+
+[ 2018-05-18T15:12:00+08:00 ] ::1 /lhq/api/ReportActiveMobileApi
+ERR: 无法加载控制器:ReportActiveMobileApi
+
+[ 2018-05-18T15:12:44+08:00 ] ::1 /lhq/api/ReportActiveMobileApi
+ERR: 无法加载控制器:ReportActiveMobileApi
+
+[ 2018-05-18T15:12:52+08:00 ] ::1 /lhq/api/ReportActiveMobileApi
+ERR: 无法加载控制器:ReportActiveMobileApi
+
+[ 2018-05-18T15:12:53+08:00 ] ::1 /lhq/api/ReportActiveMobileApi
+ERR: 无法加载控制器:ReportActiveMobileApi
+
+[ 2018-05-18T15:12:54+08:00 ] ::1 /lhq/api/ReportActiveMobileApi
+ERR: 无法加载控制器:ReportActiveMobileApi
+
+[ 2018-05-18T15:12:55+08:00 ] ::1 /lhq/api/ReportActiveMobileApi
+ERR: 无法加载控制器:ReportActiveMobileApi
+
+[ 2018-05-18T15:15:11+08:00 ] ::1 /lhq/api/ReportActiveMobileApi
+ERR: 无法加载控制器:ReportActiveMobileApi
+
+[ 2018-05-18T15:17:39+08:00 ] ::1 /lhq/api/ReportActiveMobileApi
+ERR: Cron:cron_1 Runat 2018-05-18 15:17:39 Use 0.002126 s
+
+[ 2018-05-18T16:02:28+08:00 ] ::1 /lhq/api/ReportActiveMobileApi?mac=02:00:00:00:00:00&msid=174&mid=100025
+ERR: Cron:cron_1 Runat 2018-05-18 16:02:28 Use 0.003771 s
+

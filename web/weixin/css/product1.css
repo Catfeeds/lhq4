@@ -1,0 +1,289 @@
+@charset "utf-8";
+* {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	outline: none 0;
+}
+body,
+button,
+input,
+select,
+textarea {
+	font-size: 12px;
+	font-family: 'microsoft yahei', Verdana, Arial, Helvetica, sans-serif;
+}
+.goods_detail{
+	padding: 10px;
+}
+.goods_detail .goods_name {
+	font-size: 14px;
+	word-wrap: break-word;
+	word-break: break-all;
+	width: 100%;
+	line-height: 25px;
+	height: 25px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: normal;
+	margin-bottom: 10px;
+}
+.goods_detail .goods_price {
+	font-size: 12px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.goods_detail .goods_price .orange{
+	font-size: 16px;
+	margin-right: 10px;
+}
+
+.goods_detail dl {
+	width: 100%;
+}
+.goods_detail dl dt {
+	height: 6px;
+	width: 100%;
+	background: #ddd none repeat scroll 0 0;
+}
+.goods_detail dl dt b {
+	height: 6px;
+	background: #FF4000;
+	display: block;
+	font-size: 12px;
+}
+.goods_detail dd {
+	margin: 0px;
+}
+.goods_detail dl dd span {
+	color: #666;
+	font-weight: 400;
+	width: 33%;
+	font-size: 12px;
+	float: left;
+}
+.goods_detail dl dd span em {
+	display: block;
+}
+.goods_detail dl dd span.orange {
+	float: left;
+	font-size: 12px;
+	text-align: left;
+}
+.goods_detail dl dd span.orange em {
+	color: #00abec;
+}
+.goods_detail dl dd span.blue {
+	float: right;
+	font-size: 12px;
+	text-align: right;
+}
+.goods_detail dl dd span.blue em {
+	color: #2af;
+}
+.goods_detail dl dd span.total {
+	text-align: center;
+}
+a.buy_count {
+	color: #333333;
+	text-decoration: none;
+	display: block;
+	cursor: pointer;
+	padding: 5px;
+}
+a.buy_count:visited {
+	color: #333333;
+}
+a.buy_count:hover {
+	color: #333333;
+}
+a.buy_count span {
+	position: absolute;
+	right: 15px;
+	color: #22AAFF
+}
+a.buy_count b {
+	padding: 2px;
+	color: #BA2636;
+}
+/*.time-item strong {
+    background:crimson;
+    color:#fff;
+    line-height:49px;
+    font-size:36px;
+    font-family:Arial;
+    padding:0 10px;
+    margin-right:10px;
+    border-radius:5px;
+    box-shadow:1px 1px 3px rgba(0,0,0,0.2);
+}*/
+
+.time-item {
+	text-align: center;
+	position: relative;
+	height: 50px;
+	line-height: 50px;
+	font-size: 18px;
+	background-color: #00abec;
+	color: #fff;
+	font-family: "microsoft yahei", Verdana, Arial, Helvetica, sans-serif;
+	outline: 0 none
+}
+.time-item div {
+	text-align: center;
+	float: left;
+	width: 30%;
+	position: absolute;
+}
+.time-item div.minute_show {
+	left: 5%
+}
+.time-item div.second_show {
+	left: 35%
+}
+.time-item div.millisecond_show {
+	left: 65%
+}
+.item {
+	text-align: center;
+	color: firebrick;
+	font-size: 18px;
+}
+.listview a , .buy_count{
+	background-color: #fff;
+	border-bottom: 1px solid #dedede;
+	border-top: 1px solid #dedede;
+	color: #666;
+	display: block;
+	font-size: 16px;
+	height: 48px;
+	line-height: 48px;
+	margin-top: -1px;
+	padding: 0 10px 0 13px;
+}
+.listview i {
+    float: right;
+    line-height: 48px;
+    width: 30px;
+    height: 30px;
+    top:9px;
+    display: block;
+    position: relative;
+    background: url(../img/winxin_cut/灰色箭头@2x.png) no-repeat;
+    background-size: 30px 30px;
+}
+.footer1{
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+}
+.footer1 li{
+	width: 100%;
+	float: left;
+	text-align: center;
+	display: block;
+	height: 50px;
+	line-height: 50px;
+	bottom: 0px;
+}
+.gTimer{
+	font-size: 16px;
+	height: 50px;
+	line-height: 50px;
+	background: #fff;
+	margin-bottom: 10px;
+}
+.gTimer .timer{
+	float: left;
+	margin-left: 5px;
+}
+.gTimer .counter{
+	float: right;
+	margin-right: 5px;
+}
+.btn-g{
+	text-align: center;
+	margin-bottom: 20px;
+}
+.btn-g li{
+	display: inline-block;
+}
+.btn-g li a{
+	display: inline-block;
+	font-size: 16px;
+	width: 150px;
+	height: 40px;
+	line-height: 40px;
+	border: 1px solid #00abec;
+}
+.btn-g li a:nth-child(1){
+	margin-right: 5px;
+}
+.winner{
+	height: 120px;
+	margin: 10px;
+	border: 1px solid #DEDEDE;
+	border-radius: 3px;
+	box-shadow: 0 0 10px 3px #DEDEDE;
+	padding: 10px;
+}
+.winner cite {
+	float: left;
+	width: 60px;
+	height: 60px;
+	border: 1px solid #e5e5e5;
+	border-radius: 5px;
+	position: relative;
+	overflow: hidden;
+	text-align: center;
+}
+.winner cite img {
+	width: 60px;
+	height: 60px;
+	background: #DEDEDE;
+}
+.winner dl {
+	margin-left: 86px;
+	line-height: 18px;
+}
+.winner dt {
+	display: block;
+	margin-bottom: 3px;
+	font-size: 14px;
+	line-height: 18px;
+}
+.winner a dt {
+	height: 18px;
+	overflow: hidden;
+	color: #666;
+}
+.winner dt a {
+	max-height: 18px;
+	overflow: hidden;
+}
+.winner dd {
+	color: #999;
+}
+.winner dd a {
+	display: inline-block;
+}
+.winner dd em {
+	margin: 0 3px;
+}
+.winner dd span.z-announced-btn {
+	display: inline-block;
+	padding: 0 15px;
+	line-height: 25px;
+	color: #fff;
+	background: #00abec;
+	border-radius: 3px;
+	margin-top: 10px;
+}
+.winner div{
+	height: 30px;
+	line-height: 30px;
+	background: #00ABEC;
+	padding-left: 10px;
+	color: #fff;
+	font-size: 16px;
+	margin-top: 25px;
+}

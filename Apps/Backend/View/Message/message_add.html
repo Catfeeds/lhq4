@@ -1,0 +1,59 @@
+<!--<{include file ="header.tpl"}>-->
+<!--<{include file ="navibar.tpl"}>-->
+<!--<{include file ="sidebar.tpl"}>-->
+<include file="Index:header"/>
+<include file="Index:navibar"/>
+<include file="Index:sidebar"/>
+<!-- START 以上内容不需更改，保证该TPL页内的标签匹配即可 -->
+
+{$osadmin_action_alert}
+{$osadmin_quick_note}
+<!--<script src="<{$smarty.const.ADMIN_URL}>/assets/ckeditor/ckeditor.js"></script>-->
+<script src="__PUBLIC__/ckeditor/ckeditor.js"></script>
+<div class="well">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#home" data-toggle="tab">请填写渠道信息</a></li>
+    </ul>	
+	
+	<div id="myTabContent" class="tab-content">
+		  <div class="tab-pane active in" id="home">
+              <form id="tab" method="post" action="">
+                  <label>消息主题</label>
+                  <input type="text" name="title" value="{$_POST.title}" class="input-xlarge" required="true" autofocus="true" >
+                  <label>消息内容</label>
+                  <textarea name="content" rows="5" class="input-xlarge">{$_POST.content}</textarea>
+
+                  <label>消息来源</label>
+                  <input type="text" name="msg_from" value="{$user_info.user_name}" class="input-xlarge" required="true" autofocus="true" >
+                  <label>消息去向(请直接填写数字ID，0为群发消息，-1为多用户消息)</label>
+                  <input type="text" name="msg_to" value="{$_POST.msg_to}" class="input-xlarge" required="true" autofocus="true" >
+                  <!--<label>消息状态</label>
+				<input type="text" name="status" value="<{$_POST.status}>" class="input-xlarge" required="true" autofocus="true" >-->
+                  <label>消息类型</label>
+                  <select name="m_type"  class="input-xlarge" required="true" autofocus="true">
+                      <foreach name='msgtype' item='msgtype' key="m_type">
+                          <option value="{$m_type}">{$msgtype}</option>
+                      </foreach>
+                     <!-- <option value="3"> 新人须知 </option>
+                      <option value="2"> 产品近况公告 </option>
+                      <option value="1"> 任务上线通知 </option>
+                      <option value="0"> 提现反馈通知 </option>-->
+
+                  </select>
+                  <label>是否直接发送</label>
+                  <select name="display" class="input-xlarge" required="true" autofocus="true">
+                      <option value="1"> 是 </option>
+                      <option value="0"> 否 </option>
+
+                  </select>
+
+                  <div class="btn-toolbar">
+                      <button type="submit" class="btn btn-primary"><strong>提交</strong></button>
+                  </div>
+              </form>
+        </div>
+    </div>
+</div>
+	
+<!-- END 以下内容不需更改，请保证该TPL页内的标签匹配即可 -->
+<include file="Index:footer"/>

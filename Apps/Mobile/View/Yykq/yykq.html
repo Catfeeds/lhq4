@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="msapplication-tap-highlight" content="no">
+    <link rel="stylesheet" href="<{$smarty.const.ADMIN_URL}>/assets/mobile/css/style.css" type="text/css">
+    <meta charset="UTF-8">
+    <meta name="keyword" content="一元开枪">
+    <title>Document</title>
+    <link rel="stylesheet" href="<{$smarty.const.ADMIN_URL}>/assets/mobile/css/style.css" type="text/css">
+    <script src="<{$smarty.const.ADMIN_URL}>/assets/mobile/js/jquery.min.js"></script>
+</head>
+<body>
+
+        <div class="devBox">
+            <a href="index.php?member_id=<{$member_id}>"><img src="<{$smarty.const.ADMIN_URL}>/assets/mobile/images/a2.png" alt class="fl"></a>
+            <h1 class="biaoti">一元开枪</h1>
+        </div>
+       <iframe class="hh" src="<{$smarty.const.ADMIN_URL}>/yykq" marginheight="10" marginwidth="0" frameborder="0"
+               scrolling-right="auto" scrolling-bottom = "no"width="100%"id="iframepage"></iframe>
+
+<script type="text/javascript">
+         var main =$(window.parent.document).find("#iframepage");
+         var thisheight = $(document).height() + 30;
+         main.height(thisheight);
+</script> 
+</body>
+
+</html>
+
+

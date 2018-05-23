@@ -1,0 +1,1 @@
+alter table mem_mis add ctime datetime comment'Ê±¼ä';

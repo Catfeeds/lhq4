@@ -1,0 +1,46 @@
+<include file ="Index:header"/>
+<include file ="Index:navibar"/>
+<include file ="Index:sidebar"/>
+
+	<div class="btn-group goods-status" style="margin-top:10px">		
+		<label class="btn btn-primary
+		    <if condition="$status['status'] eq '0'">
+            	active
+            </if>	
+		">
+			<input type="radio"  name="isShowActive" value="0"/>关闭
+		</label>
+		
+		<label class="btn btn-primary
+            <if condition="$status['status'] eq '1'">
+            	active
+            </if>
+		">
+			<input type="radio"  name="isShowActive" value="1" />开启
+		</label>	
+	</div>
+
+<script>
+$('input[name="isShowActive"]').click(function(){
+	   var is_show_action = $('input[name="isShowActive"]:checked').val();
+        var str="";
+        var url = "{:U('Backend/isShowActive/index')}";
+        if (is_show_action == 0) {
+        	str="关闭";
+        }else{
+        	str="开启";
+        }
+        var res = confirm('确定要'+str+'吗?');
+        if (res) {
+            $.post(url,{is_show_action:is_show_action},function(rel){
+            	if (rel) {   	
+                    location.href= location.href;
+            	};
+            });
+        }else{
+        	location.href= location.href;
+        }
+});
+</script>
+<!-- TPLEND 以下内容不需更改，请保证该TPL页内的标签匹配即可 -->
+<include file="Index:footer"/>

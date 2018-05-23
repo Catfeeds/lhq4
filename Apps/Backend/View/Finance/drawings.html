@@ -1,0 +1,450 @@
+<include file="Index:header"/>
+<include file="Index:navibar"/>
+<include file="Index:sidebar"/>
+<!--- START 以上内容不需更改，保证该TPL页内的标签匹配即可 --->
+<!--
+<{$osadmin_action_alert}>-->
+<style type="text/css">
+.alipay-msg{
+    background-color: white;
+    display: block;
+    width: 60%;
+    height: 70%;
+    z-index: 99999;
+    position: fixed;
+    top: 15%;
+    left: 20%;
+    border:solid 1px #0ea9bf;
+    overflow: auto;  
+}
+
+.alipay-msg caption{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: #0ea9bf;
+    font-size: 16px;
+    color: #fff;
+}
+.alipay-msg td{
+    text-align: center;
+}
+
+#cover{
+    position: fixed;
+    z-index: 9999;
+    top:0px;
+    left: 0px;
+    display: none;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    background: #000 none repeat scroll 0% 0%;
+}
+
+</style>
+
+<form class="form_search"  action="__ACTION__" method="GET" style="margin-bottom:0px">
+    <div style="float:left;margin-right:5px">
+        <label> 选择起始时间 </label>
+        <input type="text" id="start_date" name="start_date" value="{$_GET.start_date}" placeholder="起始时间" >
+    </div>
+    <div style="float:left;margin-right:5px">
+        <label>选择结束时间</label>
+        <input type="text" id="end_date" name="end_date" value="{$_GET.end_date}" placeholder="结束时间" >
+    </div>
+
+    <div style="float:left;margin-right:5px">
+        <label>用户ID</label>
+        <input type="text" name="member_id" value="{$_GET.member_id}" placeholder="输入用户ID" >
+
+    </div>
+    <div style="float:left;margin-right:5px">
+        <label>状态</label>
+        <select name="status" id="statusvalue">
+            <option value="">全部</option>
+            <option value="1" 
+                <if condition="$_GET.status eq 1">
+                    selected="selected"
+                </if>
+            >待审核</option>
+            <option value="2"
+                <if condition="$_GET.status eq 2">
+                    selected="selected"
+                </if>
+            >审核成功</option>
+            <option value="3"
+                <if condition="$_GET.status eq 3">
+                    selected="selected"
+                </if>
+            >审核失败</option>
+            <option value="4"
+                <if condition="$_GET.status eq 4">
+                    selected="selected"
+                </if>
+            >已支付</option>
+        </select>
+    </div>
+	<div class="btn-toolbar" style="padding-top:25px;padding-bottom:0px;margin-bottom:0px">
+		<button type="submit" class="btn btn-primary">检索</button>
+	</div>
+	<div style="clear:both;"></div>
+</form>
+</div>
+
+    <div class="block">
+        <a href="#page-stats" class="block-heading" data-toggle="collapse">提现列表</a>
+        <div id="page-stats" class="block-body collapse in">
+
+            <form id="tab" method="post" action="">
+               <!-- <div class="btn-toolbar" style="margin-bottom:2px;">
+                    <a href="javascript:void(0)" id="del_all_btn" class="btn btn-primary"><i class="icon-plus"></i> 批量删除</a>
+                </div>-->
+            <table class="table table-striped">
+              <thead>
+                <input type="button" onclick="check_all('mids[]')"  value="全选"/><input type="button" onclick="reverseClick('mids[]')"  value="反选"/><input type="button" onclick="cancelClick('mids[]')"  value="取消"/>
+                <tr>
+                    <th style="width:40px">ID</th>
+				<!-- 	<th style="width:30px">ID</th> -->
+                    <th style="width:90px">用户id</th>
+                    <th style="width:90px">用户昵称</th>
+					<th style="width:90px">微信号</th>
+					<th style="width:180px">手机号</th>
+					<th style="width:80px">支付宝号</th>
+                    <th style="width:80px">真实姓名</th>
+                    <th style="width:80px">提现金额</th>
+                    <th style="width:80px">流水号</th>
+					<th style="width:80px">提现方式</th>
+					<th style="width:80px">提现时间</th>
+                    <th style="width:80px">状态</th>
+                    <th style="width:100px">支付时间</th>
+                    <th style="width:100px">支付原因</th>
+                    <th style="width:100px">审核</th>
+                    
+
+                </tr>
+              </thead>
+              <tbody>
+              <foreach name="draws" item="list">
+					 
+					<tr>
+                    <td><input type="checkbox" name="mids[]" value="{$list.id}"/>{$list.id}</td>
+<!--                     <td>{$list.id}</td> -->
+					<td>{$list.member_id}</td>
+					<td>{$list.nickname}</td>
+                    <td>{$list.weixin}</td>
+                    <td>{$list.phone}</td>
+                    <td>{$list.alipy}</td>
+                    <td>{$list.member_name}</td>
+                    <td>{$list.wd_money} 元</td>
+                    <td>{$list.wd_no}</td>
+                    
+                    <td><if condition="$list.wd_way eq 1">
+                        微信
+                        <elseif condition="$list.wd_way eq 2"/>
+                        支付宝
+                        <elseif condition="$list.wd_way eq 3"/>
+                        手机花费
+                        </if>
+                    </td>
+                    <td>{$list.wd_time}</td>
+                    <td><if condition="$list.status eq 1">
+                        待审核
+                        <elseif condition="$list.status eq 2"/>
+                        审核通过
+                        <elseif condition="$list.status eq 3"/>
+                        审核失败
+                        <elseif condition="$list.status eq 4"/>
+                        已支付
+                    </if>
+                    </td>
+                    <td>{$list.pay_time}</td>
+                    <td>{$list.reason}</td>
+                    <td>
+                        <a class="zt" mid="{$list.id}">
+                            <if condition="$list.status eq 1">
+                        <img xs='1' value="待审核"  class="wo" src="__PUBLIC__/images/true.png"/>
+                            </if>
+                        </a>
+                        <a class="sbsh" mid="{$list.id}">
+                            <if condition="$list.status eq 1">
+                        <img sh='2' value="审核失败"  class="wo" src="__PUBLIC__/images/error.png"/>
+
+                            </if>
+                        </a>
+                            &nbsp;
+                    </td>
+					</tr>
+				</foreach>
+              </tbody>
+            </table>
+        </form>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td style="width:50%"><span style="color:black;">总金额: {$data_total.total}</span></td>
+                        <td style="width:50%"><span style="color:black;">总打款单数: {$data_total.count}</span></td>
+                    </tr>
+                </tbody>
+            </table>
+<!--- START 分页模板 -->
+            <div style="margin-bottom: 20px;float:left;margin-right:5px">
+                <table id="page-table-fenye" cellspacing="0" >
+                    <tr>
+                        <td align="center" nowrap="true">
+                            {$page}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+<!--- END 分页-->
+            <!--导出数据-->
+            <div style="margin-bottom: 20px;float:left;margin-left:40px">
+                <button class="btn btn-primary" onclick="exportData()">导出数据</button>
+            </div>
+            <!--导出数据-->
+            <div style="margin-bottom: 20px;float:left;margin-left:15px">
+                <button class="btn btn-primary" onclick="alipay()">支付宝批量转账</button>
+            </div>
+            <div style="clear:both;"></div>   
+        </div>
+    </div>
+    <div style="display: block;" id="cover"></div>
+    <div id="alipay-msg" class="alipay-msg">
+            <table width="100%" border="1">
+                <caption>支付用户</caption>
+            <thead>
+                <tr>
+                    <th style="width:11.1%;">ID</th>
+                    <th style="width:11.1%;">用户ID</th>
+                    <th style="width:11.1%;">用户姓名</th>
+                    <th style="width:11.1%;">用户昵称</th>
+                    <th style="width:11.1%;">支付宝账号</th>
+                    <th style="width:11.1%;">手机号</th>
+                    <th style="width:11.1%;">流水号</th>
+                    <th style="width:11.1%;">支付金额</th>
+                    <th style="width:11.1%;">状态</th>
+                </tr>
+            </thead>
+                <tbody id="alitbody">
+                </tbody>
+            </table>
+            <button onclick="topay();">确定</button>
+    </div>
+<script src="__LIB_URL__/ja.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#cover').hide();
+        $('.alipay-msg').hide();
+        $('#cover').click(function(){
+            $('.alipay-msg').hide();
+            $('.alipay-msg').find('tbody').html('');
+            $(this).hide();
+        })
+    });
+var tpl='<tr> <td>{{id}}</td> <td>{{member_id}}</td> <td>{{member_name}}</td> <td>{{'  
+        +'member_name}}</td> <td>{{alipy}}</td> <td>{{phone}}</td> <td>{{wd_no}}</td>'
+        +' <td>{{wd_money}}</td> <td>{{status}}</td> </tr>';
+    $(function(){
+        $(".zt").find('img').click(function() {
+
+         //   var url = "{:U('Finance/drawingAjax')}";
+            var val = $(this).attr('xs');
+            var mid = $(this).parent().attr('mid');
+          /*  alert(val);
+            alert(mid);*/
+            if (val == 1) {
+                var statu = confirm("你确定要通过审核成功吗！");
+                if(!statu){
+                    return false;
+                }
+                $.post("{:U('Finance/drawingAjax')}", {val: val, mid: mid});
+               // $(this).attr('src', "../assets/images/wan.png");
+                $(this).attr('xs', '2');
+                window.location.reload();
+            } else{
+                alert('你已经审核过了');
+                return false;
+            }
+        })
+    })
+    //审核失败
+    $(function(){
+        $(".sbsh").find('img').click(function() {
+
+            var url = "{:U('Finance/drawingAjax')}";
+            var val = $(this).attr('sh');
+            var mid = $(this).parent().attr('mid');
+            //alert(mid);
+            if (val == 2) {
+                var statu = confirm("你确定要审核失败吗！");
+                if(!statu){
+                    return false;
+                }
+                $.post(url, {val: val, mid: mid});
+              //  $(this).attr('src', "../assets/images/true.png");
+                $(this).attr('sh', '3');
+                window.location.reload();
+            } else{
+                alert('你已经审核过了');
+                return false;
+            }
+        })
+    });
+    //导出数据
+    function exportData(){
+        var u = window.location.href; 
+        var mids = new Array(); 
+        $("td :checked").each(function() { 
+                mids.push($(this).val()); 
+        });  
+        u += u.indexOf('?') == -1 ? '?' : '&';
+        u += $.param({
+            // start_date: $('#start_date').val(),
+            // end_date: $('#end_date').val(),
+            // member_id: $('input[name="member_id"]').val(),
+             mids:mids,
+            'export': true
+        });
+        window.open(u);
+    }
+    //支付宝批量支付用户信息
+    function alipay(){    
+        var checkedNum = $("td :checked").length; 
+            if(checkedNum == 0) { 
+            alert("请选择至少一人！"); 
+            return; 
+        } 
+        var mids = new Array(); 
+        $("td :checked").each(function() { 
+            mids.push($(this).val()); 
+        });
+        $alipaymsg = $('#alipay-msg');
+        $list = $alipaymsg.find('tbody');
+        // $list.html('');
+        $.post('{:U('Backend/Finance/lists')}',{mids:mids},function(data){   
+            $.each(data,function(a,b){
+                if (b.wd_way=="1") {
+                    b.wd_way = "微信";
+                }else if(b.wd_way == "2"){
+                    b.wd_way = "支付宝";
+                }else if(b.wd_way == "3"){
+                    b.wd_way = "手机话费";
+                }
+
+                if (b.status=="1") {
+                    b.status = "待审核";
+                }else if(b.status == "2"){
+                    b.status = "审核通过";
+                }else if(b.status == "3"){
+                    b.status = "审核失败";
+                }else if(b.status == "4"){
+                    b.status = "已支付";
+                }
+                b.wd_money = b.wd_money - 1;
+                $list.append(tpl.tpl(b));
+            });          
+        });
+        $alipaymsg.show();
+        $("#cover").show();
+    }
+    function topay(){
+        var tbody = $('#alitbody tr');
+        var row;
+        var cell;
+        var num=tbody.length;
+        var fee=0;
+        var detail="";
+        // console.log(tbody[0].find('td')[0]);
+        for (var i =0; i < tbody.length; i++) { 
+            row = tbody.eq(i);
+            cell = row.find('td');
+            if (detail=="") {
+                //付款详细数据，格式：流水号1^收款方帐号1^真实姓名^付款金额1^备注说明1|流水号2^收款方帐号2^真实姓名^付款金额2^备注说明2....
+                detail+=cell.eq(6).text()+'^'+cell.eq(4).text()+'^'+cell.eq(2).text()+'^'+cell.eq(7).text()+'^'+cell.eq(8).text();
+            }else{
+                detail+="|"+cell.eq(6).text()+'^'+cell.eq(4).text()+'^'+cell.eq(2).text()+'^'+cell.eq(7).text()+'^'+cell.eq(8).text();
+            }
+            //求总金额
+            fee=accAdd(Number(fee),Number(cell.eq(7).text().toString())).toFixed(2);//使得string类型变为数字类型
+        };
+        window.open("{:U('Backend/AlipayApi/index')}"+'?WIDbatch_fee='+fee+'&WIDbatch_num='+num+'&WIDdetail_data='+detail);     
+    }
+    //加法
+    function accAdd(arg1,arg2){ 
+        var r1,r2,m; 
+        try{
+            r1=arg1.toString().split(".")[1].length;
+         }catch(e){r1=0;} 
+        try{
+            r2=arg2.toString().split(".")[1].length;
+         }catch(e){r2=0;} 
+        m=Math.pow(10,Math.max(r1,r2)); 
+        return (arg1*m+arg2*m)/m; 
+    }
+</script>
+<script>
+
+    // function selectAll() {
+    //     var arryObj = document.getElementsByName("selectedids")
+    //     for ( var i = 0; i < arryObj.length; i++) {
+
+    //         if (typeof arryObj[i].type != "undefined"
+    //                 && arryObj[i].type == 'checkbox')
+    //             arryObj[i].checked = true;
+    //     }
+    // }
+
+    // function unSelectAll() {
+    //     var arryObj = document.getElementsByName("selectedids");
+    //     for ( var i = 0; i < arryObj.length; i++) {
+    //         if (typeof arryObj[i].type != "undefined"
+    //                 && arryObj[i].type == 'checkbox')
+    //             ;
+    //         arryObj[i].checked = false;
+    //     }
+    // }
+    //全选
+    function check_all(name){
+            var allsel=document.getElementsByName(name);
+            for(var i=0;i<allsel.length;i++)
+            {
+                allsel[i].checked = true;
+            }
+        }
+        //返选
+    function reverseClick(name){
+        var allsel=document.getElementsByName(name);
+        for(var i=0;i<allsel.length;i++)
+        {
+            allsel[i].checked=!allsel[i].checked;
+        }
+    }
+    //取消
+    function cancelClick(name){
+        var allsel=document.getElementsByName(name);
+        for(var i=0;i<allsel.length;i++)
+        {
+            allsel[i].checked=false;
+        }
+    }
+
+    $(function() {
+        var date=$( "#start_date" );
+        date.datetimepicker({
+            showSecond:true,
+            timeFormat: "HH:mm:ss"
+        });
+
+    });
+    $(function() {
+        var date=$( "#end_date" );
+        date.datetimepicker({
+            showSecond:true,
+            timeFormat: "HH:mm:ss"
+        });
+    });
+</script>
+<!---操作的确认层，相当于javascript:confirm函数-->
+<!--{$osadmin_action_confirm}-->
+<!--- END 以下内容不需更改，请保证该TPL页内的标签匹配即可 -->
+<include file="Index:footer"/>

@@ -1,0 +1,52 @@
+
+	<div style="padding-top: 40px">
+		<div class="m_buylist">
+		</div>
+	</div>
+<style>
+cite.circular{
+    float: left;
+    width: 64px;
+    height: 64px;
+    border-radius: 64px;
+    overflow: hidden;
+
+}
+
+
+</style>
+
+<!-- 列表模板 详细语法 https://github.com/aui/artTemplate (简洁语法版) -->
+<script type="text/ypl" class="tpl-list">
+{{each list as vo}}
+	<a href="{:U('Weixin/Goods/product_detail3','id=')}{{vo.id}}" >
+		<h3 style="font-size: 16px;">
+			（第{{vo.qishu}}期）揭晓时间：{{vo.disclosedate}}
+		</h3>
+	</a>
+	<a href="{:U('Weixin/Goods/user_page','userid=')}{{vo.winuserid}}" >
+		<ul id="ul_list">
+			<li>
+				<cite class="circular">
+					<img  src="__ROOT__/t/?w=200&h=200&src={{vo.pic}}"/>
+				</cite>
+				<dl>
+					<dt>中奖者：<em class="blue">{{vo.nickname}}</em></dt>
+					
+					<dt>本期参加：<em class="blue">{{vo.nums}}</em>人次 </dt>
+					<dt>中奖号码：<em class="orange">{{vo.winningcode}}</em></dt>
+				</dl>
+			</li>
+		</ul> 
+	</a>
+{{/each}}
+</script>
+
+<script src="__LIB_URL__/template.js"></script>
+<script src="__WXP__/js/ajaxgetlist.js" type="text/javascript"></script>
+
+<script>
+    
+ajaxGetListInit('.m_buylist', '.tpl-list');
+</script>
+

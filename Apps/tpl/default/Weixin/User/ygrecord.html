@@ -1,0 +1,153 @@
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no, maximum-scale=1.0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+
+<link href="__WXP__/css/member.css" rel="stylesheet" type="text/css" />
+
+<style>
+.nav {
+	background: #eee;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 999;
+	width: 100%;
+}
+.nav > li {
+	float: left;
+	width: 33.33333%;
+	text-align: center;
+	font-size: 14px;
+}
+
+.nav > li > a {
+	display: block;
+	padding: 7px 0;
+	border-bottom: 3px solid #eee;
+}
+.nav > li.cur {
+	font-weight: bold;
+	border-bottom: 3px solid #de4849;
+}
+
+.isLing{
+	background: lightslategrey;
+}
+.lg-press {
+	position: relative;
+	background: #ddd;
+	padding: 2px;
+	border-radius: 2px;
+	margin: 6px;
+	width: 60%;
+}
+.lg-press-w {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0;
+	padding: 2px;
+	background: #de4849;
+	border-radius: 2px;
+}
+.m_buylist li {
+	padding: 10px;
+	min-height: 76px;
+}
+.zuijia {
+	right: 0;
+	top: 30px;
+	margin: 10px;
+}
+
+
+/* 按钮 */
+.btn {
+	display: inline-block;
+	padding: 3px 8px;
+	border: 0 none;
+	border: 1px solid rgba(0,0,0,.25);
+	border-radius: 0.3em;
+	background-image: none;
+	box-shadow: 0 1px rgba(0,0,0,.15), inset 0 1px rgba(255,255,255,.15);
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+	text-shadow: 1px 1px rgba(0,0,0,.1);
+	font-size: 100%;
+	font-family: inherit;
+	font-weight: inherit;
+	white-space: nowrap;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	overflow: visible;
+	cursor: pointer;
+	background-color: #de4849;
+}
+</style>
+<div>
+	<div class="">
+		<ul class="nav fix">
+			<li <if condition="$status != 1 && $status != 3">class="cur"</if>><a href="{:U()}">全部</a></li>
+			<li <if condition="$status == 3">class="cur"</if>><a href="{:U('', 'status=3')}">进行中</a></li>
+			<li <if condition="$status == 1">class="cur"</if>><a href="{:U('', 'status=1')}">已揭晓</a></li>
+		</ul>
+	</div>
+    <div id="divBuyList" class="m_buylist" style="margin-top:40px;">
+        <ul id="ul_list">
+        </ul>
+		<div style="height: 48px;"></div>
+    </div>
+</div>
+
+<script type="text/tpl" class="tpl-list">
+{{each list as vo}}
+	<li class="rel fix">
+		<cite><img  style="padding:5px;" src="{{vo.image}}"/></cite>
+		<dl>
+			<p class="ell" style="width: calc(100% - 50px);">(第 {{vo.qishu}} 期){{vo.title}}</p>
+			<p>已参与<em class="orange">{{vo.nums}}</em>次</p>
+			{{if vo.status == 3}}	
+				<div class="abs zuijia">
+					<a class="btn bg-red" href="{{vo.url}}">再次购买</a>
+				</div>
+				<div class="lg-press">
+					<div data-width="{{vo.canyushu / vo.fenshu * 100}}" class="lg-press-w trans"></div>
+				</div>
+				<div class="fix tc" style="width:66%">
+					<span class="l">参与数:{{vo.canyushu}}</span>
+					<span class="r">总份数:{{vo.fenshu}}</span>
+				</div>
+			{{else if vo.status == 2}}
+				<p class="tc"><br>即将揭晓</p>
+			{{else if vo.status == 1}}
+				<p class="ell">获&nbsp;&nbsp;得&nbsp;&nbsp;者：<em class="blue">{{vo.nickname}}</em></p>
+				<p>揭晓时间：{{vo.disclosedate}}</p>
+				<p>中&nbsp;&nbsp;奖&nbsp;&nbsp;码：{{vo.winningcode}}</p>
+			{{/if}}
+                                
+		</dl>
+        <dl style="margin-left: auto;">
+        <dd style="height: auto;text-align: center;margin-top: 10px;"><a class="btn bg-red" href="__ROOT__/index.php?m=Weixin&amp;c=goods&amp;a=buy_detail&amp;uid={{vo.user_id}}&amp;goodsid={{vo.goodsid}}&amp;qishu={{vo.qishu}}" 
+        style="border-radius: 2px;background: green;">我的开抢码
+    </a>
+    </dd>
+  </dl>
+	</li>
+{{/each}}
+</script>
+
+<script src="__LIB_URL__/ja.js"></script>
+<script src="__LIB_URL__/template.js"></script>
+<script src="__WXP__/js/ajaxgetlist.js" type="text/javascript"></script>
+
+<script>
+ajaxGetListInit('#ul_list', '.tpl-list', function(){
+	$('[data-width]').each(function(){
+		$(this).width($(this).data('width') + '%');
+	});
+});
+</script> 

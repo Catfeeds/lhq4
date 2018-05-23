@@ -1,0 +1,1 @@
+a:7:{i:0;s:11:"provider_id";i:1;s:13:"provider_name";i:2;s:6:"mobile";i:3;s:5:"email";i:4;s:7:"user_id";s:3:"_pk";s:11:"provider_id";s:5:"_type";a:5:{s:11:"provider_id";s:7:"int(11)";s:13:"provider_name";s:12:"varchar(255)";s:6:"mobile";s:12:"varchar(255)";s:5:"email";s:12:"varchar(255)";s:7:"user_id";s:7:"int(11)";}}

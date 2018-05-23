@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no, maximum-scale=1.0" />
+        <meta content="yes" name="apple-mobile-web-app-capable" />
+        <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+        <meta content="telephone=no" name="format-detection" />
+        <link href="__WXP__/css/comm.css" rel="stylesheet" type="text/css" />
+        <link href="__WXP__/css/member1.css" rel="stylesheet" type="text/css" />
+        <!--<script src="__WXP__/js/jquery-1.11.3.min.js"></script>-->
+        <style>
+            #ul_list li{
+                padding: 2px 10px;
+            } 
+            #ul_list li div{
+                float: left;
+            }
+        </style>
+        <title>选择好友</title>
+    </head>
+
+    <body>
+    <style type="text/css">
+        .m_buylist ul{list-style:none;}
+        .m_buylist cite{
+            border: 0px;
+            border-radius: 0px;
+        }
+
+        .m_buylist span {
+            font-size: 16px;
+            line-height: 60px;
+            margin-left: 10px;
+        }
+        .m_buylist cite img{
+            width:45px; height:45px;
+        }
+        .m_buylist span{
+            font-size:14px;
+        }
+    </style>
+
+
+        <div style="padding-top: 40px">
+            <div id="divBuyList" class="m_buylist">
+                <ul id="ul_list">
+                    <volist name="res" id="friends">
+                        <li id="{$friends.anchorlink}">
+                            <a href="{:U('friend_info')}&id={$friends.id}" style="float:left">
+                                <cite>
+                                    <img src="{$friends.pic}"/>
+                                </cite>
+                         <if condition="$friends['nickname']"> <span>{$friends.nickname}</span><else/> <span>{$friends.phone}</span></if><if condition="$friends['remarks'] neq null"><span style="font-size:14px; color:#999">({$friends.remarks})</if></span>
+                            </a>
+                        </li>
+                    </volist>
+                    <!--
+                                        <li>
+                                            <a href="#" style="float:left">
+                                                <cite>
+                                                    <img src=""/>
+                                                </cite><div> <p>a2</p>
+                                                    <p class="blue">100</p></div>
+                    
+                                            </a>
+                                        </li>
+                    -->
+                    <li style="height:36px; line-height:36px; text-align:center; font-size:16px;"> <a href="{:U('friends_add')}" class="">添加好友</a></li>
+                </ul>
+
+            </div>
+
+            <div style="height: 100px;"></div>
+
+            <ul class="sliderNave"  style="padding-top: 40px">
+                <li><a href="#">#</a></li>
+                <li><a href="#A">A</a></li>
+                <li><a href="#B">B</a></li>
+                <li><a href="#C">C</a></li>
+                <li><a href="#D">D</a></li>
+                <li><a href="#E">E</a></li>
+                <li><a href="#F">F</a></li>
+                <li><a href="#G">G</a></li>
+                <li><a href="#H">H</a></li>
+                <li><a href="#I">I</a></li>
+                <li><a href="#J">J</a></li>
+                <li><a href="#K">K</a></li>
+                <li><a href="#L">L</a></li>
+                <li><a href="#M">M</a></li>
+                <li><a href="#N">N</a></li>
+                <li><a href="#O">O</a></li>
+                <li><a href="#P">P</a></li>
+                <li><a href="#Q">Q</a></li>
+                <li><a href="#R">R</a></li>
+                <li><a href="#S">S</a></li>
+                <li><a href="#T">T</a></li>
+                <li><a href="#U">U</a></li>
+                <li><a href="#V">V</a></li>
+                <li><a href="#W">W</a></li>
+                <li><a href="#X">X</a></li>
+                <li><a href="#Y">Y</a></li>
+                <li><a href="#Z">Z</a></li>
+            </ul>
+
+        </div>
+
+        <script>
+            $(function () {
+                resize();
+                $(window).resize(function () {
+                    resize();
+                });
+            })
+
+            function resize() {
+                var width = ($(window).width() - $('.f_btn').width()) / 2;
+                $('.f_btn').css('left', width);
+            }
+        </script>
+
+    </body>
+
+</html>

@@ -1,0 +1,190 @@
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no, maximum-scale=1.0" />
+		<meta content="yes" name="apple-mobile-web-app-capable" />
+		<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+		<meta content="telephone=no" name="format-detection" />
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+
+		<link href="__WXP__/css/cart_list.css" rel="stylesheet" type="text/css" />
+
+<!--
+	<div style="clear:both"></div>
+<div style="height: 60px;"></div>
+-->
+		<div style="padding-top: 40px">
+			<div class="g-Cart-list marginB">
+				<ul id="cartBody">
+
+				</ul>
+
+				<div id="divNone" class="empty" style="display: none;"><s></s>购物车为空</div>
+				<!-- 如果购物车为空，用js使其展示 -->
+			</div>
+			<div id="mycartpay" class="g-Total-bt g-car-new">
+				<dl>
+					<dt class="gray6">
+         		        <p class="money-total">合计<em class="orange"></em></p>
+       		            <p class="pro-total">共<em class="tnum"></em>个商品</p>
+        	        </dt>
+					<dd><a href="javascript:clearing();" id="a_payment" class="defaultRedBtn w_account">结算</a></dd>
+				</dl>
+			</div>
+		</div>
+
+
+		<script>
+
+			var selfUrl="{:U('index')}";
+			var delUrl="{:U('del')}";
+			var editUrl="{:U('edit')}";
+			var payUrl="{:U('prePay')}";
+			var goodsUrl="{:U('Goods/product_detail2')}";
+
+
+			$(function() {
+				$.post(
+						selfUrl,
+						{flag:1},
+						function(rel){
+							showCartList(rel);//显示购物车列表
+						}
+				);
+
+
+			});
+
+			//结算
+			function clearing(){
+				var data=$("input").serialize();
+				$.post(
+						editUrl,
+						$("input").serialize(),
+						function(){
+							layer.msg("若付款失败,请到 [订单列表] 继续");
+							setTimeout(function(){
+								location.href=payUrl;
+							},2000);
+						}
+
+				);
+			}
+
+			//显示购物车列表
+			function showCartList(rel){
+				$("#cartBody").empty();//先置空
+				if( multiarr(rel) ) { //如果是一个二维数组
+					for (var p in rel) {
+						var val = rel[p];
+						//填充购物车列表
+						$("#cartBody").append(
+							'<li>\
+								<a class="fl u-Cart-img" href="'+goodsUrl+'&id='+val.goodsid+'">\
+									<img src="'+val.image+'" border="0">\
+									<div class="pTitle pPurchase" style="display:none">限购</div>\
+									<!-- 如果是限购商品，用js使其展示 -->\
+								</a>\
+								<div class="u-Cart-r">\
+									<a href="'+goodsUrl+'&id='+val.goodsid+'" class="gray6">'+val.title+'</a>\
+									<span class="gray9">\
+		                                    <em>剩余'+(val.fenshu-val.canyushu)+'人次</em>\
+		                                    <em style="display:none;">/</em>\
+		                                    <em class="gray9" style="margin: 0;"></em>\
+		                            </span>\
+		                            <div style="width: 180px;" class="number">\
+		                            <a href="javascript:void(0)" onclick="minus(this)">-</a>\
+		                            <a class="pnum">\
+									<input name="pnum['+val.id+']" maxlength="7" type="number" class="gray6" value="'+val.nums+'" price="'+val.price+'" />\
+									</a>\
+									<a href="javascript:void(0)" style=" border-right: 1px solid #DEDEDE;" onclick="plus(this)">+</a>&nbsp;<a style="font-size: 14px;color: #de4849;" href="javascript:quanbao('+val.id+','+(val.fenshu-val.canyushu)+');">全包</a>\
+									</div>\
+									<input name="goodsId['+val.id+']" type="hidden" value="'+val.goodsid+'" />\
+									\
+									<a href="javascript:;" name="delLink" class="z-del" cid="'+val.id+'"><s></s></a>\
+								</div>\
+							</li>'
+						);
+					}
+					count();//统计总数和总量
+
+					//商品数量改变时
+					$("input[name^=pnum]").change(function(){
+					if(this.value<=0){
+							//layer.msg("数值非法");
+							this.value=1;
+							count();
+					}else{
+						this.value=parseInt(this.value);
+					}
+						count();
+					});
+
+					//删除购物车内商品
+					$(".z-del").click(function(){
+						$.post(
+								delUrl,
+								{id:$(this).attr("cid")},
+								function(rel){
+									if( multiarr(rel) ) { //如果是一个二维数组
+										showCartList(rel);//显示购物车列表
+									}else{
+										$("#divNone").attr("style","");
+										location.reload();
+										//layer.msg(rel);
+									}
+								}
+						);
+
+					});
+
+				}else{ //不是二维数组
+					$("#divNone").attr("style","");
+					location.reload;
+					//layer.msg("操作失败,请重试!");
+				}
+			}
+
+			//统计总数和总量
+			function count(){
+				 zongjia=0;// 总金额
+				 zongshu=0;//总数量
+				$("input[name^=pnum]").each(function(){
+					zongjia += parseFloat($(this).attr("price"))*parseFloat($(this).val());
+					zongshu += parseFloat($(this).val());
+				});
+
+				$('p.money-total em').html('<span>&yen;</span>' + zongjia.toFixed(2));
+				$(".tnum").html(zongshu);
+			}
+
+			function minus(a){
+				var num = $(a).siblings('.pnum').children('input').val();
+				var num_count = parseInt(num)-1;
+
+				if(num_count<=1)
+					$(a).siblings('.pnum').children('input').val(1);
+				else
+					$(a).siblings('.pnum').children('input').val(num_count);
+
+				count();
+			}
+
+			function plus(a){
+				var num = $(a).siblings('.pnum').children('input').val();
+				$(a).siblings('.pnum').children('input').val(parseInt(num)+1);
+				count();
+			}
+
+
+                       function quanbao(id,count){
+                           var thisval=$("input[name='pnum["+id+"]']").val();
+
+                           $("input[name='pnum["+id+"]']").val(count);
+                           var zongJE=parseFloat($("input[name='pnum["+id+"]']").attr('price'))*count;
+                           var oldJE= parseFloat($('p.money-total em').text().substring(1))-parseFloat($("input[name='pnum["+id+"]']").attr('price'))*(thisval);
+                           oldcount=parseInt($('p.pro-total em').text())-parseInt(thisval);
+                           $('p.pro-total em').text(oldcount+count);
+                            $('p.money-total em').html('<span>&yen;</span>' + (zongJE+oldJE).toFixed(2));
+                        }
+		</script>

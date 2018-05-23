@@ -1,0 +1,31 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no, maximum-scale=1.0"/>
+<meta content="yes" name="apple-phone-web-app-capable" />
+<meta content="black" name="apple-phone-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link href="__WXP__/css/comm.css" rel="stylesheet" type="text/css" />
+<link href="__WXP__/css/login.css" rel="stylesheet" type="text/css" />
+
+<form action="__SELF__" method="POST">
+
+	<div class="wrapper">
+	<div class="registerCon">
+		<ul>
+			<li>
+				<input id="phoneCode" name="phoneCode" type="text" maxlength="6" placeholder="请输入短信中的的6位验证码" >
+			</li>
+			<li>
+				<button -id="btnPostCode"  style="width:100%;height:40px;color:#fff;;font-size:1.4rem;letter-spacing:5px;background-color:#E65864;">
+					下一步
+				</button>
+			</li>
+		</ul>
+	</div>
+</div>
+
+</form>
+
+<script>
+
+layer.msg("验证码已发送至您的手机,请查收<br>如未收到短信，请"+{:C('sms_send_sleep')}+"秒后重新获取",{area:'350px'});
+
+</script>

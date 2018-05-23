@@ -1,0 +1,230 @@
+<style>
+
+	.kaiguan{		
+		cursor:hand;
+		cursor:pointer;		
+	}
+	
+	.kaiguan:hover{	
+		font-weight:bold ;
+	}
+
+</style>
+<header class="panel_header fix mb20">
+<h2 class="title">{$title}</h2>
+</header>
+
+<div class="fix">
+	<a href="{:U('Admin/Cheat/addCheat')}" class="goods-add btn btn-primary l mr10">
+		<i class="fa fa-plus"></i><span>添加</span>
+	</a>
+
+	<div class="btn-group goods-status" >
+			
+		<label class="btn btn-primary ">
+			<input type="radio"  name="cheatStatus" value="0" />关闭所有
+		</label>
+		
+		<label class="btn btn-primary active">
+			<input type="radio"    name="cheatStatus" value="1" />开启所有
+		</label>
+		
+	</div>
+	
+	<div class="btn-group goods-status" data-toggle="buttons" style="display:none;" >
+	
+		<label class="btn btn-primary active">
+			<input type="radio" name="status" value="-1" autocomplete="off" checked> 全部
+		</label>
+		
+		<label class="btn btn-primary">
+			<input type="radio" name="status" value="1" autocomplete="off"> 在售
+		</label>
+		
+		<label class="btn btn-primary">
+			<input type="radio" name="status" value="0" autocomplete="off"> 关闭
+		</label>
+		
+	</div>
+	
+	<div class="input-group l w300 mr10">
+		<input type="text" class="form-control keyword" name="keyword" value="{$keyword}" placeholder="商品关键字" />
+		<div class="input-group-addon btn btn-primary white search" >搜索</div>
+	</div>
+	
+	<div class="input-group l w200 mr10">
+		<div class="input-group-addon">类型</div>
+		<select class="form-control goods-type" name="cheatType" id="cheatType">
+			
+			<option value="0" <if condition="$cheatType eq 0">selected="selected"  </if> >全部</option>			
+			<option value="1" <if condition="$cheatType eq 1">selected="selected"  </if>>喜购</option>
+			<option value="2" <if condition="$cheatType eq 2">selected="selected"  </if>>0元购</option>
+		</select>
+	</div>
+	
+</div>
+<div class="goods-list pct100 mt20">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<table class="table table-hover table-condensed table-striped table-bordered">
+				<thead>
+					<tr>
+						<th>编号</th>
+						<th>商品</th>
+						<th>每期超过多久就购买</th>						
+						<th>两次购买的时间间隔</th>	
+						<th>类型</th>				
+						<th>开奖类型</th>
+						<th>是否开启(点击切换)</th>
+						<th colspan="2">操作</th>
+					</tr>
+				</thead>
+					
+				<tbody>
+				<volist name="list" id="v">
+				<tr>
+					<td>{$v.id}</td>
+					<td>{$v.title}</td>
+					<td>{$v.start_time} min</td>					
+					<td>{$v.interval_time} s</td>
+					<if condition="$v.c_type == 1">
+						<td>喜购</td>
+					<elseif condition="$v.c_type == 2"/>	
+						<td>0元购</td>
+					</if>	
+					<if condition="$v.k_type == 1">
+						<td>随机</td>
+					<elseif condition="$v.k_type == 2"/>	
+						<td>机器人</td>
+					<elseif condition="$v.k_type == 3"/>	
+						<td>用户</td>
+					</if>					
+					
+					
+					
+					<!-- <td>
+						<empty name="v.periods_no">
+							未开奖
+						<else/>
+							{$v.periods_no}
+						</empty>					
+					</td>					
+					<td>
+					{$v.phone}--{$v.nickname}
+					</td> -->
+					<td class="kaiguan" val="{$v.switch}" cid="{$v.id}">
+						<if condition="$v.switch eq 1">
+							开启
+						<else/>
+							关闭
+						</if>					
+					</td>
+					<td><a href="javascript:edit({$v.id});">修改</a></td>
+					<td><a href="javascript:del({$v.id});">删除</a></td>
+				</tr>
+				</volist>
+				</tbody>
+			</table>
+			<div class="page">{$page}</div>
+			
+		</div>
+	</div>
+</div>
+<php>
+	$selfURL=unsetParam( "p" , "__SELF__" );
+	$self1URL=unsetParam( "cheatType" , $selfURL );
+	$self2URL=unsetParam( "key" , $selfURL );
+</php>
+
+<script>
+	
+	cheatSwitchAllURL = "{:U('Cheat/cheatSwitchAll')}";
+	cheatSwitchURL = "{:U('Cheat/cheatSwitch')}";
+	cheatDelURL = "{:U('Cheat/del')}";
+	cheatEditURL = "{:U('Cheat/edit')}";
+	
+	self1URL="<?= $self1URL ?>";
+	self2URL="<?= $self2URL ?>";
+	
+	
+	//关键词检索
+	$(".search").click(function(){
+		location.href=self2URL+"&key="+$(".keyword").val();
+	});
+	
+	//按类型检索	
+	$("#cheatType").change(function(){
+		location.href=self1URL+"&cheatType="+$(this).val();
+	});
+	
+	//删除自动购买
+	function del(id) {
+		$.post(cheatDelURL, {
+			id : id
+		}, function(rel) {
+			layer.msg(rel.info);
+			setTimeout(function() {
+				if (rel.status == 1) {
+					location.href = location.href;
+				}
+			}, 600);
+		});
+	}
+	
+	//编辑自动购买
+	function edit(id) {
+		location.href = cheatEditURL + "&id=" + id;
+	}
+	
+	//开启或关闭所有
+	$('input[name="cheatStatus"]').click(function() {
+		var cheatStatus = $('input[name="cheatStatus"]:checked').val();
+		var str="";
+		if(cheatStatus==1){
+			str="开启";
+		}else{
+			str="关闭";
+		}
+		
+		layer.confirm('确定要'+str+'所有自动购买规则吗?', {
+		    btn: ['确定','取消'] 
+		}, function(){ //点击确定
+			
+			$.post(cheatSwitchAllURL, {
+				cheatStatus : cheatStatus
+			}, function(rel) {
+				location.href= location.href;
+			});	
+			
+		}, function(){ //点击取消
+		   location.href= location.href;
+		});		
+		
+	});
+	
+	//规则开关
+	$(".kaiguan").click(function(){
+		var cheatSwitch=$(this).attr("val");		
+		var cheatId=$(this).attr("cid");
+		cheatSwitch=1-cheatSwitch;
+		
+		$.post(
+			cheatSwitchURL,
+			{
+				cheatSwitch:cheatSwitch,
+				cheatId:cheatId
+			},
+			function(rel){
+				layer.msg(rel.info);
+				if(rel.status==1){
+					setTimeout(function(){
+						location.href= location.href;
+					},1000);
+				}				
+			}
+		);
+		
+		
+	});
+
+</script>

@@ -1,0 +1,87 @@
+<link rel="stylesheet" href="__LIB_URL__/kindeditor/themes/default/default.css" />
+<script src="__LIB_URL__/kindeditor/kindeditor.js"></script>
+<script src="__LIB_URL__/kindeditor/lang/zh_CN.js"></script>
+<script src="__LIB_URL__/ja.js"></script>
+
+<div class="m20">
+	<div class="goods-form">
+
+<style>
+.periods-show-images {
+	min-height: 28px;
+}
+.periods-show-images img,
+.periods-show-images img {
+	height: 150px;
+}
+</style>
+
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">内容</div>
+				<textarea class="form-control" rows="3" name="description" placeholder="简介">{$periodsShow.content}</textarea>
+			</div>
+		</div>
+
+
+		
+		<div class="form-group pct50 l dib pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">用户</div>
+				<input type="text" class="form-control" value="{$periodsShow.nickname}" placeholder="" />
+				<div class="input-group-addon"><img class="w20" src="{$periodsShow.facepic}" alt="" /></div>
+			</div>
+		</div>
+
+		<div class="form-group pct50 l dib pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">发表日期</div>
+				<input type="text" class="form-control" value="{:date('Y-m-d H:i:s', $periodsShow['creatdate'])}" placeholder="" />
+			</div>
+		</div>
+
+		<div class="form-group pl5 pr5">
+			<div class="input-group" style="width:100%;">
+				<div class="input-group-addon">晒单图片</div>
+				<div class="form-control periods-show-images fix bdc" style="height:auto;"></div>
+				<!--
+				<div id="big-image" data-type="big" class="input-group-addon poi">选择图片</div>
+				-->
+				<span class="dn big-image-input"></span>
+			</div>
+		</div>
+		
+		<div class="form-group pl5 pr5">
+			<input type="hidden" name="id" value="{$goods.id}" />
+			<a href="javascript:window.close();" class="btn btn-primary"><i class="fa fa-remove"></i> <span>关闭</span></a>
+		</div>
+
+	</div>
+
+</div>
+
+<textarea class="tpl-images dn">
+	<!-- <img class="l dib" data-img-id="{{id}}" src="{{content}}" alt="" /> -->
+
+	<div class="rel bbs-image dib l ml5" data-id="{{id}}">
+		<div class="db abs m5">
+			<i data-id="{{id}}" class="del-image fa fa-trash-o f20 poi bgf5 tc bdc img-rounded" title="删除"></i>
+			<span>{{id}}</span>
+		</div>
+		<img class="img-rounded bdc" src="{{content}}"/>
+	</div>
+</textarea>
+
+<script>
+var images = {:jsonEncode($images)}, $periodsShowImage = $('.periods-show-images'),
+	BigImageTpl = $('.tpl-images').val();
+
+// 输出图片
+if(images)
+$.each(images, function(a, b){
+	$periodsShowImage.append(BigImageTpl.tpl(b));
+})
+
+
+
+</script>

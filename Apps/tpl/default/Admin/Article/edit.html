@@ -1,0 +1,274 @@
+<link rel="stylesheet" href="__LIB_URL__/kindeditor/themes/default/default.css" />
+<script src="__LIB_URL__/kindeditor/kindeditor.js"></script>
+<script src="__LIB_URL__/kindeditor/lang/zh_CN.js"></script>
+<script src="__LIB_URL__/ja.js"></script>
+<script>
+    ROOT= "__ROOT__";
+</script>
+<script>
+// moveWinCanter();
+var api = {
+	edit: '{:U('Admin/Article/edit')}',
+	list: '{:U('Admin/Article/lists')}',
+	update: '{:U('Admin/Article/update')}',
+	editImage: '{:U('Admin/Article/editImage')}',
+	del: '{:U('Admin/Article/del')}',
+	page: '{$do}'
+};
+window.onbeforeunload = function(){
+	return window.opener.getList(api.page == 'add' ? {page: 1} : false);
+	// window.opener.location.reload();
+}
+/*
+if (window.self != window.top) {
+	parent.location.reload();
+} else if(window.opener){
+	window.opener.location.reload();
+	window.close();
+} else {
+	window.location.reload();
+}
+*/
+</script>
+
+
+<div class="m20">
+	<form action="" class="article-form">
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">标题</div>
+				<input type="text" class="form-control" name="title" value="{$article.title}" placeholder="标题"/>
+			</div>
+		</div>
+
+		<div class="form-group pct50 l dib pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">分类</div>
+				<select class="form-control" name="typeId">
+					<volist name="types" id="v">
+						<option value="{$v.id}" <if condition="$article['typeid'] == $v['id']">selected</if>>{$v.typename}</option>
+					</volist>
+				</select>
+			</div>
+		</div>
+
+
+
+		<div class="form-group pl5 pr5">
+			<div class="input-group" style="width:100px;max-width:100%;">
+				<div class="input-group-addon">缩略图</div>
+				<img src="{$article.image}" style="height:60px;width:auto;" class="form-control url-image" />
+				<input type="hidden" name="image" value="{$article.image}" class="icon-url"/>
+				<div class="input-group-addon show-image poi">选择</div>
+				<div class="input-group-addon upload poi">上传</div>
+			</div>
+		</div>
+
+		<div class="form-group pl5 pr5" style="display: none">
+			<div class="input-group" style="width:100%;">
+				<div class="input-group-addon">文章图片</div>
+				<div class="form-control article-big-image fix bdc" style="height:auto;"></div>
+				<div id="big-image" data-type="big" class="input-group-addon poi">选择图片</div>
+				<span class="dn big-image-input"></span>
+			</div>
+		</div>
+
+		<!--
+		<div class="form-group pl5 pr5">
+			<div class="input-group" style="width:100px;max-width:100%;">
+				<div class="input-group-addon">详情图片</div>
+					<div class="goods-big-image fix bdc"></div>
+				<div id="big-image" data-type="big" class="input-group-addon poi">选择图片</div>
+			</div>
+		</div>
+		-->
+
+<style>
+.article-big-image {
+	min-height: 28px;
+}
+.article-small-image img,
+.article-big-image img {
+	height: 150px;
+}
+</style>
+
+
+
+
+
+
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">简介</div>
+				<textarea class="form-control" rows="3" name="description" placeholder="简介">{$article.description}</textarea>
+			</div>
+		</div>
+
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">图文详情</div>
+				<textarea class="form-control" style="height:280px;" name="content" placeholder="图文详情">{$article.content}</textarea>
+				<div class="input-group-addon"></div>
+			</div>
+		</div>
+
+
+		<div class="form-group pl5 pr5">
+			<input type="hidden" name="id" value="{$article.id}" />
+			<button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> <span>保存</span></button>
+		</div>
+
+	</form>
+
+</div>
+
+<textarea class="tpl-images dn">
+	<!-- <img class="l dib" data-img-id="{{id}}" src="{{content}}" alt="" /> -->
+
+	<div class="rel bbs-image dib l ml5" data-id="{{id}}">
+		<div class="db abs m5">
+			<i data-id="{{id}}" class="del-image fa fa-trash-o f20 poi bgf5 tc bdc img-rounded" title="删除"></i>
+			<span>{{id}}</span>
+		</div>
+		<img class="img-rounded bdc" src="{{content}}"/>
+	</div>
+</textarea>
+
+<script>
+var images = {:jsonEncode($images)}, $articleBigImage = $('.article-big-image'),
+	BigImageTpl = $('.tpl-images').val();
+
+// 输出图片
+if(images)
+$.each(images, function(a, b){
+	$articleBigImage.append(BigImageTpl.tpl(b));
+})
+
+
+// 初始化 编辑器
+KindEditor.ready(function(K) {
+
+	// 初始化 图片选择
+	var imageManager = K.editor({
+		fileManagerJson : ROOT+'/php/file_manager_json.php'
+	});
+	$('#small-image, #big-image').click(function() {
+		var type = $(this).data('type');
+		debug(type);
+		imageManager.loadPlugin('filemanager', function() {
+			imageManager.plugin.filemanagerDialog({
+				viewType : 'VIEW',
+				dirName : 'image',
+				clickFn : function(url, title) {
+					if(type == 'small')
+						setSmallImage(url);
+					else
+						addBiglImage(url);
+					imageManager.hideDialog();
+				}
+			});
+		});
+	});
+	K('.upload').click(function() {
+		editor.loadPlugin('image', function() {
+			editor.plugin.imageDialog({
+				showRemote : false,
+				imageUrl : K('.icon-url').val(),
+				clickFn : function(url, title) {
+					K('.icon-url').val(url);
+					$('.url-image').attr('src', url);
+					editor.hideDialog();
+				}
+			});
+		});
+	});
+
+	K('.show-image').click(function() {
+		editor.loadPlugin('filemanager', function() {
+			editor.plugin.filemanagerDialog({
+				viewType : 'VIEW',
+				dirName : 'image',
+				clickFn : function(url, title) {
+					K('.icon-url').val(url);
+					$('.url-image').attr('src', url);
+					editor.hideDialog();
+				}
+			});
+		});
+	});
+	// 图文详情 编辑器 初始化
+	window.editor = K.create('textarea[name="content"]', {
+		resizeType: 1,
+		fileManagerJson: ROOT+'/php/file_manager_json.php',
+		uploadJson: ROOT+'/php/upload_json.php',
+		urlType: 'absolute',
+		allowPreviewEmoticons: true,
+		allowImageUpload: true,
+		allowFileManager: true,
+		items : [
+			'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+			'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+			'insertunorderedlist', '|', 'table', 'flash', 'media', 'image', 'multiimage', 'link', '|' ,'source' ,'fullscreen']
+	});
+});
+
+
+var $articleForm = $('.article-form');
+// 表单提交
+$articleForm.on('submit', function(e){
+	e.preventDefault();
+	saveArticle();
+});
+
+function saveArticle(){
+	$('[name=content]').val(window.editor.html());
+
+	data = $articleForm.serialize();
+	$.post(api.edit, data, function(j){
+		if(j.code == 200){
+			msg('保存成功', 'success');
+			if(j.id) $('input[name=id]').val(j.id);
+		}else
+			msg('内容未改变', 'warning');
+	});
+}
+
+// success error warning notification information
+
+$articleBigImage.on('click', '.del-image', delImage)
+
+// 更改缩略图
+function setSmallImage(url){
+	$('.article-small-image-input').val(url);
+	$('.article-small-image').html($('<img/>').attr('src', url));
+}
+
+
+// 添加详情图片
+function addBiglImage(url){
+	var articleId = Number($('input[name=id]').val());
+	if(!articleId) return msg('请先保存文章', 'error');
+	$.post(api.editImage, {url: url, ac: 'add', articleId: articleId}, function(i){
+		if(i.code == 200 && i.id){
+			$goodsBigImage.append(BigImageTpl.tpl({id: i.id, content: i.url }));
+		}else{
+			msg(i.msg || '图片: '+ i.url +' 添加失败', 'error');
+		}
+	}, 'json');
+}
+
+
+// 删除详情图片
+function delImage(){
+	var id = $(this).data('id');
+	$.post(api.editImage, {id: id, ac: 'del'}, function(i){
+		if(i.code == 200){
+			$goodsBigImage.find('div[data-id='+ i.id +']').remove();
+		}else{
+			msg(i.msg || '图片: '+ i.id +' 删除失败', 'error');
+		}
+	}, 'json');
+}
+
+</script>

@@ -1,0 +1,239 @@
+<include file ="Index:header"/>
+<include file ="Index:navibar"/>
+<include file ="Index:sidebar"/>
+
+<!--- START 以上内容不需更改，保证该TPL页内的标签匹配即可 -->
+
+{$osadmin_action_alert}
+
+<div class="btn-toolbar" style="margin-bottom:2px;">
+    <a href="{:U('missionAdd')}" class="btn btn-primary"><i class="icon-plus"></i> 添加计划任务</a>
+</div>
+
+<form class="form_search"  action="__ACTION__" method="GET" style="margin-bottom:0px">
+    <div style="float:left;margin-right:5px">
+        <label> 选择起始时间 </label>
+        <input type="text" id="start_date" name="start_date" value="{$_GET.start_date}" placeholder="起始时间" >
+    </div>
+    <div style="float:left;margin-right:5px">
+        <label>选择结束时间</label>
+        <input type="text" id="end_date" name="end_date" value="{$_GET.end_date}" placeholder="结束时间" >
+    </div>
+    <div style="float:left;margin-right:5px">
+        <label>所属广告:</label>
+        <input type="text" name="app_name" value="{$_GET.app_name}" placeholder="输入所属广告名称" >
+
+    </div>
+    <div style="float:left;margin-right:5px">
+        <label>任务状态:</label>
+        <select name="status">
+            <option value="0"
+            <if condition="$_GET['status'] eq ''">
+            selected="selected"
+            </if>
+            >不限</option>
+            <option value="1"
+            <if condition="$_GET['status'] eq 1">
+            selected="selected"
+            </if>
+            >未审核</option>
+            <option value="2"
+            <if condition="$_GET['status'] eq 2">
+            selected="selected"
+            </if>
+            >已上线</option>
+            <option value="3"
+            <if condition="$_GET['status'] eq 3">
+            selected="selected"
+            </if>
+            >已下线</option>
+        </select>
+
+    </div>
+	<div class="btn-toolbar" style="padding-top:25px;padding-bottom:0px;margin-bottom:0px">
+        <input type="hidden" name="search" value="1" >
+		<button type="submit" class="btn btn-primary">检索</button>
+	</div>
+	<div style="clear:both;"></div>
+</form>
+</div>
+
+    <div class="block">
+        <a href="#page-stats" class="block-heading" data-toggle="collapse">计划列表</a>
+        <div id="page-stats" class="block-body collapse in">
+
+            <form id="tab" method="post" action="">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+					<th style="width:30px">ID</th>
+                    <th style="width:90px">任务名称</th>
+					<th style="width:100px">所属广告</th>
+					<th style="width:100px">关键词</th>                                   
+                    <th style="width: 80px">总量</th>
+                    <th style="width: 80px">总剩余量</th>
+					<th style="width:80px">用户量</th>
+                    <th style="width:80px">用户剩余量</th>
+                    <th style="width:80px">渠道量</th>
+                    <th style="width:80px">渠道剩余量</th>
+                    <th style="width:80px">出货价</th>
+					<th style="width:180px">广告类型</th>
+					<th style="width:180px">销售开始时间</th>
+					<th style="width:180px">销售结束时间</th>
+                    <th style="width:80px">状态</th>
+					<th style="width:100px">操作</th>
+                </tr>
+              </thead>
+              <tbody>							  
+                <foreach name="logs" item="log">					 
+					<tr>
+                    <td>{$log.mission_id}</td>
+					<td>{$log.mission_name}</td>
+                    <td>{$apps[$log['app_id']]}</td>
+                        <if condition="$log.kwd_qx eq 1">
+                            <td>{$log.kkwd}</td>
+                        <elseif condition="$log.kkwd eq null "/>
+                            <td>{$log.mkwd}</td>
+                            <elseif condition="$log.kwd_qx eq 0"/>
+                            <td>{$log.mkwd}</td>
+                            <else/>
+                            </if>
+                    <td>{$log.smount}</td>
+                    <td>{$log.smount_re}</td>
+                    <td>{$log.amount}</td>
+                    <td>{$log.re_num}</td>
+                    <td>{$log.cmount}</td>
+                    <td>{$log.cmount_re}</td>
+                    <td>{$log.price}</td>
+                    <td>{$adtypes[$log['adtype_id']]}</td>
+                    <td>{$log.start_time}</td>
+					<td>{$log.end_time}</td>
+                    <td><if condition="$log.status eq 1">
+                        未审核
+                        <elseif condition="$log.status eq 2"/>
+                        在线
+                        <else/>
+                        下线
+                        </if>
+                    </td>
+                    <td>
+                    <a class="zt" mid="{$log.mission_id}">
+                        <if condition="$log.status eq 1">
+                            <img xs='1' value="未审核"  class="wo" src="__PUBLIC__/images/shen.png"/>
+                        <elseif condition="$log.status eq 2"/>
+                            <img xs='2' value="上线" class="wo" src="__PUBLIC__/images/xia.png"/>
+                        <else/>
+                            <img xs='3' value="下线" class="wo" src="__PUBLIC__/images/shang.png"/>
+                        </if>
+                    </a> &nbsp;
+					<a href="{:U('missionModify',array('mission_id'=>$log['mission_id']))}" title= "修改" ><i class="icon-pencil"></i></a>
+                            &nbsp;
+                    <a data-toggle="modal" mission_id="{$log.mission_id}" method="del" title= "删除" ><i class="icon-remove"></i></a>
+                            &nbsp;
+                    </td>
+					</tr>
+				</foreach>
+              </tbody>
+            </table>
+        </form>
+<!--- START 分页模板 -->
+        <div style="margin-bottom: 20px">
+            <table id="page-table-fenye" cellspacing="0" >
+                <tr>
+                    <td align="center" nowrap="true">
+                        {$page}
+                    </td>
+                </tr>
+            </table>
+        </div>
+        每页25项
+<!--- END 分页-->			   
+        </div>
+    </div>
+<script>
+    $(function(){
+        $(".icon-remove").click(function() {
+            var statu = confirm("你确定要删除吗");
+            if (statu) {
+                var mission_id = $(this).parent().attr('mission_id');
+                var method = $(this).parent().attr('method');
+                var url = "{:U('Backend/Mission/mission')}";
+                $.post(url, {mission_id: mission_id, method: method},function(e){
+                        window.location.reload();
+                });
+            } else {
+                return false;
+            }
+
+        })
+    });
+</script>
+<script>
+
+    $(function(){
+        $(".zt").find('img').click(function() {
+            var statu = confirm("你确定要修改吗");
+            if(!statu){
+                return false;
+            }else{
+                var url = "{:U('Mobile/Apiajax/statusAjax')}";
+                var val = $(this).attr('xs');
+                var mid = $(this).parent().attr('mid');
+
+                $.post(url, {val: val, mid: mid},function(e){
+                    if ( e == 3) {
+                        alert('总量为零不能上线');
+                    } else if (e == 4) {
+                        alert('剩余量为零不能上线');
+                    }
+                    else {
+                        window.location.reload();
+                    }
+                });
+
+            }
+        })
+    });
+</script>
+<script>
+
+    function selectAll() {
+        var arryObj = document.getElementsByName("selectedids")
+        for ( var i = 0; i < arryObj.length; i++) {
+
+            if (typeof arryObj[i].type != "undefined"
+                    && arryObj[i].type == 'checkbox')
+                arryObj[i].checked = true;
+        }
+    }
+
+    function unSelectAll() {
+        var arryObj = document.getElementsByName("selectedids");
+        for ( var i = 0; i < arryObj.length; i++) {
+            if (typeof arryObj[i].type != "undefined"
+                    && arryObj[i].type == 'checkbox')
+                ;
+            arryObj[i].checked = false;
+        }
+    }
+
+    $(function() {
+        var date=$( "#start_date" );
+        date.datetimepicker({
+            showSecond:true,
+            timeFormat: "HH:mm:ss"
+        });
+
+    });
+    $(function() {
+        var date=$( "#end_date" );
+        date.datetimepicker({
+            showSecond:true,
+            timeFormat: "HH:mm:ss"
+        });
+    });
+</script>
+<!---操作的确认层，相当于javascript:confirm函数-->
+{$osadmin_action_confirm}
+<!--- END 以下内容不需更改，请保证该TPL页内的标签匹配即可 -->
+<include file="Index:footer"/>

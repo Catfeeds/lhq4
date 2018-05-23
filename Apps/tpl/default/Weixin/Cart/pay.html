@@ -1,0 +1,110 @@
+
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/> 
+
+<link href="__WXP__/css/cart_list.css" rel="stylesheet" type="text/css" />
+
+<b id="ordCod" style="margin:40px 20px;">订单编号:{$orderCode}</b>
+
+<div>
+	<div class="g-pay-lst">
+		<ul>
+			<volist name="ordDetail" id="v">					
+				<li>
+					<a href="{:U('Goods/product_detail2')}&id={$v.goodsid}">
+						<span>
+                               <img src="__ROOT__/t/?w=600&h=600&src=__ROOT__{$v.image}" border="0" alt="">
+                           </span>
+						<dl>
+							<dt>{$v.title}</dt>
+							<dd><em>{$v.nums}</em>人次/<em>￥{$v.price}</em></dd>
+						</dl>
+					</a>
+				</li>
+			</volist>
+		</ul>
+		<input id="total_input" type="hidden" value="{$total}" />
+		<p class="gray9">需支付金额：<em class="orange" id="">￥{$total}</em></p>
+	</div>
+
+	<div class="other_pay marginB">
+		<input id="balance_input" type="hidden" value="{$balance}" />
+		
+		<a id="balance" href="javascript:;"><i></i>账户余额：<span class="gray9">￥{$balance}</span><em class="orange fr"></em>
+			<b class=""></b>
+		</a>	
+
+		<div class="other">
+			<a href="javascript:;">
+			<i></i>
+				微信支付
+				<b class=""></b>
+			</a>
+			<!-- <a class="" href="javascript:;">
+				京东支付
+				<b class=""></b>
+			</a>  -->
+		</div>
+	</div>
+
+	<div class="g-Total-bt">
+		<dd><a id="btnPay" href="javascript:pay();" class="orangeBtn fr w_account">立即支付</a></dd>
+	</div>
+
+</div>
+
+<script>
+
+	wxPayUrl="{:U('Pay/wxPay')}";
+	balancePayUrl="{:U('Pay/balancePay')}";
+	orderCode="{$orderCode}";
+
+	//支付方式:1,余额;2,微信
+	payMethod=null;	
+	function setPayMethod(method){
+		payMethod=method;
+	}
+	
+	//实际支付
+	function pay(){
+		
+		switch(payMethod){
+			case 1: //余额支付
+			  	//layer.msg("余额支付");
+				location.href=balancePayUrl+"&payMathod=balance&orderCode="+orderCode;
+				break;
+			case 2:  //微信支付
+				layer.msg("您选择了微信支付");				
+				location.href=wxPayUrl+"&payMathod=weixin&orderCode="+orderCode;
+				break;
+			default:
+				layer.msg("请选择支付方式");
+				return;
+		}		
+	}
+
+	//余额支付
+	 $('#balance').click(function(){
+		var balance = parseFloat($('#balance_input').val());		
+		var total =  parseFloat($('#total_input').val());
+		if (balance < total){
+			layer.msg('账户余额不足,请充值!');
+			return;
+		}
+		$(".other").find('b').removeClass('z-set2');
+		$(this).children('b').addClass('z-set2');
+		setPayMethod(1);
+	});
+	
+	//第三方支付
+	$('.other').children('a').click(function() {		
+		$(this).children('b').addClass('z-set2');
+		$(this).siblings().children('b').removeClass('z-set2');
+		$('#balance').children('b').removeClass('z-set2');
+		setPayMethod(2);
+	});
+
+</script>

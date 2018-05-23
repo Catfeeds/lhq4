@@ -1,0 +1,6 @@
+@charset="utf-8"
+.pageULEx{text-align:right;margin-top：300px;padding: 15px 20px;text-align: left;color: #ccc;float:left;}
+.pageULEx a{display: inline-block;color: #22aaff;display: inline-block;height: 25px; line-height: 25px;  padding: 0 10px;border: 1px solid #ddd; margin: 0 2px;border-radius: 4px;vertical-align: middle;}
+.pageULEx a:hover{text-decoration: none;border: 1px solid #22aaff;}
+.pageULEx span.current{display: inline-block;height: 25px;line-height: 25px;padding: 0 10px;margin: 0 2px;color: #fff;background-color: #22aaff; border: 1px solid #428bca;border-radius: 4px;vertical-align: middle;}
+.pageULExspan.disabled{ display: inline-block;height: 25px;line-height: 25px;padding: 0 10px;margin: 0 2px; color: #bfbfbf;background: #22aaff;border: 1px solid #bfbfbf;border-radius: 4px;vertical-align: middle;}

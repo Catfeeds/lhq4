@@ -1,0 +1,133 @@
+
+<header class="panel_header fix mb20">
+	<h2 class="title">菜单列表</h2>
+</header>
+
+<div class="fix">
+	<a href="{:U('Admin/Menu/tianjia')}" class="btn btn-primary l mr10">
+		<i class="fa fa-plus"></i> <span>添加菜单</span>
+	</a>
+	<div class="input-group l w200 mr10">
+					<div class="input-group-addon">菜单类型</div>
+					<select class="form-control type" name="type">
+						<option value="0" >全部</option>
+							<foreach name="type" item="value" key="key">
+							<option value="{$key}" <php>if($cur_type == $key) echo 'selected=true';</php>>{$value}</option>
+							</foreach>
+					</select>
+	</div>
+	
+	
+<!-- 
+	<div class="btn-group goods-status" data-toggle="buttons">
+		<label class="btn btn-primary "> <input type="radio"
+			name="level" value="-1" autocomplete="off"> 全部
+		</label> <label class="btn btn-primary"> <input type="radio"
+			name="level" value="0" autocomplete="off"> 一级
+		</label> <label class="btn btn-primary"> <input type="radio"
+			name="level" value="1" autocomplete="off"> 二级 
+	</div>
+-->
+	<!--  <div class="input-group l w300 mr10">
+		<input type="text" class="form-control keyword" name="keyword" value="" placeholder="关键字" />		
+		<div class="input-group-addon btn btn-primary white search">搜索</div>
+	</div>
+-->
+</div>
+
+
+<div class="goods-list pct100 mt20">
+
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<table
+				class="table table-hover table-condensed table-striped table-bordered">
+				<tbody>
+					<tr style="font-weight: bold;">
+						<td>序号</td>
+						<td>编号</td>
+						<td>父级Id</td>
+						<td>菜单名称</td>
+						<td>菜单类型</td>
+						<td>菜单图标</td>
+						<td>控制器</td>
+						<td>参数</td>
+						<td>创建时间</td>
+						<td>状态</td>
+						<td align="center" colspan='100'>操作</td>
+					</tr>
+					<volist name="info" id="v">
+					<tr id="product1">
+						<td>{$v['taxis']}</td>
+						<td>{$v['id']}</td>
+						<td>{$v['pid']}</td>
+						<td class="tl  w200">{$v['name']}</td>
+						<td>{$v['type']}</td>
+						<td><if condition="$v['icon'] eq '' "> -- <else /> <i
+								class="{$v['icon']}"></i> </if></td>
+						<td><if condition="$v['url'] eq '' "> -- <else />
+							{$v['url']} </if></td>
+						<td><if condition="$v['params'] eq '' "> -- <else />
+							{$v['params']} </if></td>
+						<td>{$v['creatdate']|date='Y-m-d H:i:s',###}</td>
+						<td>{$v['status']}</td>
+						<td><a href='{:U("Admin/Menu/edit")}&id={$v["id"]}'>修改</a></td>
+						<td><a href="javascript:auth_del({$v['id']},{$v['pid']});"">删除</a></td>
+					</tr>
+					</volist>
+						
+				</tbody>
+				
+				</table>
+				<div style = "option:absolute; margin-bottom:10px ;" class="page"></div>
+		</div>
+	</div>
+</div>
+
+<script src="__LIB_URL__/ja.js"></script>
+<script src="/web/lib/layer/layer.js"></script>
+<script>
+//显示分页
+$('.page').html(page({:json_encode($page);}));
+
+//菜单下拉选框
+$(".type").on("change",function(){
+	type = $(this).val();
+	window.location.href = "{:U('Menu/index', 'type=')}"+type;
+})
+
+	selfUrl = "{:U('Admin/Menu/index')}";
+	delUrl = "{:U('Admin/Menu/del')}";
+
+	function auth_del(id, pid) {
+		if (pid == 0) {
+			if (confirm("您删除的是顶级权限，其下的子权限会被隐藏。确定？")) {
+				$.post(delUrl, {
+					id : id
+				}, function(rel) {
+					layer.msg(rel);
+					setTimeout(function() {
+						window.location.reload();
+					}, 3000);
+				});
+			}
+		} else {
+
+			if (confirm("确定要删除编号为 " + id + " 的权限吗？")) {
+				$.post(delUrl, {
+					id : id
+				}, function(rel) {
+					layer.msg(rel);
+					setTimeout(function() {
+						window.location.reload();
+					}, 3000);
+				});
+
+			}
+		}
+	}
+	
+
+</script>
+
+<!-- <script src="__STATIC__/admin/menu.js"></script> -->

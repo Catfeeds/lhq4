@@ -1,0 +1,351 @@
+<link rel="stylesheet" href="__LIB_URL__/kindeditor/themes/default/default.css" />
+<script src="__LIB_URL__/kindeditor/kindeditor.js"></script>
+<script src="__LIB_URL__/kindeditor/lang/zh_CN.js"></script>
+<script src="__LIB_URL__/ja.js"></script>
+<script>
+ROOT= "__ROOT__";
+</script>
+<script src="__STATIC__/admin/k.js"></script>
+
+<div class="m20">
+	<form action="" class="goods-form">
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">标题</div>
+				<input type="text" class="form-control check_title" name="title" value="{$goods.title}" placeholder="标题"/>
+			</div>
+		</div>
+
+		<div class="form-group pct50 l dib pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">分类</div>
+				<select class="form-control" name="typeId">
+					<volist name="types" id="v">
+						<option value="{$v.id}" <if condition="$goods['typeid'] == $v['id']">selected</if>>{$v.typename}</option>
+					</volist>
+				</select>
+			</div>
+		</div>
+
+		<div class="form-group pct50 l dib pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">上架价格</div>
+				<input type="text" class="form-control" name="price" value="{$goods['price']?$goods['price']:1}" 
+					placeholder="上架价格" readonly/>
+				<span class="input-group-addon">默认: 1元 &nbsp; 五元、十元专区为 5、10元</span>
+			</div>
+		</div>
+
+		<div class="form-group pct50 l dib pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">原价</div>
+				<input type="text" class="form-control" name="originPrice" value="{$goods.originprice}" placeholder="原价" />
+			</div>
+		</div>
+
+		<div class="form-group pct50 l dib pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">当前期数</div>
+				<input type="text" class="form-control" value="{$goods.qishu}" placeholder="当前期数" disabled>
+				<input type="hidden" name="qishu_bak" value="{$goods.qishu}"/>
+			</div>
+		</div>
+
+		<div class="form-group pct50 l dib pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">份数</div>
+				<input type="text" class="form-control" name="fenshu" value="{$goods.fenshu}" placeholder="份数" />
+			</div>
+		</div>
+
+		<div class="form-group pct50 l dib pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">最大期数</div>
+				<input type="text" class="form-control" name="maxqishu" value="{$goods.maxqishu}" placeholder="最大期数" />
+			</div>
+		</div>
+
+
+		<div class="form-group pct50 l dib pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">限购数量</div>
+				<input type="text" class="form-control" name="limit_buy" value="{$goods.limit_buy}" placeholder="0 为不限制" />
+				<div class="input-group-addon">填写最大限制购买次数,0为不限制</div>
+			</div>
+		</div>
+
+		<input name="status" type="hidden" value="{$goods.status}" />
+		<div class="fix"></div>
+
+
+	<div class="form-group pl5 pr5">
+	<div class="input-group" style="width:100px;max-width:100%;">
+		<div class="input-group-addon">缩略图</div>
+		<input type="hidden" class="form-control id__{$v.id}" name="image" value="{$goods.image}" placeholder="缩略图"/>
+		<span class="goods-small-image bdc dib"><img class="id__{$v.id}" alt="" <notempty name="goods.image"> src="{$goods.image}"</notempty>  /></span>
+		<div data-id="{$v.id}" class="input-group-addon k-show-image poi">选择图片</div>
+		<span data-id="{$v.id}" class="input-group-addon k-upload-image poi">上传</span>
+	</div>
+</div>
+
+
+		<div class="form-group pl5 pr5">
+			<div class="input-group" style="width:100%;">
+				<div class="input-group-addon">产品图片</div>
+				<div class="form-control goods-big-image fix bdc" style="height:auto;"></div>
+				<div class="input-group-addon poi big-image-show">选择图片</div>
+				<span class="input-group-addon poi big-image-upload">上传</span>
+			</div>
+		</div>
+
+
+<style>
+.goods-big-image {
+	min-height: 28px;
+}
+.goods-small-image img,
+.goods-big-image img {
+	height: 150px;
+}
+</style>
+
+
+
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">简介</div>
+				<textarea class="form-control" rows="3" name="description" placeholder="简介">{$goods.description}</textarea>
+			</div>
+		</div>
+
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">图文详情</div>
+				<textarea class="form-control" style="height:280px;" name="content" id="content" placeholder="图文详情">{:html_entity_decode($goods['content'])}</textarea>
+				<div class="input-group-addon"></div>
+			</div>
+		</div>
+
+		<div class="form-group pl5 pr5">
+			<input type="hidden" name="id" value="{$goods.id}" />
+			<button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> <span>保存</span></button>
+		</div>
+
+	</form>
+
+</div>
+
+<textarea class="tpl-images dn">
+	<!-- <img class="l dib" data-img-id="{{id}}" src="{{content}}" alt="" /> -->
+
+	<div class="rel bbs-image dib l ml5" data-id="{{id}}">
+		<div class="db abs m5">
+			<i data-id="{{id}}" class="del-image fa fa-trash-o f20 poi bgf5 tc bdc img-rounded" title="删除"></i>
+			<span>{{id}}</span>
+		</div>
+		<img class="img-rounded bdc" src="{{content}}"/>
+	</div>
+</textarea>
+
+<script>
+	
+	moveWinCanter();
+	var api = {
+		edit: '{:U('Admin/Goods/edit')}',
+		list: '{:U('Admin/Goods/lists')}',
+		update: '{:U('	Admin/Goods/update')}',
+		editImage: '{:U('Admin/Goods/editImage')}',
+		del: '{:U('Admin/Goods/del ')}',
+		check_name: '{:U('Admin/Goods/check_name')}',
+		page: '{$do}'
+	};
+	window.onbeforeunload = function() {
+		return window.opener.getList(api.page == 'add' ? {
+			page: 1
+		}: false);
+		// window.opener.location.reload();
+	}
+	
+	var images = {: jsonEncode($images)
+	},
+	$goodsBigImage = $('.goods-big-image'),
+	BigImageTpl = $('.tpl-images').val();
+	
+	// 输出图片
+	if (images) {
+		$.each(images,
+		function(a, b) {
+			$goodsBigImage.append(BigImageTpl.tpl(b));
+		});
+	}
+	
+	$('.check_title').on('change',
+	function() {
+		$.post(api.check_name + '&title=' + $('[name=title]').val(),
+		function(data) {
+			if (data.status == 1) {
+				return msg('商品名称重复，请修改', 'warning');
+			}
+		});
+	});
+	$('[name=typeId]').on('change', changeType);
+	changeType();
+	
+	function changeType() {
+		var type = $('[name=typeId]').find('option:selected').text();
+		if (m = type.match(/^(5|10|五|十)元专区$/)) {
+			console.log(m[1]);
+			if (m[1] == 5 || m[1] == '五') {
+				$('[name=price]').val('5.00');
+			} else if (m[1] == 10 || m[1] == '十') {
+				$('[name=price]').val('10.00');
+			} else {
+				$('[name=price]').val('1.00');
+			}
+		} else {
+			$('[name=price]').val('1.00');
+		}
+	}
+	
+	// 初始化 编辑器
+	KindEditor.ready(function(K) {
+
+		// 初始化 图片选择
+		var imageManager = K.editor({
+			uploadJson : ROOT+"/php/upload_json.php",
+			fileManagerJson : ROOT+"/php/file_manager_json.php"
+		});
+		$('.big-image-show').click(function() {
+			imageManager.loadPlugin('filemanager', function() {
+				imageManager.plugin.filemanagerDialog({
+					viewType : 'VIEW',
+					dirName : 'image',
+					clickFn : function(url, title) {
+						addBiglImage(url);
+						imageManager.hideDialog();
+					}
+				});
+			});
+		});
+		
+
+		K('.big-image-upload').click(function() {
+			imageManager.loadPlugin('image', function() {
+				imageManager.plugin.imageDialog({
+					showRemote : false,
+					imageUrl : K('.icon-url').val(),
+					clickFn : function(url, title) {
+						addBiglImage(url);
+						imageManager.hideDialog();
+					}
+				});
+			});
+		});
+	});
+
+
+	
+	var $goodsForm = $('.goods-form');
+	// 表单提交
+	$goodsForm.on('submit',
+	function(e) {
+		e.preventDefault();
+		saveGoods();
+	});
+	
+	function saveGoods() {
+		var arr = $goodsForm.serializeJson(),
+		jamsg = false;
+		//alert(1);
+		//alert(arr.typeId);
+		//alert(arr.fenshu);
+		if (arr.title == '') jamsg = '标题不能为空';
+		else if (arr.image == '') jamsg = '缩略图不能为空';
+		else if (arr.fenshu < 1) jamsg = '份数不正确';
+		else if (arr.maxqishu < 1) jamsg = '最大期数不正确';
+		else if (arr.typeId=='12') {
+			if (arr.originPrice == arr.fenshu)jamsg = '原价和份数不能一致';
+			if ((arr.originPrice / 5) != arr.fenshu)jamsg = '原价和份数设置不合理';
+		}else if (arr.typeId=='11') {
+			if (arr.originPrice == arr.fenshu)jamsg = '原价和份数不能一致';
+			if ((arr.originPrice / 10) != arr.fenshu)jamsg = '原价和份数设置不合理';
+		}
+       // else if ((arr.typeId !='12' || arr.typeId !='11') && (arr.originPrice != arr.fenshu)) jamsg = '原价和份数不一致';
+
+		else if ($('limit_buy').val() > $('fenshu').val()) jamsg = '限购数量不正确';
+
+		if (jamsg)  return msg(jamsg, 'warning');
+
+
+		// console.log(''+ arr. + arr.);
+		var data = $goodsForm.serialize();
+       // alert(data);
+		$.post(api.edit, data,
+		function(j) {
+           // alert(j.code);
+			if (j.code == 200) {
+               ///alert('111');
+				msg('保存成功', 'success');
+				if (j.id) $('input[name=id]').val(j.id);
+			} else {
+				if (j.status == 0) {
+                    ///alert('222');
+					msg(j.info, 'warning');
+					return;
+				}
+                ///alert('333');
+				jamsg = j.msg || '内容未改变';
+				msg(jamsg, 'warning');
+			}
+		});
+	}
+	
+	// success error warning notification information
+	$goodsBigImage.on('click', '.del-image', delImage)
+	
+	// 更改缩略图
+	function setSmallImage(url) {
+	
+		$('.goods-small-image-input').val(url);
+		$('.goods-small-image').html($('<img/>').attr('src', url));
+	}
+	
+	// 添加详情图片
+	function addBiglImage(url) {
+		var goodsId = Number($('input[name=id]').val());
+		if (!goodsId) return msg('请先保存商品', 'error');
+		$.post(api.editImage, {
+			url: url,
+			ac: 'add',
+			goodsId: goodsId
+		},
+		function(i) {
+			if (i.code == 200 && i.id) {
+				$goodsBigImage.append(BigImageTpl.tpl({
+					id: i.id,
+					content: i.url
+				}));
+			} else {
+				msg(i.msg || '图片: ' + i.url + ' 添加失败', 'error');
+			}
+		},
+		'json');
+	}
+	
+	// 删除详情图片
+	function delImage() {
+		var id = $(this).data('id');
+		$.post(api.editImage, {
+			id: id,
+			ac: 'del'
+		},
+		function(i) {
+			if (i.code == 200) {
+				$goodsBigImage.find('div[data-id=' + i.id + ']').remove();
+			} else {
+				msg(i.msg || '图片: ' + i.id + ' 删除失败', 'error');
+			}
+		},
+		'json');
+	}
+</script>

@@ -1,0 +1,71 @@
+
+<link href="/web/lib/font-awesome.css,zxx.css" rel="stylesheet"/>
+<script src="/web/lib/jquery.min.js" type="text/javascript"></script>
+<script src="/web/lib/jquery.noty.js" type="text/javascript"></script>
+<script src="/web/lib/jquery.nicescroll.min.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="__STATIC__/admin/admin.css" media="all" />
+<link rel="stylesheet" href="__LIB_URL__/bootstrap.min.css" media="all" />
+<link rel="stylesheet" href="__LIB_URL__/bootstrap-theme.min.css" media="all" />
+<script src="__LIB_URL__/ja.js"></script>
+<script>
+
+	var api = {
+		edit: '{:U('Admin/Goods/edit')}',
+		list: '{:U('Admin/Goods/lists')}',
+		update: '{:U('Admin/Goods/update')}',
+		editImage: '{:U('Admin/Goods/editImage')}',
+		del: '{:U('Admin/Goods/del')}',
+		page: '{$do}'
+	};
+
+</script>
+
+<div class="m20">
+
+	<header class="panel_header fix mb20">
+			<h2 class="title">充值</h2>
+	</header>
+	
+	<form action="__SELF__" method="post" class="goods-form">
+	<input type="hidden" name="uid" value="{$userid}"/>
+	
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">充值金额</div>
+				<input id="jine" type="text" class="form-control" name="jine" value="" pattern="^\+?\d{1,7}(\.\d{1,2}|)$" placeholder="充值金额" required="required"/>
+			</div>
+		</div>
+
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">备注</div>
+				<input type="text" class="form-control" name="more" value="" placeholder="备注"/>
+			</div>
+		</div>
+		
+		<div class="form-group pl5 pr5">
+			<input id="userid" type="hidden" name="id" value="{$users['id']}" />
+			<button type="submit" class="btn btn-primary" id="submit"><i class="fa fa-save"></i> <span>保存</span></button>
+		</div>
+
+	</form>
+	<div id="name" name="{$username}"></div>
+</div>
+
+
+
+<script>
+$(function(){
+	
+	$("#submit").click(function(){
+		
+		var name=$("#name").attr("name");
+		var jine=$("#jine").val();
+		if(jine){			
+			return confirm("确定为昵称为 "+name+" 的用户充值 "+jine+" 元吗？");
+		}
+		
+	});
+});
+</script>

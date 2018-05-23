@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0,user-scalable=no">
+	<link rel="stylesheet" href="__WXP__/css/publish.css">
+	<link rel="stylesheet" href="__WXP__/css/limit_buy.css">
+	<link rel="stylesheet" href="__WXP__/css/list.css">
+	<link href="__WXP__/css/member.css" rel="stylesheet" type="text/css" />
+	<link href="__WXP__/css/lottery.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="__WXP__/css/focus.css">
+	<link href="__WXP__/css/comm.css" rel="stylesheet" type="text/css" />
+	<link href="__WXP__/css/footer.css" rel="stylesheet" type="text/css" />
+	<link href="__LIB_URL__/font-awesome.css,zxx.css" rel="stylesheet" type="text/css" />	
+	<link rel="stylesheet" href="__WXP__/css/product.css">
+	<script src="__LIB_URL__/jquery.min.js"></script>	
+	<script src="__LIB_URL__/TouchSlide1.1/TouchSlide.1.1.js"></script>
+	<script src="__LIB_URL__/layer/layer.js"></script>
+	<script src="__WXP__/js/common.js"></script>
+	<script src="__WXP__/js/jquery.lazyload.js"></script>
+	<script src="__WXP__/js/jquery.lazyload.min.js"></script>
+	<script src="__WXP__/js/countDown.js"></script>
+	<script src="__WXP__/js/jquery.SuperSlide.2.1.1.js"></script>
+	<title>{$title}</title>
+    <link rel="stylesheet" href="__WXP__/css/style.css" type="text/css">
+</head>
+
+<body>
+    <include file="Index:header" />
+	{__CONTENT__}
+	<script>
+		var gshareurl = "{:U('WeixinSDK/getSignPackage')}";//微信支持数据获取地址
+		var shareData = {
+			desc:"1元买iphone6S,最奇(ci)葩(ji)的玩法,快来挑战!现在分享朋友圈、微信群组更可获得好友消费金额6%的消费佣金!",
+			title: "1元就能买iphone 6s,一种最新颖的购物方式,快来看看吧!",
+			link: "{:C('site_url')}{:U('register/index')}&invitenum={:cookie('selfinvite')}",
+			imgUrl: "{:C('site_url')}__WXP__/img/inv-share.jpg"
+		};
+
+	</script>
+
+		<if condition="IS_WEIXIN">
+			<script>var gshareurl = "{:U('WeixinSDK/getSignPackage')}";</script>
+			<script src="__WXP__/js/jweixin-1.0.0.js"></script>
+			<script src="__WXP__/js/shareJS.js"></script>
+		</if>
+</body>
+
+</html>

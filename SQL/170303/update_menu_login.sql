@@ -1,0 +1,1 @@
+update osa_menu_url set menu_url="/backend/login" where menu_name="µÇÈë";

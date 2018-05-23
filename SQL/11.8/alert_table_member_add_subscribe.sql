@@ -1,0 +1,1 @@
+ALTER TABLE `member` ADD `subscribe` TINYINT NOT NULL DEFAULT 1 COMMENT '关注状态' AFTER `yzm_time`;

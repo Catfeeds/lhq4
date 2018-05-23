@@ -1,0 +1,1 @@
+alter table member change yzm_code yzm_code varchar(7);

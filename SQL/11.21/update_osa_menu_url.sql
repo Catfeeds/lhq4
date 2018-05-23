@@ -1,0 +1,1 @@
+update osa_menu_url set menu_name='广告主点击上报配置' where menu_url='/backend/providerConfig.php';

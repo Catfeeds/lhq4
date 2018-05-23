@@ -1,0 +1,103 @@
+
+		<title>商品详情</title>
+		<link href="__WXP__/css/comm1.css" rel="stylesheet" type="text/css" />
+		<link href="__WXP__/css/goods1.css" rel="stylesheet" type="text/css" />
+		<link href="__WXP__/css/product1.css" rel="stylesheet" type="text/css">
+		<script src="__WXP__/js/goodsPicSlider1.js"></script>
+		<script src="__WXP__/js/countDown1.js"></script>
+		<script src="__WXP__/js/layer1.js"></script>
+	
+		<div>
+			<div id="divPic" class="pPic">
+				<div class="pPic2">
+					<div id="sliderBox" class="pImg" style="width: 630px;">
+						<div class="flex-viewport">
+							<ul class="slides" style=" -webkit-transition: 0s; transition: 0s; -webkit-transform: translate3d(0px, 0px, 0px); display: block;">
+								<volist name="goods_list" id="image">
+									<li><img src="{$image.content}" /></li>
+								</volist>
+							</ul>
+						</div>
+						<ul class="direction-nav">
+							<li class="prev" style="display: block; width: 20%;"></li>
+							<li class="next" style="display: block; width:20%;"></li>
+						</ul>
+					</div>
+					<dl id="PicPostion">
+						<volist name="goods_list" id="image">
+									<dd></dd>
+						</volist>
+						
+					</dl>
+				</div>
+			</div>
+			<!-- 产品信息 -->
+			<div class="pro_info2">
+				<h2 class="gray6">
+                	{$bbooking.goods_title}
+            	</h2>
+				<div class="purchase-txt gray9 clearfix">
+					价值：￥{$bbooking.goods_value}
+				</div>
+				<a href="#" style="display:none">包场功能介绍</a>
+			</div>
+
+			<div class="progress_p">
+				<span class="step"><em>查看商品</em></span>
+				<hr />
+				<span class="step"><em>创建包场/购买</em></span>
+				<hr />
+				<span><em>揭晓获奖</em></span>
+			</div>
+
+			<div>
+				<a class="buy_count">
+					已购买<b>{$bbooking.sales}</b>人次
+					<span onclick="layerNumber()">查看幸运{:C('site_title')}码</span>
+				</a>
+			</div>
+
+			<div class="lxftime" nowtime="{$nowtime}" endtime="{$endtime}"></div>
+			<!-- 即将揭晓 -->
+			<div class="time-item">
+				揭晓倒计时：<strong class="minute_show">00</strong>分
+				<strong class="second_show">00</strong>秒
+				<strong class="millisecond_show">00</strong>
+			</div>
+
+			<div class="ann_btn" >
+				<div  style="display:none">参与人数<em class="orange">{$bbooking.sales}</em><s class="fr"></s>
+				剩余人次<em class="orange">{$bbooking.amount-$bbooking.sales}</em></div><s class="fr"></s>
+				<a href="{:U('Room/goodsDetail','id=')}{$bbooking.goods_id}">商品介绍<s class="fr"></s></a>
+				<a href="{:U('Room/goodsDetail','id=')}{$bbooking.goods_id}" style="display:none">往期晒单<s class="fr"></s></a>
+			</div>
+
+			<div id="layer" style="width: 280px;height: 150px;text-align: center;padding: 5px;display: none;">
+				<foreach name="nums" item="v" key="k" >
+					<if condition="$k%3==0">
+						<br>
+					</if>
+					<span>{$v.bbcode}</span>
+				</foreach>
+			</div>
+
+		</div>
+		<script>
+			var baocid=<if condition="$v.id">{$bbooking.id}<else/>0</if>;
+			var modifystatusurl="{:U('modifyStatus')}";
+			$(function() {
+				lxfEndtime();
+				$("#sliderBox").picslider();
+			})
+
+			function layerNumber() {
+				layer.open({
+					type: 1,
+					title: false,
+					closeBtn: 0, //不显示关闭按钮
+					shadeClose: true, //开启遮罩关闭
+					content: $('#layer'),
+					move: '#layer'
+				});
+			}
+		</script>

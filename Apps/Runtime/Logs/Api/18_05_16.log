@@ -1,0 +1,6 @@
+[ 2018-05-16T10:32:04+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?mid=175&msid=0
+ERR: Cron:cron_1 Runat 2018-05-16 10:32:04 Use 0.002185 s
+
+[ 2018-05-16T10:32:37+08:00 ] ::1 /lhq/Api/Channelclickmobileapi/Channelclickmobileapi?mid=175&msid=1
+ERR: Cron:cron_1 Runat 2018-05-16 10:32:37 Use 0.001942 s
+

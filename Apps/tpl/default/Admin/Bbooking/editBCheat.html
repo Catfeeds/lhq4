@@ -1,0 +1,154 @@
+
+  <link rel="stylesheet" href="__LIB_URL__/kindeditor/themes/default/default.css" /> 
+  <script src="__LIB_URL__/kindeditor/kindeditor.js"></script> 
+  <script src="__LIB_URL__/kindeditor/lang/zh_CN.js"></script> 
+  <script src="__LIB_URL__/ja.js"></script> 
+  <script src="__STATIC__/admin/k.js"></script> 
+
+	 <style>
+		.goods-big-image {
+			min-height: 28px;
+		}
+		.goods-small-image img,
+		.goods-big-image img {
+			height: 150px;
+		}
+	</style>
+	
+	<div class="m20"> 
+   <form action="" class="goods-form"> 
+   
+    <div class="form-group pl5 pr5"> 
+     <div class="input-group"> 
+      <div class="input-group-addon">
+		商品 ID
+      </div>
+      <input id="goodsid" type="text" value="{$info.goods_id}" class="form-control dom-goods-id" name="goodsid"/>
+		<a class="input-group-addon" href="javascript:choiceGoods();">选择</a>
+     </div> 
+    </div>
+    
+    <div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">每期超过多久就自动购买(分钟)</div>
+				<input id="startTime" type="number" class="form-control" min="1" step="1" name="startTime" value="{$info.start_time}" pattern="^[1-9]*[1-9][0-9]*$" placeholder="每期超过多久就自动购买(分钟)"/>
+			</div>
+		</div>
+		
+    <div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">两次自动购买的时间间隔(秒钟)</div>
+				<input id="intervalTime" type="number" class="form-control" min="1" step="1" name="intervalTime" value="{$info.interval_time}" pattern="^[1-9]*[1-9][0-9]*$" placeholder="两次自动购买的时间间隔(秒钟)"/>
+			</div>
+		</div>
+
+	<div class="form-group pl5 pr5">
+		<div class="input-group">
+			<div class="input-group-addon">选择类型(普通或0元购)</div>
+			<select class="form-control" name="c_type" id="c_type">
+				<if condition="$info['c_type'] == 1">
+					 <option value="1" selected='true'>普通云购</option>
+					 <option value="2">0元购</option>
+				<elseif condition="$info['c_type'] == 2"/>
+					 <option value="1">普通云购</option>
+					 <option value="2" selected='true'>0元购</option>
+				</if>
+      		</select>
+		</div>
+	</div>	
+	
+	<div class="form-group pl5 pr5">
+		<div class="input-group">
+			<div class="input-group-addon">开奖类型</div>
+			<select class="form-control" name="k_type" id="k_type">
+				
+			 <option value="1" <if condition="$info['k_type'] == 1">selected='true'</if>>随机</option>
+			 <option value="2" <if condition="$info['k_type'] == 2">selected='true'</if>>机器人</option>
+			 <option value="3" <if condition="$info['k_type'] == 3">selected='true'</if>>用户</option>
+				
+      		</select>
+		</div>
+	</div>					
+ 
+    <div class="form-group pl5 pr5">      
+     <a  class="btn btn-primary" id="save"><i class="fa fa-save"></i><span>保存</span></a> 
+    </div> 
+   </form> 
+  </div> 
+
+
+  <script>
+
+  var cheatAddUrl="{:U('Cheat/add')}";
+  var cheatEditUrl="{:U('Cheat/edit')}";
+  var nextUrl="{:U('Cheat/index')}";
+  var cheatid="{$info.id}";
+  
+  $("#save").click(function(){
+	  var startTime=$("#startTime").val();
+	  var intervalTime=$("#intervalTime").val();
+	  var goodsid=  $("#goodsid").val();	  
+	  var cType = $('#c_type').val();
+	  var kType = $('#k_type').val();
+	  
+	  if(startTime<=0){
+		  layer.msg("请输入有效的时间值");
+		  return;
+	  }
+	  
+	  if( (goodsid!=0) && startTime &&intervalTime ){
+		  $.post(
+				  cheatEditUrl,
+				  {
+					  goodsid:goodsid,
+					  cheatid:cheatid,
+					  startTime:startTime,
+					  intervalTime:intervalTime,
+					  cType:cType,
+					  kType:kType
+				  },
+				  function(rel){
+					  layer.msg(rel.info);
+					  if(rel.status==1){
+						  setTimeout(function(){
+							  location.href=nextUrl;
+						  },1000);
+					  }else{
+						  return;						  
+					  }
+					  
+				  }
+		  );
+	  }else{
+		  layer.msg("请填写所有参数");
+	  }
+
+  });
+
+ function choiceGoods(){
+	choice_win = dialog({
+		id: 'item-edit-id-',
+		title: '选择商品',
+		width: 700,
+		height: 600,
+		url: '{:U('Admin/AjaxGet/goods')}',
+		cancel: function () {
+			this.close().remove();
+			// return false;
+		},
+		cancelDisplay: false,
+		oniframeload: function(){
+			// this.reset();
+		},
+		statusbar: '',
+		zIndex: 99999
+	}).show();
+}
+
+function callback_goodsId(g){
+	$('.dom-goods-id').val(g.id);
+	choice_win.close();
+}
+$('.dom-goods-id').on('click', choiceGoods);
+
+  </script>

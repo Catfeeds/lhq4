@@ -1,0 +1,259 @@
+<include file ="Index:header"/>
+<include file ="Index:navibar"/>
+<include file ="Index:sidebar"/>
+<!-- TPLSTART 以上内容不需更改，保证该TPL页内的标签匹配即可 ../api/output_api.php-->
+
+<div style="border:0px;padding-bottom:5px;height:auto">
+	<form action="" method="GET" style="margin-bottom:0px" name="form1" onsubmit="return check()">
+	<div style="float:left;margin-right:5px">
+		<label> 选择起始时间 </label>
+		<input type="text" id="start_date" name="start_date" value="{$_GET.start_date}" placeholder="起始时间" >
+	</div>
+	<div style="float:left;margin-right:5px">
+		<label>选择结束时间</label>	
+		<input type="text" id="end_date" name="end_date" value="{$_GET.end_date}" placeholder="结束时间" > 
+	</div>
+        <if condition="$user_group eq 1|| $user_group eq 3|| $user_group eq 5">
+            <div style="float:left;margin-right:5px">
+             <label>选择广告商</label>
+            <select name="provider_id">
+            <foreach name='providers' item='provider' key="provider_id">
+                    <if condition="$_GET.provider_id eq $provider_id">
+                    <option value="{$provider_id}" selected>{$provider}</option>
+                    <else/>
+                    <option value="{$provider_id}">{$provider}</option>
+                    </if>
+            </foreach>
+            </select>
+            </div>
+        </if>
+        <!--   <div style="float:left;margin-right:5px">
+            <label>广告ID:</label>
+            <select id="appid" name="app_id">
+                <option value="0">不限</option>
+                <{foreach name=appid from=$appids item=appid}>
+                    <option value="<{$appid.app_id}>"><{$appid.app_name}></option>
+                <{/foreach}>
+            </select>
+
+        </div>-->
+        <if condition="$user_group eq 1|| $user_group eq 4|| $user_group eq 5">
+            <div style="float:left;margin-right:5px">
+                <label>渠道商:</label>
+                <select id="chanid" name="chan_id" >
+                    <foreach name='channels' item='channel' key="chan_id">
+                        <if condition="$_GET.chan_id eq $chan_id">
+                        <option value="{$chan_id}" selected>{$channel}</option>
+                        <else/>
+                        <option value="{$chan_id}">{$channel}</option>
+                        </if>
+                    </foreach>
+                </select>
+            </div>
+        </if>
+        <script>
+            //通过provider_id 获取app_id
+           /* $("#DropDownTimezone").change(function() {
+                var id=$(this).val();
+                $.ajax({
+                    url:"../ajax/getAppIdAjax.php",
+                    data:{id:id},
+                    type:'post',
+                    dataType:'json',
+                    success:function(data){
+                        console.log(data);
+                        $("#appid").empty().append('<option value="0">请选择</option>');
+                        $.each(data,function(i,v){
+                            $("#appid").append('<option value="'+ v.app_id+'">'+ v.app_name+'</option>');
+                        })
+                    }
+                })
+
+            })*/
+            $("#DropDownAdsid").change(function() {
+                var adsid=$(this).val();
+                //alert(adsid);
+                $.ajax({
+                    url:"../ajax/getAppIdAjax.php",
+                    data:{adsid:adsid},
+                    type:'post',
+                    dataType:'json',
+                    success:function(data){
+                        console.log(data);
+                        $("#chanid").empty().append('<option value="0">不限</option>');
+                        $.each(data,function(i,v){
+                            $("#chanid").append('<option value="'+ v.chan_id+'">'+ v.name+'</option>');
+                        })
+                    }
+                })
+
+            })
+        </script>
+	<div style="float:left;margin-right:5px">
+		<label>数据类型:</label>
+		<select name="look" id="apptype">
+		
+            <option value="0"
+                <if condition="$look eq 0">
+                    selected = "selected"
+                </if> 
+            >不限</option>
+<!--             <if condition="$look eq 0">
+            <option value="0" selected = "selected">点击类型</option>
+            <option value="1" >激活类型</option>
+            <elseif condition="$look eq 1"/>
+            <option value="0" >点击类型</option>
+            <option value="1" selected = "selected">激活类型</option>
+            </if> -->
+            <option value="1" 
+                <if condition="$look eq 1">
+                    selected = "selected"
+                </if> 
+            >激活数据</option>
+            <option value="2" 
+                <if condition="$look eq 2">
+                    selected = "selected"
+                </if>    
+            >点击数据</option>
+            <option value="3" 
+                <if condition="$look eq 3">
+                    selected = "selected"
+                </if> 
+            >排重数据</option>
+            <option value="4" 
+                <if condition="$look eq 4">
+                    selected = "selected"
+                </if> 
+            >回调数据</option>
+           <!-- <option value="5"
+                <if condition="$look eq 5">
+                    selected = "selected"
+                </if> 
+            >渠道激活回调类型</option>-->
+		</select>
+        <input type="hidden" id="format" name="format" value="">
+		<!-- <{html_options name="chan_id" id="DropDownChannels"  options=$channels selected=$_GET.chan_id}> -->
+	</div>
+
+        <div class="btn-toolbar" style="padding-top:25px;padding-bottom:0px;margin-bottom:0px">
+            <button type="submit" class="btn btn-primary" onclick="select();">
+                <strong>检索</strong></button>
+
+        </div>
+
+	<div style="clear:both;"></div>
+        <script>
+            function output(){
+
+                var radio = document.getElementsByName("formatradio"); 
+                var formatradio; 
+                for (i=0; i<radio.length; i++) {  
+                    if (radio[i].checked) {  
+                        formatradio = radio[i].value;  
+                    }  
+                } 
+                document.getElementById('format').value = formatradio;
+
+                document.form1.action="{:U('Api/Output/index')}";
+                document.form1.submit();
+            }
+            function select(){
+                document.form1.action="./output";
+                document.form1.submit();
+            }
+        </script>
+	</form>
+
+
+</div>
+
+<div class="block">
+
+	<a href="#page-stats" class="block-heading" data-toggle="collapse">说明：按天导出所有的数据到excel</a>
+
+	<div id="page-stats" class="block-body collapse in">
+			<table class="table table-striped">
+			<thead>
+			<tr>
+                <th>广告名称</th>
+                <if condition="$user_group eq 1|| $user_group eq 4|| $user_group eq 5">
+                    <th>渠道商</th>
+                </if>
+                <th>总数量</th>
+				<th>成功数量</th>
+
+			</tr>
+			</thead>
+			<tbody>
+            <foreach name='clogsa' item='clog'>
+
+                <tr>
+                    <td>{$apps[$clog['app_id']]}</td>
+                    <if condition="$user_group eq 1|| $user_group eq 4|| $user_group eq 5">
+                        <td>{$channels[$clog['chan_id']]}</td>
+                    </if>
+                    <td>{$clog.count}</td>
+                    <td><if condition="$clog.scount eq 0" >0<else/> {$clog.scount}</if></td>
+                </tr>
+                </foreach>
+		  </tbody>
+		</table>
+
+		<!--- START 分页模板 -->
+        <button type="submit" class="btn btn-primary" id="butt" onclick="output();" style=" float:right; margin-top: 10px;">
+            <strong>导出</strong></button>
+        <div  style=" float:right; margin-top:15px; margin-right:10px">
+            <input name="formatradio" type="radio" value="csv" checked="true" /><font size="3">csv</font>
+            <input name="formatradio" type="radio" value="xlsx" /><font size="3">xlsx</font>
+        </div>
+
+            {$page_html}
+
+			   <!--- END -->
+        <!--- 每页25项-->
+
+</div>
+</div>
+
+</div>
+<script>
+/*$(function() {
+var date=$( "#start_date" );
+date.datepicker({ dateFormat: "yy-mm-dd" });
+date.datepicker( "option", "firstDay", 1 );
+});
+$(function() {
+var date=$( "#end_date" );
+date.datepicker({ dateFormat: "yy-mm-dd" });
+date.datepicker( "option", "firstDay", 1 );
+});*/
+$(function() {
+var date=$( "#start_date" );
+date.datetimepicker({
+showSecond:true,
+timeFormat: "HH:mm:ss"
+});
+
+});
+$(function() {
+var date=$( "#end_date" );
+date.datetimepicker({
+showSecond:true,
+timeFormat: "HH:mm:ss"
+});
+});
+function check(){
+    var look = $('#apptype').val();
+
+    if (look < 1) {
+        alert('请选择数据类型');
+        return false;
+    };
+    if (look == 3) {
+        alert('排重数据不分渠道');
+    };
+}
+
+</script>
+<!-- TPLEND 以下内容不需更改，请保证该TPL页内的标签匹配即可 -->
+<include file ="Index:footer"/>

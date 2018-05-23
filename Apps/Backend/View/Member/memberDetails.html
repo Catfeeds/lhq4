@@ -1,0 +1,52 @@
+<include file="Index:header"/>
+<include file="Index:navibar"/>
+<include file="Index:sidebar"/>
+<!-- TPLSTART 以上内容不需更改，保证该TPL页内的标签匹配即可 -->
+
+
+<div class="block">
+    <a href="#page-stats" class="block-heading" data-toggle="collapse">会员详情信息管理</a>
+    <div id="page-stats" class="block-body collapse in">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <!--<th>用户Id</th>-->
+                <th>徒弟id</th>
+                <th>徒弟手机号</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="membe" item="member">
+                <tr>
+                    <td>{$member.pid}</td>
+                    <td>{$member.member_id}</td>
+                    <td>{$member.phone}</td>
+
+
+                </tr>
+                </foreach>
+            </tbody>
+        </table>
+        <!--- START 分页模板 --->
+     <!--   <{$page_html}>
+        &lt;!&ndash;- END -&ndash;&gt;
+        每页25项-->
+    </div>
+</div>
+
+<script>
+    $(function() {
+        var date=$( "#start_date" );
+        date.datepicker({ dateFormat: "yy-mm-dd" });
+        date.datepicker( "option", "firstDay", 1 );
+    });
+    $(function() {
+        var date=$( "#end_date" );
+        date.datepicker({ dateFormat: "yy-mm-dd" });
+        date.datepicker( "option", "firstDay", 1 );
+    });
+</script>
+<!-- TPLEND 以下内容不需更改，请保证该TPL页内的标签匹配即可 -->
+<include file="Index:footer"/>

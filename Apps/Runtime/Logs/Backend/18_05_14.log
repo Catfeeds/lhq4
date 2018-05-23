@@ -1,0 +1,285 @@
+[ 2018-05-14T09:22:23+08:00 ] ::1 /lhq/backend/login
+ERR: Cron:cron_1 Runat 2018-05-14 09:22:23 Use 0.004885 s
+
+[ 2018-05-14T09:22:25+08:00 ] ::1 /lhq/backend/panel/verify_code_cn
+ERR: Cron:cron_1 Runat 2018-05-14 09:22:25 Use 0.003980 s
+
+[ 2018-05-14T09:22:33+08:00 ] ::1 /lhq/backend/login
+ERR: Cron:cron_1 Runat 2018-05-14 09:22:33 Use 0.003379 s
+
+[ 2018-05-14T09:22:34+08:00 ] ::1 /lhq/backend/
+ERR: Cron:cron_1 Runat 2018-05-14 09:22:34 Use 0.002329 s
+
+[ 2018-05-14T09:22:42+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 09:22:42 Use 0.002028 s
+
+[ 2018-05-14T09:22:53+08:00 ] ::1 /lhq/Backend/Mission/missionModify/mission_id/173
+ERR: Cron:cron_1 Runat 2018-05-14 09:22:53 Use 0.002231 s
+
+[ 2018-05-14T09:23:07+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 09:23:07 Use 0.002287 s
+
+[ 2018-05-14T09:23:13+08:00 ] ::1 /lhq/Backend/Mission/missionModify/mission_id/170
+ERR: Cron:cron_1 Runat 2018-05-14 09:23:13 Use 0.002057 s
+
+[ 2018-05-14T09:23:20+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 09:23:20 Use 0.004058 s
+
+[ 2018-05-14T09:30:52+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 09:30:52 Use 0.002469 s
+
+[ 2018-05-14T09:31:16+08:00 ] ::1 /lhq/Backend/Mission/missionModify/mission_id/172
+ERR: Cron:cron_1 Runat 2018-05-14 09:31:16 Use 0.004013 s
+
+[ 2018-05-14T11:23:31+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 11:23:31 Use 0.005350 s
+
+[ 2018-05-14T11:29:12+08:00 ] ::1 /lhq/backend/login
+ERR: Cron:cron_1 Runat 2018-05-14 11:29:12 Use 0.002824 s
+
+[ 2018-05-14T11:29:13+08:00 ] ::1 /lhq/backend/panel/verify_code_cn
+ERR: Cron:cron_1 Runat 2018-05-14 11:29:13 Use 0.002216 s
+
+[ 2018-05-14T11:29:19+08:00 ] ::1 /lhq/backend/login
+ERR: Cron:cron_1 Runat 2018-05-14 11:29:19 Use 0.003129 s
+
+[ 2018-05-14T11:29:20+08:00 ] ::1 /lhq/backend/panel/verify_code_cn
+ERR: Cron:cron_1 Runat 2018-05-14 11:29:20 Use 0.002009 s
+
+[ 2018-05-14T11:29:28+08:00 ] ::1 /lhq/backend/login
+ERR: Cron:cron_1 Runat 2018-05-14 11:29:28 Use 0.003933 s
+
+[ 2018-05-14T11:29:29+08:00 ] ::1 /lhq/backend/
+ERR: Cron:cron_1 Runat 2018-05-14 11:29:29 Use 0.002818 s
+
+[ 2018-05-14T11:29:34+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 11:29:34 Use 0.002340 s
+
+[ 2018-05-14T11:29:37+08:00 ] ::1 /lhq/Backend/Mission/missionAdd
+ERR: Cron:cron_1 Runat 2018-05-14 11:29:37 Use 0.005168 s
+
+[ 2018-05-14T11:33:38+08:00 ] ::1 /lhq/Backend/Mission/missionAdd
+ERR: Cron:cron_1 Runat 2018-05-14 11:33:38 Use 0.004881 s
+
+[ 2018-05-14T11:33:44+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 11:33:44 Use 0.002029 s
+
+[ 2018-05-14T11:33:51+08:00 ] ::1 /lhq/Backend/Mission/missionModify/mission_id/173
+ERR: Cron:cron_1 Runat 2018-05-14 11:33:51 Use 0.003289 s
+
+[ 2018-05-14T11:34:01+08:00 ] ::1 /lhq/Backend/Mission/missionModify/mission_id/173
+ERR: Cron:cron_1 Runat 2018-05-14 11:34:01 Use 0.002092 s
+
+[ 2018-05-14T11:34:38+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 11:34:38 Use 0.002693 s
+
+[ 2018-05-14T11:34:52+08:00 ] ::1 /lhq/Backend/Mission/missionModify/mission_id/173
+ERR: Cron:cron_1 Runat 2018-05-14 11:34:52 Use 0.002756 s
+
+[ 2018-05-14T11:37:42+08:00 ] ::1 /lhq/Backend/App/app
+ERR: Cron:cron_1 Runat 2018-05-14 11:37:42 Use 0.002789 s
+
+[ 2018-05-14T11:37:49+08:00 ] ::1 /lhq/Backend/App/appAdd
+ERR: Cron:cron_1 Runat 2018-05-14 11:37:49 Use 0.003511 s
+
+[ 2018-05-14T11:42:14+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 11:42:14 Use 0.002821 s
+
+[ 2018-05-14T11:42:17+08:00 ] ::1 /lhq/Backend/Mission/missionModify/mission_id/173
+ERR: Cron:cron_1 Runat 2018-05-14 11:42:17 Use 0.002358 s
+
+[ 2018-05-14T13:53:36+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 13:53:36 Use 0.002328 s
+
+[ 2018-05-14T13:53:39+08:00 ] ::1 /lhq/Backend/Mission/missionAdd
+ERR: Cron:cron_1 Runat 2018-05-14 13:53:39 Use 0.002552 s
+
+[ 2018-05-14T14:28:08+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 14:28:08 Use 0.002303 s
+
+[ 2018-05-14T14:28:25+08:00 ] ::1 /lhq/Backend/Mission/missionModify/mission_id/174
+ERR: Cron:cron_1 Runat 2018-05-14 14:28:25 Use 0.003475 s
+
+[ 2018-05-14T14:32:21+08:00 ] ::1 /lhq/Backend/Mission/missionModify/mission_id/174
+ERR: Cron:cron_1 Runat 2018-05-14 14:32:21 Use 0.003018 s
+
+[ 2018-05-14T14:34:31+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 14:34:31 Use 0.004000 s
+
+[ 2018-05-14T14:35:06+08:00 ] ::1 /lhq/Backend/Mission/missionAdd
+ERR: Cron:cron_1 Runat 2018-05-14 14:35:06 Use 0.002941 s
+
+[ 2018-05-14T14:37:06+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 14:37:06 Use 0.003892 s
+
+[ 2018-05-14T14:42:25+08:00 ] ::1 /lhq/Backend/Mission/missionAdd
+ERR: Cron:cron_1 Runat 2018-05-14 14:42:25 Use 0.003193 s
+
+[ 2018-05-14T14:43:36+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 14:43:36 Use 0.002491 s
+
+[ 2018-05-14T14:44:07+08:00 ] ::1 /lhq/Backend/Mission/missionModify/mission_id/175
+ERR: Cron:cron_1 Runat 2018-05-14 14:44:07 Use 0.002499 s
+
+[ 2018-05-14T14:44:54+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 14:44:54 Use 0.002472 s
+
+[ 2018-05-14T14:45:07+08:00 ] ::1 /lhq/Backend/Mission/missionModify/mission_id/175
+ERR: Cron:cron_1 Runat 2018-05-14 14:45:07 Use 0.002381 s
+
+[ 2018-05-14T14:49:36+08:00 ] ::1 /lhq/Backend/Mission/missionModify/mission_id/175
+ERR: Cron:cron_1 Runat 2018-05-14 14:49:36 Use 0.003660 s
+
+[ 2018-05-14T14:49:52+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 14:49:52 Use 0.002595 s
+
+[ 2018-05-14T14:49:54+08:00 ] ::1 /lhq/Backend/Mission/missionModify/mission_id/175
+ERR: Cron:cron_1 Runat 2018-05-14 14:49:54 Use 0.002424 s
+
+[ 2018-05-14T14:50:50+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 14:50:50 Use 0.002471 s
+
+[ 2018-05-14T14:51:03+08:00 ] ::1 /lhq/Backend/Mission/missionModify/mission_id/175
+ERR: Cron:cron_1 Runat 2018-05-14 14:51:03 Use 0.002086 s
+
+[ 2018-05-14T14:57:16+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 14:57:16 Use 0.003430 s
+
+[ 2018-05-14T15:00:27+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 15:00:27 Use 0.002512 s
+
+[ 2018-05-14T15:01:17+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 15:01:17 Use 0.002916 s
+
+[ 2018-05-14T15:13:24+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 15:13:24 Use 0.002419 s
+
+[ 2018-05-14T15:21:48+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 15:21:48 Use 0.002367 s
+
+[ 2018-05-14T15:22:00+08:00 ] ::1 /lhq/Backend/Mission/missionModify/mission_id/175
+ERR: Cron:cron_1 Runat 2018-05-14 15:22:00 Use 0.002491 s
+
+[ 2018-05-14T15:24:01+08:00 ] ::1 /lhq/Backend/Mission/missionModify/mission_id/175
+ERR: Cron:cron_1 Runat 2018-05-14 15:24:01 Use 0.003568 s
+
+[ 2018-05-14T15:24:15+08:00 ] ::1 /lhq/Backend/Mission/missionModify/mission_id/175
+ERR: Cron:cron_1 Runat 2018-05-14 15:24:15 Use 0.002270 s
+
+[ 2018-05-14T15:25:29+08:00 ] ::1 /lhq/backend/login
+ERR: Cron:cron_1 Runat 2018-05-14 15:25:29 Use 0.002197 s
+
+[ 2018-05-14T15:25:30+08:00 ] ::1 /lhq/backend/panel/verify_code_cn
+ERR: Cron:cron_1 Runat 2018-05-14 15:25:30 Use 0.002146 s
+
+[ 2018-05-14T15:25:49+08:00 ] ::1 /lhq/backend/login
+ERR: Cron:cron_1 Runat 2018-05-14 15:25:49 Use 0.002818 s
+
+[ 2018-05-14T15:25:50+08:00 ] ::1 /lhq/backend/
+ERR: Cron:cron_1 Runat 2018-05-14 15:25:50 Use 0.002734 s
+
+[ 2018-05-14T15:27:58+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 15:27:58 Use 0.002372 s
+
+[ 2018-05-14T15:28:08+08:00 ] ::1 /lhq/Backend/Mission/missionModify/mission_id/175
+ERR: Cron:cron_1 Runat 2018-05-14 15:28:08 Use 0.003019 s
+
+[ 2018-05-14T15:28:17+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 15:28:17 Use 0.002295 s
+
+[ 2018-05-14T15:48:10+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 15:48:10 Use 0.002395 s
+
+[ 2018-05-14T15:48:52+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 15:48:52 Use 0.005201 s
+
+[ 2018-05-14T15:48:58+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 15:48:58 Use 0.003013 s
+
+[ 2018-05-14T15:49:06+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 15:49:06 Use 0.003187 s
+
+[ 2018-05-14T15:50:49+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 15:50:49 Use 0.003731 s
+
+[ 2018-05-14T15:59:37+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 15:59:37 Use 0.002831 s
+
+[ 2018-05-14T16:00:31+08:00 ] ::1 /lhq/Backend/Mission/missionModify/mission_id/159
+ERR: Cron:cron_1 Runat 2018-05-14 16:00:31 Use 0.002351 s
+
+[ 2018-05-14T16:01:05+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 16:01:05 Use 0.003113 s
+
+[ 2018-05-14T16:01:16+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 16:01:16 Use 0.002950 s
+
+[ 2018-05-14T16:01:36+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 16:01:36 Use 0.003801 s
+
+[ 2018-05-14T16:01:40+08:00 ] ::1 /lhq/Backend/Mission/missionModify/mission_id/171
+ERR: Cron:cron_1 Runat 2018-05-14 16:01:40 Use 0.002999 s
+
+[ 2018-05-14T16:02:02+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 16:02:02 Use 0.002476 s
+
+[ 2018-05-14T16:02:26+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 16:02:26 Use 0.002250 s
+
+[ 2018-05-14T16:02:36+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 16:02:36 Use 0.002222 s
+
+[ 2018-05-14T16:02:57+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 16:02:57 Use 0.003127 s
+
+[ 2018-05-14T16:03:00+08:00 ] ::1 /lhq/Backend/Mission/missionModify/mission_id/171
+ERR: Cron:cron_1 Runat 2018-05-14 16:03:00 Use 0.002502 s
+
+[ 2018-05-14T16:03:23+08:00 ] ::1 /lhq/Backend/Mission/missionModify/mission_id/171
+ERR: Cron:cron_1 Runat 2018-05-14 16:03:23 Use 0.003434 s
+
+[ 2018-05-14T16:03:35+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 16:03:35 Use 0.003306 s
+
+[ 2018-05-14T16:03:46+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 16:03:46 Use 0.002297 s
+
+[ 2018-05-14T16:17:39+08:00 ] ::1 /lhq/Backend/Mission/missionModify/mission_id/173
+ERR: Cron:cron_1 Runat 2018-05-14 16:17:39 Use 0.004021 s
+
+[ 2018-05-14T16:17:47+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 16:17:47 Use 0.001932 s
+
+[ 2018-05-14T16:17:53+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 16:17:53 Use 0.003016 s
+
+[ 2018-05-14T16:27:44+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 16:27:44 Use 0.003485 s
+
+[ 2018-05-14T16:27:59+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 16:27:59 Use 0.002832 s
+
+[ 2018-05-14T16:28:04+08:00 ] ::1 /lhq/Backend/Mission/missionModify/mission_id/170
+ERR: Cron:cron_1 Runat 2018-05-14 16:28:04 Use 0.002648 s
+
+[ 2018-05-14T16:28:13+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 16:28:13 Use 0.003125 s
+
+[ 2018-05-14T16:28:30+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 16:28:30 Use 0.002573 s
+
+[ 2018-05-14T16:28:42+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 16:28:42 Use 0.004027 s
+
+[ 2018-05-14T16:51:56+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 16:51:56 Use 0.002129 s
+
+[ 2018-05-14T16:52:05+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 16:52:05 Use 0.002800 s
+
+[ 2018-05-14T16:52:09+08:00 ] ::1 /lhq/Backend/Mission/missionModify/mission_id/175
+ERR: Cron:cron_1 Runat 2018-05-14 16:52:09 Use 0.002282 s
+
+[ 2018-05-14T16:52:18+08:00 ] ::1 /lhq/Backend/Mission/mission
+ERR: Cron:cron_1 Runat 2018-05-14 16:52:18 Use 0.003652 s
+

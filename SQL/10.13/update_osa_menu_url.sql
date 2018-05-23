@@ -1,0 +1,1 @@
+update osa_menu_url set is_show=0 where menu_name='平台用户钱包列表';

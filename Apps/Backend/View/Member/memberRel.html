@@ -1,0 +1,90 @@
+<include file="Index:header"/>
+<include file="Index:navibar"/>
+<include file="Index:sidebar"/>
+<!-- TPLSTART 以上内容不需更改，保证该TPL页内的标签匹配即可 -->
+
+
+<form action="" method="GET" style="margin-bottom:0px">
+
+    <div style="float:left;margin-right:5px">
+        <label>ID</label>
+        <input type="text" name="member_id" value="{$_GET.member_id}" placeholder="输入ID" >
+        <input type="hidden" name="search" value="1" >
+    </div>
+<!--    <div style="float:left;margin-right:5px">
+        <label>查询用户编号</label>
+        <input type="text" name="user_num" value="{$_GET.user_num}" placeholder="输入用户编号" >
+
+    </div>-->
+    <div style="float:left;margin-right:5px">
+        <label>手机号</label>
+        <input type="text" name="phone" value="{$_GET.phone}" placeholder="输入手机号" >
+
+    </div>
+    <div class="btn-toolbar" style="padding-top:25px;padding-bottom:0px;margin-bottom:0px">
+        <button type="submit" class="btn btn-primary"><strong>检索</strong></button>
+    </div>
+    <div style="clear:both;"></div>
+</form>
+
+<div class="block">
+	<a href="#page-stats" class="block-heading" data-toggle="collapse">会员信息管理</a>
+	<div id="page-stats" class="block-body collapse in">
+	<table class="table table-striped">
+			<thead>
+			<tr>
+				<th>Id</th>
+                <th>用户名</th>
+			<!--	<th>用户编号</th>-->
+				<th>用户手机号</th>
+                <th>总收徒数</th>
+				<th>总收益</th>
+			    <th>操作</th>
+				
+			</tr>
+			</thead>
+			<tbody>							  
+
+                <foreach name="members" item="member">
+				<tr>
+				<td>{$member.member_id}</td>
+				<td>{$member.nickname}</td>
+				<!--<td>{$member.user_num}</td>-->
+                <td>{$member.phone}</td>
+                <td>{$member.num}</td>
+                <td>{$member.total_invite}</td>
+                <td><a href="{:U('Backend/Member/memberDetails',array('member_id'=>$member['member_id']))}">查看详情</a></td>
+				
+				</tr>
+			</foreach>
+		  </tbody>
+		</table>
+		<!--- START 分页模板 --->
+        <div style="margin-bottom: 20px">
+            <table id="page-table-fenye" cellspacing="0" >
+                <tr>
+                    <td align="center" nowrap="true">
+                        {$page}
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+			    每页25项
+	</div>
+</div>
+
+<script>
+    $(function() {
+        var date=$( "#start_date" );
+        date.datepicker({ dateFormat: "yy-mm-dd" });
+        date.datepicker( "option", "firstDay", 1 );
+    });
+    $(function() {
+        var date=$( "#end_date" );
+        date.datepicker({ dateFormat: "yy-mm-dd" });
+        date.datepicker( "option", "firstDay", 1 );
+    });
+</script>
+<!-- TPLEND 以下内容不需更改，请保证该TPL页内的标签匹配即可 -->
+<include file="Index:footer"/>

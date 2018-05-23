@@ -1,0 +1,2 @@
+update osa_menu_url set menu_url="/Backend/ProviderReportForm/providerReportForm" where menu_name="广告主报表";
+update osa_menu_url set menu_url="/Backend/ChannelReportForm/channelReportForm" where menu_name="渠道报表";

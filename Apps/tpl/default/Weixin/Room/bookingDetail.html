@@ -1,0 +1,239 @@
+
+<link href="__WXP__/css/comm1.css" rel="stylesheet" type="text/css" />
+<link href="__WXP__/css/goods1.css" rel="stylesheet" type="text/css" />
+<link href="__WXP__/css/product1.css" rel="stylesheet" type="text/css">
+
+<script src="__WXP__/js/goodsPicSlider1.js"></script>
+
+<script>
+    var addCartUrl = "{:U('Cart/add')}";
+    var cartUrl = "{:U('Cart/index')}";
+    var isExistUrl = "{:U('Cart/isExist')}";
+    var loginUrl = "{:U('Login/index')}";
+    var orderUrl = "{:U('order')}";
+    var payUrl = "{:U('pay')}";
+    var tellCreaterUrl = "{:U('tellCreater')}";
+    
+    var remain=parseInt({$bbookingarr['amount']-$bbookingarr['sales']});
+   /*  var goodsid={$bbookingarr.goods_id}; */
+    var bbid={$bbid};
+    
+    layer.use('extend/layer.ext.js', function(){
+	    layer.ext = function(){
+	        layer.prompt({})
+	    };
+	});
+    
+</script>
+
+<link href="__WXP__/css/goods.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="__ROOT__/web/weixin/css/index.css">
+<script src="__ROOT__/web/weixin/js/shop-cart.js"></script>
+
+<style>
+.focus .bd li img {
+	max-width: 360px;
+	min-width: 360px;
+}
+.focus {width: 100vw;}
+
+@media screen and (min-width: 360px) {
+	.focus .bd li img{
+		max-width: 100vw;
+		min-width: 100vw;
+		width: 100vw;
+	}
+}
+@media screen and (min-width: 560px) {
+	.focus .bd li img{
+		max-width: 360px;
+		min-width: 360px;
+		width: 360px;
+	}
+}
+</style>
+		<div style="padding-top: 40px">
+			<div id="divPic" xclass="pPic">
+				<div xclass="pPic2">
+				
+						<div id="focus" class="focus">
+							<div class="hd">
+								<ul></ul>
+							</div>
+							<div class="bd">
+							<ul>
+								<!-- 轮播图 -->
+								<volist name="goods_detail" id="vo2">
+								<li>
+									<img _src="__ROOT__/t/?w=600&h=500&src={$vo2.content}" style="height: 300px !important;" />
+								</li>
+								</volist>
+								</ul>
+							</div>
+						</div>
+				</div>
+			</div>
+			
+			<!-- 产品信息 -->
+			<div class="pro_info">
+				<h2 class="gray6">
+                	{$bbookingarr.goods_title}
+                	<span></span>
+            	</h2>
+				<div class="purchase-txt gray9 clearfix">
+					价值：￥{$bbookingarr.goods_value}
+				</div>
+				<div class="clearfix">
+					<div class="gRate">
+						<div class="Progress-bar">
+							<p class="u-progress" title="已完成{$bbookingarr['sales']/$bbookingarr['amount']*100}%"><span class="pgbar" style="width:{$bbookingarr['sales']/$bbookingarr['amount']*100}%;"><span class="pging"></span></span>
+							</p>
+							<ul class="Pro-bar-li">
+								<li class="P-bar01"><em>{$bbookingarr.sales}</em>已参与</li>
+								<li class="P-bar02"><em>{$bbookingarr.amount}</em>总需人次</li>
+								<li class="P-bar03"><em>{$bbookingarr['amount']-$bbookingarr['sales']}</em>剩余</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+
+
+
+		    <!-- 进度条2 -->
+			<div class="progress_p">
+				<span class="step"><em>查看商品</em></span>
+				<hr />
+				<span class="step"><em>创建包场/购买</em></span>
+				<hr />
+				<span><em>揭晓获奖</em></span>
+			</div>
+
+			<div class="ann_btn">
+				<a href="{:U('Weixin/Room/goodsDetail','id=')}{$bbookingarr.goods_id}">图文详情<s class="fr"></s></a>
+				<a href="{:U('Weixin/Room/playerRecord')}&id={$bbid}">参与记录<s class="fr"></s></a> 
+			</div>
+		</div>
+        <div class="footer1">
+             <ul style="border: 1px solid #08d;">
+
+                <li style="background-color: #08d;">
+
+                <a href="javascript:tpin();" style="display: inline-block;width: 50%;color: #fff;font-size: 16px;">立即参与</a><a href="javascript:ignore();" style="display: inline-block;width: 50%;color: #fff;font-size: 16px;background: brown;">忽略包场邀请</a>
+
+                </li>
+             </ul>
+         </div>
+
+
+<script>
+
+	//"立即参与"的响应函数
+	function tpin(){		
+		
+		var index =layer.prompt(
+			{
+			    title: '请输入要购买的数量',
+			    value: '1',
+			    formType: 0 //prompt风格，支持0-2
+			}, 
+			function(val){
+				val=parseInt(val);
+				
+				if((val<=0)||(val>remain)){
+					layer.msg("数量非法或超出剩余量");
+				}else{
+					submit(val);
+					//关闭弹窗
+					layer.close(index);
+				}
+	        	
+			}
+		);		
+		
+	}
+        /*
+         * 忽略该包场邀请
+         */
+        function ignore(){
+            var del_act_url="{:U('del_bbook_detail')}";
+            var bbid ={$bbid};
+            layer.confirm('您确定要忽略该包场的邀请吗,忽略后该邀请将不会再向您提示,并且您将永远不能继续参加该包场.', {
+            btn: ['确定', '取消'] 
+            }, function(){
+                $.post(del_act_url,{bbid:bbid},function(rel){
+                	 layer.msg(rel.info);	
+                	 
+                    if (rel.status==1) {
+					    setTimeout(function(){					        
+					        location.href="{:U('index/index')}";	
+					    },10);
+					}
+                    
+                });
+            });
+        }
+	
+	//发送异步请求
+	function submit(val){
+		
+		$.post(
+			orderUrl,
+			{
+				bbid:bbid,			
+				nums:val
+			},
+			function(rel){
+				
+				if(rel.status=="1"){
+					//通知包场创建人
+					$.post(tellCreaterUrl,{bbid:bbid});
+					layer.msg("下单成功");					
+					setTimeout(function(){
+						location.href=payUrl+"&orderCode="+rel.info;
+					},1500);					
+				}else{
+					layer.msg(rel.info);
+				}
+			}
+		);
+		
+	}
+
+	$(function() {
+	    $("#sliderBox").picslider();
+	})
+	
+	$(function() {
+	
+	    lxfEndtime();
+	
+	    // $("#sliderBox").picslider();
+		var w = $(window).width();
+		// $('#focus img').width('360px');
+		w < 360 && $('#focus').css('margin-left', (w - $('#focus img').width()) / 2);
+		TouchSlide({
+			slideCell: "#focus",
+			titCell: ".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+			mainCell: ".bd ul",
+			effect: "left",
+			autoPlay: true, //自动播放
+			autoPage: true,
+			switchLoad: "_src" //自动分页
+		});
+	})
+	
+	function layerNumber() {
+	    layer.open({
+	        type: 1,
+	        title: false,
+	        closeBtn: 0,
+	        //不显示关闭按钮
+	        shadeClose: true,
+	        //开启遮罩关闭
+	        content: $('#layer'),
+	        move: '#layer'
+	    });
+	}
+</script>

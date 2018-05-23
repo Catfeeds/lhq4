@@ -1,0 +1,44 @@
+<include file ="Index:header"/>
+<include file ="Index:navibar"/>
+<include file ="Index:sidebar"/>
+<!-- START 以上内容不需更改，保证该TPL页内的标签匹配即可 -->
+<!--
+<{$osadmin_action_alert}>
+<{$osadmin_quick_note}>-->
+{$osadmin_action_alert}
+<div class="well">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#home" data-toggle="tab">请填写广告应用信息</a></li>
+    </ul>	
+	
+	<div id="myTabContent" class="tab-content">
+		  <div class="tab-pane active in" id="home">
+	
+           <form id="tab" method="post" action="">
+        <!--    <label>商务产品ID</label>
+           		<input type="text" name="id" disabled="disabled" value="<{$_POST.id}>" class="input-xlarge" required="true" autofocus="true" >-->
+           		<label>商务对接人</label>
+           		<input type="text" name="owner" value="{$_POST.owner}" class="input-xlarge" required="true" autofocus="true" >
+				<label>产品类型</label>
+				<input type="text" name="product_type" value="{$_POST.product_type}" class="input-xlarge" required="true" autofocus="true" >
+			    <label>产品名称</label>
+			    <input type="text" name="product_name" value="{$_POST.product_name}" class="input-xlarge" required="true" autofocus="true" >
+				<label>激活方式</label>
+				<input type="text" name="method" value="{$_POST.method}" class="input-xlarge" required="true" autofocus="true" >
+				<label>接入单价</label>
+				<input type="text" name="input_price" value="{$_POST.input_price}" class="input-xlarge" required="true" autofocus="true" >
+				<label>建议投放单价</label>
+				<input type="text" name="output_price" value="{$_POST.output_price}" class="input-xlarge" required="true" autofocus="true" >
+				<label>数据反馈方式</label>
+				<input type="text" name="callback_method" value="{$_POST.callback_method}" class="input-xlarge" required="true" autofocus="true" >
+
+				<div class="btn-toolbar">
+					<button type="submit" class="btn btn-primary"><strong>提交</strong></button>
+				</div>
+			</form>
+        </div>
+    </div>
+</div>
+	
+<!-- END 以下内容不需更改，请保证该TPL页内的标签匹配即可 -->
+<include file="Index:footer"/>

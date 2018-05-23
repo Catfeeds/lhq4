@@ -1,0 +1,1 @@
+alter table member add click_time datetime comment'通知点击时间';

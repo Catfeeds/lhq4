@@ -1,0 +1,151 @@
+<script src="__LIB_URL__/bootstrap.min.js" type="text/javascript"></script>
+<link rel="stylesheet" href="__LIB_URL__/kindeditor/themes/default/default.css" />
+<script src="__LIB_URL__/kindeditor/kindeditor.js"></script>
+<script src="__LIB_URL__/kindeditor/lang/zh_CN.js"></script>
+<link rel="stylesheet" href="__LIB_URL__/dialog/dialog.css"/>
+<script src="__LIB_URL__/dialog/dialog.plus.min.js"></script>
+<script src="__LIB_URL__/ja.js"></script>
+
+<div class="m20">
+
+	<form action="{:U('Admin/Banner/update')}" class="goods-form" method="post" enctype="multipart/form-data" >
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<!-- 编号 -->
+				<input type="hidden" class="form-control" name="id" value="{$banner.id}" />
+			</div>
+		</div>
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">序号 (请指定序号 , 默认为 0)</div>
+				<input type="text" class="form-control" name="taxis" value="{$banner.taxis}" />
+			</div>
+		</div>
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">标题</div>
+				<input type="text" class="form-control" name="title" value="{$banner.title}" />
+			</div>
+		</div>
+
+
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">商品 ID</div>
+				<input type="text" class="form-control dom-goods-id" name="goodsId" value="{$banner.goodsid}" />
+				<div class="input-group-addon poi" onclick="choiceGoods();">选择</div>
+			</div>
+		</div>
+	
+		<input type="hidden" class="form-control" name="id" value="{$banner.id}" />
+	
+	
+	<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">类型</div>
+				<select class="form-control"  name='type'  >
+				<foreach name="types" item="value" key="key">
+					<option value="{$key}">{$value}</option>
+				</foreach>
+				
+				</select>
+			</div>
+		</div>
+		<div class="form-group pl5 pr5">
+			<div class="input-group" style="width:100px;max-width:100%;">
+				<div class="input-group-addon">图片</div>
+				<img src="{$banner.url}" style="height:60px;width:auto;" class="form-control url-image" />
+				<input type="hidden" name="url" value="{$banner.url}" class="icon-url"/>
+				<div class="input-group-addon show-image poi">选择</div>
+				<div class="input-group-addon upload poi">上传</div>
+			</div>
+			<div class="checkbox">
+				<label>
+					<input type="checkbox" checked="checked" class="goods-image-check"> 套用商品商品图片
+				</label>
+			</div>
+		</div>	
+		
+		<div class="form-group pl5 pr5">			
+			<button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> <span>保存</span></button>
+		</div>
+
+	</form>
+
+</div>
+
+<script>
+    ROOT= "__ROOT__";
+</script>
+<script>
+var choice_win;
+
+KindEditor.ready(function(K) {
+	var editor = K.editor({
+		fileManagerJson : ROOT+'/php/file_manager_json.php',
+		uploadJson : ROOT+'/php/upload_json.php?dir=image',
+		allowFileManager : true
+	});
+	K('.upload').click(function() {
+		editor.loadPlugin('image', function() {
+			editor.plugin.imageDialog({
+				showRemote : false,
+				imageUrl : K('.icon-url').val(),
+				clickFn : function(url, title) {
+					K('.icon-url').val(url);
+					$('.url-image').attr('src', url);
+					editor.hideDialog();
+				}
+			});
+		});
+	});
+	
+	K('.show-image').click(function() {
+		editor.loadPlugin('filemanager', function() {
+			editor.plugin.filemanagerDialog({
+				viewType : 'VIEW',
+				dirName : 'image',
+				clickFn : function(url, title) {
+					K('.icon-url').val(url);
+					$('.url-image').attr('src', url);
+					editor.hideDialog();
+				}
+			});
+		});
+	});
+
+});
+
+
+function choiceGoods(){
+	choice_win = dialog({
+		id: 'item-edit-id-',
+		title: '选择商品',
+		width: 700,
+		height: 600,
+		url: '{:U('Admin/AjaxGet/goods')}',
+		cancel: function () {
+			this.close().remove();
+			// return false;
+		},
+		cancelDisplay: false,
+		oniframeload: function(){
+			// this.reset();
+		},
+		statusbar: '',
+		zIndex: 99999
+	}).show();
+}
+
+function callback_goodsId(g){	
+	$('.dom-goods-id').val(g.id);
+	$('.dom-goods-title').val(g.title);
+	
+	if($('.goods-image-check')[0].checked){
+		$('.icon-url').val(g.image);
+		$('.url-image').attr('src', g.image);
+	}
+	choice_win.close();
+}
+
+</script>

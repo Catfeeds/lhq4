@@ -1,0 +1,1 @@
+INSERT INTO `ad_type` (`id`, `task_name`, `create_time`) VALUES ('4', '快速激活上报', '0')

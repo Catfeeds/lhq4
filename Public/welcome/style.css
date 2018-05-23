@@ -1,0 +1,56 @@
+@charset "utf-8";
+
+body {height: 100%; width:100%; background-image: url(4.jpg);background-repeat:no-repeat;background-size:cover;}
+
+
+.mydiv{
+    line-height: 50px;
+    font-size: 15px;
+    font-weight: bold;
+     z-index: 99;
+    width: 100%;
+    position: fixed!important;
+    position: absolute}
+.img{width: 100%}
+
+.bg{background-color: #000;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    filter: alpha(opacity=50);
+    opacity: 0.9;
+    z-index: 1;
+    position: fixed!important;}
+
+
+
+ .left{padding:0;float: left;width: 50%;margin-top: 140%;}
+ .right{padding:0;float: right;width: 50%;margin-top: 140%;}
+
+ .lianjie{
+    -webkit-border-radius: 5px;
+    text-decoration: none;
+    display: block;
+    width: 70%;
+    border: 2px solid #fff;
+    text-align: center;
+    line-height: 90px;
+    font-size: 40px;
+    font-weight: bold;
+    margin:13%;
+    color: #fff;}
+
+
+    .anniu{-webkit-border-radius: 5px;
+    text-decoration: none;
+    
+    width: 70%;
+    border: 2px solid #fff;
+    text-align: center;
+    line-height: 90px;
+    font-size: 40px;
+    font-weight: bold;
+    margin:13%;
+    padding: 20px;
+    color: #fff;}

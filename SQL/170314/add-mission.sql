@@ -1,0 +1,1 @@
+﻿ALTER TABLE mission ADD label varchar (50) NULL

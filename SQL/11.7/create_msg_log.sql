@@ -1,0 +1,1 @@
+create table msg_log( id int(11) not null auto_increment, member_id int(11) not null comment'用户id', message_id int(11) not null comment'消息id', status tinyint(2) default 0 comment'消息状态', create_time datetime comment'创建时间', PRIMARY KEY (`id`)) engine=MyISAM default charset=utf8

@@ -1,0 +1,1 @@
+﻿alter table app  CHANGE callback_url  remark text COMMENT '备注';

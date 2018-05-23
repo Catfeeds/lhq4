@@ -1,0 +1,349 @@
+<include file ="Index:header"/>
+<include file ="Index:navibar"/>
+<include file ="Index:sidebar"/>
+<!-- START 以上内容不需更改，保证该TPL页内的标签匹配即可 -->
+{$osadmin_action_alert}
+<script src="__PUBLIC__/ckeditor/ckeditor.js"></script>
+<link rel="stylesheet" href="__PUBLIC__/mobile/css/lanrenzhijia.css" >
+<script>
+    jQuery(document).ready(function($) {
+        $('.theme-login').click(function(){
+//            $('.theme-popover-mask').fadeIn(100);
+            $('.theme-popover').slideDown(200);
+        })
+        $('.theme-poptit .close').click(function(){
+            $('.theme-popover-mask').fadeOut(100);
+            $('.theme-popover').slideUp(200);
+        })
+    })
+</script>
+<style type="text/css">
+    #spot input{
+        width:100px;
+        margin-right:5px;
+    }
+    table th{
+        width:100px;
+        margin-right:5px;
+    }
+</style>
+<div class="well">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#home" data-toggle="tab">修改任务关系</a></li>
+    </ul>	
+	
+	<div id="myTabContent" class="tab-content">
+		<div class="tab-pane active in" id="home">
+        <form id="tab" method="post" action="" onsubmit="return check()">
+            <label>计划名称</label>
+      			<input type="text" name="mission_name" value="{$mission.mission_name}" class="input-xlarge" required="true" autofocus="true" >
+            <label>关键词</label>
+            <input type="text" name="mkwd" value="{$mission.mkwd}" class="input-xlarge"  autofocus="true">
+            <label>总量</label>
+                <input type="text" name="smount" value="{$mission.smount}" class="input-xlarge" required="true" autofocus="true">
+            <label>用户总数量</label>
+                <input type="text" name="amount" value="{$mission.amount}" class="input-xlarge" required="true" autofocus="true" >
+            <label>渠道总数量</label>
+                <input type="text" name="cmount" value="{$mission.cmount}" class="input-xlarge" required="true" autofocus="true" >
+            
+            <label  id='kwd_qx'> 关键词权限 &nbsp;&nbsp;&nbsp;
+                <input  type="radio" name="kwd_qx" value="1" required="true"
+                <if condition="$mission.kwd_qx eq '1'">checked="checked"</if>
+                />开&nbsp;&nbsp;&nbsp;
+                <input  type="radio" name="kwd_qx" value="0" required="true"
+                <if condition="$mission.kwd_qx eq '0'">checked="checked"</if>
+                />关
+            </label>
+            <div id="gjc" >
+                <table>
+                    <tr style="margin-bottom:10px">
+                        <th >关键字</th>
+                        <th >渠道数量</th>
+                        <th >渠道已完成数量</th>
+                        <th >零花钱数量</th>
+                        <th >零花钱已完成数量</th>
+                        <th><input style="width:20px ; color: green;background-color: white; border: 1px solid green" type="button" name="" id='add' value="+"></th>
+                    </tr>
+
+                    <tbody id="spot">
+                        <foreach name="kwdArrs"  item="kwdArr">
+                            <tr>
+                               <!--  <td><input type="hidden" name="id[]" value="{$kwdArr.id}"></td> -->
+                                <td><input type="text" name="kwd[]" value="{$kwdArr.kkwd}"></td>
+                             <!--   <input type="text" name="channels[]" style='width: 10%;margin-right: 10px;' value="{$kwdArr.chan_id}"> -->
+                                <td><input type="text" name="mount[]" value="{$kwdArr.mount}"></td>
+                                <td><input type="text" name="rmount"  value="{$kwdArr['mount']-$kwdArr['mount_re']}" readonly="readonly"></td>
+                                <td><input type="text" name="lmount[]" value="{$kwdArr.lmount}"></td>
+                                <td><input type="text" name="lrmount" value="{$kwdArr['lmount']-$kwdArr['lmount_re']}" readonly="readonly"></td>
+                                <td><input type="button" class="remove" value="-" style="width:20px ;color: green;background-color: white; border: 1px solid green;"/></td>
+                            </tr>
+                        </foreach> 
+                    </tbody>
+                </table>
+            </div>            
+		    <label>出货价</label>
+                <input type="text" name="price" value="{$mission.price}" class="input-xlarge" required="true" autofocus="true" >
+            <label>标签</label>
+                <input type="text" id="label" name="label" value=" {$mission.label_name}" class="input-xlarge" required="true" autofocus="true" >
+                <a class="btnn btnp  theme-login" href="javascript:;">添加标签</a>
+                <div class="theme-popover">
+                    <div class="theme-poptit">
+                        <a href="javascript:;" title="关闭" class="close">×</a>
+                        <h3>请选择标签</h3>
+                    </div>
+                    <div action="{:U('missionAdd')}" method="get">
+                       <foreach name='labels' item='label'>
+                            <label><input name="label_name" type="checkbox" value="{$label.label_name}"/>{$label.label_name} </label>
+                       </foreach>
+                    </div>
+                    <div class="btn-toolbar ">
+                        <button type="button" class="btnprimary" onclick="fun()"><strong>确定</strong></button>
+                    </div>
+                </div>
+<!--             <label>渠道回调比例</label>
+                <input type="text" name="scale" value="{$mission.scale}" class="input-xlarge" required="true" autofocus="true" >
+            <label>选择渠道商</label>
+                <select name="channel_id">
+                    <foreach name="channels" item="channel" key="channel_id">
+                        <option value="{$channel_id}"
+                        <if condition="$mission['channel_id'] eq $channel_id">
+                            selected="selected"
+                        </if>
+                        >{$channel}</option>
+                    </foreach>
+                </select>
+-->                
+            <label>选择广告</label>
+                <select name="app_id" id="ProviderAppid" required="true">
+                    <foreach name="apps" item="app" key="app_id">
+                        <if condition="$app_id eq 0" >
+                            <option value="">请选择广告名称</option>
+                        <else/>
+                            <option value="{$app_id}"
+                            <if condition="$mission['app_id'] eq $app_id">
+                                selected="selected"
+                            </if>
+                            >{$app}</option>
+                        </if>
+                    </foreach>
+                </select> 
+            <label>广告类型</label>
+                <select name="adtype_id" id="DropDownAdtypeid">
+                    <foreach name="adtypes" item="adtype" key="adtype_id">
+                        <option value="{$adtype_id}"
+                            <if condition="$mission['adtype_id'] eq $adtype_id">
+                                selected="selected"
+                            </if>
+                        >{$adtype}</option>
+                    </foreach>
+                </select>
+			<label>销售开始时间</label>
+                <input type="text" id="start_date" name="start_time" value="{$mission.start_time}" placeholder="起始时间" >
+            <label>销售结束时间</label>
+                <input type="text" id="end_date" name="end_time" value="{$mission.end_time}" placeholder="结束时间" >
+            <label>任务步骤</label>
+                <textarea name="des" rows="5" class="input-xlarge">{$mission.des}</textarea>
+                <script type="text/javascript">
+                     CKEDITOR.replace( 'des',{
+                         filebrowserBrowseUrl : '__PUBLIC__/ckfinder/ckfinder.html',
+                         filebrowserImageBrowseUrl : '__PUBLIC__/ckfinder/ckfinder.html?type=Images',
+                         filebrowserFlashBrowseUrl : '__PUBLIC__/ckfinder/ckfinder.html?type=Flash',
+                         filebrowserUploadUrl : '__PUBLIC__/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+                         filebrowserImageUploadUrl : '__PUBLIC__/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+                         filebrowserFlashUploadUrl : '__PUBLIC__/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
+                         extraPlugins: 'codesnippet',codeSnippet_theme: 'Pojoaque'
+                     });
+                </script>
+                <input type="hidden" name="httpref" value="{$_SERVER['HTTP_REFERER']}">
+            <div class="btn-toolbar">
+		        <button type="submit" class="btn btn-primary"><strong>保存并提交审核</strong></button>
+	        </div>
+		</form>
+        </div>
+    </div>
+</div>	
+<!---操作的确认层，相当于javascript:confirm函数-->
+{$osadmin_action_confirm}
+<script>
+    $(function() {
+        var date=$( "#start_date" );
+        date.datetimepicker({
+            showSecond:true,
+            timeFormat: "HH:mm:ss"
+        });
+    });
+    $(function() {
+        var date=$( "#end_date" );
+        date.datetimepicker({
+            showSecond:true,
+            timeFormat: "HH:mm:ss"
+        });
+    });
+    //菜单联动  广告和广告类型
+    $("#ProviderAppid").change(function(){
+        // $('#DropDownAdtypeid').empty();
+        var appid = $(this).val();
+        $('#DropDownAdtypeid').attr("disabled",false);
+        $.get("{:U('Mobile/Apiajax/adtypeAjax')}",{appid:appid},function(res){  
+            var aa = res;
+            if (res) {
+               $('#DropDownAdtypeid').find("option[value="+aa+"]").attr("selected",true);
+               $('#DropDownAdtypeid').attr("disabled",true); 
+            }else{
+                $('#DropDownAdtypeid').find("option[value=0]").attr("selected",true);
+                $('#DropDownAdtypeid').attr("disabled",true); 
+            }
+        },'json');
+    });
+    $(document).ready(function(){
+        $('#DropDownAdtypeid').attr("disabled",true);
+        $a=$('#kwd_qx input[name="kwd_qx"]:checked').val();
+        if($a==0){
+          $("#gjc").hide();
+        }else if($a==1){
+          $("#gjc").show();
+        }
+    });
+
+
+    $('#tab').submit(function(){
+        $('#DropDownAdtypeid').attr("disabled",false);
+    });
+
+    function fun(){
+        $('.theme-popover-mask').fadeOut(100);
+        $('.theme-popover').slideUp(200);
+        obj = document.getElementsByName("label_name");
+        check_val = [];
+        for(k in obj){
+            if(obj[k].checked)
+                check_val.push(obj[k].value);
+        }
+        var bale= check_val.join();
+        $('#label').val(bale);
+    };
+    //关键词div模块显示控制
+    $('#kwd_qx').change(function () {
+        $a=$('#kwd_qx input[name="kwd_qx"]:checked').val();
+        if($a==1){
+            $('#gjc').show();
+        }else if($a==0){
+            $('#gjc').hide();
+        }
+    });
+    //添加关键词列
+    $("input#add").click(function(){     
+        addSpot();
+    });
+    //添加关键词列方法
+    function addSpot() {
+        $('#spot').append(
+            '<tr>' +
+            '<td><input type="text" name="kwd[]"> </td>' +
+      <!--  '<td><input type="text" name="channels[]"> </td> ' +  -->
+            '<td><input type="text" name="mount[]"> </td> ' +
+            '<td><input type="text" name="rmount" readonly="readonly"> </td>' +
+            '<td><input type="text" name="lmount[]"> </td> ' +
+            '<td><input type="text" name="lrmount" readonly="readonly"> </td>' +
+            '<td><input type="button" class="remove" value="-" style="width:20px ;color: green;background-color: white; border: 1px solid green;"/></td>' +
+            '</tr>')
+        .find("input.remove").click(function(){
+            $(this).parent().parent().remove();
+        });
+    };
+
+    //移除关键词的某列
+    $('input.remove').click(function(){
+        $(this).parent().parent().remove();
+    });
+
+    //提交表单判断
+    function check(){ 
+        var r = true;
+        var start_date = $('#start_date').val();//任务开始时间
+        var end_date = $('#end_date').val();//任务结束时间
+        //获取现在时间
+        var nowDateTime = getNowFormatDate();
+
+        var smount = parseInt($("input[name='smount']").val()); //总量
+        var amount = parseInt($("input[name='amount']").val()); //用户总数量
+        var cmount = parseInt($("input[name='cmount']").val()); //渠道总数量
+        //判断总量和  用户总数量加渠道总数量  是否相等
+        if (smount != (amount + cmount)) {
+            alert('总量和分量不相等');
+            return r = false;
+        }; 
+        //获取关键词开关
+        var kwd_qx=$('#kwd_qx input[name="kwd_qx"]:checked').val();
+
+        if (kwd_qx == 1) {
+            if (start_date < nowDateTime && end_date > nowDateTime ) {       
+                //此任务是进行中的任务   循环每个tr  修改后的数量 不能少于已完成数量
+                $('#spot tr').each(function(){
+                    kwd = $(this).children('td').eq(0).children('input').val();      //关键词
+                    mount = $(this).children('td').eq(1).children('input').val();    //渠道数量
+                    mount_re = $(this).children('td').eq(2).children('input').val(); //渠道完成量
+                    lmount = $(this).children('td').eq(3).children('input').val();   //零花钱数量
+                    lmount_re = $(this).children('td').eq(4).children('input').val();//零花钱完成量
+                    //渠道数量和已完成数量比较
+                    if (eval(mount) < eval(mount_re)) {
+                        alert("关键词 "+ kwd+" 渠道数不得少于已完成数量");
+                        return r = false;
+                    };
+                    //零花钱数量和已完成数量比较
+                    if (eval(lmount) < eval(lmount_re)) {
+                        alert("关键词 "+ kwd+" 零花钱数不得少于已完成数量");
+                        return r = false;
+                    };
+                });
+            }
+            //判断关键词渠道(零花钱)数量和是否等于渠道(零花钱)总数量
+            var mount = 0;
+            var lmount = 0;
+            $('#spot tr').each(function(){
+                mount =accAdd(mount,parseInt($(this).children('td').eq(1).children('input').val())); 
+                lmount = accAdd(lmount,parseInt($(this).children('td').eq(3).children('input').val()));
+            });
+            if (eval(mount) != cmount) {
+                alert('渠道数量和不等于渠道总量');
+                return r = false;
+            };
+            if (eval(lmount) != amount) {
+                alert('零花钱数量和不等于零花钱总量');
+                return r = false;
+            };
+
+        }
+        return r;
+    }
+    //获取当前时间  格式为yyyy-mm-dd hh:mm:ss
+    function getNowFormatDate() {
+        var date = new Date();
+        var seperator1 = "-";
+        var seperator2 = ":";
+        var month = date.getMonth() + 1;
+        var strDate = date.getDate();
+        if (month >= 1 && month <= 9) {
+            month = "0" + month;
+        }
+        if (strDate >= 0 && strDate <= 9) {
+            strDate = "0" + strDate;
+        }
+        var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
+                + " " + date.getHours() + seperator2 + date.getMinutes()
+                + seperator2 + date.getSeconds();
+        return currentdate;
+    }
+    //加法
+    function accAdd(arg1,arg2){
+        var r1,r2,m;
+        try{r1=arg1.toString().split(".")[1].length}catch(e){r1=0}
+        try{r2=arg2.toString().split(".")[1].length}catch(e){r2=0}
+        m=Math.pow(10,Math.max(r1,r2))
+        return (arg1*m+arg2*m)/m
+    }
+
+
+</script>
+<!-- END 以下内容不需更改，请保证该TPL页内的标签匹配即可 -->
+<include file="Index:footer"/>

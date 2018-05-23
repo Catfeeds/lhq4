@@ -1,0 +1,16 @@
+
+<div style="padding-top: 40px">
+	<div class="g-statistics gray9" id="div_title">
+		您本期总共参与<em class="orange">{$order_details.nums}</em>人次
+	</div>
+	<div class="buy-codes-con clearfix">
+		<ul id="ul_list">
+			<li><p> {$periods_details.microtime|date='m/d/Y H:i:s',###}</p></li>
+			<li>
+			<volist name="pcodes" id="vo">
+		<span><em class="orange">{$vo.pcode}</em></span> 
+			</volist>
+			</li>
+		</ul>
+	</div>
+</div>

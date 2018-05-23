@@ -1,0 +1,108 @@
+
+<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" name="viewport" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+
+<link href="__WXP__/css/accounts.css" rel="stylesheet" type="text/css" />
+
+<div>
+    <div class="acc-menu g-rechargeNav">
+        <a href="{:U('recharge')}">网银充值</a>
+        <a href="{:U('recharge_card')}" class="z-checked">充值卡充值</a>
+    </div>
+    <div class="g-accounts-details">
+        <h4 class="gray9">您的当前余额：<em class="orange">￥{$balance}</em>元</h4>
+        <p id="pTaobao">仅支持1元{:C("web_title")}官方充值卡充值，立即购买></p>
+    </div>
+
+    <div class="recharge-con clearfix">
+        <ul>
+            <li>
+                <input id="txtCard" type="text" maxlength="12" placeholder="请输入12位卡号" /><i>充值卡号</i></li>
+            <li>
+                <input id="txtPwd" type="password" maxlength="8" placeholder="请输入8位充值卡密码" /><i>充值密码</i></li>
+            <li id="li_info" class="z-card gray6" style="color: red;"></li>
+            <li class="z-rec-a"><a id="btnSubmit" href="javascript:confirm();" class="defaultRedBtn">确认充值</a></li>
+        </ul>
+    </div>
+
+    <div id="divTaobao" class="acc-pop clearfix z-box-width" style="display: none;">
+        <a href="javascript:;" class="z-set box-close"></a>
+        <h4 class="gray6">如何购买充值卡？</h4>
+        <div class="copy-con">
+            <span class="gray6">方法1、复制以下淘口令，打开手机淘宝</span>
+            <p class="gray9 al-center"></p>
+        </div>
+        <div class="copy-con">
+            <span class="gray6">方法2、打开淘宝网搜索店铺“”或复制以下网址使用浏览器打开</span>
+            <p class="gray9"></p>
+        </div>
+    </div>
+
+</div>
+<script>
+
+
+
+
+    function confirm() {
+        var card = $('#txtCard').val();
+        var pwd = $('#txtPwd').val();
+        if (card.length < 12) {
+            layer.msg('您输入卡号不足12位,请重新输入');
+            return;
+        }
+        if (pwd.length < 8) {
+            layer.msg('您输入密码不足8位,请重新输入');
+            return;
+        }
+        var actionurl = "{:U('user/GetCardMsg')}";
+
+        $.post(actionurl, {cardid: card, pass: pwd}, function (msg) {
+
+            if (!msg['status']) {
+                layer.msg('卡号或密码错误,查询卡信息失败!');
+                return;
+            }
+            if (msg['status'] == 0) {
+                $('#li_info').html('');
+                $('#li_info').html("<span style='vertical-align:text-top;font-size: 18px;'>\n\
+                    *</span>&nbsp;&nbsp;该充值卡已被禁用,如有疑问,请联系1元开抢官方客服热线:400-800-0731(工作时间9:00-21:00)");
+                return;
+            }
+            if (parseInt(msg['paydate']) != 0) {
+                $('#li_info').html('');
+                $('#li_info').html("<span style='vertical-align:text-top;font-size: 18px;'>\n\
+                    *</span>&nbsp;&nbsp;该充值卡已于" + new Date(parseInt(msg['paydate']) * 1000).toLocaleString() + "使用,如有疑问,请联系1元开抢官方客服热线:400-800-0731(工作时间9:00-21:00)");
+                return;
+            }
+            if (msg['overduedate'] < msg['nowDate']) {
+                $('#li_info').html('');
+                $('#li_info').html("<span style='vertical-align:text-top;font-size: 18px;'>\n\
+                    *</span>&nbsp;&nbsp;该充值卡已于" + new Date(parseInt(msg['overduedate']) * 1000).toLocaleString() + "过期,如有疑问,请联系1元开抢官方客服热线:400-800-0731(工作时间9:00-21:00)");
+                return;
+            }
+            layer.confirm('您使用的充值卡面额为' + msg['paycardsize'] + '元,确定要充值吗?', {
+                btn: ['确定', '取消']
+            }, function () {
+                actionurl = "{:U('user/CardToBalance')}"
+                $.post(actionurl, {cardid: card, pass: pwd}, function (msg) {
+                    if (msg) {
+                        layer.msg('已成功为您的账户充值!');
+
+                        location.reload();
+                        return;
+                    } else {
+
+                        layer.msg('系统出错,充值失败!');
+                        return;
+                    }
+                }, 'json');
+            }
+            );
+
+        }, 'json');
+    }
+
+</script>

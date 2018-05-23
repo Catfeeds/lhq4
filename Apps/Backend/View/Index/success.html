@@ -1,0 +1,24 @@
+<!--<{include file="simple_header.tpl"}>-->
+<include file="Index:header"/>
+<include file="Index:navibar"/>
+<include file="Index:sidebar"/>
+  <body> 
+    <div class="navbar">
+        <div class="navbar-inner">
+                <ul class="nav pull-right">
+                </ul>
+                <a class="brand" href="{:U(index)}"><span class="first"></span> <span class="second"><{$smarty.const.COMPANY_NAME}></span></a>
+        </div>
+    </div>
+<div>
+<div class="container-fluid">	
+<div class="row-fluid">
+    <div class="http-error">
+        <h1>Yep!</h1>
+        <p class="info"><{$message_detail}></p> 
+		<p><i class="icon-home"></i></p>
+        
+    </div>
+<!--
+<{include file="footer.tpl"}>-->
+    <include file="Index:footer"/>

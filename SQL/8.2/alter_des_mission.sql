@@ -1,0 +1,1 @@
+alter table mission add des text comment'ÈÎÎñ²½Öè';

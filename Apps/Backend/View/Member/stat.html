@@ -1,0 +1,60 @@
+<include file="Index:header"/>
+<include file="Index:navibar"/>
+<include file="Index:sidebar"/>
+<!-- TPLSTART 以上内容不需更改，保证该TPL页内的标签匹配即可 -->
+
+
+<div class="block">
+	<a href="#page-stats" class="block-heading" data-toggle="collapse">会员统计列表</a>
+	<div id="page-stats" class="block-body collapse in">
+	<table class="table table-striped">
+			<thead>
+			<tr>
+				<th>总人数</th>
+                <th>今日新增</th>
+				<th>天活跃人数</th>
+				<th>周活跃人数</th>
+				<th>月活跃人数</th>
+				
+			</tr>
+			</thead>
+			<tbody>							  
+
+				<tr>
+				 
+				<td>{$counts}</td>
+				
+				<td>{$newCounts}</td>
+				 
+				<td>{$dayCounts}</td>
+
+                <td>{$weekCounts}</td>
+
+                <td>{$monthCounts}</td>
+
+				<td></td>
+			
+				</tr>
+
+		  </tbody>
+		</table>	
+		<!--- START 分页模板 --->
+         <!--      <{$page_html}>
+			   &lt;!&ndash;- END -&ndash;&gt;
+			    每页25项	-->
+	</div>
+</div>
+<script>
+$(function() {
+	var date=$( "#start_date" );
+	date.datepicker({ dateFormat: "yy-mm-dd" });
+	date.datepicker( "option", "firstDay", 1 );
+});
+$(function() {
+	var date=$( "#end_date" );
+	date.datepicker({ dateFormat: "yy-mm-dd" });
+	date.datepicker( "option", "firstDay", 1 );
+});
+</script>
+<!-- TPLEND 以下内容不需更改，请保证该TPL页内的标签匹配即可 -->
+<include file="Index:footer"/>

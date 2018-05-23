@@ -1,0 +1,174 @@
+<link href="__WXP__/css/comm1.css" rel="stylesheet" type="text/css" />
+<link href="__WXP__/css/member1.css" rel="stylesheet" type="text/css" />
+<link href="__CDN__/weui.css" rel="stylesheet" type="text/css" />
+<title>选择好友</title>
+<style>.sliderNave li a{color: #aaaaaa;}</style>
+
+<div style="padding-top: 40px">
+
+	<div class="weui_search_bar" id="search_bar">
+		<div class="weui_search_outer">
+			<div class="weui_search_inner">
+				<i class="weui_icon_search"></i>
+				<input type="search" class="weui_search_input" id="search_input" placeholder="搜索" required="">
+				<a href="javascript:" class="weui_icon_clear" id="search_clear"></a>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="divBuyList" class="m_buylist" >
+		<ul id="ul_list">
+
+		<volist name="myFriends" id="vo">
+			<li id="{$vo.anchorlink}">
+				<i data-id="{$vo.member_id}" class="userid"></i>
+				<a href="#" style="float:left">
+					<cite>
+						<img src="__ROOT__/t/?src={$vo.pic}" />
+					</cite>
+					<span>{$vo.nickname}</span>
+				</a>
+			</li>
+		</volist>
+
+		</ul>
+	</div>
+	<div style="height: 45px;"></div>
+
+	<a style="height: 40px;
+		display: block;
+		line-height: 40px;
+		font-size: 16px;
+		position: fixed;
+		border: 1px solid #de4849;
+		bottom: 20px;
+		color: #de4849;
+		left: 0;
+		right: 0;
+		width: 80%;
+		margin: 0 auto;" href="javascript:submit();" class="whiteBtn">确认</a>
+</div>
+
+
+<ul class="sliderNave" style="padding-top: 40px">
+	<li><a href="#">#</a></li>
+	<li><a href="#A">A</a></li>
+	<li><a href="#B">B</a></li>
+	<li><a href="#C">C</a></li>
+	<li><a href="#D">D</a></li>
+	<li><a href="#E">E</a></li>
+	<li><a href="#F">F</a></li>
+	<li><a href="#G">G</a></li>
+	<li><a href="#H">H</a></li>
+	<li><a href="#I">I</a></li>
+	<li><a href="#J">J</a></li>
+	<li><a href="#K">K</a></li>
+	<li><a href="#L">L</a></li>
+	<li><a href="#M">M</a></li>
+	<li><a href="#N">N</a></li>
+	<li><a href="#O">O</a></li>
+	<li><a href="#P">P</a></li>
+	<li><a href="#Q">Q</a></li>
+	<li><a href="#R">R</a></li>
+	<li><a href="#S">S</a></li>
+	<li><a href="#T">T</a></li>
+	<li><a href="#U">U</a></li>
+	<li><a href="#V">V</a></li>
+	<li><a href="#W">W</a></li>
+	<li><a href="#X">X</a></li>
+	<li><a href="#Y">Y</a></li>
+	<li><a href="#Z">Z</a></li>
+</ul>
+
+
+
+<script>
+selfURL="{:U('tpin')}";
+nextURL="{:U('showFriends')}";
+
+
+$list = $('#ul_list');
+
+$(function (){
+	$(document)
+		.on('keyup', '#search_input', function(){
+			var newVal = $.trim(this.value);
+
+			if(newVal != this.trimVal){
+				this._timeOut && clearTimeout(this._timeOut);
+				this.trimVal = newVal;
+				var _this = this;
+
+				this._timeOut = setTimeout(function(){
+					seachF(newVal);
+				}, 200);
+			}
+		});
+});
+
+
+function seachF(a){
+	var a = a.toLowerCase();
+
+	if(a == ''){
+		return $list.show();
+	}
+
+	$list.hide();
+
+	$list.each(function(){
+		var s = $(this).find('span').text().toLowerCase();
+		if(s.indexOf(a) != -1){
+			$(this).show();
+		}
+	});
+}
+
+
+
+function submit(){
+	//获取选中的朋友列表
+	friends=[];
+	$(".userid.checked").each(function(){
+		friends.push($(this).data("id"));
+	});
+
+	//异步提交
+	$.post(
+			selfURL,
+			{
+				friends:friends,
+			},
+			function(rel){
+				if(rel.status==1){
+					location.href=nextURL;
+				}else{
+					layer.msg(rel.info);
+				}
+			}
+	);
+
+}
+
+$(function(){
+	$('i').click(function(){
+		if($(this).hasClass('checked'))
+			$(this).removeClass('checked');
+		else
+			$(this).addClass('checked');
+	})
+
+	resize();
+
+	$(window).resize(function() {
+		resize();
+	});
+})
+
+function resize(){
+	var width = ($(window).width() - $('.f_btn').width())/2;
+	$('.f_btn').css('left',width);
+}
+
+</script>

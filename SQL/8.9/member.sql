@@ -1,0 +1,2 @@
+ALTER TABLE `member` CHANGE `member_name` `member_name` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT '»áÔ±Ãû';
+ALTER TABLE `member` CHANGE `member_id` `member_id` INT(11) NOT NULL AUTO_INCREMENT;

@@ -1,0 +1,96 @@
+<link href="__WXP__/css/comm1.css" rel="stylesheet" type="text/css"/>
+<link href="__WXP__/css/goods1.css" rel="stylesheet" type="text/css"/>
+
+<div class="goodList_room">
+    <ul>
+        <li>
+					<span class="gList_l fl">
+						<img src="{$goods.image}">
+					</span>
+            <div class="gList_r">
+                <h3 class="gray6">{$goods.title}</h3>
+                <em class="gray9">价值：￥{$goods.originprice}</em>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div style="height: 20px;"></div>
+
+<div class="invite_friend">
+    <h2>已选择 {$tpinCount} 位好友</h2>
+    <div>
+        <ul style="    padding: 0 20px;">
+            <volist name="tpin" id="vo1">
+                <li>
+                    <img src="__ROOT__/t/?w=200&h=200&src={$vo1.pic}">
+                    <em>{$vo1.nickname}</em>
+                </li>
+                <input type="hidden" name="id" value="{$vo1.id}"/>
+            </volist>
+
+        </ul>
+    </div>
+    <span><a href="{:U('tpin')}">选择好友</a> &emsp; <a href="{:U('Friends/friends_add')}">添加好友</a></span>
+
+</div>
+
+<div style="position: absolute;
+    bottom: 130px;
+    width: 100%;">
+    <a href="{:U('Article/aboutUs')}&id=31"
+       style="color: #00ABEC;text-decoration:underline;font-size: 16px;display: block;text-align: center;">
+        我已阅读包场协议
+    </a>
+</div>
+
+
+<div style="
+    bottom: 80px;
+    position: absolute;
+    width: 100%;">
+    <a href="javascript:submit();" class="whiteBtn"
+       style="display: block;width: 80%;border: 1px solid #de4849;height: 40px;line-height: 40px;margin: auto;font-size: 16px;">创建包场</a>
+</div>
+
+<script>
+    nextURL = "{:U('index_canyu')}";
+    postURL = "{:U('createRoom')}";
+
+    function submit() {
+
+        layer.confirm('您是否已经阅读并同意包场协议', {
+            btn: ['同意', '不同意'] //按钮
+        }, function () {
+            $.post(
+                    postURL,
+                    {},
+            function (rel) {
+                        if (rel.status == 1) {
+                            location.href = rel.info;
+                           // http://localhost/dev/yykq/index.php?m=Weixin&c=Room&a=index_canyu
+                            /*
+                             layer.alert(
+                             rel.info,
+                             {
+                             title:"包场成功!请复制以下链接发给您的好友",
+                             area:"80%",
+                             closeBtn: 0,
+                             shift: 5,
+                             shadeClose: true,
+                             }
+                             ); 	 */
+                        } else {
+                            layer.msg(rel.info);
+                        }
+
+                    }
+            );
+        }, function () {
+            return;
+        });
+
+    }
+
+
+</script>

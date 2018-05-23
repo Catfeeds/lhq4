@@ -1,0 +1,90 @@
+<div class="m20" style="margin: 10px;">
+
+
+	<header class="panel_header fix mb20">
+		<h2 class="title">系统管理</h2>
+	</header>
+<!-- 分类 -->
+				<ul class="nav nav-tabs">
+					<volist name="cate" id="vo">
+
+						<li <php> if($vo['id']==$cid){echo"class='active'";}</php> >
+							<a href="{:U('Admin/System/index','cid=')}{$vo.id}">{$vo.name}</a>
+						</li>
+					</volist>
+				</ul>
+
+<!-- 系统管理 -->
+
+
+
+	<form action="{:U('Admin/System/update')}" method="post" class="goods-form form-horizontal">
+	<input type="hidden" name="cid" value="{$cid}" />
+	<div style="margin-top:20px;">
+		<volist name="systems" id="v">
+			<div class="form-group">
+				<label class="col-sm-2 control-label">{$v.cn_name}</label>
+				<div class="col-sm-10">
+					<if condition="$v['type'] == 0">
+						<input type="text" title="{$v.remarks}" class="form-control" name="sys[{$v.id}][val]" value="{$v.val}"/>
+					<elseif condition="$v['type'] == 1"/>
+						<textarea class="form-control" name="sys[{$v.id}][val]" rows="3" title="{$v.remarks}">{$v.val}</textarea>
+					<elseif condition="$v['type'] == 2"/>
+
+						<div class="input-group" style="width:100px;max-width:100%;">
+							<img src="{$v.val}" style="height:60px;width:auto;" class="form-control id__{$v.id}" title="{$v.remarks}"/>
+							<span data-id="{$v.id}" class="input-group-addon k-show-image poi">浏览</span>
+							<span data-id="{$v.id}" class="input-group-addon k-upload-image poi">上传</span>
+						</div>
+						<input type="hidden" name="sys[{$v.id}][val]" value="{$v.val}" class="id__{$v.id}" required="required"/>
+
+					<elseif condition="$v['type'] == 3"/>
+
+						<div class="input-group" style="">
+							<input type="text" name="sys[{$v.id}][val]" value="{$v.val}" class="form-control id__{$v.id}"/>
+							<span data-id="{$v.id}" class="input-group-addon k-show-image poi">浏览</span>
+							<span data-id="{$v.id}" class="input-group-addon k-upload-file poi">上传</span>
+						</div>
+
+					</if>
+
+				</div>
+			</div>
+			<input type="hidden" name="sys[{$v.id}][id]" value="{$v.id}" />
+		</volist>
+	</div>
+
+	<div class="form-group">
+		<label class="col-sm-2 control-label"></label>
+		<div class="col-sm-10">
+			<button type="submit" class="btn btn-default">
+				<i class="fa fa-save"></i> <span>保存</span>
+			</button>
+		</div>
+	</div>
+
+	</form>
+
+<link rel="stylesheet" href="__LIB_URL__/kindeditor/themes/default/default.css" />
+<!--    <script src="__LIB_URL__/ja.js"></script>-->
+    <script>
+        ROOT= "__ROOT__";
+    </script>
+<script src="__LIB_URL__/kindeditor/kindeditor.js"></script>
+<script src="__LIB_URL__/kindeditor/lang/zh_CN.js"></script>
+<script src="__LIB_URL__/kindeditor/lang/zh_CN.js"></script>
+
+<script src="__STATIC__/admin/k.js"></script>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,167 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+
+        <title>绑定支付宝</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="default">
+        <meta name="msapplication-tap-highlight" content="no">
+    <script src="/lhq/Public/mobile/js/jquery.min.js" type="text/javascript"></script>
+        
+        <link rel="stylesheet" href="/lhq/Public/mobile/css/style.css" type="text/css">
+        
+    </head>
+<script type="text/javascript">
+    var intervalid;
+    var i;
+    function sendmsg(a){
+        i = 59;
+        //alert(1);
+        var tel=$("input[name='phone']").val();
+        //alert(tel);
+        if ($("input[name='phone']").val().match(/^13[0-9]{1}[0-9]{8}$|14[0-9]{1}[0-9]{8}$|15[0-9]{1}[0-9]{8}$|18[0-9]{1}[0-9]{8}$/)) {
+            //alert(1);
+            $('#send').attr('onclick','');
+            $.ajax({
+                url:"../ajax/sendvercode.php",
+                data:{tel:tel},
+                dataType:'html',
+                type:'post',
+                success:function(e){
+                    //alert(e);
+                    if(e==1){
+                        $("#send").html('重新发送(60)');
+                        intervalid = setInterval("fun()", 1000);
+                        alert('发送成功！');
+                    }else{
+                        alert('发送失败！');
+                        $('#send').attr('onclick','return sendmsg(this)');
+                    }
+                }
+            })
+        }else{
+            alert('请输入正确的手机号！');
+        }
+    }
+   function fun() {
+       if (i <=0) {
+           $("#send").html('重新发送');
+           $("#send").attr('onclick','return sendmsg(this);');
+           $("#send").css('background',"#F33812");
+           clearInterval(intervalid);
+       }else{
+           $("#send").html('重新发送('+i+')');
+           $("#send").attr('onclick','');
+           $("#send").css('background',"#BCBCBC");
+       }
+       i-=1;
+   }
+</script>
+
+    <body>
+
+
+
+        <!--        <{include file="./tishikuang.tpl"}>-->
+				<div class="devBox">
+					<a href="<?php echo U('My/my',array('member_id'=>I('get.member_id')));?>"><img src="/lhq/Public/mobile/images/a2.png" alt class="fl"></a>
+					<h1 class="biaoti">绑定支付宝</h1>
+
+				</div>
+                <div class="kuang1">
+                    友情提醒：<br>（1）输入的姓名为真实姓名，且与要绑定的支付宝账户姓名一致。
+                    <br>（2）绑定的支付宝账户请与绑定的手机号一致。
+                </div>
+
+               
+                    
+                    <form method="post" action="<?php echo U('My/bindalipay',array('member_id'=>I('get.member_id')));?>" onsubmit="return check()">
+                     <div class="hang"> 
+                    <div class="bind">
+                    <span>姓&nbsp;&nbsp;&nbsp;名：</span>
+                    <input type="text" name="member_name" class="pay" required="required" id="name" placeholder="请输入您的真实姓名"></div>
+                <div class="bind">
+                    <span>支付宝：</span>
+                    <input type="text" name="alipay" class="pay" id="alipay" placeholder="请输入您的支付宝账号" required="required">
+                     </div>
+                     <div class="bind">
+                        <a href="#"><img title="验证码" onclick="this.src='<?php echo U('Tixian/verify');?>#'+Math.random();"src="<?php echo U('Tixian/verify');?>" style="vertical-align:top">
+                            <span id="yzm" style="color: red;"></span></a>
+                             <input type="text" id="verify_code" class="pay"  name="verify_code"placeholder="输入验证码" autocomplete="off"><a class="check" check="1"></a>
+                       
+                    </div>
+                       
+                    </div>
+                       <button type="submit" id="tj" class="referring"<strong>提交</strong></button>
+                    </form>
+
+                
+			
+
+
+     <script>
+
+         function check(){
+             var name =$("#name").val();
+             var alipay=$("#alipay").val();
+            // alert(name);
+             var yzm = $("#verify_code").val();
+            // var regphone = /^13[0-9]{1}[0-9]{8}$|14[0-9]{1}[0-9]{8}$|15[0-9]{1}[0-9]{8}$|18[0-9]{1}[0-9]{8}$/;
+            // var regemail = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+             var email=/(^1[0-9]{10}$)|(^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$)/;
+             if(name==''){
+                 alert("请输入您的真实姓名");
+                 return false;
+             }
+             if(alipay==''){
+                alert("请输入支付宝账号");
+                return false;
+            }
+             if((!email.test(alipay))) {
+                 alert("请输入有效的Email或手机号!");
+                 return false;
+             }
+             //alert(lenth);
+            /* if(!regphone.test($("#alipay").val()))
+             {
+                 alert('请输入有效的手机号码！');
+                 return false;
+             }*/
+             if(!yzm) { //若输入的验证码长度为0
+                 alert("请输入验证码！"); //则弹出请输入验证码
+                 return false;
+             }
+
+             return true;
+
+
+         }
+         $(function(){
+             $("#verify_code").blur(function(){
+                 var verifycode=$("#verify_code").val();
+                 //alert(verifycode);die;
+                 url = "<?php echo U('Tixian/yzmAjax');?>";
+                 $.post(url,{verify:verifycode},function(data){
+                     if(data=="1"){
+                         //$("#yzm").html('√');
+                         $("#yzm").html('<img src="/lhq/Public/mobile/images/true.png"/>');
+                     }else{
+                         //$("#yzm").html('×');
+                         $("#yzm").html('<img src="/lhq/Public/mobile/images/error.png"/>');
+                         //$("#yzm").attr('src', "../assets/mobile/images/error.png");
+                     }
+                     // $(this).val(data.verifycode);
+                 },'html')
+          
+             })
+         })
+     </script>
+        
+
+    
+
+</body></html>

@@ -1,0 +1,39 @@
+
+<div  style="padding-top: 40px">
+	<div id="divBuyList" class="m_buylist">
+		<ul id="ul_list">
+			<volist name="bb_details" id="details">
+			
+				<li>
+		
+					<cite>
+								<img src="{$details.pic}"/>
+							</cite>
+							<dl>
+								<dt><em class="blue">{$details.nickname}</em>（{$details.addr}）</dt>
+								<dt>本期参加<em class="blue">{$details.num}</em>人次 </dt>
+								<dt>{$details.create_time}</dt>
+							</dl>
+				</li>
+			</volist>
+			<!-- 
+			
+			<li>
+						  <a href="{:U('Weixin/Goods/user_page','userid=')}{$vo.user_id}"> 
+							<cite>
+								<img src="/t/?w=200&h=200&src={$users.facepic}"/>
+							</cite>
+							<dl>
+								<dt><em class="blue">新龙是处女座</em>（济宁）</dt>
+								<dt>本期参加<em class="blue">20</em>人次 </dt>
+								<dt>2015-11-11 15:15:15.42185444</dt>
+							</dl>
+					 </a>  
+					</li>
+					
+					-->
+					
+			
+			</ul>
+		</div>
+	</div>

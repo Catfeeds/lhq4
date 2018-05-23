@@ -1,0 +1,1 @@
+alter table income_details add invited_id tinyint(4) comment'±»ÑûÇëÈËid';

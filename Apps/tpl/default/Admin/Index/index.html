@@ -1,0 +1,109 @@
+		<header class="panel_header fix">
+			<h2 class="title pull-left">{:C('site_title')} 管理首页</h2>
+			<div class="actions panel_actions pull-right">
+			</div>
+		</header>
+		<style>
+.box {
+	display: inline-block;
+	position: relative;
+	font-family: "Microsoft YaHei",微软雅黑,"MicrosoftJhengHei";
+	width: 240px;
+	height: 100px;
+	background-color: #00C0EF;
+	color: #fff;
+	margin: 5px;
+}
+.box-text {
+	width: 180px;
+	padding: 5px 0;
+	text-align: center;
+}
+.box-text > * {
+	display: block;
+}
+.box-text .num {
+	font-size: 30px;
+}
+.box-text .info {
+	font-size: 15px;
+}
+.box-icon {
+	font-size: 40px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	margin: 15px;
+	color: rgba(255, 255, 255, .7);
+}
+.box-bottom {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	text-align: center;
+	width: 100%;
+	padding: 4px 0;
+	font-size: 12px;
+	background-color: rgba(0, 0, 0, .07);
+}
+
+.box-bottom:hover {
+	background-color: rgba(0, 0, 0, .15);
+}
+
+.bg1 {background-color: #00C0EF;}
+.bg3{background-color: #F39C12;}
+.bg2 {background-color: #00A65A;}
+.bg4 {background-color:#DD4B39 ;}
+.box a{color:#FFFFFF;}
+.box a:hover {color:#000000;}
+</style>
+		<div class="m20">
+			<div class="box bg1">
+		<div class="box-text">
+			<span class="num">{$conuser}</span>
+			<span class="info">新增用户</span>
+		</div>
+
+		<div class="box-icon"><i class="fa fa-user-plus"></i></div>
+
+		<div class="box-bottom"><a href="{:U('Admin/Users/index')}">查看用户</a><i class="fa fa-arrow-circle-right"></i></div>
+	</div>
+	
+	<div class="box bg3">
+		<div class="box-text">
+			<span class="num">{$countuser}</span>
+			<span class="info">总用户统计</span>
+		</div>
+
+		<div class="box-icon"><i class="fa fa-user"></i></div>
+
+		<div class="box-bottom"><a href="{:U('Admin/Users/index')}">查看用户</a><i class="fa fa-arrow-circle-right"></i></div>
+	</div>
+
+	<div class="box bg2">
+		<div class="box-text">
+			<span class="num">{$congoods}</span>
+			<span class="info">新增商品数量</span>
+		</div>
+
+		<div class="box-icon"><i class="fa fa-shopping-cart"></i></div>
+
+		<div class="box-bottom"><a href="{:U('Admin/Goods/index')}">查看商品</a><i class="fa fa-arrow-circle-right"></i></div>
+	</div>
+
+
+	<div class="box bg4">
+		<div class="box-text">
+			<span class="num">{$count}</span>
+			<span class="info">总商品数量</span>
+		</div>
+
+		<div class="box-icon"><i class="fa fa-shopping-cart"></i></div>
+
+		<div class="box-bottom"><a href="{:U('Admin/Goods/index')}">查看商品</a> <i class="fa fa-arrow-circle-right"></i></div>
+	</div>
+		</div>
+	
+				
+		

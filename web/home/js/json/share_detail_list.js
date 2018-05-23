@@ -1,0 +1,19 @@
+[
+ {"userface":"20150819215648179.jpg","username":"奥巴马","qishu":6100,"shared":true},
+ {"userface":"20150403034413357.jpg","username":"普京","qishu":6000,"shared":true},
+ {"userface":"20150913133555586.jpg","username":"安倍晋三","qishu":5900,"shared":false},
+ {"userface":"20151130191600460.jpg","username":"卡梅伦","qishu":5800,"shared":false},
+ {"userface":"20151124111529700.jpg","username":"朴槿惠","qishu":5700,"shared":true},
+ {"userface":"20151130191600461.jpg","username":"奥朗德","qishu":5600,"shared":false},
+ {"userface":"20150403034413358.jpg","username":"罗纳尔多","qishu":5500,"shared":true},
+ {"userface":"20151130191600462.jpg","username":"梅西","qishu":5400,"shared":true},
+ {"userface":"20150403034413359.jpg","username":"贝克汉姆","qishu":5300,"shared":false},
+ {"userface":"20151130191600463.jpg","username":"齐达内","qishu":5200,"shared":true},
+ {"userface":"20150913133555587.jpg","username":"卡纳瓦罗","qishu":5100,"shared":false},
+ {"userface":"20150913133555588.jpg","username":"布冯","qishu":5000,"shared":true},
+ {"userface":"20150913133555589.jpg","username":"C罗","qishu":4900,"shared":true},
+ {"userface":"20150913133555516.jpg","username":"小罗","qishu":4800,"shared":true},
+ {"userface":"20150913133555526.jpg","username":"卡卡","qishu":4700,"shared":true},
+ {"userface":"20150913133555536.jpg","username":"内马尔","qishu":4600,"shared":true},
+ {"userface":"20150913133555546.jpg","username":"罗本","qishu":4500,"shared":true}
+]

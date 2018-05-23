@@ -1,0 +1,1 @@
+ALTER TABLE `channel_log` ADD `kid` VARCHAR(255)  COMMENT '关键词';

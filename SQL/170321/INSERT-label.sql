@@ -1,0 +1,1 @@
+﻿INSERT INTO `adbe`.`osa_menu_url` (`menu_id`, `menu_name`, `menu_url`, `module_id`, `is_show`, `online`, `shortcut_allowed`, `menu_desc`, `father_menu`) VALUES (NULL, '标签管理', '/Backend/Label/label', '2', '1', '1', '1', '添加标签','0');

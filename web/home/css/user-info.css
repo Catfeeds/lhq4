@@ -1,0 +1,203 @@
+@charset "utf-8";
+
+body a {
+	cursor: pointer;
+}
+
+.u-show-protail {
+	width: 328px;
+	height: 140px;
+	border: 1px solid #e4e4e4;
+	box-shadow: 0 0 12px #E0E0E0;
+	background-color: #fff;
+	position: absolute;
+}
+
+.u-show-protail .u-show-con {
+	padding: 17px 16px 13px;
+	height: 110px;
+}
+
+.u-show-protail .u-pic {
+	width: 110px;
+	height: 110px;
+	float: left;
+	border-radius: 50%;
+	position: relative;
+	overflow: hidden;
+	text-align: center;
+	line-height: 110px;
+}
+
+.u-show-protail .u-pic img {
+	display: block;
+	width: 112px;
+	height: 112px;
+	margin: -1px 0 0 -1px;
+}
+
+.u-show-protail .u-info {
+	padding-left: 126px;
+}
+
+.u-show-protail .u-info .grade {
+	white-space: nowrap;
+	padding-left: 17px;
+	position: relative;
+	height: 20px;
+	line-height: 20px;
+	color: #666;
+	margin-top: 2px;
+	width: 158px;
+	overflow: hidden;
+}
+
+.u-show-protail .u-info .grade s {
+	display: block;
+	width: 13px;
+	height: 13px;
+	position: absolute;
+	width: 13px;
+	height: 13px;
+	display: inline-block;
+	top: 4px;
+	top: 2px\9;
+	_top: 4px;
+	left: 0;
+}
+
+.u-show-protail .u-info .n-info-name {
+	color: #2af;
+	font-size: 14px;
+	white-space: nowrap;
+	display: block;
+}
+
+.u-show-protail .u-info .n-info-name:hover {
+	text-decoration: underline;
+}
+
+.u-show-protail .u-info .u-info-address {
+	color: #999;
+	padding-left: 3px;
+	white-space: nowrap;
+}
+
+.u-show-protail .u-sign {
+	height: 36px;
+	line-height: 18px;
+	overflow: hidden;
+	color: #999;
+	margin-top: 3px;
+	font-size: 12px;
+}
+
+.u-show-protail .u-send-add {
+	height: 25px;
+	margin-top: 4px;
+}
+
+.u-show-protail .u-send-add a {
+	display: block;
+	width: 46px;
+	height: 23px;
+	border: 1px solid #e7e7e7;
+	float: left;
+	padding-left: 26px;
+	border-radius: 12px;
+	margin-right: 8px;
+	line-height: 23px;
+	font-size: 12px;
+	position: relative;
+	line-height: 25px\9;
+}
+
+.u-show-protail .u-send-add i {
+	display: block;
+	width: 13px;
+	height: 10px;
+	position: absolute;
+	top: 6px;
+	left: 9px;
+	top: 7px\9;
+	background: url(../images/mine-index-bg.png) no-repeat;
+}
+
+.u-show-protail .u-send-add .send-message {
+	color: #2af;
+}
+
+.u-show-protail .u-send-add .send-message i {
+	background-position: -34px -68px;
+}
+
+.u-show-protail .u-send-add .send-message:hover {
+	border-color: #ccc;
+}
+
+.u-show-protail .u-send-add .add-friend {
+	color: #fff;
+	background-color: #2af;
+	border-color: #2af;
+	width: 48px;
+	padding-left: 24px;
+}
+
+.u-show-protail .u-send-add .add-friend i {
+	background-position: -53px -68px;
+	top: 7px;
+	left: 10px;
+}
+
+.u-show-protail .u-send-add .add-friend:hover {
+	background-color: #229aff;
+	border-color: #229aff;
+}
+
+.u-show-protail .u-send-add .is-friend {
+	width: 72px;
+	text-align: center;
+	padding: 0;
+	border-color: #e7e7e7;
+	color: #999;
+	background-color: #f7f7f7;
+	cursor: default;
+}
+
+.u-show-protail em {
+	display: block;
+	width: 0;
+	height: 0;
+	border-width: 6px;
+	border-style: solid;
+	border-color: transparent;
+	position: absolute;
+	top: 50%;
+	margin-top: -6px;
+	z-index: 99;
+	_display: none;
+}
+
+.u-show-protail em.left {
+	border-right-color: #e4e4e4;
+	left: -13px;
+}
+
+.u-show-protail em.right {
+	border-left-color: #e4e4e4;
+	right: -13px;
+}
+
+.u-show-protail em.left em {
+	border-right-color: #fff;
+	margin-top: 0;
+	top: -6px;
+	left: -5px;
+}
+
+.u-show-protail em.right em {
+	border-left-color: #fff;
+	margin-top: 0;
+	top: -6px;
+	right: -5px;
+}

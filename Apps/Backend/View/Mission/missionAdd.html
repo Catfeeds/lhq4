@@ -1,0 +1,255 @@
+<include file ="Index:header"/>
+<include file ="Index:navibar"/>
+<include file ="Index:sidebar"/>
+<!-- START 以上内容不需更改，保证该TPL页内的标签匹配即可 -->
+
+{$osadmin_action_alert}
+
+<script src="__PUBLIC__/ckeditor/ckeditor.js"></script>
+<!-- <script src="<{$smarty.const.ADMIN_URL}>/assets/mobile/js/jquery.min.js"></script>-->
+
+<link rel="stylesheet" href="__PUBLIC__/mobile/css/lanrenzhijia.css" >
+<link href="__PUBLIC__/select2/select2.css" rel="stylesheet" >
+<!--<script type="text/javascript" src="${resources}/js/bootstrap/select2.min.js"></script>
+
+<script type="text/javascript" src="${resources}/js/bootstrap/custom.js"></script>
+<script type="text/javascript" src="${resources}/js/bootstrap/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="${resources}/js/bootstrap/jquery.tagsinput.min.js"></script>-->
+<script type="text/javascript" src="__PUBLIC__/select2/select2.min.js"></script>
+<!--<script src="__PUBLIC__/js/jquery.min.js"></script>-->
+<script>
+    jQuery(document).ready(function($) {
+        $('.theme-login').click(function(){
+//            $('.theme-popover-mask').fadeIn(100);
+            $('.theme-popover').slideDown(200);
+        })
+        $('.theme-poptit .close').click(function(){
+            $('.theme-popover-mask').fadeOut(100);
+            $('.theme-popover').slideUp(200);
+        })
+
+    })
+    jQuery(".select2").select2({
+        width: '100%'
+    });
+</script>
+
+
+<div class="well">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#home" data-toggle="tab">请填写计划任务</a></li>
+    </ul>
+
+    <div id="myTabContent" class="tab-content">
+        <div class="tab-pane active in" id="home">
+
+            <form id="tab" method="post" action="">
+                <label>计划名称</label>
+                <input type="text" name="mission_name" value="{$_POST.mission_name}" class="input-xlarge" required="true" autofocus="true" >
+                <label>关键字</label>
+                <input type="text" name="kwd" value="{$_POST.kwd}" class="input-xlarge" required="true" autofocus="true" >
+                 
+                
+                 
+                <label>出货价</label>
+                <input type="text" name="price" value="{$_POST.price}" class="input-xlarge" required="true" autofocus="true" >
+                <label>订购数量</label>
+                <input type="text" name="amount" value="{$_POST.amount}" class="input-xlarge" required="true" autofocus="true" >
+                
+
+                <label>标签</label>
+                <input type="text" id="label" name="label" value=" " class="input-xlarge" required="true" autofocus="true" >
+                <!--<div class="theme-buy">-->
+                    <a class="btnn btnp  theme-login" href="javascript:;">添加标签</a>
+                <!--</div>-->
+                <div class="theme-popover" style="overflow: auto;">
+                    <div class="theme-poptit">
+                        <a href="javascript:;" title="关闭" class="close">×</a>
+                        <h3>请选择标签</h3>
+                    </div>
+                    <div action="{:U('missionAdd')}" method="get">
+                        <!--<form class="theme-signin" name="loginform" action="" method="post">-->
+                            <!--<ol>-->
+                                <foreach name='labels' item='label'>
+                                    <!--<form action="" method="get">-->
+                                        <label><input name="label_name" type="checkbox" value="{$label.label_name}"/>{$label.label_name} </label>
+                                    <!--</form>-->
+                                </foreach>
+                            <!--</ol>-->
+                        <!--</form>-->
+                    </div>
+                    <div class="btn-toolbar ">
+                        <!--<a type="submit" class="btn btn-primary" value="{$_POST.label}">确定</a>-->
+                        <button type="button" class="btnprimary" onclick="fun()"><strong>确定</strong></button>
+
+                    </div>
+                </div>
+                <label>渠道回调比例</label>
+                <input type="text" name="scale" value="{$_POST.scale}" class="input-xlarge" required="true" autofocus="true" >
+
+                <label>选择渠道商</label>
+                <select name="channel_id">
+                      <foreach name='channels' item='channel' key="channel_id">
+                      <option value="{$channel_id}">{$channel}</option>
+                      </foreach>
+                </select>
+                <label>广告应用名称</label>
+            <!--    <input type="text" name="appname" class="input-xlarge"  id="appid" required="true" autofocus="true" >
+
+                <div id="appid1">
+
+                </div>-->
+          <!--     <input list="pasts" name="app_id"  id="ProviderAppid" value="">
+                <datalist id="pasts" required="true" >
+                    <foreach name='apps' item='app' key="app_id">
+                            <option value="{$app_id}">{$app}</option>
+                    </foreach>
+                </datalist>
+         -->      <select name="app_id" id="ProviderAppid" required="true">
+                      <foreach name='apps' item='app' key="app_id">
+                          <if condition="$app_id eq 0" >
+                              <option value="">请选择广告名称</option>
+                              <else/>
+                              <option value="{$app_id}">{$app}</option>
+                          </if>
+
+                      </foreach>
+                </select>
+                <label>广告类型</label>
+                <!-- <{html_options name="adtype_id" id="DropDownAdtypeid"  options=$adtypes selected=$_POST.adtype_id}> -->
+           
+                <select name="adtype_id" id="DropDownAdtypeid">
+                      <foreach name='adtypes' item='adtype' key="adtype_id">
+                      <option value="{$adtype_id}">{$adtype}</option>
+                      </foreach>
+                </select>
+
+                <label>销售开始时间</label>
+                <input type="text" id="start_date" name="start_time" value="{$_POST.start_time}" placeholder="起始时间" >
+
+                <label>销售结束时间</label>
+                <input type="text" id="end_date" name="end_time" value="{$_POST.end_time}" placeholder="结束时间" >
+                <label>任务步骤</label>
+                <textarea name="des" rows="5" class="input-xlarge">{$_POST.des}</textarea>
+                <script type="text/javascript">
+                    CKEDITOR.replace( 'des',{
+                        filebrowserBrowseUrl : '__PUBLIC__/ckfinder/ckfinder.html',
+                        filebrowserImageBrowseUrl : '__PUBLIC__/ckfinder/ckfinder.html?type=Images',
+                        filebrowserFlashBrowseUrl : '__PUBLIC__/ckfinder/ckfinder.html?type=Flash',
+                        filebrowserUploadUrl : '__PUBLIC__/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+                        filebrowserImageUploadUrl : '__PUBLIC__/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+                        filebrowserFlashUploadUrl : '__PUBLIC__/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
+                        extraPlugins: 'codesnippet',codeSnippet_theme: 'Pojoaque'
+                    });
+                </script>
+                <div class="btn-toolbar">
+                    <button type="submit" class="btn btn-primary"><strong>保存并提交审核</strong></button>&nbsp;&nbsp;
+                    <button type="submit" class="btn btn-primary"><strong><a href="{:U('mission')}" >取消</a></strong></button>
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+
+ /*   $(function(){
+        $("#appid").keyup(function(){
+            var name=$("#appid").val();
+            // alert(name);//die;
+            url = "{:U('Mission/appidAjax')}";
+  $.post(url,{name:name},function(res) {
+  //console.log(res);
+  var html='<select name="" >';
+  for (var i = 0, max = res.length; i < max; i++) {
+  html+= '<option value="'+res[i].app_id+'">'+res[i].app_name+'</option>';
+  }
+  html+= '</select>';
+  $("#appid1").html(html);
+
+
+  },'json');
+    })
+    });*/
+    $(document).ready(function(){
+        $('#DropDownAdtypeid').attr("disabled",true); 
+        $("#add").hide();
+         $("input#add").click(function(){     addSpot();
+  });
+
+    });
+    $(function() {
+        var date=$( "#start_date" );
+        date.datetimepicker({
+            showSecond:true,
+            timeFormat: "HH:mm:ss"
+        });
+
+    });
+    $(function() {
+        var date=$( "#end_date" );
+        date.datetimepicker({
+            showSecond:true,
+            timeFormat: "HH:mm:ss"
+        });
+    });
+    //菜单联动  广告和广告类型
+    $("#ProviderAppid").change(function(){
+        // $('#DropDownAdtypeid').empty();
+        var appid = $(this).val();
+
+        $('#DropDownAdtypeid').attr("disabled",false);
+        $.get("{:U('Mobile/Apiajax/adtypeAjax')}",{appid:appid},function(res){  
+  
+            var aa = res;
+                if (res) {
+                    $('#DropDownAdtypeid').find("option[value="+aa+"]").attr("selected",true);
+               $('#DropDownAdtypeid').attr("disabled",true); 
+            }else{
+                $('#DropDownAdtypeid').find("option[value=0]").attr("selected",true);
+                $('#DropDownAdtypeid').attr("disabled",true); 
+            }
+        },'json');
+    });
+    
+    $('#tab').submit(function(){
+        $('#DropDownAdtypeid').attr("disabled",false);
+    });
+
+    function fun(){
+        $('.theme-popover-mask').fadeOut(100);
+        $('.theme-popover').slideUp(200);
+        obj = document.getElementsByName("label_name");
+        check_val = [];
+        for(k in obj){
+            if(obj[k].checked)
+                check_val.push(obj[k].value);
+        }
+       var bale= check_val.join();
+        $('#label').val(bale);
+    };
+    $('#kwd_qx').change(function () {
+        // body...
+       $a=$('#kwd_qx input[name="kwd_qx"]:checked').val();
+       if($a==1){
+            $('#add').show();
+       }else if($a==0){
+            $('#add').hide();
+       }
+    });
+    function addSpot() {
+        $('div#spots').append(
+            '<div class="spot">' +
+            '<input type="text" name="kwd[]" style="width: 18%;margin-right: 20px;"> ' +
+            '<input type="text" name="mount[]" style="width: 15%">  ' +
+            '<input type="button" class="remove" value="-" style="width: 20px; color: green;background-color: white; border: 1px solid green;"/></div>')
+        .find("input.remove").click(function(){
+            $(this).parent().remove();
+            $('input#add').show();
+        });
+    };
+</script>
+
+<!-- END 以下内容不需更改，请保证该TPL页内的标签匹配即可 -->
+<include file="Index:footer"/>

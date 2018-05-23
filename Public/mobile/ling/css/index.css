@@ -1,0 +1,490 @@
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	padding: 0;
+	margin: 0;
+	height: 100%;
+}
+
+body {
+	background-size: cover;
+	-webkit-font-smoothing: antialiased;
+	font-family:微软雅黑;
+}
+
+:-moz-placeholder {
+	color: #B8D8ED;
+}
+
+::-moz-placeholder {
+	color: #B8D8ED;
+}
+
+::-webkit-input-placeholder {
+	color: #B8D8ED;
+}
+
+:-ms-input-placeholder {
+	color: #B8D8ED;
+}
+a {
+	font-family:微软雅黑;
+}
+p {
+	margin: 0;
+	font-family:微软雅黑;
+}
+span {
+        font-family:微软雅黑;
+}
+
+input:focus, button:focus {
+	outline: none;
+	box-shadow: none;
+}
+
+.bg-square {
+	position: absolute;
+	top: 500px;
+	right: 0;
+	width: 100%;
+}
+
+.container {
+	position: relative;
+	min-height: 100%;
+	margin: 0 auto;
+	background: url('../images/pattern.png') no-repeat;
+}
+
+.nav {
+	position: absolute;
+	z-index: 99;
+	top: 40px;
+	right: 100px;
+}
+
+.nav ul {
+	list-style: none;
+	font-size: 0;
+}
+
+.nav ul li {
+	font-size: 18px;
+	margin-left: 60px;
+	display: inline-block;
+}
+
+.nav ul li a {
+	text-decoration: none;
+	color: #808080;
+}
+
+.nav ul li a:hover {
+	color: #999;
+}
+
+.nav ul li a:focus {
+	color: #4d4d4d;
+}
+
+.nav ul .active a {
+	color: #00b8a8;
+}
+
+.header {
+	text-align: center;
+}
+
+.header .logo {
+	padding-top: 120px;
+	margin-bottom: 60px;
+}
+
+.header h1 {
+	margin-bottom: 120px;
+}
+
+.header button {
+	position: relative;
+	z-index: 99;
+	padding: 0;
+	margin: 0;
+	height: 55px;
+	width: 220px;
+	border-radius: 30px;
+	border: 1px solid #018ece;
+	color: #018ece;
+	line-height: 34px;
+	font-size: 24px;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.page-about .container {
+	text-align: center;
+	padding-top: 98px;
+}
+
+.page-about .container .card-container {
+	margin: 0 auto 50px;
+	width: 572px;
+	height: 612px;
+	padding: 436px 20px 0;
+	background: url('../images/card.png') no-repeat;
+	font-size: 16px;
+	color: #4c4c4c;
+}
+
+.page-about .container table {
+	width: 100%;
+}
+
+.page-about .container table td {
+	padding-bottom: 40px;
+}
+
+.page-about .container table tr td:first-child {
+	text-align: left;
+}
+
+.page-about .container table tr td:last-child {
+	text-align: right;
+}
+
+.page-faq .container {
+	width: 1200px;
+	margin: 0 auto 50px;
+	padding-top: 88px;
+}
+
+.page-faq .container h1 {
+	padding-left: 30px;
+	margin-top: 0;
+	margin-bottom: 20px;
+	color: #666;
+	font-size: 20px;
+}
+
+.page-faq .container ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	border-top: 1px solid #d6d6d6;
+}
+
+.page-faq .container ul li {
+	display: block;
+	padding: 30px;
+	background-color: #f2f2f2;
+	border: 1px solid #d6d6d6;
+	border-top: none;
+}
+
+.page-faq .container ul li p {
+	font-size: 16px;
+}
+
+.page-faq .container ul li p.q {
+	color: #666;
+	margin-bottom: 20px;
+}
+
+.page-faq .container ul li p.q {
+	color: #333;
+}
+
+.phone-section {
+	padding-top: 260px;
+	background: url('../images/bg-square.png') no-repeat;
+	background-size: cover;
+	overflow: hidden;
+}
+
+.phone-section .inner {
+	overflow: hidden;
+	margin: 0 auto;
+}
+
+.phone-section .left, .phone-section .right {
+	float: left;
+	text-align: center;
+	width: 48%;
+}
+.phone{
+	width: 80%
+}
+.phone-section .right {
+	margin-top: 10%;
+}
+
+/*.phone-section .download-android, .phone-section .download-ios {
+	display: inline-block;
+	width: 220px;
+	height: 60px;
+	background: url('../images/Android-button.png') no-repeat;
+}*/
+
+.phone-section .download-android:hover, .phone-section .download-ios:hover
+	{
+	background: url('../images/Android-button-hover.png') no-repeat;
+}
+
+.phone-section .download-ios {
+	display: inline-block;
+	width: 150px;
+	height: 55px;
+	margin-bottom: 5%; 
+	background: url('../images/iOS-button.png') no-repeat;
+	background-size: 100% 100%;
+}
+
+.phone-section .download-ios:hover {
+	width: 150px;
+	height: 55px;
+	background: url('../images/iOS-button-hover.png') no-repeat;
+	background-size: 100% 100%;
+}
+
+.phone-section .social-info {
+	margin-bottom: 30px;
+	overflow: hidden;
+	color: #fff;
+}
+
+.phone-section .down-info {
+	overflow: hidden;
+	color: #fff;
+}
+
+.phone-section .social-info .qrcode {
+	display: inline-block;
+	vertical-align: bottom;
+	margin-right: 40px;
+}
+
+.phone-section .social-info .public-account {
+	display: inline-block;
+	vertical-align: bottom;
+}
+
+.phone-section .down-info .public-account {
+	display: inline-block;
+	vertical-align: bottom;
+	width: 40%;
+}
+
+.phone-section .social-info .public-account p {
+	margin-top: 40px;
+}
+
+.phone-section .social-info .public-account p * {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.phone-section .social-info .public-account p img {
+	margin-right: 10px;
+}
+
+.phone-section .social-info .public-account p span {
+	margin-right: 20px;
+}
+
+.phone-section .social-info .public-account .follow {
+	width: 100px;
+	height: 30px;
+	display: inline-block;
+	text-decoration: none;
+	line-height: 28px;
+	border: 1px solid #fff;
+	color: #fff;
+	text-align: center;
+}
+
+.section table {
+	width: 100%;
+	height: 100%;
+}
+
+.section table td {
+	vertical-align: middle;
+	width: 50%;
+	text-align: center;
+}
+
+.do-tasks {
+	padding: 5% 0;
+	text-align: center;
+}
+
+.do-tasks .banner, .do-tasks .align-wrap {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 0 60px;
+}
+
+.do-tasks .banner img {
+	width: 90%;
+}
+
+.do-tasks .align-wrap b {
+	display: block;
+	margin-bottom: 20px;
+	font-size: 32px;
+	color: #474747;
+	font-weight: normal;
+}
+
+.do-tasks .align-wrap p {
+	font-size: 18px;
+	color: #808080;
+	line-height: 1.6;
+}
+
+.do-tasks .align-left {
+	text-align: left;
+}
+
+.do-tasks .align-right {
+	text-align: right;
+}
+
+.do-tasks.reverse {
+	background-color: #018ece;
+}
+
+.do-tasks.reverse .align-wrap * {
+	color: #fff;
+}
+
+.little-banners {
+	/*height: 480px;*/
+	padding: 100px 0;
+	overflow: hidden;
+	text-align: center;
+	font-size: 0;
+}
+
+.little-banners .item {
+	width: 22%;
+	/*width: 270px;*/
+	font-size: 14px;
+	display: inline-block;
+}
+
+.little-banners .item img {
+	display: block;
+	margin: 0 auto;
+	/*margin-bottom: 30px;*/
+	width: 80%;
+}
+
+.little-banners .item b {
+	display: block;
+	margin-bottom: 30px;
+	font-size: 18px;
+	color: #4c4c4c;
+	font-weight: normal;
+}
+
+.little-banners .item p {
+	font-size: 14px;
+	color: #999;
+	line-height: 1.6;
+}
+
+.footer {
+	background-color: #018ece;
+	/*height: 200px;*/
+	padding: 30px 0 20px 0;
+}
+
+.footer .inner {
+	/*width: 1200px;*/
+	margin: 0 auto;
+	padding: 0 8%;
+}
+
+.footer .section {
+	display: inline-block;
+	vertical-align: top;
+	color: #fff;
+	margin-right: 2%;
+	width: 15%
+}
+
+.footer .section .title {
+	margin-bottom: 30%;
+	font-size: 1.3rem;
+	font-weight: bold;
+}
+
+.footer .section ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.footer .section ul li {
+	display: block;
+	margin-bottom: 10px;
+}
+
+.footer .section ul a {
+	text-decoration: none;
+	color: #fff;
+	opacity: .8;
+	font-size: 1rem;
+}
+
+.footer .sec-about ul li {
+	display: inline-block;
+	margin-right: 14px;
+}
+
+.footer .sec-about ul li a {
+	opacity: 1;
+}
+
+.footer .sec-brand {
+	margin-right: 0;
+	float: right;
+	text-align: right;
+	width: 60%;
+}
+
+.footer .sec-brand p {
+	margin-bottom: 3%;
+	color: #c9f5f1;
+}
+
+.footer .sec-brand p img{
+	width: 12%
+}
+
+.qrimg {
+	width: 25%;
+	height: 25%;
+	margin-left: 10%;
+}
+
+.qrimg1 {
+	width: 100%;
+	height: 100%;
+}
+
+.popwindow {
+	position: absolute;
+	font-size: 9pt;
+	background-color: #FFFFCC;
+	border: 1px solid #F5C66B;
+	line-height: 160%;
+	width: 160px;
+	height: 160px;
+	z-index:100;
+	display:none;
+}
+

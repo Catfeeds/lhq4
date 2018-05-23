@@ -1,0 +1,102 @@
+<include file ="Index:header"/>
+<include file ="Index:navibar"/>
+<include file ="Index:sidebar"/>
+<!-- START 以上内容不需更改，保证该TPL页内的标签匹配即可 -->
+{$osadmin_action_alert}
+    
+<div class="well">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#home" data-toggle="tab">修改应用资料</a></li>
+    </ul>	
+	
+	<div id="myTabContent" class="tab-content">
+		  <div class="tab-pane active in" id="home">
+              <!--    <if condition="in_array('$channel.channel_id',$chanids)">
+                                             <label title="{$channel.channel_id}" class="titem"><input name="channel_name" type="checkbox" value="{$channel.channel_id}" title="{$channel.channel_name}" class="b" checked="checked"/>{$channel.channel_id}&#45;&#45;{$channel.channel_name}</label>
+                                             </else>-->
+           <form id="tab" method="post" action=""  name="upform" enctype="multipart/form-data">
+           		<label>应用id</label>
+				<input type="text" name="app_id" value="{$app.app_id}" disabled="disabled" class="input-xlarge" required="true" autofocus="true" >
+				<label>应用名称</label>
+				<input type="text" name="app_name" value="{$app.app_name}" class="input-xlarge" required="true" autofocus="true" >
+               <label>Logo</label>
+               <input id="file0" class="file-3" type="file" size="30" accept="image/*"
+                      capture="camera"  multiple="true" name="goods_img" />
+               <label>广告商名称</label>
+                <select name="provider_id">
+                    <foreach name="providers" item="provider" key="provider_id">
+                    <option value="{$provider_id}"
+                        <if condition="$app['provider_id'] eq $provider_id">
+                            selected="selected"
+                        </if>
+                    >{$provider}</option>
+                    </foreach>
+                </select>
+			<!--	<label>渠道名称</label>
+                <select name="chan_id">
+                    <foreach name="channels" item="channel" key="chan_id">
+                    <option value="{$chan_id}"
+                        <if condition="$app['chan_id'] eq $chan_id">
+                            selected="selected"
+                        </if>
+                    >{$channel}</option>
+                    </foreach>
+                </select>-->
+				<label>广告主广告id</label>
+				<input type="text" name="adsid" value="{$app.adsid}" class="input-xlarge" required="true" autofocus="true" >
+       <label>广告分类</label>
+       <select name="adtype_id">
+            <foreach name="adtypes" item="adtype" key="adtype_id">
+            <option value="{$adtype_id}"
+                <if condition="$app['adtype_id'] eq $adtype_id">
+                    selected="selected"
+                </if>
+            >{$adtype}</option>
+            </foreach>
+        </select>
+         <label>是否排重</label>
+        <select name="is_repeat" id="" class="input-xlarge" required="true" autofocus="true">
+            <if condition="$app['is_repeat'] eq '3' ">
+                <option value="3" selected="selected"> 广告主兼自身排重 </option>
+                <option value="2"> 广告主排重 </option>
+                <option value="4"> 自身排重 </option>
+                <option value="1"> 不排重 </option>
+                <elseif condition="$app['is_repeat'] eq '2' "/>
+                <option value="3"> 广告主兼自身排重 </option>
+                <option value="2" selected="selected"> 广告主排重 </option>
+                <option value="4"> 自身排重 </option>
+                <option value="1"> 不排重 </option>
+                <elseif condition="$app['is_repeat'] eq '4' "/>
+                <option value="3"> 广告主兼自身排重 </option>
+                <option value="2"> 广告主排重 </option>
+                <option value="4" selected="selected"> 自身排重 </option>
+                <option value="1"> 不排重 </option>
+                <elseif condition="$app['is_repeat'] eq '1' "/>
+                <option value="3"> 广告主兼自身排重 </option>
+                <option value="2"> 广告主排重 </option>
+                <option value="4"> 自身排重 </option>
+                <option value="1" selected="selected"> 不排重 </option>
+          </if>
+        </select>
+               <label>下载地址</label>
+				<input type="text" name="appstore_url" value="{$app.appstore_url}" class="input-xlarge" required="true" autofocus="true" >
+               <label>Url Scheme</label>
+               <input type="text" name="url_scheme" value="{$app.url_scheme}" class="input-xlarge" required="true" autofocus="true" >
+				<label>回调地址</label>
+				<input type="text" name="callback_url" value="{$app.callback_url}" class="input-xlarge" required="true" autofocus="true" >
+				<label>回调比例(请直接填写数字，如50代表50%等)</label>
+				<input type="text" name="cutoff" value="{$app.cutoff}" class="input-xlarge" required="true" autofocus="true" >%
+        <input type="hidden" name="httpref" value="{$_SERVER['HTTP_REFERER']}">
+
+               <div class="btn-toolbar">
+					<button type="submit" class="btn btn-primary"><strong>提交</strong></button>
+				</div>
+			</form>
+        </div>
+    </div>
+</div>	
+<!---操作的确认层，相当于javascript:confirm函数-->
+{$osadmin_action_confirm}
+
+<!-- END 以下内容不需更改，请保证该TPL页内的标签匹配即可 -->
+<include file="Index:footer"/>

@@ -1,0 +1,42 @@
+<!--<{include file ="header.tpl"}>-->
+<!--<{include file ="navibar.tpl"}>-->
+<!--<{include file ="sidebar.tpl"}>-->
+<include file="Index:header"/>
+<include file="Index:navibar"/>
+<include file="Index:sidebar"/>
+<!-- START 以上内容不需更改，保证该TPL页内的标签匹配即可 -->
+
+{$osadmin_action_alert}
+{$osadmin_quick_note}
+<!--<script src="<{$smarty.const.ADMIN_URL}>/assets/ckeditor/ckeditor.js"></script>-->
+<script src="__PUBLIC__/ckeditor/ckeditor.js"></script>
+<div class="well">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#home" data-toggle="tab">请填写渠道信息</a></li>
+    </ul>	
+	
+	<div id="myTabContent" class="tab-content">
+		  <div class="tab-pane active in" id="home">
+              <form id="tab" method="post" action="">
+                  <label>消息标题</label>
+                  <input type="text" name="m_name" value="{$_POST.m_name}" class="input-xlarge" required="true" autofocus="true" >
+                  <label>消息内容（任务名称请用英文问号'?'代替）</label>
+                  <textarea name="m_content" rows="5" class="input-xlarge">{$_POST.m_content}</textarea>
+
+                  <label>消息类型</label>
+                  <select name="m_types">
+                      <foreach name='msgtype' item='msgtype' key="m_type">
+                          <option value="{$m_type}">{$msgtype}</option>
+                      </foreach>
+                  </select>
+
+                  <div class="btn-toolbar">
+                      <button type="submit" class="btn btn-primary"><strong>提交</strong></button>
+                  </div>
+              </form>
+        </div>
+    </div>
+</div>
+	
+<!-- END 以下内容不需更改，请保证该TPL页内的标签匹配即可 -->
+<include file="Index:footer"/>

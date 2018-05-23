@@ -1,0 +1,239 @@
+
+<header class="panel_header fix mb20">
+	<h2 class="title">权限列表</h2>
+</header>
+
+<div class="fix">
+	<a href="{:U('Admin/Auth/tianjia')}" class="btn btn-primary l mr10">
+		<i class="fa fa-plus"></i> <span>添加权限</span>
+	</a>
+
+	<div class="input-group l w200 mr10">
+		<div class="input-group-addon"></div>
+		<select name="keyword" class="form-control" >	
+			<option value="-3" >按顶级筛选</option>			
+			<volist name="authA" id="A">
+				<if condition="$pid eq $A['id']">
+						<option value="{$A['id']}" selected="selected">{$A['name']}</option>
+					<else/>
+						<option value="{$A['id']}" >{$A['name']}</option>
+				</if>
+				
+			</volist>	
+			<if condition="$pid eq -1">	
+					<option value="-1" selected="selected">·无父级</option>
+				<else/>	
+					<option value="-1" >·无父级</option>	
+			</if>
+			<if condition="$pid eq -2">	
+					<option value="-2" selected="selected">·全部二级</option>
+				<else/>	
+					<option value="-2" >·全部二级</option>	
+			</if>
+		</select> 
+	</div>
+	
+	<div class="btn-group goods-status" data-toggle="buttons" >
+		<label class="btn btn-primary "> 
+			<input type="radio"	name="level" value="-1" autocomplete="off"> 全部
+		</label> 
+		<label class="btn btn-primary"> 
+			<input type="radio" name="level" value="0" autocomplete="off"> 一级
+		</label>
+	</div>	
+
+
+	<!--  <div class="input-group l w300 mr10">
+		<input type="text" class="form-control keyword" name="keyword" value="" placeholder="关键字" />		
+		<div class="input-group-addon btn btn-primary white search">搜索</div>
+	</div>
+-->
+</div>
+
+
+<div class="goods-list pct100 mt20">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<table
+				class="table table-hover table-condensed table-striped table-bordered">
+				<tbody>
+					<tr style="font-weight: bold;">
+						<td>序号</td>
+						<td>权限名称</td>
+						<td>父id</td>
+						<td>菜单图标</td>
+						<td>控制器</td>
+						<td>操作方法</td>
+						<td>全路径</td>
+						<td>是否显示</td>
+						<td>排序</td>
+						<td align="center" colspan='100'>操作</td>
+					</tr>
+					<volist name="info" id="v">
+					<tr id="product1">
+						<td>{$v['id']}</td>
+						<td>{$ge|str_repeat=$v['level']}{$v['name']}</td>
+						<td>{$v['pid']}</td>
+						<td>
+							<if condition="$v['icon'] eq '' ">
+							 	-- 
+							 <else />
+								 <i class="{$v['icon']}"></i> 
+							 </if>
+						 </td>
+						<td>
+							<if condition="$v['auth_c'] eq '' ">
+							 	-- 
+							<else />
+								{$v['auth_c']} 
+							</if>
+						</td>
+						<td>
+							<if condition="$v['auth_a'] eq '' ">
+								 -- 
+							<else />
+								{$v['auth_a']} 
+							</if>
+						</td>
+						<td>{$v['path']}</td>
+						<td>
+							<input class="display" val="{$v['id']}" type="checkbox" name="display" <if condition="$v['display'] eq 1">checked="checked"</if> />						
+						</td>
+						<td>
+							<input class="order" val="{$v['id']}" type="search" name="order" value="{$v['order']}" style="width:50px;text-align:center;"/>							
+						</td>
+						<td><a href='{:U("Admin/Auth/edit")}&id={$v["id"]}'>修改</a></td>
+						<td><a href="javascript:auth_del({$v['id']},{$v['pid']});"">删除</a></td>
+					</tr>
+					</volist>
+					<tr>
+						<td colspan="20" style="text-align: center;">{$page_list}</td>
+					</tr>
+				</tbody>
+
+				<tfoot>
+					
+				</tfoot>
+
+			</table>
+					
+			<div class="page"></div>
+				
+		</div>
+	</div>
+</div>
+
+<script src="__LIB_URL__/layer/layer.js"></script>
+
+<script>
+	selfUrl = "{:U('Admin/Auth/showlist')}";
+	delUrl = "{:U('Admin/Auth/del')}";
+	isDisplayUrl= "{:U('Admin/Auth/isDisplay')}";
+	changeOrderUrl= "{:U('Admin/Auth/changeOrder')}";	
+	
+	
+
+	function auth_del(id, pid) {
+		if (pid == 0) {
+			if (confirm("您删除的是顶级权限，其下的子权限会被隐藏。确定？")) {
+				$.post(delUrl, {
+					id : id
+				}, function(rel) {
+					layer.msg(rel);
+					setTimeout(function() {
+						window.location.reload();
+					}, 3000);
+				});
+			}
+		} else {
+
+			if (confirm("确定要删除编号为 " + id + " 的权限吗？")) {
+				$.post(delUrl, {
+					id : id
+				}, function(rel) {
+					layer.msg(rel);
+					setTimeout(function() {
+						window.location.reload();
+					}, 3000);
+				});
+
+			}
+		}
+	}
+	
+	//自动执行
+	$(function() {
+		
+		//修改状态按钮的选中状态
+		var status=getUrlVal("level");
+		if(status!=-1){	
+			$("div[data-toggle='buttons'] label:eq("+status+1+")").prop("class","btn btn-primary active");	
+		}else{
+			$("div[data-toggle='buttons'] label:eq(0)").prop("class","btn btn-primary active");	
+		}
+		
+		//输出分页
+		$(".page").html(page({:json_encode($page);}));
+		
+		//按条件检索
+		$("select[name='keyword']").change(function(){
+			var pid=$(this).val();
+			window.location.href = selfUrl + "&pid=" + pid;
+		});
+		
+		//更改排序		
+		$(".order").focus(function() {				
+			$(this).data('oldVal', $(this).val());//将原值保存
+			$(this).val("");//清空文本框,			
+		});			
+		$(".order").blur(function() {
+			$(this).val($(this).data('oldVal'));//失去焦点时恢复值
+		});		
+		$(".order").change(function(){
+			var id=$(this).attr("val");//获取id			
+			$.post(
+					changeOrderUrl,
+					{
+						order:$(this).val(),
+						id:id
+					},
+					function(rel){
+						layer.msg(rel);
+						setTimeout(function(){
+						window.location.reload();
+						},1000);
+					}
+			);			
+		});
+		
+		//切换是否显示
+		$(".display").click(function(){
+			
+			var display=2;
+			if($(this).prop("checked")){
+				display=1;
+			}
+			var id=$(this).attr("val");
+			$.post(
+					isDisplayUrl,
+					{
+						display:display,
+						id:id
+					},
+					function(rel){
+						layer.msg(rel);
+						setTimeout(function() {
+							window.location.reload();
+						}, 500);
+					}
+			);
+		});
+		
+		//切换状态
+		$(".btn").click(function() {
+			var level = $(this).find("input").attr("value");
+			window.location.href = selfUrl + "&level=" + level;
+		});
+
+	});
+</script>

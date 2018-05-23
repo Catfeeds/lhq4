@@ -1,0 +1,1 @@
+alter table app add adtype_id tinyint(4);

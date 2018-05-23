@@ -1,0 +1,49 @@
+@charset="utf-8";
+body a{
+	
+	cursor:pointer;
+}
+ #ul_region li a{
+display: block; padding: 0 15px;
+
+
+ }
+  #ul_state li a{
+display: block; padding: 0 15px;
+
+
+ }
+ 
+
+form{margin-left:250px;margin-top:30px;width:410px;}
+label{font-size:14px;color:#555;line-height:40px;margin-right:15px;}
+input{width:212px;height:38px;border-style:none;padding:0 4px;border:1px solid #C8C8C8;margin-right:10px;outline:none;}
+.msgs{margin-right:2px;width:90px;color:#fff;font-size:12px;border:1px solid #0697DA;text-align:center;height:30px;line-height:30px;background:#0697DA;}
+     a:hover{color:#de4849;}
+   .picScroll-left{ width:100%;  overflow:hidden; position:relative;  border:1px solid #ccc;   }
+        .picScroll-left .hd{ overflow:hidden;  height:15px; background:#f4f4f4; padding:0 px;  }
+        .picScroll-left .hd .prev,.picScroll-left .hd .next{ display:block;  width:5px; height:9px; float:right; margin-right:5px; margin-top:2px;  overflow:hidden;
+             cursor:pointer; background:url("../images/arrow.png") no-repeat;}
+        .picScroll-left .hd .next{ background-position:0 -50px;  }
+        .picScroll-left .hd .prevStop{ background-position:-60px 0; }
+        .picScroll-left .hd .nextStop{ background-position:-60px -50px; }
+        .picScroll-left .hd ul{ float:right; overflow:hidden; zoom:1; margin-top:2px; zoom:1; }
+        .picScroll-left .hd ul li{ float:left;  width:9px; height:9px; overflow:hidden; margin-right:5px; text-indent:-999px; cursor:pointer; background:url("../images/icoCircle.gif") 0 -9px no-repeat; }
+        .picScroll-left .hd ul li.on{ background-position:0 0; }
+        .picScroll-left .bd{ padding:10px;   }
+        .picScroll-left .bd ul{ overflow:hidden; zoom:1; }
+        .picScroll-left .bd ul li{ margin:3px; float:left; _display:inline; overflow:hidden; text-align:center; height:212px }
+        .picScroll-left .bd ul li .pic{ text-align:center; }
+        .picScroll-left .bd ul li .pic img{ width:160px; height:130px; display:block;  padding:2px;  }
+        .picScroll-left .bd ul li { border-color:red;  }
+	  .picScroll-left .bd ul li .title a{height:50px ;width:150px;color: #333;word-wrap: break-word;overflow: hidden;overflow: hidden;}
+        .picScroll-left .bd ul li .title{ line-height:15px;width:150px;color:#ccc;height:50px; word-wrap: break-word;}
+	    .picScroll-left .bd ul li .buyeee{border:1px solid #ccc; padding:1px; color:#999;margin-top:60px}
+      .picScroll-left .bd ul li .title a:hover{color:#de4849;}
+ 
+ form{margin-left:250px;margin-top:30px;width:410px;}
+label{font-size:14px;color:#555;line-height:40px;margin-right:15px;}
+input{width:212px;height:38px;border-style:none;padding:0 4px;border:1px solid #C8C8C8;margin-right:10px;outline:none;}
+.msgs{margin-right:2px;width:90px;color:#fff;font-size:12px;border:1px solid #0697DA;text-align:center;height:30px;line-height:30px;background:#0697DA;}
+
+ 

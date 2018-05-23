@@ -1,0 +1,42 @@
+
+		<div class="share">
+			<section>
+
+
+				<div class="user" style="display: inline-flex">
+						<img style="position: relative;
+    top: 20px;" src="__ROOT__/t/?w=200&h=200&src={$users.pic}" alt="头像" />
+					<div>
+						<div class="blue">{$users.nickname}  <b style="color:#777777;">本期参与:</b>{$order_details.nums}<b style="color:#777777;">人次</b></div>
+							<ul>
+							<li>中奖号码：<b>{$periodsArr.winningcode}</b></li>
+							<li>获得的商品:(第{$periodsArr.qishu}期){:$periodsArr['title']}</li>
+							<li>揭晓时间：{$periodsArr.disclosedate|date='m/d/Y H:i:s',###}</li>
+							</ul>
+					</div>
+				</div>
+
+
+				<div class="content">
+
+				<div class="ptitle">{$periodsArr.title}</div>
+
+				<p>{$shows.content}</p>
+
+				<div class="img_list">
+					<volist name="details" id="vo">
+						<img src="__ROOT__{$vo.content}" style="max-width:100%;height:auto;"/>
+					</volist>
+				</div>
+
+				</div>
+			</section>
+		</div>
+
+		<div class="footer_share">
+			<ul>
+				<li><a href="#"><span class="zan wx-new-icon"></span>1</a></li>
+				<li><a href="#"><span class="talk wx-new-icon"></span>9</a></li>
+				<li><a href="#"><span class="share wx-new-icon"></span>分享</a></li>
+			</ul>
+		</div>

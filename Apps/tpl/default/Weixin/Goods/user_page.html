@@ -1,0 +1,231 @@
+<style>
+
+div.out{
+
+width:80px;
+height:20px;
+background:rgba(242,158,20,1);
+border-radius:6px;
+text-align:center;
+color:#fff;
+
+}
+div .in{
+
+width:80px;
+height:20px;
+background:rgba(242,158,20,1);
+border-radius:6px;
+text-align:center;
+color:#fff;
+
+}
+
+.lg-press {
+	position: relative;
+	background: #ddd;
+	padding: 2px;
+	border-radius: 2px;
+	margin: 6px;
+}
+.lg-press-w {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0;
+	padding: 2px;
+	background: #f00;
+	border-radius: 2px;
+}
+
+.zuijia {
+	right: 0;
+	top: 0;
+	margin: 10px;
+}
+
+
+/* 按钮 */
+.btn {
+	display: inline-block;
+	padding: 3px 8px;
+	border: 0 none;
+	border: 1px solid rgba(0,0,0,.25);
+	border-radius: 0.3em;
+	background-image: none;
+	box-shadow: 0 1px rgba(0,0,0,.15), inset 0 1px rgba(255,255,255,.15);
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+	text-shadow: 1px 1px rgba(0,0,0,.1);
+	font-size: 100%;
+	font-family: inherit;
+	font-weight: inherit;
+	white-space: nowrap;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	overflow: visible;
+	cursor: pointer;
+	background-color: #ff4136;
+}
+</style>
+
+<script src="__LIB_URL__/template.js"></script>
+<script src="__WXP__/js/ajaxgetlist.js" type="text/javascript"></script>
+
+<div class="wrapper" style="padding-top: 40px">
+			<div class="mainCon">
+				<div class="mBanner">
+					<ul>
+						<li class="mUserHead"><img src="{$users.pic}"></li>
+						<li class="mUserInfo">
+							<p>{$users.nickname}</p><b>{$users.phone}</b>
+							<br/>
+							<!--<br/>-->
+							<!---->
+							<!--&lt;!&ndash; 经验值：31100&ndash;&gt;<span class="z-class-icon02"><s></s>&lt;!&ndash;开抢少将&ndash;&gt;</span></li>-->
+					</ul>
+				</div>
+				<div class="g-snav" id="divMidNav">
+	
+	 				<span class="g-snav-lst <if condition="$type==1"> mCurr</if>"><a href="{:U('','type=1')}&userid={$users.member_id}">{:C('web_title')}记录</a></span>
+					<span class="g-snav-lst <if condition="$type==2"> mCurr</if>"><a href="{:U('','type=2')}&userid={$users.member_id}">获得的商品</a></span>
+					<span class="g-snav-lst <if condition="$type==3"> mCurr</if>"><a href="{:U('','type=3')}&userid={$users.member_id}">晒单</a></span>
+
+				</div>
+				
+			<div id="div1">
+			
+			
+			
+			
+			
+			</div>
+				
+			
+
+			<div class="list-loading tc f24 mt15 pn">
+				<i class="fa fa fa-refresh fa-spin"></i> 正在加载。。。。
+			</div>
+
+			</div>
+		</div>
+<div style="clear:both"></div>
+<div style="height: 60px;"></div>
+<script type="text/ypl" class="tpl-list">
+		
+{{if type==1}}				
+{{include 'tpl_list_1'}}
+{{else if type==2}}
+{{include 'tpl_list_2'}}
+{{else if type==3}}
+{{include 'tpl_list_3'}}
+{{/if}}
+</script>
+
+<script type="text/ypl" id="tpl_list_1">
+				<!--开抢记录-->
+				<div id="divBuyRecord" class="mBuyRecord m ">
+				{{each list as vo}}
+					<a href="{{vo.url}}">
+					<ul style="display: inline-flex;width: 100%;">
+						<li class="mBuyRecordL">
+							<img src="{{vo.image}}">
+						{{if vo.status == 1}}
+							<div class="out">已开奖</div>
+						{{else if vo.status == 3}}
+							<div class="in">进行中...</div>
+						{{/if}}
+						</li>
+
+
+
+						<li style="margin-left:15px;width: 100%;" class="rel fix">
+		<dl>
+			<p class="ell" style="width:70%;">(第 {{vo.qishu}} 期){{vo.title}}</p>
+			<p>已参与<em class="orange">{{vo.nums}}</em>次</p>
+			{{if vo.status == 3}}	
+				<div style="width: 70%;" class="lg-press">
+					<div data-width="{{(vo.canyushu / vo.fenshu )* 100}}%" style="width:{{(vo.canyushu / vo.fenshu )* 100}}%" class="lg-press-w trans"></div>
+				</div>
+				<div style="width: 70%;" class="fix tc">
+					<span class="l">参与数:{{vo.canyushu}}</span>
+					<span class="r">总份数:{{vo.fenshu}}</span>
+				</div>
+			{{else if vo.status == 2}}
+				<p class="tc"><br>即将揭晓</p>
+			{{else if vo.status == 1}}
+				<p class="ell">获&ensp;得&ensp;者：<em class="blue">{{vo.nickname}}</em></p>
+				<p>揭晓时间：{{vo.disclosedate}}</p>
+				<p>中&ensp;奖&ensp;码：{{vo.winningcode}}</p>
+			{{/if}}
+		</dl>
+	</li>
+						</ul>
+					</a>
+				{{/each}}
+				</div>
+
+
+</script>
+<script type="text/ypl" id="tpl_list_2">
+				<!--获得商品-->
+				<div id="divGetGoods" class="mBuyRecord m " >
+				{{each list as vo}}
+					<a href="{{vo.url}}">
+						<ul class="BuyRecordList" >
+							<li class="mBuyRecordL">
+								<img src="{{vo.image}}">
+							</li>
+						<li class="mBuyRecordR">
+							<span class="title">(第{{vo.qishu}}期){{vo.title}}</span>
+							<p class="mValue">价值：￥{{vo.total}}</p>
+							<span>
+								本期参与：{{vo.nums}}人次
+								<br>
+								幸运开抢码：
+								<em class="orange">{{vo.winningcode}}</em>
+								<br>
+								揭晓时间：
+								<i>{{vo.disclosedate | date:'m/d/Y H:i:s'}}</i>
+							</span>
+						</li>
+					</ul>
+					</a>
+				{{/each}}
+				</div>
+</script>
+
+
+
+<script type="text/ypl" id="tpl_list_3">
+				<!--晒单-->
+				<div id="divSingle" class="mSingle m " >
+					<ul>
+					{{each list as vo}}
+						<li>
+							<a href="{{vo.url}}">
+								<h3>
+									<b>{{vo.content1}}</b>
+									<em>{{vo.creatdate | date:'m/d/Y H:i:s'}}</em>
+								</h3>
+								<p>{{vo.content}}</p>
+								<dl>
+									<img src="__ROOT__/t/?src=__ROOT__{{vo.pic1}}">
+									<img src="__ROOT__/t/?src=__ROOT__{{vo.pic2}}">
+									<img src="__ROOT__/t/?src=__ROOT__{{vo.pic3}}">
+								</dl>
+							</a>
+						</li>
+					{{/each}}
+					</ul>
+				</div>
+</script>
+
+
+
+<script>
+ajaxGetListInit('#div1', '.tpl-list');
+</script>
+		

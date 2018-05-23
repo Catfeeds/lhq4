@@ -1,0 +1,222 @@
+
+		<header class="panel_header fix mb20">
+			<h2 class="title">{$title}</h2>
+		</header>
+
+		<div class="fix">
+				<a href="javascript:add();" class="btn btn-default l mr10">
+					<i class="fa fa-plus"></i> <span>新增</span>
+				</a>
+
+				<!-- 搜索 -->
+				<!--
+				<div class="input-group l w300 mr10">
+					<input type="text" class="form-control keyword" name="{$keyword}" value="" placeholder="关键字" />
+					<a href="javascript:getList({page: 1, keyword: ''});" class="input-group-addon btn btn-default">清空</a>
+					<div class="input-group-addon btn btn-default search">搜索</div>
+				</div>
+				-->
+
+				<div class="input-group l w280 mr10">
+					<div class="input-group-addon">广告位</div>
+					<select class="form-control dom-type" name="type_id">
+						<option value="0" >全部</option>
+						<volist name="types" id="item">
+							<option value="{$item.id}">{$item.info}</option>
+						</volist>
+					</select>
+				</div>
+
+
+				<!-- 状态切换 -->
+				<!--
+				<div class="btn-group dom-status" data-toggle="buttons">
+					<label class="btn btn-default active">
+						<input type="radio" name="status" value="0" autocomplete="off" checked> 全部
+					</label>
+					<label class="btn btn-default">
+						<input type="radio" name="status" value="1" autocomplete="off"> 在售
+					</label>
+					<label class="btn btn-default">
+						<input type="radio" name="status" value="2" autocomplete="off"> 关闭
+					</label>
+				</div>
+				-->
+
+
+
+		</div>
+
+		<div class="pct100 mt20">
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<table class="table table-hover table-condensed table-striped table-bordered">
+						<thead>
+							<tr>
+								<th style="width:60px;">编号</th>
+								<th class="pct20">广告位置</th>
+								<th>名称</th>
+								<th style="width:60px;">状态</th>
+								<th style="width: 160px;">操作</th>
+							</tr>
+						</thead>
+						<tbody class="dom-list">
+						</tbody>
+					</table>
+					<div class="dom-page"></div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+<style>
+.dom-list .togge-type.btn-success:before {
+	content: '显示';
+}
+.dom-list .togge-type.btn-danger:before {
+	content: '隐藏';
+}
+</style>
+
+	
+<script type="text/tpl" id="tpl-edit">
+	<div>
+</script>
+
+<script type="text/tpl" id="tpl-list">
+	<tr data-id={{id}}>
+		<td>{{id}}</td>
+		<td class="tl"><kbd>{{type_name}}</kbd> {{type_info}}</td>
+		
+		<td class="tl">{{info}}</td>
+		<td class=""><a onclick="toggle({{id}}, this)" type="button" class="btn btn-{{status}} btn-xs togge-type"></a></td>
+		<td>
+			<a href="javascript:edit({{id}});" class="btn btn-default btn-xs">编辑</a>&nbsp;
+			<a href="javascript:del({{id}});" class="btn btn-danger btn-xs">删除</a>
+		</td>
+	</tr>
+</script>
+
+<!--<td class="tl"><a href="{:U('advLists', array('type_id' => '--id--'))}">{{info}}</a></td>-->
+<script src="__CDN__/ja.js,dialog.plus.js,dialog.css"></script>
+<script>
+var api = {
+		list: '{:U('lists')}',
+		edit: '{:U('edit', 'id=--id--')}',
+		toggle: '{:U('toggle', 'id=--id--')}',
+                del:'{:U('del')}',
+		listTpl: $('#tpl-list').html(),
+		data: {} // 刷新列表请求数据
+	},
+	types = ['单行文本', '多行文本', '图片'],
+	$list = $('.dom-list');
+
+var types = {:json_encode($types)};
+
+
+
+$('.dom-type').on('change', function(){
+	getList($(this).serializeJson());
+});
+
+
+
+
+getList();
+
+
+
+
+/**
+ * 刷新列表数据
+ */
+function getList(data){
+	$.extend(api.data, data);
+	$list.html('<tr><td colspan=30><i class="fa fa-spinner fa-pulse fa-4x"></i></td></tr>');
+	$.getJSON(api.list, api.data, appendList);
+	
+}
+
+
+function appendList(json){
+	var data = json.data;
+
+	if(typeof data != 'object') return;
+
+	$list.html('');
+	for(k in data){
+		data[k].type_info = types[data[k].type_id].info;
+		data[k].type_name = types[data[k].type_id].name;
+		data[k].status = data[k].status == 1 ? 'success' : 'danger';
+
+		$list.append(api.listTpl.tpl(data[k]));
+	}
+
+	if(count(data) == 0){
+		$list.html('<tr><td colspan=30><h4 class="red">数据为空</h4></td></tr>');
+	}
+
+	$('.dom-page').html(page(json.page));
+}
+
+
+/**
+ * 切换状态
+ */
+function toggle(id, a){
+	var _this = $(a);
+	
+	if(!id) return;
+	$.get(api.toggle.tpl({id: id}), function(a){
+		if(a.status == 1){
+			_add = a.info == 1 ? 'btn-success' : 'btn-danger';
+			_remove = a.info == 1 ? 'btn-danger' : 'btn-success';
+			_this.removeClass(_remove).addClass(_add);
+		}
+	}, 'json');	
+}
+
+
+
+/**
+ * 新增 编辑数据
+ */
+function add(){edit('new');}
+function del(id){
+    if (!id) {
+    return;
+}
+    $.get(api.del,{id:id},function(res){
+     
+            if (res) {
+                alert('删除广告成功!');
+                getList();
+            }else {
+                alert('删除失败,服务器出错!');
+            }   
+        },'json');
+    }
+function edit(id){
+	dialog({
+		id: 'adv-id-'+ id,
+	    title: '广告管理',
+	    width: 'auto',
+	    url: api.edit.tpl({id: id}),
+	    cancel: function () {
+	    	this.close();
+	        return false;
+	    },
+	    cancelDisplay: false,
+	    oniframeload: function(){
+	    	// this.reset();
+	    },
+	    statusbar: ''
+	}).show();
+}
+
+
+
+</script>

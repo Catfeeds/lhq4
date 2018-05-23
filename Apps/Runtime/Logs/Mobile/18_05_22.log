@@ -1,0 +1,6 @@
+[ 2018-05-22T10:44:14+08:00 ] ::1 /lhq/mobile/apiajax/adtypeajax?appid=1344
+ERR: Cron:cron_1 Runat 2018-05-22 10:44:14 Use 0.001840 s
+
+[ 2018-05-22T10:49:49+08:00 ] ::1 /lhq/mobile/apiajax/adtypeajax?appid=8
+ERR: Cron:cron_1 Runat 2018-05-22 10:49:49 Use 0.001846 s
+

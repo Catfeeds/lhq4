@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+
+        <title>通知中心</title>
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="default">
+        <meta name="msapplication-tap-highlight" content="no">
+    <script src="__PUBLIC__/mobile/js/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="__PUBLIC__/mobile/css/style.css" type="text/css">
+     
+    </head>
+
+    <body>
+                <div class="devBox">
+                    <a href="{:U('Index/index',array('member_id'=>I('get.member_id')))}"><img src="__PUBLIC__/mobile/images/a2.png" alt class="fl"></a>
+                    <h1 class="biaoti">通知公告</h1>
+
+                </div>
+    <div id="outer3">
+    <ul id="tab3">
+        <li class="current">消息通知</li>
+        <li>新闻公告</li>
+      
+    </ul>
+    <div id="content3">
+        <ul  style="display:block;">
+         <if condition="$msg_to eq ''" >
+                            <div class="wu">
+                                暂 无 消 息
+                            </div>
+                        <else />
+
+                          <foreach name="msg_to"  item="vo">
+                                <div class="two">
+
+                                    <a href="{:U('Message/information',array('member_id'=>I('get.member_id'),'message_id'=>$vo['message_id']))}" class="one" msg="{$vo.message_id}" onclick="test(this)" zt="2">
+                                        <if condition="$status[$vo['message_id']] eq ''">
+                                            <if condition="$vo.m_type eq 1">
+                                                <img src="__PUBLIC__/mobile/images/h2.png" alt="" class="img">
+                                                <elseif condition="$vo.m_type eq 2"/>
+                                                <img src="__PUBLIC__/mobile/images/h2.png" alt="" class="img">
+                                            <else/>
+                                                <img src="__PUBLIC__/mobile/images/h1.png" alt="" class="img">
+                                            </if>
+                                        <span class="dian"></span>
+
+                                        <b style="font-weight: bold;">{$vo.title}：</b>
+                                        <p class="jiequ">{$vo.content}</p>
+                                        <elseif condition="$status[$vo['message_id']] eq 0"/>
+                                                     <if condition="$vo.m_type eq 1">
+                                                <img src="__PUBLIC__/mobile/images/h2.png" alt="" class="img">
+                                                         <elseif condition="$vo.m_type eq 2"/>
+                                                         <img src="__PUBLIC__/mobile/images/h2.png" alt="" class="img">
+                                            <else/>
+                                                <img src="__PUBLIC__/mobile/images/h1.png" alt="" class="img">
+                                            </if>
+                                            <span class="dian"></span>
+                                            <b style="font-weight: bold;">{$vo.title}：</b>
+                                            <p class="jiequ">{$vo.content}</p>
+                                         <elseif condition="$status[$vo['message_id']] eq '1'"/>
+                                            <if condition="$vo.m_type eq 1">
+                                                <img src="__PUBLIC__/mobile/images/h2.png" alt="" class="img">
+                                                <elseif condition="$vo.m_type eq 2"/>
+                                                <img src="__PUBLIC__/mobile/images/h2.png" alt="" class="img">
+                                                <else/>
+                                                <img src="__PUBLIC__/mobile/images/h1.png" alt="" class="img">
+                                            </if>
+                                          <b style="font-weight: bold;">{$vo.title}：</b>
+                                          <p class="jiequ">{$vo.content}</p>
+                                        </if>
+                                    </a>
+
+                                </div>
+                           </foreach>
+                   </if>
+        </ul>
+
+        <ul>
+
+                <foreach name="news"  item="vo">
+                    <div class="two">
+
+                        <a href="{:U('Message/information',array('member_id'=>I('get.member_id'),'message_id'=>$vo['message_id']))}" class="one" msg="{$vo.message_id}" onclick="test(this)" zt="2">
+                            <if condition="$status[$vo['message_id']] eq ''">
+                                <img src="__PUBLIC__/mobile/images/h2.png" alt="" class="img">
+                                <span class="dian"></span>
+
+                                <b style="font-weight: bold;">{$vo.title}：</b>
+                                <p class="jiequ">{$vo.content}</p>
+                                <elseif condition="$status[$vo['message_id']] eq '0'"/>
+                                 <img src="__PUBLIC__/mobile/images/h2.png" alt="" class="img">
+                                <span class="dian"></span>
+                                <b style="font-weight: bold;">{$vo.title}：</b>
+                                <p class="jiequ">{$vo.content}</p>
+                                <elseif condition="$status[$vo['message_id']] eq '1'"/>
+                                <img src="__PUBLIC__/mobile/images/h2.png" alt="" class="img">
+                                <b style="font-weight: bold;">{$vo.title}：</b>
+                                <p class="jiequ">{$vo.content}</p>
+                            </if>
+                        </a>
+
+                    </div>
+                </foreach>
+        </ul>
+
+          
+        
+    </div>
+</div>
+
+                <script>
+                    function test(a) {
+                        event.preventDefault();
+                        // message=$(a).attr('message');
+                        msg=$(a).attr('msg');
+                        url=$(a).attr('href');
+                        mid='{$member_id}';
+                        zt=$(a).attr('zt');
+                        //alert(message);
+                        $.post("{:U('Mobile/Apiajax/ReadStatus')}", {msg:msg,mid:mid,zt:zt}, function (e) {
+                            location.href=url;
+                            //location.href="details.php?mission_id="+msid;
+                        }, 'json')
+                    }
+                    //点击红点取消
+                 /*     $(function(){
+                     var mmid="{$member_id}";
+                     var msg=$(a).attr('msg');
+                   /!*  alert(mmid);
+                     alert(msg);die;*!/
+                     $(".one").click(function(){
+                     // url = "{:U('Index/msgClickAjax')}";
+                     $.post("{:U('Mobile/Apiajax/SelectMsg')}",{msg:msg,mid:mid},function(data){
+                     // alert(type);
+                     //console.log(data);//die;
+                     if(data<=0){
+
+                     var html='<img src="__PUBLIC__/mobile/images/g1.png" class="gonggao" />';
+                     $(".tp").html(html);
+                     }else{
+                     var html='<img src="__PUBLIC__/mobile/images/g1.png" class="gonggao" />' +
+                     '<span class="nav-counter" id="msg">'+data+'</span>';
+                     $(".tp").html(html);
+                     }
+                     },'html')
+                     })
+                     });*/
+                </script>
+<script src="__PUBLIC__/mobile/js/ajaxjs_jquery.min.js"></script>
+<script>
+    $(function(){
+        window.onload = function()
+        {
+            var $li = $('#tab3 li');
+            var $ul = $('#content3 ul');
+                        
+            $li.mouseover(function(){
+                var $this = $(this);
+                var $t = $this.index();
+                $li.removeClass();
+                $this.addClass('current');
+                $ul.css('display','none');
+                $ul.eq($t).css('display','block');
+            })
+        }
+    });
+</script>
+
+
+    
+
+</body></html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{$page_title} - {$Think.const.ADMIN_TITLE}</title>
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="stylesheet" href="__PUBLIC__/lib/bootstrap/css/bootstrap.css">
+
+    <if condition="$Think.session.osa_user_info.template neq ''">
+    <link rel="stylesheet" href="__PUBLIC__/stylesheets_{$Think.session.osa_user_info.template}/theme.css">
+    <else/>
+    <link rel="stylesheet" href="__PUBLIC__/stylesheets_default/theme.css">
+    </if>
+<!--     <link rel="stylesheet" href="__PUBLIC__/stylesheets_default/theme.css"> -->
+    <link rel="stylesheet" href="__PUBLIC__/lib/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/other.css">
+	<link rel="stylesheet" href="__PUBLIC__/css/table-fenye.css">
+	<link rel="stylesheet" href="__PUBLIC__/css/jquery-ui.css" />
+    <link rel="stylesheet" href="__PUBLIC__/css/lanrenzhijia.css">
+	<link rel="stylesheet" href="__PUBLIC__/css/jquery-ui-timepicker-addon.css" />
+    <link rel="stylesheet" href="__PUBLIC__/css/xs.css" />
+
+
+    <script src="__PUBLIC__/lib/jquery-1.8.1.min.js" ></script>
+	<script src="__PUBLIC__/lib/jquery.cookie.js" ></script>
+	<script src="__PUBLIC__/lib/bootstrap/js/bootbox.min.js"></script>
+	<script src="__PUBLIC__/lib/bootstrap/js/bootstrap-modal.js"></script>
+	<script src="__PUBLIC__/js/other.js"></script>
+	<script src="__PUBLIC__/js/jquery-ui.js"></script>
+	<script src="__PUBLIC__/js/jquery-ui-timepicker-addon.js"></script>
+   <!--   <script src="__PUBLIC__/js/js.js"></script>-->
+      <script src="__PUBLIC__/select/js/jquery.jmpopups-0.5.1.js"></script>
+    <script src="__PUBLIC__/js/jquery.jmpopups-0.5.1.js"></script>
+
+      <script type='text/javascript' src="__PUBLIC__/select/js/jquery.selectlayer.js"></script>
+
+      <link href="__PUBLIC__/select/css/style.css" rel="stylesheet" type="text/css" />
+      <!-- Demo page code -->
+
+    <style type="text/css">
+        #line-chart {
+            height:300px;
+            width:800px;
+            margin: 0px auto;
+            margin-top: 1em;
+        }
+        .brand { font-family: georgia, serif; }
+        .brand .first {
+            color: #ccc;
+            font-style: italic;
+        }
+        .brand .second {
+            color: #fff;
+            font-weight: bold;
+        }
+    </style>
+
+  </head>
+

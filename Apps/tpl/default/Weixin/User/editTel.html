@@ -1,0 +1,39 @@
+
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+  <meta content="yes" name="apple-mobile-web-app-capable" />
+  <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+  <meta content="telephone=no" name="format-detection" />
+  <link href="__WXP__/css/member_ly.css" rel="stylesheet" type="text/css" />
+
+ 
+  <div class="edit-wrapper" style="padding-top: 45px">
+   <input name="txtPhone" type="text" id="txtPhone" class="inp-info" maxlength="20" value="{$tel}"/> 
+   <p class="txt">备用联系信息不作公开</p> 
+   <a id="btnT4" href="javascript:submit();" class="s-btn">保存</a> 
+  </div>   
+  
+  
+ <script>
+   url="{:U('User/setInfo')}"; 
+   sucUrl="{:U('editInfo1')}";
+   function submit(){
+	   
+	   
+		var tel = $('#txtPhone').val();
+		var reg = /^1\d{10}$/;
+		if (!reg.test(tel)) {
+			layer.msg('请输入正确的电话号码');
+			return;
+		}
+
+		value = $("#txtPhone").val();
+		$.post(url, {
+			name : "phone1",
+			value : value
+		}, function(rel) {
+			layer.msg(rel.info);
+			location.href=sucUrl;
+		});
+
+		}
+	</script>

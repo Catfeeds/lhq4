@@ -1,0 +1,64 @@
+<include file ="Index:header"/>
+<include file ="Index:navibar"/>
+<include file ="Index:sidebar"/>
+<!-- TPLSTART 以上内容不需更改，保证该TPL页内的标签匹配即可 -->
+
+<div class="btn-toolbar" style="margin-bottom:2px;">
+    <a href="{:U('msgTypeAdd')}" class="btn btn-primary"><i class="icon-plus"></i> 添加任务</a>
+</div>
+
+<div class="block">
+    <a href="#page-stats" class="block-heading" data-toggle="collapse">任务分类</a>
+    <div id="page-stats" class="block-body collapse in">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>分类名称</th>
+                <th>创建时间</th>
+             <!--   <th>操作</th>-->
+
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="msgTypes" item="msgType">
+
+                <tr>
+
+                    <td>{$msgType.id}</td>
+
+                    <td>{$msgType.type_name}</td>
+
+                    <td>{$msgType.create_time|date="Y:m:d H:i:s",###}</td>
+
+                    <!--               <td>
+
+                                       <a href="{:U('msgTypeModify',array('id'=>$msgType['id']))}" title= "编辑" ><i class="icon-pencil"></i></a>
+
+                        &nbsp;
+
+                        <a data-toggle="modal" href="{:U('msgType',array('id'=>$msgType['id'],'method'=>del))}" title= "删除" ><i class="icon-remove"></i></a>
+
+
+                    </td>-->
+
+                </tr>
+                </foreach>
+            </tbody>
+        </table>
+        <!--- START 分页模板 -->
+                           <div style="margin-bottom: 20px">
+        <table id="page-table-fenye" cellspacing="0" >
+            <tr>
+                <td align="center" nowrap="true">
+                    {$page}
+                </td>
+            </tr>
+        </table>
+        </div>
+        <!--- END -->
+        每页25项
+    </div>
+</div>
+<!-- TPLEND 以下内容不需更改，请保证该TPL页内的标签匹配即可 -->
+<include file="Index:footer"/>

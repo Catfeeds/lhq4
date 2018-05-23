@@ -1,0 +1,3 @@
+INSERT INTO `osa_menu_url`(`menu_name`, `menu_url`, `module_id`, `is_show`, `online`, `shortcut_allowed`, `menu_desc`, `father_menu`) VALUES ('提交审核','/ajax/heajax.php ','8','0','1','1','提交审核','0');
+INSERT INTO `osa_menu_url`(`menu_name`, `menu_url`, `module_id`, `is_show`, `online`, `shortcut_allowed`, `menu_desc`, `father_menu`) VALUES ('时间倒计时',' /ajax/sjajax.php ','8','0','1','1','时间倒计时','0');
+INSERT INTO `osa_menu_url`(`menu_name`, `menu_url`, `module_id`, `is_show`, `online`, `shortcut_allowed`, `menu_desc`, `father_menu`) VALUES ('取消任务','/ajax/qxStatusAjax.php ','8','0','1','1','取消任务','0');

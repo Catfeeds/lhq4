@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>任务详情</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="msapplication-tap-highlight" content="no">
+<script src="__PUBLIC__/mobile/js/jquery.min.js"></script>
+<!--    <script src="__PUBLIC__/mobile/js/jquery.mobile-1.4.5.min.js"></script> -->
+<link rel="stylesheet" href="__PUBLIC__/mobile/css/style.css" type="text/css">
+<script src="__PUBLIC__/mobile/js/jquery.v1.9.0.js"></script>
+<script src="__PUBLIC__/mobile/js/clipboard.min.js"></script>
+
+<style type="text/css">
+.cparea{  
+    text-align: center;  
+}  
+.kwd{
+    display: inline-block;
+    font-size: 1.1875em;
+    font-size: 1.1875em;
+    padding: .7em 3em;
+    border: 1px dashed grey;
+    -webkit-user-select:element;
+    margin: .5em;
+}  
+.zt{
+    display: inline-block;
+    color: #ff0000;
+    font-size: .8em;
+}
+.ztTips{
+    display: inline-block;
+    color: #ff0000;
+    font-size: .8em;
+    padding-top: 1em;
+}
+</style>
+</head>
+
+<body>
+    <div class="devBox">
+        <a class="zt" xs='3' msid="{$missionIds.mission_id}" mmid="{$member_id}"><img src="__PUBLIC__/mobile/images/a2.png" alt class="fl"></a>
+        <h1 class="biaoti">任务详情</h1>
+    </div>
+
+    <div class="xiangqing">
+        <img
+        <if condition="$missionIds.img eq ''">
+            src="__PUBLIC__/img/default_logo.png"
+        <else/>
+            src="__PUBLIC__/{$missionIds.img}"
+        </if>
+        class="rwtb"/>
+        <p class="rwm">{$missionIds.mission_name}</p>
+        <p class="yuan1">+{$missionIds.price}元</p>
+    </div>
+
+    <div class="buzhou">
+        <p id="btn">剩余时间:<span id="ggg"></span></p>
+        <p style="color:black;font-weight: 600;">任务步骤:</p>
+        <p>{$missionIds.des}</p>
+    </div>
+
+    <div class="cparea">
+        <span class="ztTips">点击"关键词"将自动复制并跳转到App Store</span>
+    </div>
+
+    <div class="cparea">
+        <div id="kwd" class="kwd" msid="{$missionIds.mission_id}" mmid="{$member_id}" onclick="onCopyEvent()">关键词
+            <span id="target"  style = "position: absolute; opacity: 0; filter:Alpha(opacity=0)">{$kwd} </span>
+        </div>
+    </div>
+
+    <div class="copy" id="dkyy">
+        <a href="javascript:void(0);" id="openapp" name="openapp" value="打开应用" style="color:#fff;" msid="{$missionIds.mission_id}" mmid="{$member_id}">打开应用</a>
+    </div>
+
+    <div class="rw" msid="{$missionIds.mission_id}" mmid="{$member_id}">
+        <if condition="($step.first_step eq 1) AND ($step.second_step eq 1)">
+            <div class="copy" style="" id="shcg">
+                <a href="" onclick="return false;" id="sh" xs='2' name="status" value="提交审核" style="color:#fff;" >提交审核</a>
+            </div>
+        <else/>
+            <div class="copy" style="background-color: #DEE0E3; border-color: #DEE0E3;" id="shsb">
+                <a href="" onclick="return false;" name="status" value="提交审核" style="color:#fff;">提交审核</a>
+            </div>
+        </if>
+
+        <div class="delete" msid="{$missionIds.mission_id}" mmid="{$member_id}">
+            <a href="" onclick="return false;" id="qx" xs='3' value="取消任务" name="status" style="color:gray;">取消任务</a>
+        </div>
+        </br>
+        </br>
+        </br>
+    </div>
+</body>
+
+<script>
+function onCopyEvent(){
+    var mmid = $("#kwd").attr('mmid');
+    var msid = $("#kwd").attr('msid');
+    var val = '0';
+
+    $.post("{:U('Mobile/Apiajax/stepsAjax')}", {mmid:mmid,msid:msid,val:val}, function (data) {
+      if(data=="1"){
+          alert("复制失败请重新复制!");
+          return false;
+      }else if(data=="4"){
+          alert("用户信息获取错误请重试!");
+          return false;
+      }else if(data=="5"){
+          alert("任务获取失败请重试!");
+          return false;
+      }else if(data=="6"){
+          alert("请求类型获取失败请重试!");
+          return false;
+      }
+      else{
+          try {
+              window.webkit.messageHandlers.minfo.postMessage("val=" + val + "&keywords={$kwd}&missiomId=" + msid + "&scheme={$missionIds.url_scheme}&bundleId={$missionIds.bundleid}&adtype_id={$missionIds.adtype_id}");
+          }catch(err){
+              console.log('The native method doesnot exist;');
+          }
+      }
+
+  },'html')
+}
+
+$("#kwd").bind("taphold", function(){
+    var doc = document,
+    text = doc.getElementById("kwd"),
+    range,
+    selection;
+        if (doc.body.createTextRange) { //IE
+            range = document.body.createTextRange();
+            range.moveToElementText(text);
+            range.select();
+
+        } else if (window.getSelection) {   //FF CH SF
+            selection = window.getSelection();
+            range = document.createRange();
+            range.selectNodeContents(text);
+            selection.removeAllRanges();
+            selection.addRange(range);
+
+            //测试
+            console.log(text.textContent);
+            text.innerText && console.log(text.innerText);  //FireFox不支持innerText
+            console.log(text.textContent.length);
+            text.innerText && console.log(text.innerText.length);   //在Chrome下长度比IE/FF下多1
+            console.log(text.firstChild.textContent.length);
+            text.innerText && console.log(text.firstChild.innerText.length);
+            console.log(text.firstChild.innerHTML.length);
+
+            //注意IE9-不支持textContent
+            makeSelection(0, text.firstChild.textContent.length, 0, text.firstChild);
+        }else{
+            alert("浏览器不支持长按复制功能");
+        }
+});
+
+function makeSelection(start, end, child, parent) {
+    var range = document.createRange();
+    //console.log(parent.childNodes[child]);
+    range.setStart(parent.childNodes[child], start);
+    range.setEnd(parent.childNodes[child], end);
+
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+}
+//进入应用
+$("#dkyy").click(function(){
+    var mmid=$(this).children().attr('mmid');
+    var msid=$(this).children().attr('msid');
+    var val = '1';
+    $.post("{:U('Mobile/Apiajax/stepsAjax')}",{mmid:mmid,msid:msid,val:val},function(data){
+      
+       if(data=="2"){
+            alert("操作失误请重新点击！");
+            return false;
+        }else if(data=="3"){
+            alert("请先复制关键词！");
+            return false;
+        }else if(data=="1"){
+            alert("请先复制关键词！");
+            return false;
+        }else if(data=="4"){
+            try {
+                window.webkit.messageHandlers.oap.postMessage("val=" + val + "&missiomId=" + msid + "&scheme={$missionIds.url_scheme}&bundleId={$missionIds.bundleid}&adtype_id={$missionIds.adtype_id}&kwd={$kwd}");
+            }catch(err){
+                console.log('The native method  doesnot exist;');
+            }
+        }
+    },'html');
+});
+
+$(function(){
+    $(".rw").find('div').click(function() {
+        var url = "{:U('Mobile/Apiajax/qxStatusAjax')}";
+        var val = $(this).children().attr('xs');
+        var mmid = $(this).parent().attr('mmid');
+        var msid = $(this).parent().attr('msid');
+        if (val == 2) {
+            try {
+                window.webkit.messageHandlers.sre.postMessage("val=" + val + "&missiomId=" + msid + "&scheme={$missionIds.url_scheme}&bundleId={$missionIds.bundleid}&adtype_id={$missionIds.adtype_id}");
+            }catch(err){
+                console.log('The native context doesnot exist;');
+            }
+            $(function start(){
+                var statu = confirm("AddCheck");
+                if (statu){
+                    $.post(url, {val: val, mmid: mmid, msid: msid, status: 1},function(data){
+                        if (data=="2") {
+                            $(this).children().attr('value', "提交审核");
+                            $(this).children().attr('xs', '2');
+                            $("#sh").html('待审核');
+                            location.href="{:U('Mobile/Task/task')}";
+                        }else if (data=="3"){
+                            alert('请按照任务步骤进行操作');
+                        }
+                    });
+                } else {
+                    window.location.reload();
+                }
+            });
+
+        }else if (val == 3) {
+            $.post(url, {val: val, mmid: mmid,msid:msid},function(e){
+                if (e) {                            
+                    $(this).children().attr('value', "取消任务");
+                    $(this).children().attr('xs', '3');                
+                    $("#qx").html('已取消');
+                    location.href="{:U('Mobile/Task/task')}";
+                }
+            });
+        }
+    });
+});
+
+$(function(){
+    $(".zt").find('img').click(function() {
+        var statu = confirm("确定放弃本次任务吗");
+        if(statu){
+            var url = "{:U('Mobile/Apiajax/qxStatusAjax')}";
+            var val = $(this).parent().attr('xs');
+            var mmid = $(this).parent().attr('mmid');
+            var msid = $(this).parent().attr('msid');
+            $.post(url, {val: val, mmid: mmid,msid:msid},function(e){
+                if (e) {
+                   location.href="{:U('Mobile/Task/task')}";      
+                };
+            },'json');    
+        }
+    });
+});
+function nihao() {
+    var msid="{$missionIds.mission_id}";
+    var mmid="{$member_id}";
+
+    $.post("{:U('Mobile/Apiajax/sjajax')}",{msid:msid,mmid:mmid},function(e){
+        if(e=="00:00") {
+            window.location.href="{:U('Mobile/Task/task')}";
+        }
+        $("#ggg").html(e);
+    },'html')
+}
+setInterval(nihao,1000);
+</script>
+
+
+</html>

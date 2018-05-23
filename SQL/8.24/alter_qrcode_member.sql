@@ -1,0 +1,1 @@
+alter table member add qrcode varchar(100) comment'ЖўЮЌТы';

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+
+        <title>通知详情</title>
+
+         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="default">
+        <meta name="msapplication-tap-highlight" content="no">
+
+        
+        <link rel="stylesheet" href="__PUBLIC__/mobile/css/style.css" type="text/css">
+    </head>
+
+    <body>
+
+       
+
+			
+				<div class="devBox">
+					<a href="{:U('Message/message',array('member_id'=>I('get.member_id')))}"><img src="__PUBLIC__/mobile/images/a2.png" alt class="fl"></a>
+					<h1 class="biaoti">通知详情</h1>
+
+				</div>
+            <ul>
+                <li class="hang">
+                    <b style="font-weight: bold;">{$message_information.title}</b>
+                    <div class="hr"></div>
+                    <p>{$message_information.content}</p>
+                    
+                    
+                </li>   
+                
+                          
+            </ul>
+				
+
+
+            
+        
+<br><br>
+    
+
+</body></html>

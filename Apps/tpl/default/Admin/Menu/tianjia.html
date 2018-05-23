@@ -1,0 +1,92 @@
+<div class="m20" style="margin: 10px;">
+
+	<header class="panel_header fix mb20">
+		<h2 class="title">添加菜单</h2>
+	</header>
+
+	<form action="{:U('Admin/Menu/tianjiachk')}" method="post" class="goods-form">
+
+
+
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">序号</div>
+				<input class="form-control" type="text" name="taxis" required="required" />
+			</div>
+		</div>
+		
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">菜单名称</div>
+				<input class="form-control" type="text" name="name" placeholder="请输入菜单名称" required="required" />
+			</div>
+		</div>
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">菜单类型</div>
+				<select class="form-control type" type="text" name="type" placeholder="请输入菜单类型" required="required" >
+				<foreach name="type" item="value" key="key">
+				<option value="{$key}">{$value}</option>
+				</foreach>
+				</select>
+			</div>
+		</div>
+		
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">菜单图标</div>
+				<input class="form-control" type="text" name="icon" placeholder="只有顶级权限才需要添加" />
+			</div>
+		</div>
+		
+		
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">父菜单</div>
+				<select class="form-control pid" name='pid'  id='pid'>
+				</select>
+			</div>
+		</div>
+		
+		
+
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">控制器</div>
+				<input class="form-control" type="text" name="url" placeholder="请输入相关的控制器名" />
+			</div>
+		</div>
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">参数</div>
+				<input class="form-control" type="text" name="params" placeholder="请输入相关的参数名"/>
+			</div>
+		</div>
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">状态</div>
+				<input class="form-control" type="text"  value="1" name="status" />
+			</div>
+		</div>
+		<div class="form-group pl5 pr5">
+
+			<button type="submit" class="btn btn-primary">
+				<i class="fa fa-save"></i> <span>添加</span>
+			</button>
+		</div>
+
+
+	</form>
+<script>
+//获取父级菜单类型
+$(".type").on("change",function(){
+	var type = $(this).val();
+	$.get('{:U('Admin/Menu/getType','type=')}'+type,function(data){
+		$("#pid").html(data);
+	});
+});
+
+$(".type").change();
+
+</script>
+</div>

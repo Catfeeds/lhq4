@@ -1,0 +1,89 @@
+{__NOLAYOUT__}
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no, maximum-scale=1.0" />
+		<meta content="yes" name="apple-mobile-web-app-capable" />
+		<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+		<meta content="telephone=no" name="format-detection" />
+		<link href="__WXP__/css/comm.css" rel="stylesheet" type="text/css" />
+		<link href="__WXP__/css/login.css" rel="stylesheet" type="text/css" />
+		<script src="__LIB_URL__/jquery.min.js"></script>
+		<script src="__LIB_URL__/layer/layer.js"></script>
+		<title>{$title}</title>
+	</head>
+
+	<body>
+		<div class="wrapper">
+			<div class="registerCon">
+				<div class="binSuccess5">
+				<form action="__SELF__" method="post">
+					<ul>
+						<li class="accAndPwd">
+							<dl>
+								<input id="txtAccount" type="text" maxlength="11" name="uname" placeholder="请输入您的手机号码" ><i></i>
+							</dl>
+							<dl>
+								<input id="txtPassword" type="password" name="password" placeholder="密码" ><b></b>
+							</dl>
+							
+							<input id="verify" name="verify"  -style="width:70%;  " placeholder="验证码" type="text"  maxlength="4" required="required" -pattern="[\d]{4}">            <br>      <br>
+     						<img id="img_c" -tyle="display:inline; "  alt="验证码" src="{:U('Register/verify_c',array())}" title="点击刷新">
+							
+						</li>
+					</ul>
+					<a id="btnLogin"  href="#" class="defaultRedBtn loginBtn">登录</a>
+				</form>
+				</div>
+				<div class="forget">
+					<a href="{:U('Register/index')}">注册账户</a><a href="{$weixinLoginURL}" style="margin-left:30px;">微信登录</a><a href="{:U('Login/retrievePassword')}" style="margin-left:30px;">找回密码</a>
+				</div>
+			</div>
+			<div class="oter_operation gray9">
+				<p>登录{:C('site_title')}账号后，可在微信进行以下操作：</p>
+				1、查看您的记录、获得商品信息、余额等
+				<br/> 2、随时掌握最新晒单、最新揭晓动态信息
+			</div>
+		</div>
+	</body>
+
+	<script>
+	var selfUrl = "__SELF__";
+
+	$("#btnLogin").click(function() {
+		$.post(selfUrl, {
+			uname : $("#txtAccount").val(),
+			password : $("#txtPassword").val(),
+			verify:$("#verify").val(),
+		}, function(rel) {
+			if (rel.status == 1) {
+				layer.msg(rel.info);
+				setTimeout(function() {
+					window.location.href = rel.url;
+				}, 2000);
+
+			} else {
+				layer.msg(rel.info);
+				$("#verify").val('');
+			}
+
+		});
+	});
+	
+	// 验证码刷新 
+	var captcha_img = $('#img_c');
+	var verifyimg = captcha_img.attr("src");  
+	captcha_img.attr('title', '点击刷新');  
+	captcha_img.click(function(){  
+		if( verifyimg.indexOf('?')>0){  
+	        $(this).attr("src", verifyimg+'&random='+Math.random());  
+	    }else{  
+	        $(this).attr("src", verifyimg.replace(/\?.*$/,'')+'?'+Math.random());  
+	    }  
+	});
+	
+	</script>
+
+</html>

@@ -1,0 +1,165 @@
+
+		<header class="panel_header fix mb20">
+			<h2 class="title">{$title}</h2>
+		</header>
+
+		<div class="fix">
+				<a href="javascript:add();" class="btn btn-default l mr10">
+					<i class="fa fa-plus"></i> <span>新增</span>
+				</a>
+
+				<!-- 搜索 -->
+				<!--
+<a>触发遮罩窗体</a>
+				<div class="input-group l w300 mr10">
+					<input type="text" class="form-control keyword" name="{$keyword}" value="" placeholder="关键字" />
+					<a href="javascript:getList({page: 1, keyword: ''});" class="input-group-addon btn btn-default">清空</a>
+					<div class="input-group-addon btn btn-default search">搜索</div>
+				</div>
+				-->
+
+				<div class="input-group l w200 mr10">
+					<div class="input-group-addon">位置</div>
+					<select class="form-control dom-type" name="type_id">
+						<option value="0" >全部</option>
+						<volist name="advs" id="item">
+							<option value="{$item.id}">{$item.info}</option>
+						</volist>
+					</select>
+				</div>
+
+
+				<!-- 状态切换 -->
+				<!--
+				<div class="btn-group dom-status" data-toggle="buttons">
+					<label class="btn btn-default active">
+						<input type="radio" name="status" value="0" autocomplete="off" checked> 全部
+					</label>
+					<label class="btn btn-default">
+						<input type="radio" name="status" value="1" autocomplete="off"> 在售
+					</label>
+					<label class="btn btn-default">
+						<input type="radio" name="status" value="2" autocomplete="off"> 关闭
+					</label>
+				</div>
+				-->
+
+
+
+		</div>
+
+		<div class="pct100 mt20">
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<table class="table table-hover table-condensed table-striped table-bordered">
+						<thead>
+							<tr>
+								<th style="width:60px;">编号</th>
+								<th>名称</th>
+								<th style="width: 160px;">操作</th>
+							</tr>
+						</thead>
+						<tbody class="dom-list">
+						</tbody>
+					</table>
+					<div class="dom-page"></div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+
+	
+<script type="text/tpl" id="tpl-edit">
+	<div>
+</script>
+
+<script type="text/tpl" id="tpl-list">
+	<tr data-id={{id}}>
+		<td>{{id}}</td>
+		<td><a href="{:U('advLists', array('type_id' => '--id--'))}">{{info}}</a></td>
+		<td><a href="javascript:add({{id}});">新增条目</a></td>
+	</tr>
+</script>
+
+
+
+<script src="__CDN__/dialog.js,dialog.css"></script>
+<script>
+var api = {
+		list: '{:U('advLists')}',
+		listTpl: $('#tpl-list').html(),
+		data: {} // 刷新列表请求数据
+	},
+	types = ['单行文本', '多行文本', '图片'],
+	$list = $('.dom-list');
+
+var advs = {:json_encode($advs)};
+
+
+
+$('.dom-type').on('change', function(){
+	getList($(this).serializeJson());
+});
+
+
+
+
+getList();
+
+
+
+
+/**
+ * 刷新列表数据
+ */
+function getList(data){
+	$.extend(api.data, data);
+	$.getJSON(api.list, api.data, appendList);
+	
+}
+
+
+function appendList(json){
+	var data = json.data;
+
+	if(typeof data != 'object') return;
+
+	$list.html('');
+	for(k in data){
+		data[k].type_name = types[data[k].type];
+		$list.append(api.listTpl.tpl(data[k]));
+	}
+
+	console.log();
+	if(count(data) == 0){
+		$list.html('<tr><td colspan=30>'
+			+ '<div class="alert alert-dismissable alert-warning">'
+			+ '		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>'
+			+ '		<h4>数据为空</h4>'
+			+ '</div>'
+			+ '</td></tr>'); // colspan
+	}
+
+	$('.dom-page').html(page(json.page));
+}
+
+
+/**
+ * 新增数据
+ */
+function add(id, type){
+	dialog({
+	    title: '新增广告',
+	    content: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+	    ok: function () {},
+	    statusbar: ''
+	}).show();
+}
+
+
+
+</script>

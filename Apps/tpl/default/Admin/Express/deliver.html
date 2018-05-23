@@ -1,0 +1,147 @@
+<style>
+.row.no_gutter [class^="col-"],.row.no_gutter [class*="col-"] {
+	padding-right:0px;
+	padding-left:0px;
+}
+</style>
+
+<div class="container---c">
+	<div class="row clearfix">
+		<div class="column-j">
+			<form class="form-horizontal" action="" method="post" role="form">
+				<input type="hidden" name="id" value="{$express.id}"/>
+                                <input type="hidden" name="type" value="{$express.type}"/>
+                                <input type="hidden" name="ur_id" value="{$i_data.ur_id}"/>
+                                <input type="hidden" name="title" value="{$i_data.title}"/>
+				<div class="form-group col-xs-6">
+					<div class="row">
+						<label for="" class="col-xs-4 control-label">快递公司:</label>
+						<div class="col-xs-8">
+							<select  class="form-control input-sm" name="express_id">
+								<option value="0" >全部</option>
+								<volist name="types" id="v">
+									<option value="{$v.id}">{$v.name}</option>
+								</volist>
+							</select>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group col-xs-6">
+					<div class="row">
+						<label for="i-express_no" class="col-xs-4 control-label">快递单号:</label>
+						<div class="col-xs-8">
+							<input name="express_no" value="{$express.express_no}" type="text" class="form-control input-sm" id="i-express_no" />
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group col-xs-12">
+					<div class="row">
+						<label for="i-goods-title" class="col-xs-2 control-label">商品名称:</label>
+						<div class="col-xs-10">
+							<input value="{$express.title}" type="text" class="form-control input-sm" id="i-goods-title" readonly/>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group col-xs-6">
+					<div class="row">
+						<label for="i-goods-total" class="col-xs-4 control-label">商品价值:</label>
+						<div class="col-xs-8">
+							<input value="{$express.total}" type="text" class="form-control input-sm" id="i-goods-total" readonly/>
+						</div>
+					</div>
+				</div>
+				<div class="form-group col-xs-6">
+					<div class="row">
+						<label for="i-goods-fenshu" class="col-xs-4 control-label">参与数:</label>
+						<div class="col-xs-8">
+							<input value="{$express.canyushu}" type="text" class="form-control input-sm" id="i-goods-fenshu" readonly />
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group col-xs-6">
+					<div class="row">
+						<label for="i-name" class="col-xs-4 control-label">收件姓名:</label>
+						<div class="col-xs-8">
+							<input name="name" value="{$express.name}" type="text" class="form-control input-sm" id="i-name" />
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group col-xs-6">
+					<div class="row">
+						<label for="i-phone" class="col-xs-4 control-label">收件电话:</label>
+						<div class="col-xs-8">
+							<input name="phone" value="{$express.phone}" type="text" class="form-control input-sm" id="i-phone" />
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group col-xs-12">
+					<div class="row">
+						<label for="i-address" class="col-xs-2 control-label">收件地址:</label>
+						<div class="col-xs-10">
+							<input name="address" value="{$express.address}" type="text" class="form-control input-sm" id="i-address" />
+						</div>
+					</div>
+				</div>
+				
+				<div class="form-group col-xs-12">
+					<div class="row">
+						<label for="i-address" class="col-xs-2 control-label">用户备注:</label>
+						<div class="col-xs-10">
+							<textarea class="form-control" name="remark" rows="3" readonly>{$express.remark}</textarea>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group col-xs-6">
+					<div class="row">
+						<div class="col-xs-offset-4 col-sm-10">
+							<button type="submit" class="btn btn-success btn-sm">保存</button>
+						</div>
+					</div>
+				</div>
+
+			</form>
+		</div>
+	</div>
+</div>
+<script src="__LIB_URL__/layer/layer.js" type="text/javascript"></script>
+<script src="__LIB_URL__/ja.js" type="text/javascript"></script>
+
+
+<script>
+var $expForm = $('.form-horizontal');
+//表单提交
+$expForm.on('submit', function(e){
+	e.preventDefault();
+	saveExpress();
+});
+function saveExpress(){
+	var arr = $expForm.serializeJson(),
+		jamsg = false;
+        
+	if(arr.express_id !=17 && arr.express_no <1000)
+		jamsg = '请检查快递单号';
+	
+	if(jamsg)
+		return msg(jamsg, 'warning');
+	
+	// console.log(''+ arr. + arr.);
+		
+	var data = $expForm.serialize();
+	$.post('{:U('Express/deliver')}', data, function(j){
+		if(j.code == 200){
+			//msg('保存成功', 'success');
+			var dialog = top.dialog.get(window);
+			dialog.close(1);
+		}else{
+			msg('操作失败', 'warning');
+		}
+	});
+}
+</script>

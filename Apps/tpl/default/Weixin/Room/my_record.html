@@ -1,0 +1,104 @@
+<link href="__WXP__/css/comm1.css" rel="stylesheet" type="text/css"/>
+<link href="__WXP__/css/goods1.css" rel="stylesheet" type="text/css"/>
+<div class="column">
+    <a href="{:U('index_canyu')}" class=""
+       style="font-size: 16px; line-height: 36px; padding-left: 15px">我的包场记录</a>
+
+
+</div>
+
+
+<!-- 包场进行中 -->
+
+<div class="marginB"  style="padding-bottom: 50px" >
+    <div class="goodList_room">
+        <ul>
+            <empty name="bbooking"> 暂无包场记录，马上<a href="{:U('Room/index')}">创建包场...</a>
+            </empty>
+
+            <volist name="bbooking" id="vo1">
+                <li><span class="gList_l fl"> <img src="__ROOT__/t/?w=200&h=200&src={$vo1.goods_img}">	</span>
+
+                    <div class="gList_r">
+                        <h3 class="gray6">{$vo1.goods_title}</h3>
+                        <em class="gray9" style="height: 26px; font-size: 14px; margin: 0;">价值：￥{$vo1.goods_value}</em>
+                        <i class="gray6">发起人 : {$vo1.nickname} &nbsp;</i>
+                        <switch name="vo1.status">
+                            <case value="1"><br/><font style="color: #ff0000; font-size: 14px;">火热进行中</font></case>
+                            <case value="2"><font style="color: #ff0000; font-size: 14px;">倒计时</font>
+                                </case>
+                                <case value="3">
+                                    <font style="color: #ff0000; font-size: 14px;">已开奖</font>
+                                    <br/>
+                                    <i class="gray6">揭晓时间 : {$vo1.lottery_time|date="Y-m-d H:i:s",###} &nbsp;</i>
+                                </case>
+                                <case value="4">
+                                    <font style="color: #ff0000; font-size: 14px;">已领奖</font>
+                                    <br/>
+                                    <i class="gray6">领奖时间 : {$vo1.get_time|date="Y-m-d H:i:s",###} &nbsp;</i>
+                                </case>
+                                <default/>
+                                <font style="color: #ff0000; font-size: 14px;">已晒单</font>
+                        </switch>
+
+
+                    </div>
+
+                    <div style="clear:both">
+                        <a href="{:U('Weixin/Room/lottery','id=')}{$vo1.id}" style="position: absolute; */" >查看详情</a>
+
+                        <if condition="$vo1['is_creater'] == 0">
+                            <a href="javascript:ignore({$vo1['id']});" style="background-color: #00abec; color: #fff">忽略包场</a>
+                        </if>
+                    </div>
+
+                </li>
+            </volist>
+
+            <empty name="bbooking">
+                <script>
+
+
+                </script>
+            </empty>
+
+        </ul>
+
+
+    </div>
+</div>
+
+
+<script>
+
+
+    /*
+     * 忽略该包场邀请
+     */
+    function ignore(id) {
+
+
+        var del_act_url = "{:U('del_bbook_detail')}";
+
+        var bbid = id;
+
+        layer.confirm('您确定要忽略该包场的邀请吗,<br>忽略后该邀请将不会再向您提示,<br>并且您将永远不能继续参加该包场.', {
+            btn: ['确定', '取消']
+        }, function () {
+        	$.post(del_act_url,{bbid:bbid},function(rel){
+           	 layer.msg(rel.info);	
+           	 
+               if (res.status==1) {					   
+				    setTimeout(function(){					        
+				        location.href="{:U('index/index')}";	
+				    },1000);
+				}
+               
+           });
+        });
+    }
+
+
+</script>
+
+

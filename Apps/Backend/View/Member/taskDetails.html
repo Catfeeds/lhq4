@@ -1,0 +1,86 @@
+<!--<{include file ="header.tpl"}>
+<{include file ="navibar.tpl"}>
+<{include file ="sidebar.tpl"}>-->
+<include file="Index:header"/>
+<include file="Index:navibar"/>
+<include file="Index:sidebar"/>
+<!-- TPLSTART 以上内容不需更改，保证该TPL页内的标签匹配即可 -->
+
+
+<div class="block">
+	<a href="#page-stats" class="block-heading" data-toggle="collapse">任务详情列表</a>
+	<div id="page-stats" class="block-body collapse in">
+	<table class="table table-striped">
+			<thead>
+			<tr>
+				<th>ID</th>
+				<th>所属广告</th>
+				<th>所属计划</th>
+				<th>所属价格</th>
+				<th>创建时间</th>
+				<th>创建IP</th>
+				<th>完成时间</th>
+				<th>状态</th>
+				
+			</tr>
+			</thead>
+			<tbody>							  
+			<!--<{foreach name=detail from=$details item=detail}>-->
+			<foreach name="details" item="detail">
+				<tr>
+				 
+				<td>{$detail.detail_id}</td>
+
+				<td>{$apps[$detail[app_id]]}</td>
+				 
+				<td>{$missions[$detail[mission_id]]}</td>
+				
+				<td>{$detail.price}</td>
+				 
+				<td>{$detail.start_time}</td>
+
+                <td>{$detail.ip}</td>
+
+				<td>{$detail.end_time}</td>
+
+				<td>
+					<if condition=" $detail.status eq 1">
+                    已完成
+						<elseif condition=" $detail.status eq 2"/>
+
+                    进行中
+						<elseif condition=" $detail.status eq 3"/>
+                    已取消
+						<elseif condition=" $detail.status eq 4"/>
+                    审核中
+						<elseif condition=" $detail.status eq 5"/>
+                    已作废
+						<elseif condition=" $detail.status eq 6"/>
+						审核失败
+                    </if></td>
+			
+				</tr>
+			</foreach>
+		  </tbody>
+		</table>	
+		<!--- START 分页模板 --->
+              <!-- <{$page_html}>
+			   &lt;!&ndash;- END -&ndash;&gt;
+			    每页25项-->
+	</div>
+</div>
+<script>
+$(function() {
+	var date=$( "#start_date" );
+	date.datepicker({ dateFormat: "yy-mm-dd" });
+	date.datepicker( "option", "firstDay", 1 );
+});
+$(function() {
+	var date=$( "#end_date" );
+	date.datepicker({ dateFormat: "yy-mm-dd" });
+	date.datepicker( "option", "firstDay", 1 );
+});
+</script>
+<!-- TPLEND 以下内容不需更改，请保证该TPL页内的标签匹配即可 -->
+
+<include file="Index:footer"/>

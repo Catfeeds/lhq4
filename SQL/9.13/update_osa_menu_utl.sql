@@ -1,0 +1,2 @@
+INSERT INTO `osa_menu_url` VALUES ('194', '消息回复', '/backend/message_shows.php', '8', '1', '1', '1', '', '0');
+INSERT INTO `osa_menu_url` VALUES ('195', '编辑回复', '/backend/reply.php', '8', '0', '1', '1', '', '194');

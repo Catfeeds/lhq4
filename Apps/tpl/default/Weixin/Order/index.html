@@ -1,0 +1,71 @@
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no, maximum-scale=1.0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+
+
+<link href="__WXP__/css/accounts.css" rel="stylesheet" type="text/css" />
+
+<div style="margin-top: 40px">
+	<div class="g-accounts-details g-consumption clearfix">
+		<if condition="$mei neq 1">
+		<dl>
+			<dt><span>订单编号</span><span>下单时间</span><span>总金额</span><span>订单状态</span></dt>
+			
+			<volist name="list" id="v">
+				<dd>
+					<a href="javascript:view('{$v.order_code}',{$v.order_status});">
+						<span>{$v.order_code|substr=-6}</span><span>{$v.creat_date|date="y/m/d H:i:s",###}  {$v.creat_date}</span><span class="orange">￥{$v.cost}</span>
+						<if condition="$v.order_status eq 1">
+							<span class="blue">已付款</span>
+							<else/>
+							<span class="red">未付款</span>
+						</if>
+					</a>
+					<a href="javascript:orderDel('{$v.order_code}');"><em></em></a>
+				</dd>
+			</volist>
+			
+		</dl>
+		<else />
+		<h3 style="padding: 20px;">暂无消息,
+            <a style="color:#dd4f43;font-size:20px" href="{:U('index/index')}";">去购物&gt;&gt;&gt;</a></h3>
+	</if>
+	</div>
+</div>
+
+<script>
+
+orderDelUrl="{:U('Order/orderDel')}";
+viewUrl="{:U('User/ygrecord')}";
+orderPayUrl="{:U('Order/orderPay')}";
+
+function view(code,sta){
+	if(sta==0){ //未付款
+		window.location.href=orderPayUrl+"&orderCode="+code;
+	}else{  //已付款
+		window.location.href=viewUrl+"&id="+code;
+	}
+}
+
+function orderDel(code){	
+	layer.confirm('确定要删除此订单吗?', {
+	    btn: ['确定','再想想'] //按钮
+	}, function(){
+		$.post(
+				orderDelUrl,
+				{orderCode:code},
+				function(){
+					window.location.href=window.location.href;
+				}
+			);
+	}, function(){
+	    return;
+	});
+	
+		
+}
+
+</script>

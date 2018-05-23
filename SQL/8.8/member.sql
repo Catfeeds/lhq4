@@ -1,0 +1,1 @@
+alter table member add birthday datetime comment '出生日期';

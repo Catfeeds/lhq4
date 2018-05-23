@@ -1,0 +1,83 @@
+<!-- <script src="/web/lib/layer/layer.js" type="text/javascript"></script> -->
+		<header class="panel_header fix mb20">
+			<h2 class="title">{$title}</h2>
+		</header>
+
+		<div class="fix">
+		
+				<a href="{:U('Admin/Users/add')}" class="btn btn-default l mr10">
+					<i class="fa fa-plus"></i> <span>添加用户</span>
+				</a>
+
+
+				<div class="input-group l w300 mr10">
+					<input type="text" class="form-control keyword" name="" value="" placeholder="关键字" />
+					<a href="javascript:getList({page: 1, keyword: ''});" class="input-group-addon btn btn-default">清空</a>
+					<div class="input-group-addon btn btn-default search">搜索</div>
+				</div>
+
+
+				<div class="btn-group periods-show-status" data-toggle="buttons">
+					<label class="btn btn-default active">
+						<input type="radio" name="status" value="0" autocomplete="off" checked> 所有
+					</label>
+					<label class="btn btn-default">
+						<input type="radio" name="status" value="1" autocomplete="off"> 可用
+					</label>
+					<label class="btn btn-default">
+						<input type="radio" name="status" value="2" autocomplete="off"> 禁用
+					</label>
+					<label class="btn btn-default">
+						<input type="radio" name="status" value="-1" autocomplete="off"> 辅助购买
+					</label>
+					<label class="btn btn-default">
+						<input type="radio" name="status" value="-2" autocomplete="off"> 非辅助购买
+					</label>
+				</div>
+		</div>
+				
+		<div class="lists pct100 mt20">
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<table  class="table table-hover table-condensed table-striped table-bordered">
+						<thead>
+							<tr >
+								<th>编号</th>
+								<th>昵称</th>
+								<th>电话</th>
+								<th>地址</th>
+								<th>余额</th>
+								<th>邀请人数</th>
+								<th>所得佣金</th>
+								<th>注册时间</th>
+								<th>状态</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>0</td>
+								<td>测试</td>
+								<td>s</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="page"></div>
+				</div>
+			</div>
+		</div>
+		
+
+
+<script src="__LIB_URL__/ja.js"></script>
+<script>
+var api = {
+	edit: '{:U('Admin/Users/edit')}',
+	chongzhi: '{:U('Admin/Recharge/add')}',
+	list: '{:U('Admin/Users/lists')}',
+	update: '{:U('Admin/Users/update')}',
+	toggleStatus: '{:U('Admin/Users/toggleStatus')}',
+	del: '{:U('Admin/Users/del')}'
+}
+</script>
+<script src="__STATIC__/admin/users.show.js"></script>

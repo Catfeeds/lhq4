@@ -1,0 +1,1 @@
+INSERT INTO `osa_module`(`module_name`,`module_url`, `module_sort`, `module_desc`,`module_icon`, `online`) VALUES ('自媒体管理','/panel/index.php','4','自媒体信息','icon-film','1');

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<title>welcome</title>
+	<link rel="stylesheet" href="__PUBLIC__/welcome/style.css" type="text/css">
+	<script type="text/javascript">
+function showDiv(){
+document.getElementById('popDiv').style.display='block';
+document.getElementById('bg').style.display='block';
+}
+
+function closeDiv(){
+document.getElementById('popDiv').style.display='none';
+document.getElementById('bg').style.display='none';
+}
+	</script>
+
+
+	<script type="text/javascript"> 
+	function test(){
+				if(isWeiXin()){ 
+			document.getElementById('popDiv').style.display='block';
+			document.getElementById('bg').style.display='block';
+			}	                        }
+
+function isWeiXin(){ 
+	var ua = window.navigator.userAgent.toLowerCase(); 
+	if(ua.match(/MicroMessenger/i) == 'micromessenger'){ 
+		return true; 
+	} else{
+		return false;
+	}
+} 
+	</script> 
+	
+	
+</head>
+<body >
+
+
+
+<div class="left">
+	<a href="ddsd8888://<?php echo $member_id;?>" class="lianjie" onclick="test()" >激活</a>
+</div>
+<div class="right">
+	<a href="https://itunes.apple.com/us/app/quan-min-yin-le/id1144881515?l=zh&ls=1&mt=8" class="lianjie" onclick="test()" >下载</a>
+</div>
+          <div id="popDiv" class="mydiv" style="display:none;">
+          <img src="__PUBLIC__/welcome/2.png" alt="" class="img">
+</div>
+<div id="bg" class="bg" style="display:none;"></div>
+	
+</body>
+</html> 

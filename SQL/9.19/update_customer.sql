@@ -1,0 +1,2 @@
+﻿ALTER TABLE `customer` CHANGE `state` `reply_status` BIGINT(20) NOT NULL DEFAULT '0' COMMENT '状态';
+ALTER TABLE `customer` CHANGE `reply_status` `reply_status` TINYINT(1) NOT NULL DEFAULT '0' COMMENT '状态';

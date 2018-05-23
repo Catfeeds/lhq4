@@ -1,0 +1,65 @@
+		<header class="panel_header fix mb20">
+			<h2 class="title">{$title}</h2>
+		</header>
+
+		<div class="fix">
+				<a href="javascript:openWin('{:U('Admin/ArticleType/add')}', 'add')" class="btn btn-primary l mr10">
+					<i class="fa fa-plus"></i> <span>添加类型</span>
+				</a>
+		
+				<div class="btn-group goods-status" data-toggle="buttons">
+					<label class="btn btn-primary active">
+						<input type="radio" name="status" value="0" autocomplete="off" checked> 全部
+					</label>
+					<label class="btn btn-primary">
+						<input type="radio" name="status" value="1" autocomplete="off"> 开启
+					</label>
+					<label class="btn btn-primary">
+						<input type="radio" name="status" value="2" autocomplete="off"> 关闭
+					</label>
+				</div>				
+				
+		</div>
+				<style>
+
+		</style>
+		<div class="article-list pct100 mt20">
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<table class="table table-hover table-condensed table-striped table-bordered">
+						<thead>
+							<tr>
+								<th class="w70">序号</th>
+								<th>编号</th>
+								<th>类型名</th>								
+								<th>描述</th>
+								<th>状态 ( 点击修改 )</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								
+							</tr>
+						</tbody>
+					</table>
+					<div class="page"></div>
+				</div>
+			</div>
+		</div>
+
+<script src="__LIB_URL__/ja.js"></script>
+<script>
+var api = 
+	{	edit: '{:U('Admin/ArticleType/edit')}',
+		list: '{:U('Admin/ArticleType/lists')}',
+		update: '{:U('Admin/ArticleType/update')}',
+		toggleArticleType: '{:U('Admin/ArticleType/toggleArticleType')}',//gd
+		del: '{:U('Admin/ArticleType/del')}'
+	}	
+</script>
+<script src="__STATIC__/admin/article_type.js"></script>
+
+
+
+

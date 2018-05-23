@@ -1,0 +1,3 @@
+INSERT INTO `osa_menu_url`(`menu_name`, `menu_url`, `module_id`, `is_show`, `online`, `shortcut_allowed`, `menu_desc`, `father_menu`) VALUES ('消息通知','/backend/message.php','8','1','1','1','消息通知','0');
+INSERT INTO `osa_menu_url`(`menu_name`, `menu_url`, `module_id`, `is_show`, `online`, `shortcut_allowed`, `menu_desc`, `father_menu`) VALUES ('消息添加','/backend/message_add.php','8','0','1','1','添加消息','234');
+INSERT INTO `osa_menu_url`(`menu_name`, `menu_url`, `module_id`, `is_show`, `online`, `shortcut_allowed`, `menu_desc`, `father_menu`) VALUES ('修改消息','/backend/message_modify.php','8','0','1','1','修改消息','234')

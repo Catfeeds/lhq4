@@ -1,0 +1,183 @@
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no, maximum-scale=1.0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link href="__WXP__/css/comm.css" rel="stylesheet" type="text/css" />
+<link href="__WXP__/css/member.css" rel="stylesheet" type="text/css" />
+
+<style>
+    .m_myInfo dl div.name_change,div.change_con,div.change_res{
+        width: 80px;
+        height: 35px;
+        line-height: 30px;
+        background: #00ABEC;
+        color: #fff;
+        text-align: center;
+        border-radius: 5px;
+        position: absolute;
+        right: 20px;
+        top: 60px;
+    }
+    .m_myInfo dl div.change_con{
+        width: 50px;
+        height: 45px;
+        line-height: 45px;
+        background: #00ABEC;
+        color: #fff;
+        text-align: center;
+        border-radius: 5px;
+        position: absolute;
+        right: 80px;
+        top: 60px;
+        font-size: 16px;
+    }
+    .m_myInfo dl div.change_can{
+        width: 50px;
+        height: 45px;
+        line-height: 45px;
+        background: #f60;
+        color: #fff;
+        text-align: center;
+        border-radius: 5px;
+        position: absolute;
+        right: 20px;
+        top: 60px;
+        font-size: 16px;
+    }
+    .marginB {
+        margin-bottom: 48px;
+    }
+
+    .sub_nav a {
+        display: block;
+        height: 48px;
+        line-height: 48px;
+        color: #666;
+        font-size: 16px;
+        padding: 0 10px 0 13px;
+        border-top: 1px solid #dedede;
+        border-bottom: 1px solid #dedede;
+        margin-top: -1px;
+        background-color: #fff;
+    }
+
+
+    .sub_nav em{
+        float: right;
+        margin-right: 5px;
+    }
+</style>
+<script>
+    var remarks;
+    function editremarks() {
+        //console.log(obj);
+        remarks = $('.remarks span').text();
+        $('.name_change').attr("style", "display:none");
+        $('.change_con').attr("style", "display:block;cursor: pointer;");
+        $('.change_can').attr("style", "display:block;cursor: pointer;");
+        $('.remarks').attr("style", "display:none");
+        $('.editremarks').attr("style", "display:block;");
+        $('#remarksinput').val(remarks);
+        $('#remarksinput').focus();
+    }
+    function cancel() {
+        $('.name_change').attr("style", "display:block;cursor: pointer;");
+        $('.change_con').attr("style", "display:none");
+        $('.change_can').attr("style", "display:none");
+        $('.remarks').attr("style", "display:block");
+        $('.editremarks').attr("style", "display:none");
+        $('.remarks span').text(remarks);
+    }
+    function confirm() {
+        remarks = $('#remarksinput').val();
+        var id = $('input[type="hidden"]').val();
+
+        if (remarks === '') {
+            layer.confirm('备注名为空,确认继续修改备注名?', {
+                btn: ['确定', '取消']
+            }, function () {
+
+                $.post('', {bzm: remarks, ufid: id}, function (msg) {
+                    if (msg) {
+                        layer.msg('已成功为您设置好友备注!');
+                        $('.remarks span').text(remarks);
+                    }
+                }, 'json');
+            }
+            );
+        } else {
+            $.post('', {bzm: remarks, ufid: id}, function (msg) {
+                if (msg) {
+                    layer.msg('已成功为您设置好友备注!');
+                    $('.remarks span').text(remarks);
+                }
+            }, 'json');
+
+        }
+        $('.name_change').attr("style", "display:block;cursor: pointer;");
+        $('.change_con').attr("style", "display:none");
+        $('.change_can').attr("style", "display:none");
+        $('.remarks').attr("style", "display:block");
+        $('.editremarks').attr("style", "display:none");
+
+    }
+</script>
+<div style="margin-top:40px">
+<div class="m_myInfo">
+    <dl style="float:left;width: 70%">
+        <dt class="gray6">
+        <img src="{$res.pic}" /><!-- 用户头像 -->
+        <p>{$res.nickname}<!-- 用户昵称 -->
+            <cite class="gray9">
+                <span class="remarks">备注名:<span>{$res.remarks}</span></span>
+                <span class="editremarks" style="display:none">
+                    <input type="text" id="remarksinput" style="border:1px #f60 solid;border-radius: 3px;" />
+                </span>
+            </cite>
+        </p>
+        </dt>
+        <div class="name_change" style="cursor: pointer;" onclick="javascript:editremarks();">修改备注名</div>
+        <div style=" display: none;" style="cursor: pointer;" class="change_con"  onclick="javascript:confirm();" >确定</div>
+        <div style=" display: none;" style="cursor: pointer;" class="change_can" onclick="javascript:cancel();">取消</div>
+
+    </dl>
+</div>
+<!--获得的商品-->
+<input type="hidden" value="{$res.id}" />
+<!--导航菜单--> 
+<div class="sub_nav marginB">
+     <a href="javascript:void(0)">性别:
+               <if condition="$res['sex'] eq 1"> <em>男</em>
+               <elseif condition="$res['sex'] eq 2" /> <em>女</em>
+               <else /><em>保密</em>
+               </if>
+            </a>
+    <a href="javascript:void(0)">生日<em>{$res.birthday}</em></a>
+    <a href="javascript:void(0)">现居地<em>{$res.addr}</em></a>
+    <a href="javascript:delete_friend({$res.id})" style="text-align:center">删除好友</a>
+</div>
+</div>
+<script>
+    function delete_friend(id) {
+        layer.confirm('您要删除  {$res.nickname}  吗?', {
+            btn: ['确定', '取消'] //按钮
+        }, function () {
+            del_frie_url = "{:U('delfriend')}";
+            $.post(del_frie_url, {fid: id}, function (res) {
+                if (res.code != 0) {
+                    layer.msg('已删除该好友!');
+                    setTimeout(function () {
+                        location.href="{:U('my_friends')}";
+                    },1000);
+                }
+            });
+        });
+
+    }
+
+</script>
+</body>
+
+</html>

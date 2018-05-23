@@ -1,0 +1,50 @@
+
+		<link href="__WXP__/css/comm1.css" rel="stylesheet" type="text/css" />
+		<link href="__WXP__/css/goods1.css" rel="stylesheet" type="text/css" />
+		<div class="column"  >
+			<a href="{:U('index_canyu')}" class="entry-list">包场进行中<b class="fr"></b></a>
+			
+			<a href="{:U('index')}" class="entry-list">创建包场<b class="fl"></b></a>
+			
+			<a href="{:U('index_finish')}" class="ann-publicly" {$index_finish}>已揭晓<b class="fl"></b></a>
+		</div>
+		
+	
+		<!-- 包场进行中 -->
+		
+		<div class="marginB" style="padding-bottom: 50px">
+			<div class="goodList_room">
+				<ul>				
+				<volist name="bbooking" id="vo1">
+					<li>
+							<span class="gList_l fl">
+								<img src="__ROOT__/t/?w=200&h=200&src={$vo1.goods_img}">
+							</span>
+							<div class="gList_r" style="height: 100px;">
+								<h3 class="gray6">{$vo1.goods_title}</h3>
+								<em class="gray9">价值：￥{$vo1.goods_value}</em>
+								<i class="gray6">发起人 : {$vo1.nickname}</i>
+								<em class="gray6" style="font-size: 12px">开奖时间 : {$vo1.lottery_time|date="y-m-d h:i:s",###}</em>
+							</div>
+
+								<a href="{:U('Weixin/Room/lottery','id=')}{$vo1.id}">查看详情</a>
+
+					</li>
+				
+				</volist>
+				
+
+				</ul>
+				
+				
+				
+				
+			</div>
+		</div>
+
+
+
+
+
+		
+	

@@ -1,0 +1,5 @@
+ALTER TABLE `member`
+MODIFY COLUMN `yzm_time`  datetime NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '验证时间' AFTER `yzm_code`,
+MODIFY COLUMN `creatDate`  datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '注册时间' AFTER `grandBuy`,
+MODIFY COLUMN `last_login_time`  datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '上次登录时间' AFTER `creatDate`;
+

@@ -1,0 +1,1 @@
+ALTER TABLE `mission` ADD `adtype_id` TINYINT(4) NULL DEFAULT NULL AFTER `amount`;

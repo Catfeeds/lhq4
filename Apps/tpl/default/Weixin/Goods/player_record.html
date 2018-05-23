@@ -1,0 +1,35 @@
+<style>
+cite.circular{
+    float: left;
+    width: 64px;
+    height: 64px;
+    border-radius: 64px;
+
+    overflow: hidden;
+
+}
+
+</style>
+<div>
+	<div id="divBuyList" class="m_buylist">
+		<ul id="ul_list">
+			<volist name="users" id="vo">
+					<li>
+						<a href="{:U('Weixin/Goods/user_page','userid=')}{$vo.member_id}">
+							<cite class="circular">
+								<img src="{$vo.pic}"/>
+							</cite>
+							<dl>
+								<dt><em class="blue">{$vo.nickname}</em><notempty name="vo.ip">（{$vo.area} {$vo.ip}）</notempty></dt>
+								<dt>本期参加<em class="blue">{$vo.nums}</em>人次 </dt>
+								<dt>{$vo.microtime|_date='m/d/Y H:i:s.x',###}</dt>
+							</dl>
+						</a>
+					</li>
+				</volist>
+			</ul>
+
+		</div>
+	</div>
+<div style="clear:both"></div>
+<div style="height: 60px;"></div>

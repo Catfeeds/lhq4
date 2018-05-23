@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>{:C('site_title')} 后台管理</title>
+	<link rel="stylesheet" href="__LIB_URL__/bootstrap.min.css" media="all" />
+	<link rel="stylesheet" href="__LIB_URL__/bootstrap-theme.min.css" media="all" />
+	<link href="__LIB_URL__/font-awesome.css,zxx.css" rel="stylesheet"/>
+	<script src="__LIB_URL__/jquery.min.js" type="text/javascript"></script>
+	<script src="__LIB_URL__/bootstrap.min.js" type="text/javascript"></script>
+	<script src="__LIB_URL__/jquery.noty.js" type="text/javascript"></script>
+	<script src="__LIB_URL__/jquery.nicescroll.min.js" type="text/javascript"></script>
+
+	<link rel="stylesheet" href="__STATIC__/admin/admin.css" media="all" />
+	<script src="__STATIC__/admin/admin.js" type="text/javascript"></script>
+    <script>
+        ROOT= "__ROOT__";
+    </script>
+</head>
+<body>
+<div class="admin-header bgf5" style="z-index: 222;">
+
+	<div class="dib w180 tc">
+		<img src="{:C('ADMIN_LOGO')}" alt="" />
+	</div>
+
+	<div class="dib bg-1 en f20">
+		{:C('ADMIN_TITLE')}
+	</div>
+
+	<div class="dib r">
+		<a href="{:U('Admin/Adminer/me')}"><i class="fa fa-user"></i> <empty name="user.nickname">{$user.username}<else/>{$user.nickname}</empty></a>
+		<a href="{:U('Admin/login/logout')}"><i class="fa fa-power-off"></i> 退出</a>
+		&nbsp;
+	</div>
+
+</div>
+
+	<div class="admin-sider w180">
+		<div class="admin-menu">
+
+			<ul class='nav nav-pills nav-stacked pct100'>
+
+					<volist name="admin_menu" id="li1">
+						<li <if condition="$curUrl == U($li1['mode'])"> class="open"</if>>
+							<a href="<empty name="li1.mode">javascript:;<else />{:U($li1['mode'])}</empty>">
+								<i class="{$li1.icon}"></i>
+								<span class="title">{$li1.name}</span>
+							<if condition="is_array($li1['sub'])"><span class="arrow"></span>
+
+							</a>
+	                   			<ul class="sub-menu">
+	                   			<volist name="li1.sub" id="li2">
+
+	                                <li>
+										<a <if condition="$curUrl == U($li2['mode'])">class="active"</if> href="<empty name="li2.mode">javascript:;<else />{:U($li2['mode'])}</empty>">
+											<i class="{$li2.icon}"></i><span class="title">{$li2.name}</span>
+											<if condition="is_array($li2['sub'])"><span class="arrow"></span>
+										</a>
+				                   			<ul class="sub--menu">
+				                   			<volist name="li2.sub" id="li3">
+				                                <li>
+													<a <if condition="$curUrl == U($li3['mode'])">class="active"</if> href="<empty name="li3.mode">javascript:;<else />{:U($li3['mode'])}</empty>"> <i class="{$li3.icon}"></i><span class="title">{$li3.name}</span> </a>
+												</li>
+				                            </volist>
+				                            </ul>
+				                        <else />
+
+				                        </a>
+			                            </if>
+
+									</li>
+	                            </volist>
+	                            </ul>
+	                        <else />
+
+	                        </a>
+							</if>
+
+						</li>
+					</volist>
+			</ul>
+		</div>
+	</div>
+		<div class="admin-content">
+{__CONTENT__}
+		</div>
+
+</body>
+</html>

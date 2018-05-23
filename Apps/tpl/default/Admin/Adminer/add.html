@@ -1,0 +1,55 @@
+<header class="panel_header fix">
+	<h2 class="title pull-left">管理员注册</h2>
+	<div class="actions panel_actions pull-right">
+	</div>
+</header>
+
+<div class="m20">
+	<div class="row clearfix">
+		<div class="col-md-4 column">
+			<form role="form" method="post" action="__SELF__">
+				<input type="hidden" name="uid" value="{$user.uid}"/>
+				<div class="form-group">
+					 <label for="username">用户名</label><input type="text" class="form-control" name="username" id="username"  autocomplete="off" />
+				</div>
+				<div class="form-group">
+					 <label for="email">邮箱</label><input type="email" class="form-control" name="email" />
+				</div>
+				<div class="form-group">
+					 <label for="mobile">电话</label><input type="text" class="form-control" name="mobile"  pattern="^1\d{10}$|^0\d{11}$|^0\d{10}$|\d{8}$|\d{7}$"/>
+				</div>
+				
+				<div class="form-group">
+					 <label for="password">密码 </label><input type="password" class="form-control" name="password" id="password" autocomplete="off" placeholder="密码(六位以上数字或字母的组合)" required="required" pattern="\S{6,}"/>
+				</div>
+				<div class="form-group">
+					 <label for="repassword">确认密码</label><input type="password" class="form-control" name="repassword" id="repassword" placeholder="重复一遍密码" required="required" pattern="\S{6,}" autocomplete="off"/>
+				</div>
+				
+				<div class="form-group">
+					 <label for="mobile">所属角色</label>
+					 <select class="form-control" name="role_id" />
+					 	<option value="0">--请选择--</option>
+					 	<volist name="roles" id="role">
+					 		<option value="{$role['id']}">{$role['name']}</option>
+					 	</volist>
+					 </select>					 
+				</div>
+				
+				<button type="submit" class="btn btn-default">提交</button>
+			</form>
+		</div>
+	</div>
+</div>
+
+<script>
+
+	$("button[type='submit']").click(function(){
+		var role_id=$("select[name='role_id']").val();
+		if(role_id=="0"){
+			layer.msg("请指定角色！");
+			return false;
+		}
+	});
+	
+</script>

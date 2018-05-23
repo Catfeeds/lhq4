@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+
+        <title>收徒明细</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="default">
+        <meta name="msapplication-tap-highlight" content="no">
+
+    
+        <link rel="stylesheet" href="__PUBLIC__/mobile/css/style.css" type="text/css">
+      
+
+    
+
+     
+    </head>
+
+    <body>
+
+
+           <!--     <{include file="./tishikuang.tpl"}>-->
+			
+				<div class="devBox">
+					<a href="{:U('Books/books',array('member_id'=>I('get.member_id')))}"><img src="__PUBLIC__/mobile/images/a2.png" alt class="fl"></a>
+					<h1 class="biaoti">收徒明细</h1>
+
+				</div>
+
+
+
+    <div id="content">
+        
+
+        
+
+          <ul style="display:block;">
+
+              <foreach name="list" item="vo" >
+              <li >
+                
+                <img src="__PUBLIC__{$img[$appIds[$vo[mission_id]]]}" class="con-tu">
+                <p class="mingxi">{$name[$vo[mission_id]]}&nbsp;</p>
+                
+                <p class="riqi">{$vo.time|strtotime|date="Y-m-d",###}</p>
+                <p class="mingxi2">{$vo.income} 元</p>
+                </a>
+            </li>
+             </foreach>
+        </ul>
+
+
+    </div>
+
+
+
+<script src="__PUBLIC__/mobile/js/ajaxjs_jquery.min.js"></script>
+
+
+            
+
+    
+
+</body></html>

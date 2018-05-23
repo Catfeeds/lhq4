@@ -1,0 +1,134 @@
+
+
+		<div class="fix">
+
+				<div class="input-group l w300 mr10">
+					<input type="text" class="form-control keyword" name="{$keyword}" value="" placeholder="关键字" />
+					<!--
+					<a href="javascript:getList({page: 1, keyword: ''}); $('.keyword').val('');" class="input-group-addon btn btn-primary white">清空</a>
+					-->
+					<div class="input-group-addon btn btn-default search">搜索</div>
+				</div>
+				
+				<div class="input-group l w200 mr10">
+					<div class="input-group-addon">分类</div>
+					<select class="form-control goods-type" name="typeId">
+						<option value="0" >全部</option>
+						<volist name="types" id="v">
+							<option value="{$v.id}">{$v.typename}</option>
+						</volist>
+					</select>
+				</div>
+				
+				<div class="btn-group goods-status" data-toggle="buttons">
+					<label class="btn btn-default active">
+						<input type="radio" name="status" value="-1" autocomplete="off" checked> 全部
+					</label>
+					<label class="btn btn-default">
+						<input type="radio" name="status" value="1" autocomplete="off"> 在售
+					</label>
+					<label class="btn btn-default">
+						<input type="radio" name="status" value="0" autocomplete="off"> 关闭
+					</label>
+				</div>
+
+		</div>
+
+
+
+		<div class="goods-list pct100 mt20">
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<table class="table table-hover table-condensed table-striped table-bordered">
+						<thead>
+							<tr>
+								<th>编号</th>
+								<th>产品</th>
+								<th>已售 / 总需</th>
+								<th>当前期数</th>
+								<th>创建时间</th>
+								<th>状态</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+							</tr>
+						</tbody>
+					</table>
+					<div class="page"></div>
+				</div>
+			</div>
+		</div>
+
+
+<script src="__LIB_URL__/ja.js"></script>
+<script>
+var api = {
+		pageInfo: {},
+		d: {rows: 8}
+	};
+
+var tpl = '<tr data-id={{id}} data-title="{{title}}" data-image="{{image}}"><td>{{id}}</td> <td>{{title}}</td> <td class="tc">{{canyushu}} / {{fenshu}}</td> <td class="tc">{{qishu}}</td> <td>{{time}}</td>'
+	+ '<td><a class="label label-{{type_class}} label-xs">{{type}}</a></td>'
+	+ '<td><a class="dom-goods-choice poi btn btn-success btn-xs">选择</a></td></tr>',
+	$goods = $('.goods-list'), $list = $goods.find('tbody'), $page = $goods.find('.page');
+
+
+getList();
+
+
+$('.goods-type').on('change', function(){
+	getList({typeId: $(this).val()});
+});
+
+$('input[name=status], .goods-status').on('click', function(){
+	setTimeout(getList, 200);
+});
+
+
+$('.goods-list').on('click', '.dom-goods-choice', function(){
+	if(typeof window.parent.callback_goodsId == 'function'){
+		window.parent.callback_goodsId($(this).closest('tr').data());
+	}
+});
+
+
+change('input.keyword', searchKeyWord);
+
+
+// 搜索关键字
+function searchKeyWord(){
+	var keyword = $('.keyword').val().replace(/(^\s*|\s*$)/g, '');
+	if(keyword == '' || api.keyword == keyword) return;
+	api.keyword == keyword;
+
+	getList({page: 1, keyword: keyword});	
+}
+
+
+// 获取列表
+function getList(d){
+	status = $('input[name=status]:checked').val();
+	api.d = $.extend({}, api.d, d, {status: status});
+
+	$list.html('<tr><td colspan=30><i class="fa fa-spinner fa-pulse fa-4x"></i></td></tr>');
+	
+	$.getJSON(api.list, api.d, function(j){
+		$list.html('');
+		$.each(j.goods, function(a, b){
+			b.time = date('Y-m-d 周C H:i:s', b.creatdate);
+			b.type = b.status == 1 ? '在售' : '关闭';
+			b.type_class = b.status == 1 ? 'warning' : 'default';
+			$list.append(tpl.tpl(b));
+		});
+		$page.html(page({
+			total: j.total,
+			page: j.page,
+			row: j.row,
+			status: j.status,
+			href: 'javascript:getList({page:{{page}} });'
+		}));
+	});
+}
+</script>

@@ -1,0 +1,83 @@
+		<header class="panel_header fix mb20">
+			<h2 class="title">{$title}</h2>
+		</header>
+
+		<div class="fix">
+				<a href="javascript:openWin('{:U('Admin/Banner/add')}', 'add')" class="btn btn-primary l mr10">
+					<i class="fa fa-plus"></i> <span>添加</span>
+				</a>
+		<!--  
+				<div class="btn-group goods-status" data-toggle="buttons">
+					<label class="btn btn-primary active">
+						<input type="radio" name="status" value="0" autocomplete="off" checked> 全部
+					</label>
+					<label class="btn btn-primary">
+						<input type="radio" name="status" value="1" autocomplete="off"> 开启
+					</label>
+					<label class="btn btn-primary">
+						<input type="radio" name="status" value="2" autocomplete="off"> 关闭
+					</label>
+				</div>				
+				-->
+		</div>
+				<style>
+
+		</style>
+		<div class="goods-list pct100 mt20">
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<table class="table table-hover table-condensed table-striped table-bordered">
+						<thead>
+							<tr>
+								<th class="w70">序号</th>
+								<th>编号</th>
+								<th>商品类型</th>	
+								<th>标题</th>								
+								<th>图片地址</th>
+								<th>创建时间</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+						<volist name="banner"  id="vo" >
+					
+							<tr>
+								<th class="w70">{$vo.taxis}</th>
+								<th>{$vo.id}</th>
+								<th>{$vo.type}</th>
+								<th>{$vo.title}</th>								
+								<th>{$vo.url}</th>
+								<th>{$vo.creatdate|date='Y-m-d H:i:s',###}</th>
+								<th><a href="javascript:openWin('{:U('Admin/Banner/edit','id=')}{$vo.id}', 'add')"  >编辑</a>&nbsp<a href="javascript:delBanner({$vo.id})">删除</a></th>
+							</tr>
+							
+							</volist>
+						</tbody>
+					</table>
+					<div class="page"></div>
+				</div>
+			</div>
+		</div>
+<script src="__LIB_URL__/ja.js"></script>
+<script>
+var api = 
+	{	edit: '{:U('Admin/Banner/edit')}',	
+		update: '{:U('Admin/Banner/update')}',
+		addchk: '{:U('Admin/Banner/addchk')}',
+	}	
+	
+$('.page').html(page({:json_encode($page);}));
+
+function delBanner(id){
+	if(confirm('确认删除 编号 为 '+ id +' 的幻灯')){
+		window.location.href = "{:U('Admin/Banner/del','id=')}" + id;
+	}
+}
+
+</script>
+
+
+
+
+
+

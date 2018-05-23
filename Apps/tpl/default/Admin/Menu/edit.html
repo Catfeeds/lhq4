@@ -1,0 +1,101 @@
+<div class="m20" style="margin: 10px;">
+
+	<header class="panel_header fix mb20">
+		<h2 class="title">修改菜单</h2>
+	</header>
+
+	<form action="__SELF__" method="post" class="goods-form">
+
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">序号</div>
+				<input class="form-control" type="text" name="taxis"  value="{$info['taxis']}" required="required" />
+			</div>
+		</div>
+	<!--  
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">菜单名称</div>
+				<select class="form-control pid" name='pid'  id='pid'>
+				</select>
+			</div>
+		</div>
+		-->	
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">序号</div>
+				<input class="form-control" type="text" name="name"  value="{$info['name']}" required="required" />
+			</div>
+		</div>
+		
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">菜单类型</div>
+				<select class="form-control type" type="text" name="type" required="required" >
+				<foreach name="type" item="value" key="key">
+				<if condition=" $key eq $info['type']">
+				<option value="{$key}" selected="selected">{$value}</option>
+				<else/>
+				<option value="{$key}" >{$value}</option>
+				</if>
+				</foreach>
+				</select>
+			</div>
+		</div>
+		<!--  
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">菜单名称</div>
+				<input class="form-control" type="text" name="name" value="{$info['name']}" required="required" />
+			</div>
+		</div>
+		-->
+		
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">菜单图标 <i class="{$info['icon']}"></i></div>
+				<input class="form-control" type="text" name="icon" value="{$info['icon']}" />
+			</div>
+		</div>
+		
+			<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">控制器(慎重)</div>				
+				<input class="form-control" type="text" name=url	value="{$info['url']}"/>				
+			</div>
+		</div>
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">参数</div>
+				<input class="form-control" type="text" name="params"  value="{$info['params']}" />
+			</div>
+		</div>
+		<div class="form-group pl5 pr5">
+			<div class="input-group">
+				<div class="input-group-addon">状态</div>
+				<input class="form-control" type="text" name="status" value="{$info['status']}" />
+			</div>
+		</div>
+
+		<div class="form-group pl5 pr5">
+			<input type="hidden" name="id" value="{$info['id']}"/>
+			<button type="submit" class="btn btn-primary">
+				<i class="fa fa-save"></i> <span>修改</span>
+			</button>
+		</div>
+
+
+	</form>
+	<script>
+//获取父级菜单类型
+$(".type").on("change",function(){
+	var type = $(this).val();
+	$.get('{:U('Admin/Menu/getType','type=')}'+type,function(data){
+		$("#pid").html(data);
+	});
+});
+
+$(".type").change();
+
+</script>
+</div>

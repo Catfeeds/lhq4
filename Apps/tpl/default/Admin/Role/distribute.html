@@ -1,0 +1,68 @@
+<div class="m20" style="margin: 10px;">
+
+	<header class="panel_header fix mb20">
+		<h2 class="title">权限分配</h2>
+	</header>
+	
+	<form action='__SELF__' method='post' class="goods-form">
+	
+	    <table  id="list-table" class="table table-hover table-condensed table-striped table-bordered">
+	   
+	        <volist name='auth_infoA' id='v'>
+	        <tr>
+	        
+	            <td style='border-bottom:2px solid gray; font-weight:bold;'>
+	               <input id="c{$v['id']}" type="checkbox" name="id[]" value="{$v['id']}" class="checkbox"
+	                      <if condition="in_array($v['id'],$authidsarr)">checked='checked'</if>
+	               />
+	               {$v['name']}
+	               
+	           </td>
+	           
+	           <td width='75%' style='border-bottom:2px solid gray;'>
+	               <volist name='auth_infoB' id="vv">
+		               <if condition="$vv['pid']  eq $v['id']">
+			               <div style="width:200px;float:left;">
+			                    <input class="c{$v['id']}" type="checkbox"  name="id[]" value="{$vv['id']}" 
+			                           <if condition="in_array($vv['id'],$authidsarr)">checked='checked'</if>
+			                    />
+			                    {$vv['name']}
+			                </div>
+		                </if>
+	                </volist>
+	            </td>
+	        </tr>
+				<script type="text/javascript">     
+					 //子权限选中，顶级权限也选中， 子权限清空，顶级权限也清空    	
+					$(".c{$v['id']}").click(function() {
+						var len = $(".c{$v['id']}:checked").length;		
+						if (len == 0) {
+							$("#c{$v['id']}").prop("checked", false);
+						} else {
+							$("#c{$v['id']}").prop("checked", true);
+						}
+					});	 
+					//顶级权限选中， 子权限全选；反之，全取消
+					$("#c{$v['id']}").click(function() {	
+						if ($("#c{$v['id']}").is(':checked')) {
+							$(".c{$v['id']}").prop("checked", true);
+						}else{
+							$(".c{$v['id']}").prop("checked", false);
+						}
+					});
+				</script> 
+	        
+	        </volist>
+	    </table>
+	    
+	    <div class="form-group pl5 pr5">
+			<button type="submit" class="btn btn-primary">
+				<i class="fa fa-save"></i> <span>分配权限</span>
+			</button>
+		</div>
+	    
+	</form>
+	
+</div>
+
+ 

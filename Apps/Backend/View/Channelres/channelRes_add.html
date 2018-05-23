@@ -1,0 +1,43 @@
+<include file ="Index:header"/>
+<include file ="Index:navibar"/>
+<include file ="Index:sidebar"/>
+<!-- START 以上内容不需更改，保证该TPL页内的标签匹配即可 -->
+
+{$osadmin_action_alert}
+{$osadmin_quick_note}
+    
+<div class="well">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#home" data-toggle="tab">请填写渠道信息</a></li>
+    </ul>	
+	
+	<div id="myTabContent" class="tab-content">
+		  <div class="tab-pane active in" id="home">
+	
+           <form id="tab" method="post" action="">
+         <!--       <label>渠道ID</label>
+           		<input type="text" name="id" disabled="disabled" value="<{$_POST.id}>" class="input-xlarge" required="true" autofocus="true" >-->
+				<label>媒介</label>
+				<input type="text" name="owner" value="{$_POST.owner}" class="input-xlarge" required="true" autofocus="true" >
+				<label>合作类型</label>
+				<input type="text" name="type" value="{$_POST.type}" class="input-xlarge" required="true" autofocus="true" >
+				<label>自媒体名称</label>
+				<input type="text" name="media_name" value="{$_POST.media_name}" class="input-xlarge" required="true" autofocus="true" >
+				<label>渠道类型</label>
+				<input type="text" name="channel_type" value="{$_POST.channel_type}" class="input-xlarge" required="true" autofocus="true" >
+			    <label>最大量级</label>
+			    <input type="text" name="max" value="{$_POST.max}" class="input-xlarge" required="true" autofocus="true" >
+			    <label>公司名称</label>
+			    <input type="text" name="company" value="{$_POST.company}" class="input-xlarge" required="true" autofocus="true" >
+			    <label>渠道负责人</label>
+			    <input type="text" name="contact" value="{$_POST.contact}" class="input-xlarge" required="true" autofocus="true" >
+				<div class="btn-toolbar">
+					<button type="submit" class="btn btn-primary"><strong>提交</strong></button>
+				</div>
+			</form>
+        </div>
+    </div>
+</div>
+	
+<!-- END 以下内容不需更改，请保证该TPL页内的标签匹配即可 -->
+<include file ="Index:footer"/>

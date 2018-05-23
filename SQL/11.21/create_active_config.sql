@@ -1,0 +1,1 @@
+create table active_config( config_id int(11) not null auto_increment, config_content varchar(255) not null comment'配置内容', config_name varchar(255) not null comment'广告名字', config_result varchar(255) null comment'结果', app_id int(11) not null comment'广告id', config_if text null comment'返回值', PRIMARY KEY (`config_id`)) engine=MyISAM default charset=utf8

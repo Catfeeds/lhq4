@@ -1,0 +1,1 @@
+alter table app change is_repeat is_repeat tinyint(2);

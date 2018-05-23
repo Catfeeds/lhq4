@@ -1,0 +1,95 @@
+<include file ="Index:header"/>
+<include file ="Index:navibar"/>
+<include file ="Index:sidebar"/>
+<!-- TPLSTART 以上内容不需更改，保证该TPL页内的标签匹配即可 -->
+
+<form class="form_search"  action="__ACTION__" method="GET" style="margin-bottom:0px">
+    <div style="float:left;margin-right:5px">
+        <label>查询应用</label>
+        <input type="text" name="app_name" value="{$_GET.app_name}" placeholder="输入应用名称" >
+        <input type="hidden" name="search" value="1" >
+    </div>
+    <div style="float:left;margin-right:5px">
+        <label>选择广告商</label>
+        <select name=provider_id>
+            <foreach name="providers" item="provider">
+            <option value="{$provider_id}">{$provider}</option>
+            </foreach>
+        </select>
+    </div>
+    <div style="float:left;margin-right:5px">
+        <label>全部配置</label>
+        <select name="pz">
+            <option value="1">全部配置</option>
+        </select>
+    </div>
+    <div class="btn-toolbar" style="padding-top:25px;padding-bottom:0px;margin-bottom:0px">
+        <button type="submit" class="btn btn-primary">检索</button>
+    </div>
+    <div style="clear:both;"></div>
+</form>
+<div class="block">
+	<a href="#page-stats" class="block-heading" data-toggle="collapse">渠道应用列表</a>
+	<div id="page-stats" class="block-body collapse in">
+	<table class="table table-striped">
+			<thead>
+			<tr>
+				<th>应用id</th>
+				<th>应用名称</th>
+			    <th>广告商</th>
+			    <th>渠道</th>
+				<th>广告主广告id</th>
+				<th>下载地址</th>
+				<th>预点击通知地址</th>
+				<th>回调比例</th>
+			    <th>操作</th>
+				
+			</tr>
+			</thead>
+			<tbody>							  
+			<foreach name="apps" item="app">
+				 
+				<tr>
+				 
+				<td>{$app.app_id}</td>
+				
+				<td>{$app.app_name}</td>
+				
+				<td>{$providers[$app['provider_id']]}</td>
+				
+				<td>{$channels[$app['chan_id']]}</td>
+				
+				<td>{$app.adsid}</td>
+				
+				<td>{$app.appstore_url}</td>
+				
+				<td>{$app.callback_url}</td>
+				 
+				<td>{$app.cutoff}</td>
+				<td>
+					<a href="{:U('App/appModify',array('app_id'=>$app['app_id']))}" title= "修改" ><i class="icon-pencil"></i></a>
+					
+					&nbsp;
+					<a data-toggle="modal" href="{:U('App/app',array('app_id'=>$app['app_id'],'method'=>del))}" title= "删除" ><i class="icon-remove"></i></a>
+				</td>
+				
+				</tr>
+			</foreach>
+		  </tbody>
+		</table>
+		<!--- START 分页模板 -->
+                    <div style="margin-bottom: 20px">
+        <table id="page-table-fenye" cellspacing="0" >
+            <tr>
+                <td align="center" nowrap="true">
+                    {$page}
+                </td>
+            </tr>
+        </table>
+        </div>
+			   <!--- END -->	
+			    每页25项							
+	</div>
+</div>
+<!-- TPLEND 以下内容不需更改，请保证该TPL页内的标签匹配即可 -->
+<include file="Index:footer"/>

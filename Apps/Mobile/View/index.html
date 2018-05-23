@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+        <title>首页</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="default">
+        <meta name="msapplication-tap-highlight" content="no">
+
+
+        <link rel="stylesheet" href="__PUBLIC__/mobile/css/style.css" type="text/css">
+        <script src="__PUBLIC__/mobile/js/jquery.min.js"></script>
+        <script src="__PUBLIC__/mobile/js/eventsource.js"></script>
+
+
+
+			<script type="text/javascript">
+                function showDiv(){
+
+                    if('<{$members.phone}>'==''){
+                        document.getElementById('popDiv').style.display='block';
+                        document.getElementById('bg').style.display='block';
+                            }else{
+                        window.location.href="tixian.php";
+                    }
+
+
+                }
+                function closeDiv(){
+                document.getElementById('popDiv').style.display='none';
+                document.getElementById('bg').style.display='none';
+                }
+            </script>
+
+    </head>
+
+    <body>
+
+        <{include file="./tishikuang.tpl"}>
+
+        <div id="wrapper" style="opacity: 1;">
+
+		
+      <div class="content" >
+        <div class="page-header">
+            <a href="message.php?member_id=<{$member_id}>" class="tp">
+
+             <{if $counts eq '0'}>
+        <img src="<{$smarty.const.ADMIN_URL}>/assets/mobile/images/g1.png" class="gonggao"></a>
+        <{else}>
+            <img src="<{$smarty.const.ADMIN_URL}>/assets/mobile/images/g1.png" class="gonggao">
+            <span class="nav-counter" id="msg"><{$counts}></span>
+        <{/if}>
+            <!--<img src="<{$smarty.const.ADMIN_URL}>/assets/mobile/images/g1.png" class="gonggao">-->
+            </a>
+           <p class="gonggao2">  <marquee directon="left" scrollamount="2" valign="middle" align="middle" >
+                   关于应用帮闪退问题解决办法：请退出应用重新进入或者卸载应用重新安装</marquee> </p>
+        </div>
+        <div class="content-header">
+        <!-- <div class="xiaoxi">
+        <a href="message.php"><img src="<{$smarty.const.ADMIN_URL}>/assets/mobile/images/tishi.png" alt="" ><span class="nav-counter">14</span>
+        </a></div> -->
+
+        
+           <{if $members.aa == 'pic'}>
+           <a href="my.php" class="license1">
+            <img id="img-1" src="<{$smarty.const.ADMIN_URL}><{$members.pic}>" id="touxiang">
+            </a>
+            <{else}>
+            <a href="my.php" class="license1">
+                <img id="img-1" src="<{$members.pic}>" id="touxiang">
+            </a>
+            <{/if}>
+
+        <p>ID:<{$members.user_num}></p>
+      </div>
+      <div class="containter">
+        <div class="c_left">
+          <p>今日收入</p>
+          <p><{$income}> 元</p>
+        </div>
+        <div class="c_min">
+          <p>累计收益</p>
+          <p><{$members.income}> 元</p>
+        </div>
+         <div class="c_right">
+          <p>账户余额</p>
+          <p><{$members.balance}> 元</p>
+        </div>
+      </div>
+      
+         </div>   
+      <ul>
+        <li class="zhuanqian">
+           <a href="task.php" class="lianjie"><img src="<{$smarty.const.ADMIN_URL}>/assets/mobile/images/b1.png" class="img1">
+          <p class="renwu">任务中心</p>
+           <span class="xiao right">做任务赚钱 ></span>
+
+                    </a>
+        
+           </li>
+           </ul>
+          
+          <div class="kuai">
+        
+          <div class="leftkuai left">
+            <a href="invite.php" class="lianjie2">
+                <img src="<{$smarty.const.ADMIN_URL}>/assets/mobile/images/b3.png" class="img">
+                             <p class="miaoshu">邀请好友</p>
+                             <p class="miaoshu2">与好友一起赚钱</p>
+                    </a>
+              
+          </div>
+
+
+
+         <div id="popDiv" class="mydiv" style="display:none;">
+          请先完善个人资料再提现
+               <div class="xian"></div>
+                <div class="tantop"><a href="my.php" style="color: #fff;">前往完善个人资料</a></div>
+                <div class="tandown"><a  href="javascript:closeDiv()" style="color: #1e8dec;">稍后再去</a></div>
+          </div>
+
+      <!--  <div  id="YP"  class="mydiv"  style="display:none;"><a href="tixian.php" style="color:#1e8dec;">已完善个人资料</a></div>-->
+
+<!-- <a href="javascript:closeDiv()">关闭窗口</a> -->
+
+<div id="bg" class="bg" style="display:none;"
+             <a  href="javascript:closeDiv()" class="bg">
+              </a></div>
+          <div class="rightkuai right">
+              <span type="Submit" name="" value="显示层" class="lianjie2"onclick="javascript:showDiv()" >
+                <img src="<{$smarty.const.ADMIN_URL}>/assets/mobile/images/b4.png" class="img">
+                             <p class="miaoshu">快速提现</p>
+                             <p class="miaoshu2">提现快速有保障</p>
+                    </span>
+              
+          </div>
+</div>
+         
+
+          <div class="kuai">
+          <div class="leftkuai left">
+           <a href="books.php" class="lianjie2">
+                <img src="<{$smarty.const.ADMIN_URL}>/assets/mobile/images/b2.png" class="img">
+                             <p class="miaoshu">收支明细</p>
+                             <p class="miaoshu2">每笔钱清晰明了</p>
+                    </a>
+              
+          </div>
+          <div class="rightkuai right">
+           <a href="my.php" class="lianjie2">
+                <img src="<{$smarty.const.ADMIN_URL}>/assets/mobile/images/b6.png" class="img">
+                             <p class="miaoshu">个人中心</p>
+
+                             <p class="miaoshu2">我的资料信息</p>
+                    </a>
+              
+          </div>
+          
+          
+              
+          </div>
+       <div class="kuai">
+       <div class="leftkuai left">
+           <a href="message.php" class="lianjie2">
+                <img src="<{$smarty.const.ADMIN_URL}>/assets/mobile/images/b8.png" class="img">
+                             <p class="miaoshu">通知中心</p>
+                             <p class="miaoshu2">消息通知全知道</p>
+                    </a>
+              
+          </div>
+
+          <div class="rightkuai right">
+            <a href="<{$smarty.const.ADMIN_URL}>/yykq" class="lianjie2">
+                <img src="<{$smarty.const.ADMIN_URL}>/assets/mobile/images/b9.png" class="img">
+                             <p class="miaoshu">一元开抢</p>
+                             <p class="miaoshu2">一元抢iphone7</p>
+                    </a>
+              
+          </div>
+       
+          
+
+      </div>
+	  
+	  <div class="kuai">
+
+       
+          <div class="leftkuai left">
+           <a href="more.php" class="lianjie2">
+                <img src="<{$smarty.const.ADMIN_URL}>/assets/mobile/images/b5.png" class="img">
+                             <p class="miaoshu">更多</p>
+                             <p class="miaoshu2">问题要求点这里</p>
+
+       
+
+      </div>
+       
+  <script>
+      $(function(){
+          var mmid="<{$member_id}>";
+          $(".tp").click(function(){
+              $.post("../ajax/msgClickAjax.php",{mmid:mmid,type:1},function(data){
+                  if(data<=0){
+                      var html='<img src="<{$smarty.const.ADMIN_URL}>/assets/mobile/images/g1.png" class="gonggao" />';
+                      $(".tp").html(html);
+                  }else{
+                      var html='<img src="<{$smarty.const.ADMIN_URL}>/assets/mobile/images/g1.png" class="gonggao" />' +
+                              '<span class="nav-counter" id="msg">'+data+'</span>';
+                      $(".tp").html(html);
+                  }
+              },'html')
+          })
+          setInterval(function(){
+              $.post("../ajax/msgClickAjax.php",{mmid:mmid,type:2},function(data){
+                  if(data<=0){
+                      var html='<img src="<{$smarty.const.ADMIN_URL}>/assets/mobile/images/g1.png" class="gonggao" />';
+                      $(".tp").html(html);
+                  }else{
+                      var html='<img src="<{$smarty.const.ADMIN_URL}>/assets/mobile/images/g1.png" class="gonggao" />' +
+                              '<span class="nav-counter" id="msg">'+data+'</span>';
+                      $(".tp").html(html);
+                  }
+              },'html');
+          },'18000000');
+        /* $(function(){
+              var es = new EventSource("../ajax/msgClickAjax.php");
+             es.addEventListener("myevent",function(e){
+                    data= e.data;
+                 if(data<=0){
+                     var html='<img src="<{$smarty.const.ADMIN_URL}>/assets/mobile/images/g1.png" class="gonggao" />';
+                     $(".tp").html(html);
+                 }else{
+                     var html='<img src="<{$smarty.const.ADMIN_URL}>/assets/mobile/images/g1.png" class="gonggao" />' +
+                             '<span class="nav-counter" id="msg">'+data+'</span>';
+                     $(".tp").html(html);
+                 }
+             },false);//使用false表示在冒泡阶段处理事件，而不是捕获阶段。
+          })*/
+
+      })
+
+  </script>
+
+
+
+
+
+            
+
+         <!-- <section>
+           
+            <ul>
+                <li>
+                    <a href="task.html">
+                    <img src="./images
+/dev-1.png" class="img">
+                    <span class="xiao right">做任务赚钱 ></span>
+         
+                    </a>
+                </li>
+                <li>
+                    <a href="share.html">
+                    <img src="./images
+/dev-2.png" class="img">
+                    <span class="xiao right">分分钟把钱赚 ></span>
+         
+                    </a>
+                </li>
+                <li>
+                    <a href="invite.html">
+                    <img src="./images
+/dev-3.png" class="img">
+                    <span class="xiao right">师徒携手 ></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="books.html">
+                    <img src="./images
+/dev-4.png" class="img">
+                    
+                    
+                    </a>
+                </li>
+                <li>
+                    <a href="more.html">
+                    <img src="./images
+/dev-5.png" class="img">
+                    
+                    </a>
+                </li>
+            </ul>
+         
+         
+         
+         
+         
+         
+         
+         
+           </section> -->
+
+            <footer>© 2012 Sencha inc.
+
+            </footer>
+        
+
+        <br>
+
+    
+
+</body></html>

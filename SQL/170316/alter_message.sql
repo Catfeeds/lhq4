@@ -1,0 +1,1 @@
+﻿alter table message add m_type tinyint(2) comment'消息类型';

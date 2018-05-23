@@ -1,0 +1,1 @@
+alter table drawing add nickname varchar(50) comment'Í«≥∆';

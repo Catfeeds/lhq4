@@ -1,0 +1,92 @@
+<include file="Index:header"/>
+<include file="Index:navibar"/>
+<include file="Index:sidebar"/>
+<!-- TPLSTART 以上内容不需更改，保证该TPL页内的标签匹配即可 -->
+<form action="" method="GET" style="margin-bottom:0px">
+
+    <div style="float:left;margin-right:5px">
+        <label>查询用户编号</label>
+        <input type="text" name="user_num" value="{$_GET.user_num}" placeholder="输入用户编号" >
+        <!--  <input type="hidden" name="search" value="1" >-->
+    </div>
+    <div style="float:left;margin-right:5px">
+        <label>用户昵称</label>
+        <input type="text" name="nickname" value="{$_GET.nickname}" placeholder="输入用户昵称" >
+
+    </div>
+
+    <div class="btn-toolbar" style="padding-top:25px;padding-bottom:0px;margin-bottom:0px">
+        <button type="submit" class="btn btn-primary"><strong>检索</strong></button>
+    </div>
+    <div style="clear:both;"></div>
+</form>
+<div class="block">
+    <a href="#page-stats" class="block-heading" data-toggle="collapse">财务列表</a>
+    <div id="page-stats" class="block-body collapse in">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>用户id</th>
+                <th>用户编号</th>-
+                <th>用户昵称</th>-
+                <th>用户姓名</th>-
+                <th>总收益</th>
+                <th>任务总收益</th>
+                <th>邀请总收益</th>
+                <th>账户余额</th>
+                <th>已提现总额</th>
+                <th>完成任务总量</th>
+                <th>邀请好友总量</th>
+                <th>被邀好友总额</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <foreach name='members' item='member'>
+            <tr>
+                    <td>{$member.member_id}</td>
+                    <td>{$member.user_num}</td>
+                    <td>{$member.nickname}</td>
+                    <td>{$member.member_name}</td>
+                    <td>{$member.income}</td>
+                    <td>{$member.total_task}</td>
+                    <td>{$member.total_invite}</td>
+                    <td>{$member.balance}</td>
+                    <td>{$member.total_wd}</td>
+                    <td>{$member.finishs_task}</td>
+                    <td>{$member.invites}</td>
+                    <td>{$member.invitee_sum}</td>
+                    <td><a href="{:U('Finance/fin_incomeDetails',array('member_id'=>$member['member_id']))}">查看明细</a></td>
+                </tr>
+                </foreach>
+            </tbody>
+        </table>
+        <!--- START 分页模板 --->
+        <div style="margin-bottom: 20px">
+            <table id="page-table-fenye" cellspacing="0" >
+                <tr>
+                    <td align="center" nowrap="true">
+                        {$page}
+                    </td>
+                </tr>
+            </table>
+        </div>
+        每页25项
+    </div>
+</div>
+
+<script>
+    $(function() {
+        var date=$( "#start_date" );
+        date.datepicker({ dateFormat: "yy-mm-dd" });
+        date.datepicker( "option", "firstDay", 1 );
+    });
+    $(function() {
+        var date=$( "#end_date" );
+        date.datepicker({ dateFormat: "yy-mm-dd" });
+        date.datepicker( "option", "firstDay", 1 );
+    });
+</script>
+<!-- TPLEND 以下内容不需更改，请保证该TPL页内的标签匹配即可 -->
+<include file="Index:footer"/>

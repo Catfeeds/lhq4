@@ -1,0 +1,50 @@
+<include file ="Index:header"/>
+<include file ="Index:navibar"/>
+<include file ="Index:sidebar"/>
+<!-- START 以上内容不需更改，保证该TPL页内的标签匹配即可 -->
+{$osadmin_action_alert}
+{$osadmin_quick_note}
+    
+<div class="well">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#home" data-toggle="tab">修改广告商资料</a></li>
+    </ul>	
+	
+	<div id="myTabContent" class="tab-content">
+		  <div class="tab-pane active in" id="home">
+
+           <form id="tab" method="post" action="">
+           		<label>广告商id</label>
+				<input type="text" name="provider_id" disabled="disabled" value="{$provider.provider_id}" class="input-xlarge" required="true" autofocus="true" >
+				<label>广告商名称</label>
+				<input type="text" name="provider_name" value="{$provider.provider_name}" class="input-xlarge" required="true" autofocus="true" >
+				<label>联系电话</label>
+				<input type="text" name="mobile" value="{$provider.mobile}" class="input-xlarge" required="true" autofocus="true" >
+				<label>邮箱</label>
+				<input type="text" name="email" value="{$provider.email}" class="input-xlarge" required="true" autofocus="true" >
+				<input type="hidden" name="httpref" value="{$_SERVER['HTTP_REFERER']}">
+
+			   <if condition="$user_group eq 1|| $user_group eq 5">
+			   <label>广告主添加者</label>
+			   <select name="user_id" id="">
+				   <foreach name="userInfos" item="userInfo">
+					   <option value="{$userInfo.user_id}"
+					   <if condition="$provider['user_id'] eq $userInfo['user_id']">
+					   selected="selected"
+					   </if>
+					   >{$userInfo.user_name}</option>
+				   </foreach>
+			   </select>
+			   </if>
+				<div class="btn-toolbar">
+					<button type="submit" class="btn btn-primary"><strong>提交</strong></button>
+				</div>
+			</form>
+        </div>
+    </div>
+</div>	
+<!---操作的确认层，相当于javascript:confirm函数-->
+{$osadmin_action_confirm}
+
+<!-- END 以下内容不需更改，请保证该TPL页内的标签匹配即可 -->
+<include file="Index:footer"/>

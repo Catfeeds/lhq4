@@ -1,0 +1,6 @@
+INSERT INTO `osa_menu_url`( `menu_name`, `menu_url`, `module_id`, `is_show`, `online`, `shortcut_allowed`, `menu_desc`, `father_menu`) VALUES ('消息类型列表','/Backend/MsgType/msgType','8','1','1','1','消息','0');
+INSERT INTO `osa_menu_url`( `menu_name`, `menu_url`, `module_id`, `is_show`, `online`, `shortcut_allowed`, `menu_desc`, `father_menu`) VALUES ('消息类型添加','/Backend/MsgType/msgTypeAdd','8','0','1','1','添加','0');
+INSERT INTO `osa_menu_url`( `menu_name`, `menu_url`, `module_id`, `is_show`, `online`, `shortcut_allowed`, `menu_desc`, `father_menu`) VALUES ('消息类型修改','/Backend/MsgType/msgTypeModify','8','0','1','1','修改','0'); 
+INSERT INTO `osa_menu_url`( `menu_name`, `menu_url`, `module_id`, `is_show`, `online`, `shortcut_allowed`, `menu_desc`, `father_menu`) VALUES ('消息模板列表','/Backend/Message/msgModule','8','1','1','1','消息','0');   
+INSERT INTO `osa_menu_url`( `menu_name`, `menu_url`, `module_id`, `is_show`, `online`, `shortcut_allowed`, `menu_desc`, `father_menu`) VALUES ('消息模板添加','/Backend/Message/msgModule_add','8','0','1','1','添加','0');
+INSERT INTO `osa_menu_url`( `menu_name`, `menu_url`, `module_id`, `is_show`, `online`, `shortcut_allowed`, `menu_desc`, `father_menu`) VALUES ('消息模板修改','/Backend/Message/msgModule_modify','8','0','1','1','修改','0');
